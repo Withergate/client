@@ -10,10 +10,6 @@ import { fetchNotifications } from '../actions/notificationActions';
 
 class HomePage extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchNotifications(true);
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
-    <div className="m-4 p-2 rounded bg-light" key={location.location}>
+    <div className="m-4 p-2 rounded bg-light" key={weapon.id}>
         <div className="row">
             <div className="col">
                 <h5>{weapon.weaponDetails.name}</h5>
@@ -10,7 +10,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
             </div>
         </div>
         <div className="row p-3">
-            { selectedCharacter != undefined ? 
+            { selectedCharacter !== undefined ? 
                 <button 
                     className="btn btn-dark" 
                     onClick={() => equipWeapon(weapon.id, selectedCharacter.id)}

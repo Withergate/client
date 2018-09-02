@@ -13,7 +13,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
             </div>
         </div>
         <div className="row p-3">
-            { selectedCharacter != undefined ? 
+            { selectedCharacter !== undefined ? 
                 <button 
                     className="btn btn-dark" 
                     onClick={() => onVisit(selectedCharacter.id, location.location)}

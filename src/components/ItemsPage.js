@@ -10,10 +10,6 @@ import { fetchClan, equipWeapon } from '../actions/clanActions';
 
 class ItemsPage extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchClan();
     }

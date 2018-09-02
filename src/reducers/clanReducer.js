@@ -44,7 +44,7 @@ export const ClanReducer = (state = initialState, action) => {
             };
         case FETCH_CLAN_REJECTED:
             // check if fetch failed or clan does not exists 
-            if (action.payload == '404') {
+            if (action.payload === '404') {
                 return {
                     ...state,
                     exists: false,

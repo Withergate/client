@@ -11,10 +11,6 @@ import { fetchClan } from '../actions/clanActions';
 
 class LocationsPage extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchClan();
         this.props.fetchLocations();

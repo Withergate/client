@@ -13,10 +13,6 @@ import { createClan, selectCharacter } from './actions/clanActions';
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchPrincipal();
         this.props.fetchTurn();

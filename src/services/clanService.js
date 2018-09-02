@@ -12,7 +12,7 @@ export const fetchClan = () => {
                 resolve(response.json());
             }
             // clan not found
-            if(response.status == 404) {
+            if(response.status === 404) {
                 reject('404');
             }
             reject('Error fetching clan data.');
