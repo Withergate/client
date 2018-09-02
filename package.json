@@ -29,6 +29,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "css-loader": "^1.0.0",
     "popper.js": "^1.14.4",
     "redux-thunk": "^2.3.0"
   }
