@@ -21,7 +21,7 @@ function renderState(state) {
     }
 }
 
-const CharacterListItem = ({character}) => (
+const CharacterListItem = ({character, unequipWeapon}) => (
     <div className="mb-4 p-2 rounded bg-light">
         <div className="row">
             <div className="col">
@@ -43,6 +43,14 @@ const CharacterListItem = ({character}) => (
             </div>
             <div className="col"> 
                 <b>Weapon</b>: { character.weapon != null ? character.weapon.weaponDetails.name : 'Unarmed' }
+
+                { character.weapon != null &&
+                    <button 
+                        className="btn btn-dark ml-2" 
+                        onClick={() => unequipWeapon(character.weapon.id, character.id)}>
+                        Unequip
+                    </button> 
+                }
             </div>
         </div>
         
@@ -50,7 +58,8 @@ const CharacterListItem = ({character}) => (
 );
 
 CharacterListItem.propTypes = {
-    character: PropTypes.object.isRequired
+    character: PropTypes.object.isRequired,
+    unequipWeapon: PropTypes.func.isRequired
 };
 
 export default CharacterListItem;

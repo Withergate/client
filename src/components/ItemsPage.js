@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import CharacterList from './clan/CharacterList';
-import ClanSummary from './clan/ClanSummary';
+import WeaponList from './item/WeaponList';
 import { Error } from './shared/Error';
 
-import { fetchClan, unequipWeapon } from '../actions/clanActions';
+import { fetchClan, equipWeapon } from '../actions/clanActions';
 
-class ClanPage extends Component {
+class ItemsPage extends Component {
 
     constructor(props) {
         super(props);
@@ -25,8 +24,10 @@ class ClanPage extends Component {
                 {
                     this.props.fetched && 
                     <div>
-                        <ClanSummary clan={this.props.clan} />
-                        <CharacterList characters={this.props.clan.characters} unequipWeapon={this.props.unequipWeapon} />
+                        <WeaponList 
+                            weapons={this.props.clan.weapons}
+                            equipWeapon={this.props.equipWeapon}
+                            selectedCharacter={this.props.selectedCharacter} />
                     </div>
                 }
                 {
@@ -40,24 +41,25 @@ class ClanPage extends Component {
     }
 }
 
-ClanPage.propTypes = {
+ItemsPage.propTypes = {
     fetchClan: PropTypes.func.isRequired,
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
-    unequipWeapon: PropTypes.func.isRequired,
+    equipWeapon: PropTypes.func.isRequired,
+    selectedCharacter: PropTypes.object
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, clan } = state.clan;
+    const { fetching, fetched, failed, error, clan, selectedCharacter } = state.clan;
 
-    return { fetching, fetched, failed, error, clan };
+    return { fetching, fetched, failed, error, clan, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, unequipWeapon }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon }, dispatch)
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsPage);
