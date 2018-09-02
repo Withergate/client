@@ -12,7 +12,7 @@ const initialState = {
         characters: []
     },
     exists: true,
-    selectedCharacter: null,
+    selectedCharacter: undefined,
     fetching: false,
     fetched: false,
     failed: false,

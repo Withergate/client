@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Error } from './shared/Error';
-import CharacterSelector from './clan/CharacterSelector';
 import LocationList from './location/LocationList';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
-import { fetchClan, selectCharacter } from '../actions/clanActions';
+import { fetchClan } from '../actions/clanActions';
 
 class LocationsPage extends Component {
 
@@ -27,10 +26,6 @@ class LocationsPage extends Component {
                 {
                     this.props.fetched && 
                     <div>
-                        <CharacterSelector 
-                            characters={this.props.clan.characters}
-                            selectedCharacter={this.props.selectedCharacter}
-                            onSelect={this.props.selectCharacter} />
                         <LocationList 
                             locations={this.props.locations} 
                             selectedCharacter={this.props.selectedCharacter}
@@ -50,7 +45,6 @@ class LocationsPage extends Component {
 
 LocationsPage.propTypes = {
     fetchClan: PropTypes.func.isRequired,
-    selectCharacter: PropTypes.func.isRequired,
     fetchLocations: PropTypes.func.isRequired,
     visitLocation: PropTypes.func.isRequired,
     fetched: PropTypes.bool.isRequired,
@@ -58,23 +52,22 @@ LocationsPage.propTypes = {
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
     locations: PropTypes.array.isRequired,
-    clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object
 };
 
 const mapStateToProps = state => {
     const { locations } = state.data;
-    const { error, clan, selectedCharacter } = state.clan;
+    const { error, selectedCharacter } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
     const fetched = state.data.fetched && state.clan.fetched;
     const failed = state.data.failed || state.clan.failed;
 
-    return { fetching, fetched, failed, error, locations, clan, selectedCharacter };
+    return { fetching, fetched, failed, error, locations, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter }, dispatch)
+    bindActionCreators({ fetchLocations, visitLocation, fetchClan }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationsPage);

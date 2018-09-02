@@ -9,7 +9,7 @@ import LoginPage from './components/LoginPage';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
-import { createClan } from './actions/clanActions';
+import { createClan, selectCharacter } from './actions/clanActions';
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
     }
 
     render() {
-        const { loggedIn, turn, exists, createClan } = this.props;
+        const { loggedIn, turn, exists, createClan, selectCharacter, selectedCharacter, clan } = this.props;
         
         return (
             <div>
@@ -32,7 +32,12 @@ class App extends Component {
                         <BrowserRouter>
                             <div>
                                 <Header turn={turn} />
-                                <Main exists={exists} createClan={createClan} />
+                                <Main 
+                                    exists={exists}
+                                    createClan={createClan}
+                                    clan={clan}
+                                    selectedCharacter={selectedCharacter}
+                                    selectCharacter={selectCharacter} />
                             </div>
                         </BrowserRouter>
                         : <LoginPage />
@@ -51,7 +56,10 @@ App.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool.isRequired,
     exists: PropTypes.bool.isRequired,
-    createClan: PropTypes.func.isRequired
+    createClan: PropTypes.func.isRequired,
+    clan: PropTypes.object.isRequired,
+    selectedCharacter: PropTypes.object,
+    selectCharacter: PropTypes.func.isRequired,
 };
 
 // CONFIGURE REACT REDUX
@@ -59,17 +67,17 @@ App.propTypes = {
 const mapStateToProps = state => {
     const { loggedIn } = state.auth;
     const { turn } = state.turn;
-    const { exists } = state.clan;
+    const { exists, clan, selectedCharacter } = state.clan;
 
     const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching;
     const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched;
     const failed = state.auth.failed || state.turn.failed || state.clan.failed;
 
-    return { fetching, fetched, failed, loggedIn, turn, exists };
+    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchPrincipal, fetchTurn, createClan }, dispatch)
+    bindActionCreators({ fetchPrincipal, fetchTurn, createClan, selectCharacter }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

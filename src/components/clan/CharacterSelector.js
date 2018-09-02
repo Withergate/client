@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CharacterListItem from './CharacterListItem';
 
 const getTextColor = (character) => {
     switch(character.state) {
@@ -17,7 +18,7 @@ const getTextColor = (character) => {
 const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
     <div className="p-4 dropdown">
         <button className="btn btn-dark btn-block dropdown-toggle" data-toggle="dropdown">
-            { selectedCharacter !== null ? selectedCharacter.name : 'Select character' }
+            { selectedCharacter !== undefined ? selectedCharacter.name : 'Select character' }
         </button>
         <div className="dropdown-menu">
             { characters.map(character => 
@@ -30,7 +31,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
         </div>
         <div className="mt-2">
             {
-                selectedCharacter !== null && <div><b>{selectedCharacter.name}</b> is currently <b>{selectedCharacter.state}</b></div>
+                selectedCharacter !== undefined && <CharacterListItem character={selectedCharacter} />
             }
             <small className="text-muted">The selected character will be used to perform the action of your choice.</small>
         </div>  
