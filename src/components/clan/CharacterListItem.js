@@ -52,6 +52,9 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                     </button> 
                 }
             </div>
+            <div className="col">
+                Abilities
+            </div>
         </div>
         
     </div>
