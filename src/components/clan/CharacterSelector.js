@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CharacterListItem from './CharacterListItem';
+import CharacterDetails from './CharacterDetails';
 
 const getTextColor = (character) => {
     switch(character.state) {
@@ -17,26 +17,31 @@ const getTextColor = (character) => {
 
 const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
     <div className="p-4 dropdown">
-        <button className="btn btn-dark btn-block dropdown-toggle" data-toggle="dropdown">
-            { selectedCharacter !== undefined ? selectedCharacter.name : 'Select character' }
-        </button>
-        <div className="dropdown-menu">
-            { characters.map(character => 
-                <button
-                    className="btn btn-light"
-                    key={character.id}
-                    onClick={() => onSelect(character.id)}><div className={getTextColor(character)}>{character.name}</div>
-                </button>)
-            }
+        <div className="row">
+            <div className="col-12 col-md-4">
+                <button className="btn btn-dark btn-block dropdown-toggle" data-toggle="dropdown">
+                    { selectedCharacter !== undefined ? selectedCharacter.name : 'Select character' }
+                </button>   
+                <div className="dropdown-menu">
+                    { characters.map(character => 
+                        <button
+                            className="btn btn-light"
+                            key={character.id}
+                            onClick={() => onSelect(character.id)}><div className={getTextColor(character)}>{character.name}</div>
+                        </button>)
+                    }
+                </div>
+                <small className="text-muted">The selected character will be used to perform the action of your choice.</small>
+            </div>
+            <div className="col-12 col-md-8">
+                {
+                    selectedCharacter !== undefined ? 
+                        <CharacterDetails character={selectedCharacter} /> 
+                        : <small className="text-muted">No character selected</small>
+                }
+            </div>
         </div>
-        <div className="mt-2">
-            {
-                selectedCharacter !== undefined && <CharacterListItem character={selectedCharacter} />
-            }
-            <small className="text-muted">The selected character will be used to perform the action of your choice.</small>
-        </div>  
     </div>
-    
 );
 
 CharacterSelector.propTypes = {

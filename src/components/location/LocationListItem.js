@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <div className="m-4 p-2 rounded bg-light" key={location.location}>
         <div className="row">
-            <div className="col">
-                <img src={location.imageUrl} height="200px" alt={location.location} />
+            <div className="col-12 col-md-6">
+                <img className="mb-2" src={location.imageUrl} height="200px" alt={location.location} />
             </div>
-            <div className="col col-lg-8">
+            <div className="col-12 col-md-6">
                 <h5>{location.location}</h5>
                 <p>{location.description}</p>
             </div>

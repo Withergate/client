@@ -29,11 +29,11 @@ const CharacterListItem = ({character, unequipWeapon}) => (
             </div>
         </div>
         <div className="row">
-            <div className="col col-sm-2">
-                <img className="rounded" width="120px" src={avatar} alt="Avatar" />
+            <div className="col-12 col-md-2">
+                <img className="rounded mb-2" width="120px" src={avatar} alt="Avatar" />
             </div>
-            <div className="col col-sm-4">
-                <div className="container">
+            <div className="col-12 col-md-4">
+                <div className="mb-2">
                     <AttributeBar name="combat" value={character.combat} />
                     <AttributeBar name="scavenge" value={character.scavenge} />
                     <AttributeBar name="craftsmanship" value={character.craftsmanship} />
@@ -41,18 +41,18 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                     <AttributeBar name="intellect" value={character.intellect} /> 
                 </div>
             </div>
-            <div className="col"> 
+            <div className="col-6 col-md-4"> 
                 <b>Weapon</b>: { character.weapon != null ? character.weapon.weaponDetails.name : 'Unarmed' }
 
                 { character.weapon != null &&
                     <button 
-                        className="btn btn-dark ml-2" 
+                        className="btn btn-dark ml-2 btn-sm" 
                         onClick={() => unequipWeapon(character.weapon.id, character.id)}>
                         Unequip
                     </button> 
                 }
             </div>
-            <div className="col">
+            <div className="col-6 col-md-2">
                 Abilities
             </div>
         </div>
