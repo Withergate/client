@@ -18,7 +18,7 @@ const Header = ({turn}) => (
                 <li className="nav-item"><Link className="nav-link" to='/items'>Items</Link></li>
             </ul>
         </div>
-        <div className="text-light"><b>Turn: </b>{turn.turnId}</div>
+        <div className="text-light"><small><b>Turn: </b>{turn.turnId}</small></div>
     </nav>
 );
 
