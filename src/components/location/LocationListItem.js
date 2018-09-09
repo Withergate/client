@@ -10,6 +10,8 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
             <div className="col-12 col-md-6">
                 <h5>{location.location}</h5>
                 <p>{location.description}</p>
+                <p><small className="text-muted">{location.info}</small>
+                </p>
             </div>
         </div>
         <div className="row p-3">
