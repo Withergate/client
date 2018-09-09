@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import WeaponList from './item/WeaponList';
 import { Error } from './shared/Error';
+import spinner from '../images/spinner.gif';
 
 import { fetchClan, equipWeapon } from '../actions/clanActions';
 
@@ -27,7 +28,7 @@ class ItemsPage extends Component {
                     </div>
                 }
                 {
-                    this.props.fetching && <div>Loading...</div>
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
                     this.props.failed && <Error message={this.props.error} />

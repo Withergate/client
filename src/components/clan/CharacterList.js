@@ -23,8 +23,7 @@ const CharacterList = (props) => (
 
 CharacterList.propTypes = {
     characters: PropTypes.array.isRequired,
-    unequipWeapon: PropTypes.func.isRequired,
-    hireCharacter: PropTypes.func.isRequired
+    unequipWeapon: PropTypes.func.isRequired
 };
 
 export default CharacterList;

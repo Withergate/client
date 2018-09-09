@@ -1,7 +1,10 @@
 import {
     FETCH_LOCATIONS_PENDING,
     FETCH_LOCATIONS_FULFILLED,
-    FETCH_LOCATIONS_REJECTED
+    FETCH_LOCATIONS_REJECTED,
+    VISIT_LOCATION_PENDING,
+    VISIT_LOCATION_FULFILLED,
+    VISIT_LOCATION_REJECTED
 } from '../actions/locationActions';
 
 // INITIALIZE STATE
@@ -45,6 +48,27 @@ export const DataReducer = (state = initialState, action) => {
                 failed: true,
                 error: action.payload
             };
+        case VISIT_LOCATION_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case VISIT_LOCATION_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false
+            };
+        case VISIT_LOCATION_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: true
+            };     
         default:
             return state;
     }

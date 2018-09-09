@@ -19,3 +19,10 @@ body {
   min-height: 100%;
   background-color: white;
 }
+
+.spinner {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+}

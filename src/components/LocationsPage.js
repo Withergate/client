@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { Error } from './shared/Error';
 import LocationList from './location/LocationList';
+import spinner from '../images/spinner.gif';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
 import { fetchClan } from '../actions/clanActions';
@@ -29,7 +30,7 @@ class LocationsPage extends Component {
                     </div>
                 }
                 {
-                    this.props.fetching && <div>Loading...</div>
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
                     this.props.failed && <Error message={this.props.error} />

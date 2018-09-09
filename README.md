@@ -14,4 +14,4 @@ Similarly, building the application can be run using `npm build`.
 
 ## 🔖 License
 
-The code is released under the Apache 2.0 license. See [LICENSE](https://github.com/gigsterous/auth-server/blob/master/LICENSE) for details.
+The code is released under the Apache 2.0 license. See [LICENSE](https://github.com/Withergate/client/blob/master/LICENSE) for details.

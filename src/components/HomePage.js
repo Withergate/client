@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import NotificationList from './notification/NotificationList';
 import { Error } from './shared/Error';
+import spinner from '../images/spinner.gif';
 
 import { fetchNotifications } from '../actions/notificationActions';
 
@@ -25,7 +26,7 @@ class HomePage extends Component {
                     </div>
                 }
                 {
-                    this.props.fetching && <div>Loading...</div>
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
                     this.props.failed && <Error message={this.props.error} />

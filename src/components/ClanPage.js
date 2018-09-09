@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
 import { Error } from './shared/Error';
+import spinner from '../images/spinner.gif';
 
 import { fetchClan, unequipWeapon } from '../actions/clanActions';
 
@@ -26,7 +27,7 @@ class ClanPage extends Component {
                     </div>
                 }
                 {
-                    this.props.fetching && <div>Loading...</div>
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
                     this.props.failed && <Error message={this.props.error} />
