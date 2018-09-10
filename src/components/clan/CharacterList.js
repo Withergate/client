@@ -16,7 +16,7 @@ const renderListItem = (character, unequipWeapon) => (
 );
 
 const CharacterList = (props) => (
-    <div className="w-100 p-4 float-left">
+    <div className="p-4">
         {renderList(props.characters, props.unequipWeapon)}
     </div>
 );

@@ -46,7 +46,9 @@ export const ClanReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: '',
+                selectedCharacter: state.selectedCharacter !== undefined ? 
+                    action.payload.characters.find(character => character.id === state.selectedCharacter.id) : undefined
             };
         case FETCH_CLAN_REJECTED:
             // check if fetch failed or clan does not exists 

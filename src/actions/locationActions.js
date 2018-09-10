@@ -1,5 +1,5 @@
 import { fetchLocations, visitLocation } from '../services/locationService';
-import { fetchClan, selectCharacter } from './clanActions';
+import { fetchClan } from './clanActions';
 
 export const FETCH_LOCATIONS = 'FETCH_LOCATIONS';
 export const FETCH_LOCATIONS_PENDING = 'FETCH_LOCATIONS_PENDING';
@@ -24,8 +24,7 @@ const visitLocationAction = (characterId, location) => {
             type: VISIT_LOCATION,
             payload: visitLocation(characterId, location)
         })
-        .then(() => dispatch(fetchClan()))
-        .then(() => dispatch(selectCharacter(characterId)));
+        .then(() => dispatch(fetchClan()));
     };
 };
 
