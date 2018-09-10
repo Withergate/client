@@ -8,7 +8,10 @@ import {
     EQUIP_WEAPON_PENDING,
     UNEQUIP_WEAPON_FULFILLED,
     UNEQUIP_WEAPON_REJECTED,
-    UNEQUIP_WEAPON_PENDING
+    UNEQUIP_WEAPON_PENDING,
+    FETCH_CLANS_PENDING,
+    FETCH_CLANS_FULFILLED,
+    FETCH_CLANS_REJECTED
 } from '../actions/clanActions';
 
 // INITIALIZE STATE
@@ -16,6 +19,9 @@ import {
 const initialState = {
     clan: {
         characters: []
+    },
+    clansPage: {
+        content: []
     },
     exists: true,
     selectedCharacter: undefined,
@@ -117,7 +123,35 @@ export const ClanReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: true
-            };                  
+            };
+            case FETCH_CLANS_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false,
+                error: ''
+            };
+        case FETCH_CLANS_FULFILLED:
+            return {
+                ...state,
+                clansPage: action.payload,
+                fetching: false,
+                fetched: true,
+                failed: false,
+                error: ''
+            };
+        case FETCH_CLANS_REJECTED:
+            return {
+                ...state,
+                clansPage: {
+                    content: []
+                },
+                fetching: false,
+                fetched: false,
+                failed: true,
+                error: action.payload
+            }                      
         default:
             return state;
     }

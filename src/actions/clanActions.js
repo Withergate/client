@@ -1,4 +1,9 @@
-import { fetchClan, createClan, equipWeapon, unequipWeapon } from '../services/clanService';
+import { 
+    fetchClan, 
+    createClan, 
+    equipWeapon, 
+    unequipWeapon,
+    fetchClans } from '../services/clanService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
 export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
@@ -18,6 +23,11 @@ export const UNEQUIP_WEAPON = 'UNEQUIP_WEAPON';
 export const UNEQUIP_WEAPON_PENDING = 'UNEQUIP_WEAPON_PENDING';
 export const UNEQUIP_WEAPON_FULFILLED = 'UNEQUIP_WEAPON_FULFILLED';
 export const UNEQUIP_WEAPON_REJECTED = 'UNEQUIP_WEAPON_REJECTED';
+
+export const FETCH_CLANS = 'FETCH_CLANS';
+export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
+export const FETCH_CLANS_FULFILLED = 'FETCH_CLANS_FULFILLED';
+export const FETCH_CLANS_REJECTED = 'FETCH_CLANS_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -75,3 +85,10 @@ const unequipWeaponAction = (weaponId, characterId) => {
 };
 
 export { unequipWeaponAction as unequipWeapon };
+
+const fetchClansAction = (page) => ({
+    type: FETCH_CLANS,
+    payload: fetchClans(page)
+});
+
+export { fetchClansAction as fetchClans };

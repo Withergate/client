@@ -15,6 +15,7 @@ const Header = ({turn}) => (
                 <li className="nav-item"><Link className="nav-link" to='/'>Home</Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/clan'>Clan</Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/locations'>Locations</Link></li>
+                <li className="nav-item"><Link className="nav-link" to='/fame'>Fame</Link></li>
             </ul>
         </div>
         <div className="text-light"><small><b>Turn: </b>{turn.turnId}</small></div>

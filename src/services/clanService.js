@@ -75,3 +75,21 @@ export const unequipWeapon = (weaponId, characterId) => {
         });
     });
 };
+
+export const fetchClans = (page) => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'clans?sort=fame,desc' + '&page=' + page, {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+    
+            reject('Error fetching clans data.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

@@ -24,7 +24,6 @@ export const DataReducer = (state = initialState, action) => {
         case FETCH_LOCATIONS_PENDING:
             return {
                 ...state,
-                locations: [],
                 fetching: true,
                 fetched: false,
                 failed: false,

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import HomePage from './HomePage';
 import ClanPage from './ClanPage';
 import LocationsPage from './LocationsPage';
+import FamePage from './FamePage';
 import ClanSetupForm from './clan/ClanSetupForm';
 import CharacterSelector from './clan/CharacterSelector';
 
@@ -19,6 +20,7 @@ const Main = ({exists, createClan, clan, selectedCharacter, selectCharacter}) =>
                     <Route exact path='/' component={HomePage}/>
                     <Route path='/clan' component={ClanPage}/>
                     <Route path='/locations' component={LocationsPage}/>
+                    <Route path='/fame' component={FamePage}/>
                 </Switch>
             </div>
             : <ClanSetupForm createClan={createClan}/>
