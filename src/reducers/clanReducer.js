@@ -41,8 +41,7 @@ export const ClanReducer = (state = initialState, action) => {
                 },
                 fetching: true,
                 fetched: false,
-                failed: false,
-                error: ''
+                failed: false
             };
         case FETCH_CLAN_FULFILLED:
             return {
@@ -65,7 +64,7 @@ export const ClanReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: action.payload
+                    error: ''
                 };
             } else { // fetch failed
                 return {
@@ -101,7 +100,8 @@ export const ClanReducer = (state = initialState, action) => {
                 ...state,
                 fetching: false,
                 fetched: true,
-                failed: true
+                failed: true,
+                error: action.payload
             };
         case UNEQUIP_WEAPON_PENDING:
             return {
@@ -122,15 +122,15 @@ export const ClanReducer = (state = initialState, action) => {
                 ...state,
                 fetching: false,
                 fetched: true,
-                failed: true
+                failed: true,
+                error: action.payload
             };
             case FETCH_CLANS_PENDING:
             return {
                 ...state,
                 fetching: true,
                 fetched: false,
-                failed: false,
-                error: ''
+                failed: false
             };
         case FETCH_CLANS_FULFILLED:
             return {

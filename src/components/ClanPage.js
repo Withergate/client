@@ -27,6 +27,9 @@ class ClanPage extends Component {
         return (
             <div>
                 {
+                    this.props.failed && <Error message={this.props.error} />
+                }
+                {
                     this.props.fetched && 
                     <div>
                         <ClanSummary clan={this.props.clan} />
@@ -53,9 +56,6 @@ class ClanPage extends Component {
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
-                }
-                {
-                    this.props.failed && <Error message={this.props.error} />
                 }
             </div>
         );

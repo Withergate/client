@@ -11,7 +11,8 @@ export const fetchTurn = () => {
             if (response.ok) {
                 resolve(response.json());
             }
-            reject('error');
+            
+            reject('Error fetching data from server.');
         }).catch(error => {
             return reject(error.message);
         });

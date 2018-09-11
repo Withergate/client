@@ -15,8 +15,11 @@ export const visitLocation = (characterId, location) => {
         }).then(response => {
             if (response.ok) {
                 resolve();
-            }
-            reject('error');
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }  
         }).catch(error => {
             return reject(error.message);
         });
@@ -32,7 +35,7 @@ export const fetchLocations = () => {
             if (response.ok) {
                 resolve(response.json());
             }
-            reject('error');
+            reject('Error fetching data from server.');
         }).catch(error => {
             return reject(error.message);
         });

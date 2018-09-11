@@ -14,7 +14,8 @@ export const fetchPrincipal = () => {
             if (response.ok) {
                 resolve(response.json());
             }
-            reject('error');
+            
+            reject('Error fetching profile from authorization server.');
         }).catch(error => {
             return reject(error.message);
         });

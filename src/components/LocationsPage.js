@@ -21,6 +21,9 @@ class LocationsPage extends Component {
         return (
             <div>
                 {
+                    this.props.failed && <Error message={this.props.error} />
+                }
+                {
                     this.props.fetched && 
                     <div>
                         <LocationList 
@@ -31,9 +34,6 @@ class LocationsPage extends Component {
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
-                }
-                {
-                    this.props.failed && <Error message={this.props.error} />
                 }
             </div>
         );
@@ -53,8 +53,8 @@ LocationsPage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { locations } = state.data;
-    const { error, selectedCharacter } = state.clan;
+    const { error, locations } = state.data;
+    const { selectedCharacter } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
     const fetched = state.data.fetched && state.clan.fetched;

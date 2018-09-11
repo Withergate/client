@@ -15,7 +15,7 @@ export const fetchClan = () => {
             if(response.status === 404) {
                 reject('404');
             }
-            reject('Error fetching clan data.');
+            reject('Error fetching data from server.');
         }).catch(error => {
             return reject(error.message);
         });
@@ -32,8 +32,11 @@ export const createClan = (clanName) => {
         }).then(response => {
             if (response.ok) {
                 resolve(response.json());
-            }
-            reject('Error creating clan.');
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }   
         }).catch(error => {
             return reject(error.message);
         });
@@ -50,8 +53,11 @@ export const equipWeapon = (weaponId, characterId) => {
         }).then(response => {
             if (response.ok) {
                 resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
             }
-            reject('Error performing weapon-equip action.');
         }).catch(error => {
             return reject(error.message);
         });
@@ -68,8 +74,11 @@ export const unequipWeapon = (weaponId, characterId) => {
         }).then(response => {
             if (response.ok) {
                 resolve(response.status);
-            }
-            reject('Error performing weapon-equip action.');
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }   
         }).catch(error => {
             return reject(error.message);
         });
@@ -87,7 +96,7 @@ export const fetchClans = (page) => {
                 resolve(response.json());
             }
     
-            reject('Error fetching clans data.');
+            reject('Error fetching data from server.');
         }).catch(error => {
             return reject(error.message);
         });

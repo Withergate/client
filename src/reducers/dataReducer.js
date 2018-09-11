@@ -59,14 +59,16 @@ export const DataReducer = (state = initialState, action) => {
                 ...state,
                 fetching: false,
                 fetched: true,
-                failed: false
+                failed: false,
+                error: ''
             };
         case VISIT_LOCATION_REJECTED:
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
-                failed: true
+                failed: true,
+                error: action.payload
             };     
         default:
             return state;
