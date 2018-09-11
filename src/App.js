@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import Header from './components/Header';
 import Main from './components/Main';
 import LoginPage from './components/LoginPage';
-import { Error } from './components/shared/Error';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
@@ -24,9 +23,6 @@ class App extends Component {
         
         return (
             <div>
-                {
-                    this.props.failed && <Error message="Cannoct load data form server" />
-                }
                 { 
                     loggedIn ?
                         fetched && 

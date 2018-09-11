@@ -5,7 +5,6 @@ export const fetchPrincipal = () => {
     getTokenFromUrl();
 
     return new Promise((resolve, reject) => {
-        console.log(AUTH_URL + 'user');
         // fetch clan data
         fetch(AUTH_URL + 'user', {
             method: 'GET',

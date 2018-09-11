@@ -5,9 +5,16 @@ import renderHTML from 'react-render-html';
 const NotificationListItem = ({notification}) => (
     <div className="m-4 p-2 rounded bg-light">
         <div className="row p-3">
-            <small className="text-muted" >{notification.turnId} &nbsp;</small>
             {renderHTML(notification.text)}
+            &nbsp;
+            {notification.result !== null && renderHTML(notification.result)}
         </div>
+        {
+            notification.income !== null && 
+            <div className="row p-3">
+                <small>{renderHTML(notification.income)}</small>
+            </div>
+        }
         {
             notification.details !== null && 
             <div className="row p-3">

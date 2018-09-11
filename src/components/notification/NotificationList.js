@@ -22,7 +22,7 @@ const NotificationList = (props) => (
         <button 
             className="ml-4 btn btn-light" 
             style={{width: 100}}
-            disabled={props.turnDisplayed === 0}
+            disabled={props.turnDisplayed <= 1}
             onClick={() => props.displayTurnNotifications(props.turnDisplayed - 1)}>
             Previous
         </button> 

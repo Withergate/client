@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ProgressBar } from 'react-bootstrap';
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
-import injured from '../../images/injury-icon.png';
 import avatar from '../../images/avatar.png';
 
 import { AttributeBar } from './AttributeBar';
@@ -14,10 +14,8 @@ function renderState(state) {
             return <img height="25" src={ready} alt="Ready" />;
         case 'BUSY':
             return <img height="25" src={busy} alt="Busy" />;
-        case 'INJURED':
-            return <img height="25" src={injured} alt="Injured" />;
         default:
-            return <img height="25" src={injured} alt="Injured" />;
+            return <img height="25" src={ready} alt="Ready" />;
     }
 }
 
@@ -33,11 +31,18 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 <img className="rounded mb-2" width="120px" src={avatar} alt="Avatar" />
             </div>
             <div className="col-12 col-md-4">
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}
+                    </div>
+                    <div className="col-12 col-md-6">
+                        <ProgressBar min={0} max={character.maxHitpoints} now={character.hitpoints} />
+                    </div>
+                </div>
                 <div className="mb-2">
                     <AttributeBar name="combat" value={character.combat} />
                     <AttributeBar name="scavenge" value={character.scavenge} />
                     <AttributeBar name="craftsmanship" value={character.craftsmanship} />
-                    <AttributeBar name="charm" value={character.charm} />
                     <AttributeBar name="intellect" value={character.intellect} /> 
                 </div>
             </div>
