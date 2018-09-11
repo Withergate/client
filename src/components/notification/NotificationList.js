@@ -17,12 +17,30 @@ const renderListItem = notification => (
 
 const NotificationList = (props) => (
     <div>
+        <h5 className="m-4">Turn {props.turnDisplayed} notifications</h5>
         {renderList(props.notifications)}
+        <button 
+            className="ml-4 btn btn-light" 
+            style={{width: 100}}
+            disabled={props.turnDisplayed === 0}
+            onClick={() => props.displayTurnNotifications(props.turnDisplayed - 1)}>
+            Previous
+        </button> 
+        <button 
+            className="ml-2 btn btn-light" 
+            style={{width: 100}}
+            disabled={props.turnDisplayed === props.currentTurn - 1}
+            onClick={() => props.displayTurnNotifications(props.turnDisplayed + 1)}>
+            Next
+        </button> 
     </div>
 );
 
 NotificationList.propTypes = {
-    notifications: PropTypes.array.isRequired
+    notifications: PropTypes.array.isRequired,
+    currentTurn: PropTypes.number.isRequired,
+    turnDisplayed: PropTypes.number.isRequired,
+    displayTurnNotifications: PropTypes.func.isRequired
 };
 
 export default NotificationList;

@@ -8,11 +8,12 @@ import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
 import { fetchNotifications } from '../actions/notificationActions';
+import { displayTurnNotifications } from '../actions/turnActions';
 
 class HomePage extends Component {
 
     componentDidMount() {
-        this.props.fetchNotifications(true);
+        this.props.fetchNotifications(this.props.turnDisplayed);
     }
 
     render() {
@@ -21,8 +22,11 @@ class HomePage extends Component {
                 {
                     this.props.fetched && 
                     <div>
-                        <h5 className="m-4">Notifications</h5>
-                        <NotificationList notifications={this.props.notifications} />
+                        <NotificationList 
+                            notifications={this.props.notifications} 
+                            currentTurn={this.props.turn.turnId}
+                            turnDisplayed={this.props.turnDisplayed}
+                            displayTurnNotifications={this.props.displayTurnNotifications} />
                     </div>
                 }
                 {
@@ -42,17 +46,24 @@ HomePage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    notifications: PropTypes.array.isRequired
+    notifications: PropTypes.array.isRequired,
+    turnDisplayed: PropTypes.number.isRequired,
+    displayTurnNotifications: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, notifications } = state.notifications;
+    const { error, notifications } = state.notifications;
+    const { turnDisplayed, turn } = state.turn;
 
-    return { fetching, fetched, failed, error, notifications };
+    const fetching = state.turn.fetching || state.notifications.fetching;
+    const fetched = state.turn.fetched && state.notifications.fetched;
+    const failed = state.turn.failed || state.notifications.failed;
+
+    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchNotifications }, dispatch)
+    bindActionCreators({ fetchNotifications, displayTurnNotifications }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

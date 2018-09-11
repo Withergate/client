@@ -19,23 +19,25 @@ class App extends Component {
     }
 
     render() {
-        const { loggedIn, turn, exists, createClan, selectCharacter, selectedCharacter, clan } = this.props;
+        const { fetched, loggedIn, turn, exists, createClan, selectCharacter, selectedCharacter, clan } = this.props;
         
         return (
             <div>
                 { 
-                    loggedIn ? 
-                        <BrowserRouter>
-                            <div>
-                                <Header turn={turn} />
-                                <Main 
-                                    exists={exists}
-                                    createClan={createClan}
-                                    clan={clan}
-                                    selectedCharacter={selectedCharacter}
-                                    selectCharacter={selectCharacter} />
-                            </div>
-                        </BrowserRouter>
+                    loggedIn ?
+                        fetched ? 
+                            <BrowserRouter>
+                                <div>
+                                    <Header turn={turn} />
+                                    <Main 
+                                        exists={exists}
+                                        createClan={createClan}
+                                        clan={clan}
+                                        selectedCharacter={selectedCharacter}
+                                        selectCharacter={selectCharacter} />
+                                </div>
+                            </BrowserRouter>
+                            : <div>loading</div>
                         : <LoginPage />
                 }
             </div>
@@ -65,9 +67,9 @@ const mapStateToProps = state => {
     const { turn } = state.turn;
     const { exists, clan, selectedCharacter } = state.clan;
 
-    const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching;
-    const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched;
-    const failed = state.auth.failed || state.turn.failed || state.clan.failed;
+    const fetching = state.auth.fetching || state.turn.fetching;
+    const fetched = state.auth.fetched && state.turn.fetched;
+    const failed = state.auth.failed || state.turn.failed;
 
     return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter };
 };

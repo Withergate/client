@@ -1,4 +1,4 @@
-export const AUTH_URL = 'http://35.204.26.73:9000/auth/';
+export const AUTH_URL = 'http://auth.withergate.com/';
 export const API_URL = 'http://localhost:8080/api/';
 
 export const TOKEN_URL =

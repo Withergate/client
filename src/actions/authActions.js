@@ -1,6 +1,5 @@
 import { fetchPrincipal } from '../services/authService';
-import { fetchClan } from '../services/clanService';
-import { FETCH_CLAN } from './clanActions';
+import { fetchClan } from './clanActions';
 
 export const FETCH_PRINCIPAL = 'FETCH_PRINCIPAL';
 export const FETCH_PRINCIPAL_PENDING = 'FETCH_PRINCIPAL_PENDING';
@@ -13,10 +12,7 @@ const fetchPrincipalAction = () => {
         return dispatch({
             type: FETCH_PRINCIPAL,
             payload: fetchPrincipal()
-        }).then(() => dispatch({
-            type: FETCH_CLAN,
-            payload: fetchClan()
-        }));
+        }).then(() => dispatch(fetchClan()));
     };
 };
 
