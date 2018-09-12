@@ -9,17 +9,30 @@ import LoginPage from './components/LoginPage';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
+import { fetchVersion } from './actions/appActions';
 import { createClan, selectCharacter } from './actions/clanActions';
+import Footer from './components/Footer';
 
 class App extends Component {
 
     componentDidMount() {
         this.props.fetchPrincipal();
         this.props.fetchTurn();
+        this.props.fetchVersion();
     }
 
     render() {
-        const { fetched, loggedIn, turn, exists, createClan, selectCharacter, selectedCharacter, clan } = this.props;
+        const { 
+            fetched, 
+            loggedIn, 
+            turn, 
+            exists, 
+            createClan, 
+            selectCharacter, 
+            selectedCharacter, 
+            clan, 
+            version 
+        } = this.props;
         
         return (
             <div>
@@ -35,6 +48,7 @@ class App extends Component {
                                         clan={clan}
                                         selectedCharacter={selectedCharacter}
                                         selectCharacter={selectCharacter} />
+                                    <Footer version={version} />
                                 </div>
                             </BrowserRouter>
                         : <LoginPage />
@@ -65,16 +79,17 @@ const mapStateToProps = state => {
     const { loggedIn } = state.auth;
     const { turn } = state.turn;
     const { exists, clan, selectedCharacter } = state.clan;
+    const { version } = state.app;
 
     const fetching = state.auth.fetching || state.turn.fetching;
     const fetched = state.auth.fetched && state.turn.fetched;
     const failed = state.auth.failed || state.turn.failed;
 
-    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter };
+    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter, version };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchPrincipal, fetchTurn, createClan, selectCharacter }, dispatch)
+    bindActionCreators({ fetchPrincipal, fetchTurn, createClan, selectCharacter, fetchVersion }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
