@@ -5,8 +5,8 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
     <div className="m-4 p-2 rounded bg-light" key={weapon.id}>
         <div className="row">
             <div className="col">
-                <h5>{weapon.weaponDetails.name}</h5>
-                <p>{weapon.weaponDetails.description}</p>
+                <b>{weapon.details.name}</b>
+                <p>{weapon.details.description}</p>
             </div>
         </div>
         <div className="row p-3">

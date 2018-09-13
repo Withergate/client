@@ -102,3 +102,24 @@ export const fetchClans = (page) => {
         });
     });
 };
+
+export const useConsumable = (consumableId, characterId) => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'items/consumables/use', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({consumableId: consumableId, characterId: characterId})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

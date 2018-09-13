@@ -35,7 +35,7 @@ const CharacterDetails = ({character}) => (
                 </table>
             </div>
             <div className="col-6 col-md-3">
-                <small><b>Weapon</b>: {character.weapon != null ? character.weapon.weaponDetails.name : 'Unarmed'}</small>
+                <small><b>Weapon</b>: {character.weapon != null ? character.weapon.details.name : 'Unarmed'}</small>
             </div>
             <div className="col-6 col-md-3">
                 <small>No abilities</small>

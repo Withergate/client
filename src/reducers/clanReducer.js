@@ -11,7 +11,10 @@ import {
     UNEQUIP_WEAPON_PENDING,
     FETCH_CLANS_PENDING,
     FETCH_CLANS_FULFILLED,
-    FETCH_CLANS_REJECTED
+    FETCH_CLANS_REJECTED,
+    USE_CONSUMABLE_PENDING,
+    USE_CONSUMABLE_FULFILLED,
+    USE_CONSUMABLE_REJECTED
 } from '../actions/clanActions';
 
 // INITIALIZE STATE
@@ -151,7 +154,29 @@ export const ClanReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: true,
                 error: action.payload
-            }                      
+            };
+        case USE_CONSUMABLE_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case USE_CONSUMABLE_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false
+            };
+        case USE_CONSUMABLE_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: true,
+                error: action.payload
+            };                          
         default:
             return state;
     }

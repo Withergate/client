@@ -3,6 +3,7 @@ import {
     createClan, 
     equipWeapon, 
     unequipWeapon,
+    useConsumable,
     fetchClans } from '../services/clanService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -23,6 +24,11 @@ export const UNEQUIP_WEAPON = 'UNEQUIP_WEAPON';
 export const UNEQUIP_WEAPON_PENDING = 'UNEQUIP_WEAPON_PENDING';
 export const UNEQUIP_WEAPON_FULFILLED = 'UNEQUIP_WEAPON_FULFILLED';
 export const UNEQUIP_WEAPON_REJECTED = 'UNEQUIP_WEAPON_REJECTED';
+
+export const USE_CONSUMABLE = 'USE_CONSUMABLE';
+export const USE_CONSUMABLE_PENDING = 'USE_CONSUMABLE_PENDING';
+export const USE_CONSUMABLE_FULFILLED = 'USE_CONSUMABLE_FULFILLED';
+export const USE_CONSUMABLE_REJECTED = 'USE_CONSUMABLE_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -92,3 +98,17 @@ const fetchClansAction = (page) => ({
 });
 
 export { fetchClansAction as fetchClans };
+
+const useConsumableAction = (consumableId, characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: USE_CONSUMABLE,
+            payload: useConsumable(consumableId, characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+
+export { useConsumableAction as useConsumable };

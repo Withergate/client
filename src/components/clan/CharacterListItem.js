@@ -47,7 +47,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 </div>
             </div>
             <div className="col-6 col-md-4"> 
-                <b>Weapon</b>: { character.weapon != null ? character.weapon.weaponDetails.name : 'Unarmed' }
+                <b>Weapon</b>: { character.weapon != null ? character.weapon.details.name : 'Unarmed' }
 
                 { character.weapon != null &&
                     <button 

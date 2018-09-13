@@ -10,7 +10,8 @@ import WeaponList from './item/WeaponList';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClan, equipWeapon, unequipWeapon } from '../actions/clanActions';
+import { fetchClan, equipWeapon, unequipWeapon, useConsumable } from '../actions/clanActions';
+import ConsumableList from './item/ConsumableList';
 
 class ClanPage extends Component {
 
@@ -21,6 +22,8 @@ class ClanPage extends Component {
 
     componentDidMount() {
         this.props.fetchClan();
+
+        console.log(this.props.useConsumable);
     }
 
     render() {
@@ -46,10 +49,20 @@ class ClanPage extends Component {
                                     unequipWeapon={this.props.unequipWeapon} />
                             </TabPanel>
                             <TabPanel>
-                                <WeaponList 
-                                    weapons={this.props.clan.weapons}
-                                    equipWeapon={this.props.equipWeapon}
-                                    selectedCharacter={this.props.selectedCharacter} />
+                                <div className="row">
+                                    <div className="col-12 col-md-6">
+                                        <WeaponList 
+                                            weapons={this.props.clan.weapons}
+                                            equipWeapon={this.props.equipWeapon}
+                                            selectedCharacter={this.props.selectedCharacter} />
+                                    </div>
+                                    <div className="col-12 col-md-6">
+                                        <ConsumableList
+                                            consumables={this.props.clan.consumables}
+                                            selectedCharacter={this.props.selectedCharacter} 
+                                            useConsumable={this.props.useConsumable}/>
+                                    </div>
+                                </div>
                             </TabPanel>
                         </Tabs>
                     </div>
@@ -70,7 +83,8 @@ ClanPage.propTypes = {
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    unequipWeapon: PropTypes.func.isRequired
+    unequipWeapon: PropTypes.func.isRequired,
+    useConsumable: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -80,7 +94,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);
