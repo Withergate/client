@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { restartGame } from '../actions/authActions';
 
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
@@ -20,7 +21,18 @@ class AdminPage extends Component {
                 {
                     this.props.principal.role === 'ADMIN' && this.props.fetched && 
                     <div className="m-4">
-                        Admin dashboard
+                        <h5>Admin dashboard</h5>
+                        <div>
+                            <p className="text-danger">
+                                This action deletes all game-related data from the database and starts the whole game over.
+                            </p>
+                            <button 
+                                className="btn btn-danger" 
+                                onClick={() => this.props.restartGame()}>
+                                Restart game
+                            </button> 
+                        </div>
+                    
                     </div>
                     
                 }
@@ -37,7 +49,8 @@ AdminPage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired
+    error: PropTypes.string.isRequired,
+    restartGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -48,7 +61,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ }, dispatch)
+    bindActionCreators({ restartGame }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

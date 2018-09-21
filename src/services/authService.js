@@ -1,11 +1,11 @@
 import { getHeaders } from './apiFetch';
-import { AUTH_URL } from './constants/endpoints';
+import { AUTH_URL, API_URL } from './constants/endpoints';
 
 export const fetchPrincipal = () => {
     getTokenFromUrl();
 
     return new Promise((resolve, reject) => {
-        // fetch clan data
+        // fetch principal
         fetch(AUTH_URL + 'user', {
             method: 'GET',
             headers: getHeaders()
@@ -15,6 +15,25 @@ export const fetchPrincipal = () => {
             }
             
             reject('Error fetching profile from authorization server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const restartGame = () => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'restart', {
+            method: 'POST',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }  
         }).catch(error => {
             return reject(error.message);
         });
