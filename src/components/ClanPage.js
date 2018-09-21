@@ -22,8 +22,6 @@ class ClanPage extends Component {
 
     componentDidMount() {
         this.props.fetchClan();
-
-        console.log(this.props.useConsumable);
     }
 
     render() {

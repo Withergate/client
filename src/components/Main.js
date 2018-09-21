@@ -7,6 +7,7 @@ import LocationsPage from './LocationsPage';
 import FamePage from './FamePage';
 import ClanSetupForm from './clan/ClanSetupForm';
 import CharacterSelector from './clan/CharacterSelector';
+import AdminPage from './AdminPage';
 
 const Main = ({exists, createClan, clan, selectedCharacter, selectCharacter}) => (
     <main>
@@ -21,6 +22,7 @@ const Main = ({exists, createClan, clan, selectedCharacter, selectCharacter}) =>
                     <Route path='/clan' component={ClanPage}/>
                     <Route path='/locations' component={LocationsPage}/>
                     <Route path='/fame' component={FamePage}/>
+                    <Route path='/admin' component={AdminPage}/>
                 </Switch>
             </div>
             : <ClanSetupForm createClan={createClan}/>

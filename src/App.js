@@ -31,7 +31,8 @@ class App extends Component {
             selectCharacter, 
             selectedCharacter, 
             clan, 
-            version 
+            version,
+            principal 
         } = this.props;
         
         return (
@@ -41,7 +42,7 @@ class App extends Component {
                         fetched && 
                             <BrowserRouter>
                                 <div>
-                                    <Header turn={turn} />
+                                    <Header turn={turn} userRole={principal.role}/>
                                     <Main 
                                         exists={exists}
                                         createClan={createClan}
@@ -71,12 +72,13 @@ App.propTypes = {
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     selectCharacter: PropTypes.func.isRequired,
+    principal: PropTypes.object
 };
 
 // CONFIGURE REACT REDUX
 
 const mapStateToProps = state => {
-    const { loggedIn } = state.auth;
+    const { loggedIn, principal } = state.auth;
     const { turn } = state.turn;
     const { exists, clan, selectedCharacter } = state.clan;
     const { version } = state.app;
@@ -85,7 +87,7 @@ const mapStateToProps = state => {
     const fetched = state.auth.fetched && state.turn.fetched;
     const failed = state.auth.failed || state.turn.failed;
 
-    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter, version };
+    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter, version, principal };
 };
 
 const mapDispatchToProps = dispatch => (
