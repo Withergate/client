@@ -6,9 +6,10 @@ import { bindActionCreators } from 'redux';
 import { Error } from './shared/Error';
 import LocationList from './location/LocationList';
 import spinner from '../images/spinner.gif';
+import CharacterSelector from './clan/CharacterSelector';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
-import { fetchClan } from '../actions/clanActions';
+import { fetchClan, selectCharacter } from '../actions/clanActions';
 
 class LocationsPage extends Component {
 
@@ -26,6 +27,11 @@ class LocationsPage extends Component {
                 {
                     this.props.fetched && 
                     <div>
+                        <CharacterSelector 
+                            characters={this.props.clan.characters}
+                            selectedCharacter={this.props.selectedCharacter}
+                            onSelect={this.props.selectCharacter} />
+
                         <LocationList 
                             locations={this.props.locations} 
                             selectedCharacter={this.props.selectedCharacter}
@@ -49,22 +55,24 @@ LocationsPage.propTypes = {
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
     locations: PropTypes.array.isRequired,
-    selectedCharacter: PropTypes.object
+    selectedCharacter: PropTypes.object,
+    clan: PropTypes.object.isRequired,
+    selectCharacter: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
     const { error, locations } = state.data;
-    const { selectedCharacter } = state.clan;
+    const { selectedCharacter, clan } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
     const fetched = state.data.fetched && state.clan.fetched;
     const failed = state.data.failed || state.clan.failed;
 
-    return { fetching, fetched, failed, error, locations, selectedCharacter };
+    return { fetching, fetched, failed, error, locations, selectedCharacter, clan };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchLocations, visitLocation, fetchClan }, dispatch)
+    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationsPage);

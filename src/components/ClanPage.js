@@ -6,11 +6,12 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
+import CharacterSelector from './clan/CharacterSelector';
 import WeaponList from './item/WeaponList';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClan, equipWeapon, unequipWeapon, useConsumable } from '../actions/clanActions';
+import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter } from '../actions/clanActions';
 import ConsumableList from './item/ConsumableList';
 
 class ClanPage extends Component {
@@ -33,6 +34,11 @@ class ClanPage extends Component {
                 {
                     this.props.fetched && 
                     <div>
+                        <CharacterSelector 
+                            characters={this.props.clan.characters}
+                            selectedCharacter={this.props.selectedCharacter}
+                            onSelect={this.props.selectCharacter} />
+                            
                         <ClanSummary clan={this.props.clan} />
 
                         <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
@@ -92,7 +98,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);

@@ -6,17 +6,12 @@ import ClanPage from './ClanPage';
 import LocationsPage from './LocationsPage';
 import FamePage from './FamePage';
 import ClanSetupForm from './clan/ClanSetupForm';
-import CharacterSelector from './clan/CharacterSelector';
 import AdminPage from './AdminPage';
 
-const Main = ({exists, createClan, clan, selectedCharacter, selectCharacter}) => (
+const Main = ({exists, createClan}) => (
     <main>
         { exists ? 
             <div>
-                <CharacterSelector 
-                    characters={clan.characters}
-                    selectedCharacter={selectedCharacter}
-                    onSelect={selectCharacter} />
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route path='/clan' component={ClanPage}/>
@@ -32,10 +27,7 @@ const Main = ({exists, createClan, clan, selectedCharacter, selectCharacter}) =>
 
 Main.propTypes = {
     exists: PropTypes.bool.isRequired,
-    createClan: PropTypes.func.isRequired,
-    clan: PropTypes.object.isRequired,
-    selectedCharacter: PropTypes.object,
-    selectCharacter: PropTypes.func.isRequired,
+    createClan: PropTypes.func.isRequired
 };
 
 export default Main;
