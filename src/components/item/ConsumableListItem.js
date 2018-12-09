@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
     <div className="m-4 p-2 rounded bg-light" key={consumable.id}>
         <div className="row">
-            <div className="col">
+            <div className="col-12 col-md-4">
+                <img src={consumable.details.imageUrl} height="120px" alt={consumable.details.name} />
+            </div>
+            <div className="col-12 col-md-8">
                 <b>{consumable.details.name}</b>
                 <p className="mt-2">
                     {consumable.details.description}

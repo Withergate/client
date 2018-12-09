@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
-import avatar from '../../images/avatar.png';
 
 function renderState(state) {
     switch(state) {
@@ -21,7 +20,7 @@ const CharacterDetails = ({character}) => (
         <div className="row">
             <div className="col-6 col-md-3">
                 <h6 className="mb-2">{renderState(character.state)} {character.name}</h6>
-                <img className="rounded" width="60px" src={avatar} alt="Avatar" />
+                <img className="rounded" width="60px" src={character.imageUrl} alt="Avatar" />
                 <p><small><b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}</small></p>
             </div>
             <div className="col-6 col-md-3">

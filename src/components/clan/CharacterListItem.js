@@ -4,7 +4,6 @@ import { ProgressBar } from 'react-bootstrap';
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
-import avatar from '../../images/avatar.png';
 
 import { AttributeBar } from './AttributeBar';
 
@@ -28,7 +27,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
         </div>
         <div className="row">
             <div className="col-12 col-md-2">
-                <img className="rounded mb-2" width="120px" src={avatar} alt="Avatar" />
+                <img className="rounded mb-2" width="120px" src={character.imageUrl} alt="Avatar" />
             </div>
             <div className="col-12 col-md-4">
                 <div className="row">

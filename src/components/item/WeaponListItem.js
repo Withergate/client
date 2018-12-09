@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
     <div className="m-4 p-2 rounded bg-light" key={weapon.id}>
         <div className="row">
-            <div className="col">
+            <div className="col-12 col-md-4">
+                <img src={weapon.details.imageUrl} height="120px" alt={weapon.details.name} />
+            </div>
+            <div className="col-12 col-md-8">
                 <b>{weapon.details.name}</b>
                 <p>{weapon.details.description}</p>
             </div>
