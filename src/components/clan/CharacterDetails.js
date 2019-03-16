@@ -19,9 +19,11 @@ const CharacterDetails = ({character}) => (
     <div className="p-2 rounded bg-light">
         <div className="row">
             <div className="col-6 col-md-3">
-                <h6 className="mb-2">{renderState(character.state)} {character.name}</h6>
+                <h6 className="mb-2">{renderState(character.state)} {character.name} ({character.level})</h6>
                 <img className="rounded" width="60px" src={character.imageUrl} alt="Avatar" />
-                <p><small><b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}</small></p>
+                <p>
+                    <small><b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}</small>
+                </p>
             </div>
             <div className="col-6 col-md-3">
                 <table className="mb-2">

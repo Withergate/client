@@ -22,7 +22,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
     <div className="mb-4 p-2 rounded bg-light">
         <div className="row">
             <div className="col">
-                <h5 className="mb-2">{renderState(character.state)} {character.name}</h5>
+                <h5 className="mb-2">{renderState(character.state)} {character.name} ({character.level})</h5>
             </div>
         </div>
         <div className="row">
@@ -36,6 +36,14 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                     </div>
                     <div className="col-12 col-md-6">
                         <ProgressBar min={0} max={character.maxHitpoints} now={character.hitpoints} />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <b>Experience</b>: {character.experience}/{character.nextLevel}
+                    </div>
+                    <div className="col-12 col-md-6">
+                        <ProgressBar min={0} max={character.nextLevel} now={character.experience} />
                     </div>
                 </div>
                 <div className="mb-2">
