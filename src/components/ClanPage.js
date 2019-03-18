@@ -8,11 +8,13 @@ import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
 import CharacterSelector from './clan/CharacterSelector';
 import WeaponList from './item/WeaponList';
+import ConsumableList from './item/ConsumableList';
+import BuildingList from './building/BuildingList';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter } from '../actions/clanActions';
-import ConsumableList from './item/ConsumableList';
+import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter,
+    constructBuilding } from '../actions/clanActions';
 
 class ClanPage extends Component {
 
@@ -45,6 +47,7 @@ class ClanPage extends Component {
                             <TabList className="pl-4">
                                 <Tab>Characters</Tab>
                                 <Tab>Items</Tab>
+                                <Tab>Buildings</Tab>
                             </TabList>
                             
                             <TabPanel>
@@ -68,6 +71,22 @@ class ClanPage extends Component {
                                     </div>
                                 </div>
                             </TabPanel>
+                            <TabPanel>
+                                <div className="row">
+                                    <div className="col-12 col-md-6">
+                                        <BuildingList 
+                                            buildings={this.props.clan.buildings}
+                                            constructBuilding={this.props.constructBuilding}
+                                            selectedCharacter={this.props.selectedCharacter} />
+                                    </div>
+                                    <div className="col-12 col-md-6">
+                                        <BuildingList 
+                                            buildings={this.props.clan.unconstructedBuildings}
+                                            constructBuilding={this.props.constructBuilding}
+                                            selectedCharacter={this.props.selectedCharacter} />
+                                    </div>
+                                </div>
+                            </TabPanel>
                         </Tabs>
                     </div>
                 }
@@ -88,7 +107,8 @@ ClanPage.propTypes = {
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     unequipWeapon: PropTypes.func.isRequired,
-    useConsumable: PropTypes.func.isRequired
+    useConsumable: PropTypes.func.isRequired,
+    constructBuilding: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -98,7 +118,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter, constructBuilding }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);

@@ -18,7 +18,6 @@ const renderListItem = notification => (
 const NotificationList = (props) => (
     <div>
         <h5 className="m-4">Turn {props.turnDisplayed} notifications</h5>
-        {renderList(props.notifications)}
         <button 
             className="ml-4 btn btn-light" 
             style={{width: 100}}
@@ -32,7 +31,8 @@ const NotificationList = (props) => (
             disabled={props.turnDisplayed === props.currentTurn - 1}
             onClick={() => props.displayTurnNotifications(props.turnDisplayed + 1)}>
             Next
-        </button> 
+        </button>
+        {renderList(props.notifications)} 
     </div>
 );
 

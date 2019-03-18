@@ -123,3 +123,24 @@ export const useConsumable = (consumableId, characterId) => {
         });
     });
 };
+
+export const constructBuilding = (buildingName, characterId, type) => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'buildings/action', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({building: buildingName, characterId: characterId, type: type})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

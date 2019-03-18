@@ -30,6 +30,12 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 <img className="rounded mb-2" width="120px" src={character.imageUrl} alt="Avatar" />
             </div>
             <div className="col-12 col-md-4">
+                <div className="mb-2">
+                    <AttributeBar name="combat" value={character.combat} />
+                    <AttributeBar name="scavenge" value={character.scavenge} />
+                    <AttributeBar name="craftsmanship" value={character.craftsmanship} />
+                    <AttributeBar name="intellect" value={character.intellect} /> 
+                </div>
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}
@@ -45,12 +51,6 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                     <div className="col-12 col-md-6">
                         <ProgressBar min={0} max={character.nextLevel} now={character.experience} />
                     </div>
-                </div>
-                <div className="mb-2">
-                    <AttributeBar name="combat" value={character.combat} />
-                    <AttributeBar name="scavenge" value={character.scavenge} />
-                    <AttributeBar name="craftsmanship" value={character.craftsmanship} />
-                    <AttributeBar name="intellect" value={character.intellect} /> 
                 </div>
             </div>
             <div className="col-6 col-md-4"> 
