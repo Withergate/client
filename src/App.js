@@ -42,7 +42,7 @@ class App extends Component {
                         fetched && 
                             <BrowserRouter>
                                 <div>
-                                    <Header turn={turn} userRole={principal.role}/>
+                                    <Header turn={turn} userRole={principal.role} clan={clan}/>
                                     <Main 
                                         exists={exists}
                                         createClan={createClan}
