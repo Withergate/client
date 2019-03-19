@@ -40,16 +40,18 @@ class ClanPage extends Component {
                             characters={this.props.clan.characters}
                             selectedCharacter={this.props.selectedCharacter}
                             onSelect={this.props.selectCharacter} />
-                            
-                        <ClanSummary clan={this.props.clan} />
 
                         <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                             <TabList className="pl-4">
+                                <Tab>Overview</Tab>
                                 <Tab>Characters</Tab>
                                 <Tab>Items</Tab>
                                 <Tab>Buildings</Tab>
                             </TabList>
                             
+                            <TabPanel>
+                                <ClanSummary clan={this.props.clan} />
+                            </TabPanel>
                             <TabPanel>
                                 <CharacterList 
                                     characters={this.props.clan.characters}
