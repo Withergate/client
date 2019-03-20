@@ -7,12 +7,10 @@ import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
 import injury from '../../images/injury.png';
 import healing from '../../images/healing.png';
-import item from '../../images/item.png';
-import person from '../../images/person.png';
 
 const renderDetail = detail => (
     <div key={detail.id}>
-        <small>{renderHTML(detail.text)}</small><br />
+        <li><small>{renderHTML(detail.text)}</small></li>
     </div>
 );
 
@@ -24,8 +22,6 @@ const NotificationListItem = ({notification}) => (
             { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="fame" /> </span> }
             { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="injury" /> </span> }
             { notification.healing !== 0 && <span><b>{notification.healing}</b> <img height="20" src={healing} alt="healing" /> </span> }
-            { notification.itemIncome !== null && <span> <img height="20" src={item} alt="item" /> </span> }
-            { notification.characterIncome !== null && <span> <img height="20" src={person} alt="character" /> </span> }
         </div>
         <div className="row p-3">
             
@@ -34,15 +30,11 @@ const NotificationListItem = ({notification}) => (
             {notification.result !== null && renderHTML(notification.result)}
         </div>
         {
-            notification.itemIncome !== null && 
-            <div className="row p-3">
-                <small>{renderHTML(notification.itemIncome)}</small>
-            </div>
-        }
-        {
             notification.details.length > 0 && 
             <div className="row p-3">
-                {notification.details.map(detail => renderDetail(detail))}
+                <ul>
+                    {notification.details.map(detail => renderDetail(detail))}
+                </ul>
             </div>
         }
     </div>

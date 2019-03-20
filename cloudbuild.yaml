@@ -1,0 +1,20 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'docker-build'
+  args: ['build', 
+         '-t', 'eu.gcr.io/$PROJECT_ID/withergate-client:$COMMIT_SHA',
+         '-t', 'eu.gcr.io/$PROJECT_ID/withergate-client:latest',
+         '-f', 'Dockerfile', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'docker-push'
+  args: ['push', 'eu.gcr.io/$PROJECT_ID/withergate-client:latest']
+  waitFor: ['docker-build']
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'docker-push-sha'
+  args: ['push', 'eu.gcr.io/$PROJECT_ID/withergate-client:$COMMIT_SHA']
+  waitFor: ['docker-build']
+
+images:
+- 'eu.gcr.io/$PROJECT_ID/withergate-client:$COMMIT_SHA'
+- 'eu.gcr.io/$PROJECT_ID/withergate-client:latest'
+
