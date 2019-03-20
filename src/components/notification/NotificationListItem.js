@@ -10,6 +10,12 @@ import healing from '../../images/healing.png';
 import item from '../../images/item.png';
 import person from '../../images/person.png';
 
+const renderDetail = detail => (
+    <div key={detail.id}>
+        <small>{renderHTML(detail.text)}</small><br />
+    </div>
+);
+
 const NotificationListItem = ({notification}) => (
     <div className="m-4 p-2 rounded bg-light">
         <div>
@@ -34,9 +40,9 @@ const NotificationListItem = ({notification}) => (
             </div>
         }
         {
-            notification.details !== null && 
+            notification.details.length > 0 && 
             <div className="row p-3">
-                <small className="text-muted">{renderHTML(notification.details)}</small>
+                {notification.details.map(detail => renderDetail(detail))}
             </div>
         }
     </div>
