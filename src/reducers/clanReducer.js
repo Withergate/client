@@ -14,7 +14,10 @@ import {
     FETCH_CLANS_REJECTED,
     USE_CONSUMABLE_PENDING,
     USE_CONSUMABLE_FULFILLED,
-    USE_CONSUMABLE_REJECTED
+    USE_CONSUMABLE_REJECTED,
+    BUILDING_PENDING,
+    BUILDING_FULFILLED,
+    BUILDING_REJECTED,
 } from '../actions/clanActions';
 
 // INITIALIZE STATE
@@ -176,7 +179,29 @@ export const ClanReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: true,
                 error: action.payload
-            };                          
+            };
+        case BUILDING_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case BUILDING_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false
+            };
+        case BUILDING_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: true,
+                error: action.payload
+            };                       
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import junk from '../../images/junk.png';
+import food from '../../images/food.png';
 import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
 
@@ -18,6 +19,9 @@ const ClanSummary = ({clan}) => (
             </div>
             <div className="col-12 col-md-2">
                 <img height="20" src={junk} alt="junk" /> <b>Junk</b>: {clan.junk}
+            </div>
+            <div className="col-12 col-md-2">
+                <img height="20" src={food} alt="food" /> <b>Food</b>: {clan.food}
             </div>
             <div className="col-12 col-md-2">
                 <img height="20" src={fame} alt="fame" /> <b>Fame</b>: {clan.fame}

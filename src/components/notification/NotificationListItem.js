@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import renderHTML from 'react-render-html';
 
 import junk from '../../images/junk.png';
+import food from '../../images/food.png';
 import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
 import injury from '../../images/injury.png';
@@ -18,6 +19,7 @@ const NotificationListItem = ({notification}) => (
     <div className="m-4 p-2 rounded bg-light">
         <div>
             { notification.junkIncome !== 0 && <span><b>{notification.junkIncome}</b> <img height="20" src={junk} alt="junk" /> </span> }
+            { notification.foodIncome !== 0 && <span><b>{notification.foodIncome}</b> <img height="20" src={food} alt="food" /> </span> }
             { notification.capsIncome !== 0 && <span><b>{notification.capsIncome}</b> <img height="20" src={caps} alt="caps" /> </span> }
             { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="fame" /> </span> }
             { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="injury" /> </span> }

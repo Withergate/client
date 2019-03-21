@@ -31,10 +31,10 @@ export const USE_CONSUMABLE_PENDING = 'USE_CONSUMABLE_PENDING';
 export const USE_CONSUMABLE_FULFILLED = 'USE_CONSUMABLE_FULFILLED';
 export const USE_CONSUMABLE_REJECTED = 'USE_CONSUMABLE_REJECTED';
 
-export const CONSTRUCT_BUILDING = 'CONSTRUCT_BUILDING';
-export const CONSTRUCT_BUILDING_PENDING = 'CONSTRUCT_BUILDING_PENDING';
-export const CONSTRUCT_BUILDING_FULFILLED = 'CONSTRUCT_BUILDING_FULFILLED';
-export const CONSTRUCT_BUILDING_REJECTED = 'CONSTRUCT_BUILDING_REJECTED';
+export const BUILDING = 'BUILDING';
+export const BUILDING_PENDING = 'BUILDING_PENDING';
+export const BUILDING_FULFILLED = 'BUILDING_FULFILLED';
+export const BUILDING_REJECTED = 'BUILDING_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -122,7 +122,7 @@ export { useConsumableAction as useConsumable };
 const constructBuildingAction = (buildingName, characterId, type) => {
     return (dispatch) => {
         return dispatch({
-            type: CONSTRUCT_BUILDING,
+            type: BUILDING,
             payload: constructBuilding(buildingName, characterId, type)
         }).then(() => dispatch({
             type: FETCH_CLAN,
