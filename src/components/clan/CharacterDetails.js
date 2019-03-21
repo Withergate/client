@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
@@ -22,21 +23,24 @@ const CharacterDetails = ({character}) => (
                 <h6 className="mb-2">{renderState(character.state)} {character.name} ({character.level})</h6>
                 <img className="rounded" width="60px" src={character.imageUrl} alt="Avatar" />
                 <p>
-                    <small><b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}</small>
+                    <small><b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}</small>
                 </p>
             </div>
             <div className="col-6 col-md-3">
                 <table className="mb-2">
                     <tbody>
-                        <tr><td><small><b>Combat</b>: {character.combat}</small></td></tr>
-                        <tr><td><small><b>Scavenge</b>: {character.scavenge}</small></td></tr>
-                        <tr><td><small><b>Craftsmanship</b>: {character.craftsmanship}</small></td></tr>
-                        <tr><td><small><b>Intellect</b>: {character.intellect}</small></td></tr>
+                        <tr><td><small><b><Translate id="basic.combat" /></b>: {character.combat}</small></td></tr>
+                        <tr><td><small><b><Translate id="basic.scavenge" /></b>: {character.scavenge}</small></td></tr>
+                        <tr><td><small><b><Translate id="basic.craftsmanship" /></b>: {character.craftsmanship}</small></td></tr>
+                        <tr><td><small><b><Translate id="basic.intellect" /></b>: {character.intellect}</small></td></tr>
                     </tbody>
                 </table>
             </div>
             <div className="col-6 col-md-3">
-                <small><b>Weapon</b>: {character.weapon != null ? character.weapon.details.name : 'Unarmed'}</small>
+                <small>
+                    <b><Translate id="basic.weapon" /></b>: {character.weapon != null ? <Translate id={character.weapon.details.name} /> 
+                    : <Translate id="basic.unarmed" />}
+                </small>
             </div>
             <div className="col-6 col-md-3">
                 <small>No abilities</small>

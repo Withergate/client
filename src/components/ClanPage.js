@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Translate } from "react-localize-redux";
 
 import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
@@ -43,10 +44,10 @@ class ClanPage extends Component {
 
                         <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                             <TabList className="pl-4">
-                                <Tab>Overview</Tab>
-                                <Tab>Characters</Tab>
-                                <Tab>Items</Tab>
-                                <Tab>Buildings</Tab>
+                                <Tab><Translate id="basic.overview" /></Tab>
+                                <Tab><Translate id="basic.characters" /></Tab>
+                                <Tab><Translate id="basic.items" /></Tab>
+                                <Tab><Translate id="basic.buildings" /></Tab>
                             </TabList>
                             
                             <TabPanel>

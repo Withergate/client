@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
     <div className="m-4 p-2 rounded bg-light" key={consumable.id}>
@@ -8,9 +9,9 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
                 <img src={consumable.details.imageUrl} height="120px" alt={consumable.details.name} />
             </div>
             <div className="col-12 col-md-8">
-                <b>{consumable.details.name}</b>
+                <b><Translate id={consumable.details.name} /></b>
                 <p className="mt-2">
-                    {consumable.details.description}
+                    <Translate id={consumable.details.description} />
                 </p>
                 <small>{consumable.details.effect}</small>
             </div>
@@ -20,9 +21,9 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
                 <button 
                     className="btn btn-dark" 
                     onClick={() => useConsumable(consumable.id, selectedCharacter.id)}>
-                    Use
+                    <Translate id="labels.use" />
                 </button> 
-                : <small className="text-muted">Select a character to use this item.</small>
+                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
         </div>
     </div>

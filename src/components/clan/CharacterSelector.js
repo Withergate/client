@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
+
 import CharacterDetails from './CharacterDetails';
 
 const getTextColor = (character) => {
@@ -20,7 +22,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
         <div className="row">
             <div className="col-12 col-md-4">
                 <button className="btn btn-dark btn-block dropdown-toggle" data-toggle="dropdown">
-                    { selectedCharacter !== undefined ? selectedCharacter.name : 'Select character' }
+                    { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
                 </button>   
                 <div className="dropdown-menu">
                     { characters.map(character => 
@@ -31,13 +33,13 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                         </button>)
                     }
                 </div>
-                <small className="text-muted">The selected character will be used to perform the action of your choice.</small>
+                <small className="text-muted"><Translate id="labels.selectorDescription" /></small>
             </div>
             <div className="col-12 col-md-8">
                 {
                     selectedCharacter !== undefined ? 
                         <CharacterDetails character={selectedCharacter} /> 
-                        : <small className="text-muted">No character selected</small>
+                        : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                 }
             </div>
         </div>

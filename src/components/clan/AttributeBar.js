@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 import star from '../../images/round-star.png';
 
@@ -14,7 +15,7 @@ function renderBar(value) {
 
 const AttributeBar = ({name, value}) => (
     <div className="row">
-        <div className="col">{name}</div>
+        <div className="col"><Translate id={name} /></div>
         <div className="col">{renderBar(value)}</div>
     </div>
 );

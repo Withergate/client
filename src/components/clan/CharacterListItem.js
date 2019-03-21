@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ProgressBar } from 'react-bootstrap';
+import { Translate } from "react-localize-redux";
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
@@ -31,14 +32,14 @@ const CharacterListItem = ({character, unequipWeapon}) => (
             </div>
             <div className="col-12 col-md-4">
                 <div className="mb-2">
-                    <AttributeBar name="combat" value={character.combat} />
-                    <AttributeBar name="scavenge" value={character.scavenge} />
-                    <AttributeBar name="craftsmanship" value={character.craftsmanship} />
-                    <AttributeBar name="intellect" value={character.intellect} /> 
+                    <AttributeBar name="basic.combat" value={character.combat} />
+                    <AttributeBar name="basic.scavenge" value={character.scavenge} />
+                    <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} />
+                    <AttributeBar name="basic.intellect" value={character.intellect} /> 
                 </div>
                 <div className="row">
                     <div className="col-12 col-md-6">
-                        <b>Hitpoints</b>: {character.hitpoints}/{character.maxHitpoints}
+                        <b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}
                     </div>
                     <div className="col-12 col-md-6">
                         <ProgressBar min={0} max={character.maxHitpoints} now={character.hitpoints} />
@@ -46,7 +47,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 </div>
                 <div className="row">
                     <div className="col-12 col-md-6">
-                        <b>Experience</b>: {character.experience}/{character.nextLevel}
+                        <b><Translate id="basic.experience" /></b>: {character.experience}/{character.nextLevel}
                     </div>
                     <div className="col-12 col-md-6">
                         <ProgressBar min={0} max={character.nextLevel} now={character.experience} />
@@ -54,7 +55,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 </div>
             </div>
             <div className="col-6 col-md-4"> 
-                <b>Weapon</b>: { character.weapon != null ? character.weapon.details.name : 'Unarmed' }
+                <b><Translate id="basic.weapon" /></b>: { character.weapon != null ? <Translate id={character.weapon.details.name} /> : <Translate id="basic.unarmed" /> }
 
                 { character.weapon != null &&
                     <button 
@@ -65,7 +66,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 }
             </div>
             <div className="col-6 col-md-2">
-                Abilities
+                <Translate id="basic.abilities" />
             </div>
         </div>
         

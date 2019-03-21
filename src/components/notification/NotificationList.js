@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 import NotificationListItem from './NotificationListItem';
 
@@ -17,20 +18,20 @@ const renderListItem = notification => (
 
 const NotificationList = (props) => (
     <div>
-        <h5 className="m-4">Turn {props.turnDisplayed} notifications</h5>
+        <h5 className="m-4"><Translate id="header.turn" /> {props.turnDisplayed}</h5>
         <button 
             className="ml-4 btn btn-light" 
             style={{width: 100}}
             disabled={props.turnDisplayed <= 1}
             onClick={() => props.displayTurnNotifications(props.turnDisplayed - 1)}>
-            Previous
+            <Translate id="labels.previous" />
         </button> 
         <button 
             className="ml-2 btn btn-light" 
             style={{width: 100}}
             disabled={props.turnDisplayed === props.currentTurn - 1}
             onClick={() => props.displayTurnNotifications(props.turnDisplayed + 1)}>
-            Next
+            <Translate id="labels.next" />
         </button>
         {renderList(props.notifications)} 
     </div>

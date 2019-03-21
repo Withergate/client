@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import BootstrapTable from 'react-bootstrap-table-next';
+import { Translate } from "react-localize-redux";
 
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
@@ -16,10 +17,10 @@ const columns = [
         hidden: true
     }, {
         dataField: 'name',
-        text: 'Clan'
+        text: <Translate id="basic.clan" />
     }, {
         dataField: 'fame',
-        text: 'Fame'
+        text: <Translate id="basic.fame" />
     }
 ];
 

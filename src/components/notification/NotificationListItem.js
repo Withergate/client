@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import renderHTML from 'react-render-html';
+
+import { toReactTranslate } from '../../translations/translationUtils';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -8,11 +9,24 @@ import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
 import injury from '../../images/injury.png';
 import healing from '../../images/healing.png';
+import experience from '../../images/experience.png';
 
 const renderDetail = detail => (
     <div key={detail.id}>
-        <li><small>{renderHTML(detail.text)}</small></li>
+        <li><small>{toReactTranslate(getDetailText(detail))}</small></li>
     </div>
+);
+
+const getNotificationText = notification => (
+    localStorage.getItem('lang') && notification && notification.text && notification.text[localStorage.getItem('lang')] ? 
+        notification.text[localStorage.getItem('lang')].text
+    : notification && notification.text && notification.text.en && notification.text.en.text
+);
+
+const getDetailText = detail => (
+    localStorage.getItem('lang') && detail && detail.text && detail.text[localStorage.getItem('lang')] ? 
+        detail.text[localStorage.getItem('lang')].text
+    : detail && detail.text && detail.text.en && detail.text.en.text
 );
 
 const NotificationListItem = ({notification}) => (
@@ -24,12 +38,12 @@ const NotificationListItem = ({notification}) => (
             { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="fame" /> </span> }
             { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="injury" /> </span> }
             { notification.healing !== 0 && <span><b>{notification.healing}</b> <img height="20" src={healing} alt="healing" /> </span> }
+            { notification.experience !== 0 && <span><b>{notification.experience}</b> <img height="20" src={experience} alt="experience" /> </span> }
         </div>
         <div className="row p-3">
-            
-            {renderHTML(notification.text)}
-            &nbsp;
-            {notification.result !== null && renderHTML(notification.result)}
+            {
+                toReactTranslate(getNotificationText(notification))
+            }
         </div>
         {
             notification.details.length > 0 && 

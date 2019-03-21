@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
     <div className="m-4 p-2 rounded bg-light" key={weapon.id}>
@@ -8,8 +9,8 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
                 <img src={weapon.details.imageUrl} height="120px" alt={weapon.details.name} />
             </div>
             <div className="col-12 col-md-8">
-                <b>{weapon.details.name}</b>
-                <p>{weapon.details.description}</p>
+                <b><Translate id={weapon.details.name} /></b>
+                <p><Translate id={weapon.details.description} /></p>
             </div>
         </div>
         <div className="row p-3">
@@ -18,9 +19,9 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
                     className="btn btn-dark" 
                     onClick={() => equipWeapon(weapon.id, selectedCharacter.id)}
                     disabled={selectedCharacter.weapon !== null}>
-                    Equip
+                    <Translate id="labels.equip" />
                 </button> 
-                : <small className="text-muted">Select a character to equip this weapon.</small>
+                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
         </div>
     </div>

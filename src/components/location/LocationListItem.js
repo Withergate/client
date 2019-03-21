@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <div className="m-4 p-2 rounded bg-light" key={location.location}>
@@ -8,9 +9,9 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                 <img className="mb-2" src={location.imageUrl} height="200px" alt={location.location} />
             </div>
             <div className="col-12 col-md-6">
-                <h5>{location.location}</h5>
-                <p>{location.description}</p>
-                <p><small className="text-muted">{location.info}</small>
+                <h5><Translate id={location.name} /></h5>
+                <p><Translate id={location.description} /></p>
+                <p><small className="text-muted"><Translate id={location.info} /></small>
                 </p>
             </div>
         </div>
@@ -22,7 +23,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     disabled={selectedCharacter.state !== 'READY'}>
                     Visit
                 </button> 
-                : <small className="text-muted">Select a character to visit this location.</small>
+                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
         </div>
     </div>

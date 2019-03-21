@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -15,16 +16,16 @@ const ClanSummary = ({clan}) => (
         </div>
         <div className="row">
             <div className="col-12 col-md-2">
-                <img height="20" src={caps} alt="caps" /> <b>Caps</b>: {clan.caps}
+                <img height="20" src={caps} alt="caps" /> <b><Translate id="basic.caps" /></b>: {clan.caps}
             </div>
             <div className="col-12 col-md-2">
-                <img height="20" src={junk} alt="junk" /> <b>Junk</b>: {clan.junk}
+                <img height="20" src={junk} alt="junk" /> <b><Translate id="basic.junk" /></b>: {clan.junk}
             </div>
             <div className="col-12 col-md-2">
-                <img height="20" src={food} alt="food" /> <b>Food</b>: {clan.food}
+                <img height="20" src={food} alt="food" /> <b><Translate id="basic.food" /></b>: {clan.food}
             </div>
             <div className="col-12 col-md-2">
-                <img height="20" src={fame} alt="fame" /> <b>Fame</b>: {clan.fame}
+                <img height="20" src={fame} alt="fame" /> <b><Translate id="basic.fame" /></b>: {clan.fame}
             </div>
         </div> 
     </div>

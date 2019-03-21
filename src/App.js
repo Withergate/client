@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { LocalizeProvider } from "react-localize-redux";
+
 import Header from './components/Header';
 import Main from './components/Main';
 import LoginPage from './components/LoginPage';
@@ -40,18 +42,20 @@ class App extends Component {
                 { 
                     loggedIn ?
                         fetched && 
-                            <BrowserRouter>
-                                <div>
-                                    <Header turn={turn} userRole={principal.role} clan={clan}/>
-                                    <Main 
-                                        exists={exists}
-                                        createClan={createClan}
-                                        clan={clan}
-                                        selectedCharacter={selectedCharacter}
-                                        selectCharacter={selectCharacter} />
-                                    <Footer version={version} />
-                                </div>
-                            </BrowserRouter>
+                            <LocalizeProvider>
+                                <BrowserRouter>
+                                    <div>
+                                        <Header turn={turn} userRole={principal.role} clan={clan}/>
+                                        <Main 
+                                            exists={exists}
+                                            createClan={createClan}
+                                            clan={clan}
+                                            selectedCharacter={selectedCharacter}
+                                            selectCharacter={selectCharacter} />
+                                        <Footer version={version} />
+                                    </div>
+                                </BrowserRouter>
+                            </LocalizeProvider>
                         : <LoginPage />
                 }
             </div>

@@ -13,3 +13,4 @@ export const TOKEN_URL =
   'oauth/authorize' +
   '?response_type=token&client_id=withergate&redirect_uri=http://localhost:3000';
 */
+
