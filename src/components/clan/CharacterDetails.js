@@ -43,7 +43,13 @@ const CharacterDetails = ({character}) => (
                 </small>
             </div>
             <div className="col-6 col-md-3">
-                <small>No abilities</small>
+                {character.traits.length > 0 && 
+                    character.traits.map(trait => 
+                        <div key={trait.id} className="mb-1">
+                            <img className="mb=1" data-for={trait.details.name} className="mr-2" height="30" src={trait.details.imageUrl} alt="" />
+                            <Translate id={trait.details.name} />
+                        </div>) 
+                }
             </div>
         </div>
     </div>

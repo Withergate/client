@@ -25,7 +25,7 @@ export function toReactTranslate(text) {
         }
         
         // Add React Translate component to result
-        result.push(<Translate id={id}/>);
+        result.push(<Translate id={id} key={id} />);
         nextStart = tagMatch.index + tagMatch[0].length;
       }
     } while(tagMatch);

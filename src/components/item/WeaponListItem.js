@@ -6,7 +6,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
     <div className="m-4 p-2 rounded bg-light" key={weapon.id}>
         <div className="row">
             <div className="col-12 col-md-4">
-                <img src={weapon.details.imageUrl} height="120px" alt={weapon.details.name} />
+                <img src={weapon.details.imageUrl} height="120px" alt="" />
             </div>
             <div className="col-12 col-md-8">
                 <b><Translate id={weapon.details.name} /></b>

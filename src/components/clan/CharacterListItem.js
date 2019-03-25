@@ -7,6 +7,7 @@ import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
 
 import { AttributeBar } from './AttributeBar';
+import { TraitItem } from './TraitItem';
 
 function renderState(state) {
     switch(state) {
@@ -17,6 +18,14 @@ function renderState(state) {
         default:
             return <img height="25" src={ready} alt="Ready" />;
     }
+}
+
+function renderTrait(trait) {
+    console.log(trait.details.name);
+    console.log(trait.details.imageUrl);
+    console.log(trait.id);
+
+    return <TraitItem key={trait.id} trait={trait} />
 }
 
 const CharacterListItem = ({character, unequipWeapon}) => (
@@ -66,7 +75,12 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 }
             </div>
             <div className="col-6 col-md-2">
-                <Translate id="basic.abilities" />
+                { 
+                    character.traits.length > 0 ? 
+                        character.traits.map(trait => renderTrait(trait))
+                        : <Translate id="basic.noTraits" />
+                }
+                
             </div>
         </div>
         
