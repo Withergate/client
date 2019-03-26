@@ -25,4 +25,4 @@ AttributeBar.propTypes = {
     value: PropTypes.number.isRequired
 };
 
-export { AttributeBar };
+export default AttributeBar;

@@ -11,6 +11,10 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
             <div className="col-12 col-md-8">
                 <b><Translate id={weapon.details.name} /></b>
                 <p><Translate id={weapon.details.description} /></p>
+                <small>
+                    <b><Translate id="basic.type" />: </b><Translate id={weapon.details.type} /><br />
+                    <b><Translate id="basic.bonus" />: </b>{weapon.details.combat}
+                </small>
             </div>
         </div>
         <div className="row p-3">

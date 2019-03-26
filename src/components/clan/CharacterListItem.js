@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
+import ReactTooltip from 'react-tooltip'
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
 
-import { AttributeBar } from './AttributeBar';
-import { TraitItem } from './TraitItem';
+import AttributeBar from './AttributeBar';
+import TraitItem from './TraitItem';
+import WeaponTooltip from '../item/WeaponTooltip';
 
 function renderState(state) {
     switch(state) {
@@ -21,10 +23,6 @@ function renderState(state) {
 }
 
 function renderTrait(trait) {
-    console.log(trait.details.name);
-    console.log(trait.details.imageUrl);
-    console.log(trait.id);
-
     return <TraitItem key={trait.id} trait={trait} />
 }
 
@@ -64,15 +62,20 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 </div>
             </div>
             <div className="col-6 col-md-4"> 
-                <b><Translate id="basic.weapon" /></b>: { character.weapon != null ? <Translate id={character.weapon.details.name} /> : <Translate id="basic.unarmed" /> }
-
-                { character.weapon != null &&
-                    <button 
-                        className="btn btn-dark ml-2 btn-sm" 
-                        onClick={() => unequipWeapon(character.weapon.id, character.id)}>
-                        Unequip
-                    </button> 
-                }
+                { character.weapon != null ?
+                    <div data-tip data-for={character.weapon.details.name}>
+                        <b><Translate id="basic.weapon" /></b>:
+                        <Translate id={character.weapon.details.name} />
+                        <ReactTooltip id={character.weapon.details.name} effect="solid" place="left">
+                            <WeaponTooltip weapon={character.weapon} />
+                        </ReactTooltip>
+                        <button 
+                            className="btn btn-dark ml-2 btn-sm" 
+                            onClick={() => unequipWeapon(character.weapon.id, character.id)}>
+                            Unequip
+                        </button> 
+                    </div>
+                    : <Translate id="basic.unarmed" /> }
             </div>
             <div className="col-6 col-md-2">
                 { 

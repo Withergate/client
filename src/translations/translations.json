@@ -28,7 +28,9 @@
         "noTraits": ["No abilities", "Žádné schopnosti"],
         "weapon": ["Weapon", "Zbraň"],
         "progress": ["Progress", "Postup"],
-        "unarmed": ["Unarmed", "Neozbrojen"]
+        "unarmed": ["Unarmed", "Neozbrojen"],
+        "type": ["Type", "Typ"],
+        "bonus": ["Bonus", "Bonus"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],
@@ -123,5 +125,7 @@
         "smallmedkit.description": ["Basic medical equipment for providing first aid and treating minor wounds.", "Malá lékárnička se základními potřebami pro první pomoc."],
         "largemedkit.name": ["Large medkit", "Velká lékárnička"],
         "largemedkit.description": ["Large bag containing all sorts of medical equipment. Useful for treating more dangerous wounds.", "Velká lékárnička s vybavením na ošetření težších zranění."]
-    }
+    },
+    "MELEE": ["Melee", "Kontaktní"],
+    "RANGED": ["Ranged", "Střelná"]
   }
