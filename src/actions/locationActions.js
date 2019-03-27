@@ -18,11 +18,11 @@ const fetchLocationsAction = () => ({
 
 export { fetchLocationsAction as fetchLocations };
 
-const visitLocationAction = (characterId, location) => {
+const visitLocationAction = (characterId, location, type) => {
     return (dispatch) => {
         return dispatch({
             type: VISIT_LOCATION,
-            payload: visitLocation(characterId, location)
+            payload: visitLocation(characterId, location, type)
         })
         .then(() => dispatch(fetchClan()));
     };

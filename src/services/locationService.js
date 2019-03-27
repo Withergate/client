@@ -1,11 +1,12 @@
 import { getHeaders } from './apiFetch';
 import { API_URL } from './constants/endpoints';
 
-export const visitLocation = (characterId, location) => {
+export const visitLocation = (characterId, location, type) => {
     return new Promise((resolve, reject) => {
         const payload = {
             characterId: characterId,
-            location: location
+            location: location,
+            type: type
         };
 
         fetch(API_URL + 'locations/action', {

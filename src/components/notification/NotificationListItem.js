@@ -10,6 +10,7 @@ import fame from '../../images/fame.png';
 import injury from '../../images/injury.png';
 import healing from '../../images/healing.png';
 import experience from '../../images/experience.png';
+import information from '../../images/information.png';
 
 const renderDetail = detail => (
     <div key={detail.id}>
@@ -34,13 +35,14 @@ const NotificationListItem = ({notification}) => (
         <div>
             { notification.header && <b>{notification.header}</b> }
             <div className="float-right">
-                { notification.junkIncome !== 0 && <span><b>{notification.junkIncome}</b> <img height="20" src={junk} alt="junk" /> </span> }
-                { notification.foodIncome !== 0 && <span><b>{notification.foodIncome}</b> <img height="20" src={food} alt="food" /> </span> }
-                { notification.capsIncome !== 0 && <span><b>{notification.capsIncome}</b> <img height="20" src={caps} alt="caps" /> </span> }
-                { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="fame" /> </span> }
-                { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="injury" /> </span> }
-                { notification.healing !== 0 && <span><b>{notification.healing}</b> <img height="20" src={healing} alt="healing" /> </span> }
-                { notification.experience !== 0 && <span><b>{notification.experience}</b> <img height="20" src={experience} alt="experience" /> </span> }
+                { notification.junkIncome !== 0 && <span><b>{notification.junkIncome}</b> <img height="20" src={junk} alt="" /> </span> }
+                { notification.foodIncome !== 0 && <span><b>{notification.foodIncome}</b> <img height="20" src={food} alt="" /> </span> }
+                { notification.capsIncome !== 0 && <span><b>{notification.capsIncome}</b> <img height="20" src={caps} alt="" /> </span> }
+                { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="" /> </span> }
+                { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="" /> </span> }
+                { notification.healing !== 0 && <span><b>{notification.healing}</b> <img height="20" src={healing} alt="" /> </span> }
+                { notification.experience !== 0 && <span><b>{notification.experience}</b> <img height="20" src={experience} alt="" /> </span> }
+                { notification.information !== 0 && <span><b>{notification.information}</b> <img height="20" src={information} alt="" /> </span> }
             </div>
         </div>
         <div className="row p-3">

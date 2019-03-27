@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
+import { ProgressBar } from 'react-bootstrap';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
 import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
+import information from '../../images/information.png';
 
 const ClanSummary = ({clan}) => (
     <div className="m-4 p-2 rounded bg-light">
@@ -28,6 +30,12 @@ const ClanSummary = ({clan}) => (
                 <img height="20" src={fame} alt="fame" /> <b><Translate id="basic.fame" /></b>: {clan.fame}
             </div>
         </div> 
+        <div className="row mt-3">
+            <div className="col-4">
+                <img height="20" src={information} alt="information" /> <b><Translate id="basic.informationLevel" /></b>: {clan.informationLevel}
+                <ProgressBar className="mt-2" min={0} max={clan.nextInformationLevel} now={clan.information} />
+            </div>
+        </div>
     </div>
 );
 

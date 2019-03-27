@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
+import ReactTooltip from 'react-tooltip';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <div className="m-4 p-2 rounded bg-light" key={location.location}>
@@ -17,12 +18,33 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
         </div>
         <div className="row p-3">
             { selectedCharacter !== undefined ? 
-                <button 
-                    className="btn btn-dark" 
-                    onClick={() => onVisit(selectedCharacter.id, location.location)}
-                    disabled={selectedCharacter.state !== 'READY'}>
-                    Visit
-                </button> 
+                <div>
+                    <button
+                        data-tip data-for="visitButton"
+                        className="btn btn-dark mb-2" 
+                        onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
+                        disabled={selectedCharacter.state !== 'READY'}>
+                        <Translate id="labels.visit" />
+                    </button>
+                    <ReactTooltip id="visitButton" effect="solid" place="right">
+                        <Translate id="labels.locationVisit" />
+                    </ReactTooltip>
+                    { 
+                        location.scouting && 
+                        <div>
+                            <button
+                            data-tip data-for="scoutButton"
+                                className="btn btn-dark mr-2" 
+                                onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
+                                disabled={selectedCharacter.state !== 'READY'}>
+                                <Translate id="labels.scout" />
+                            </button>
+                            <ReactTooltip id="scoutButton" effect="solid" place="right">
+                                <Translate id="labels.locationScout" />
+                            </ReactTooltip>
+                        </div>
+                    }
+                </div>
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
         </div>

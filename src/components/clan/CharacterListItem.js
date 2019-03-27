@@ -72,7 +72,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                         <button 
                             className="btn btn-dark ml-2 btn-sm" 
                             onClick={() => unequipWeapon(character.weapon.id, character.id)}>
-                            Unequip
+                            <Translate id="labels.unequip" />
                         </button> 
                     </div>
                     : <Translate id="basic.unarmed" /> }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 
 import help from '../../images/help.png';
 
@@ -37,7 +37,6 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
                         Construct
                     </button>
                     <img className="ml-2" data-tip data-for="help" height="20" src={help} alt="" />
-                    
                     <ReactTooltip id="help" effect="solid" place="right">
                         <Translate id="labels.buildingConstruction" />
                     </ReactTooltip>
