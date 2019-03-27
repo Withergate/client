@@ -11,7 +11,7 @@ import junkIcon from '../images/junk.png';
 import foodIcon from '../images/food.png';
 import fameIcon from '../images/fame.png';
 
-const Header = ({turn, userRole, clan}) => (
+const Header = ({turn, principal, clan}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/"><img height="25" src={logo} alt="WITHERGATE" /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@ const Header = ({turn, userRole, clan}) => (
                 <li className="nav-item"><Link className="nav-link" to='/clan'><Translate id="header.clan" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/locations'><Translate id="header.locations" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/fame'><Translate id="header.fame" /></Link></li>
-                { userRole === 'ADMIN' && <li className="nav-item"><Link className="nav-link" to='/admin'><Translate id="header.administration" /></Link></li>}
+                { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link" to='/admin'><Translate id="header.administration" /></Link></li>}
             </ul>
         </div>
         <div className="mr-2 mr-2 p-2 rounded bg-light">
@@ -43,7 +43,7 @@ const Header = ({turn, userRole, clan}) => (
 Header.propTypes = {
     turn: PropTypes.object.isRequired,
     clan: PropTypes.object.isRequired,
-    userRole: PropTypes.string
+    principal: PropTypes.object
 };
 
 export default Header;

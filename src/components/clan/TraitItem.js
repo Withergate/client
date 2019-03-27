@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip'
 
 const TraitItem = ({trait}) => (
     <div data-tip data-for={trait.details.description}>
-        <img className="mr-2 mb-2" height="30" src={trait.details.imageUrl} />
+        <img className="mr-2 mb-2" height="30" src={trait.details.imageUrl} alt="" />
         <Translate id={trait.details.name} />
 
         <ReactTooltip id={trait.details.description} effect="solid" place="left">

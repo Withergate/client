@@ -8,9 +8,6 @@ import { LocalizeProvider } from "react-localize-redux";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main';
-import LoginPage from './components/LoginPage';
-
-import spinner from './images/spinner.gif';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
@@ -30,7 +27,8 @@ class App extends Component {
         const { 
             fetched,
             fetching,
-            loggedIn, 
+            failed,
+            loggedIn,
             turn, 
             exists, 
             createClan, 
@@ -44,23 +42,23 @@ class App extends Component {
         return (
             <div>
                 <LocalizeProvider>
-                {
-                    loggedIn ?
-                        fetched &&
-                        <BrowserRouter>
-                            <div>
-                                <Header turn={turn} userRole={principal.role} clan={clan}/>
-                                <Main 
-                                    exists={exists}
-                                    createClan={createClan}
-                                    clan={clan}
-                                    selectedCharacter={selectedCharacter}
-                                    selectCharacter={selectCharacter} />
-                                <Footer version={version} />
-                            </div>
-                        </BrowserRouter>        
-                    : fetching ? <img className="spinner" src={spinner} alt="Loading..." /> : <LoginPage />
-                }
+                    <BrowserRouter>
+                        <div>
+                            <Header turn={turn} principal={principal} clan={clan}/>
+                            <Main 
+                                exists={exists}
+                                createClan={createClan}
+                                clan={clan}
+                                selectedCharacter={selectedCharacter}
+                                selectCharacter={selectCharacter} 
+                                fetching={fetching}
+                                fetched={fetched}
+                                failed={failed}
+                                loggedIn={loggedIn}
+                            />
+                            <Footer version={version} />
+                        </div>
+                    </BrowserRouter>
                 </LocalizeProvider>
             </div>
         );
