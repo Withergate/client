@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { restartGame } from '../actions/authActions';
+import { restartGame, endTurn } from '../actions/authActions';
 
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
@@ -22,6 +22,16 @@ class AdminPage extends Component {
                     this.props.principal.role === 'ADMIN' && this.props.fetched && 
                     <div className="m-4">
                         <h5>Admin dashboard</h5>
+                        <div className="mb-4">
+                            <p>
+                                This action ends the current turn.
+                            </p>
+                            <button 
+                                className="btn btn-dark" 
+                                onClick={() => this.props.endTurn()}>
+                                End turn
+                            </button> 
+                        </div>
                         <div>
                             <p className="text-danger">
                                 This action deletes all game-related data from the database and starts the whole game over.
@@ -32,9 +42,7 @@ class AdminPage extends Component {
                                 Restart game
                             </button> 
                         </div>
-                    
                     </div>
-                    
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
@@ -50,7 +58,8 @@ AdminPage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    restartGame: PropTypes.func.isRequired
+    restartGame: PropTypes.func.isRequired,
+    endTurn: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -61,7 +70,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ restartGame }, dispatch)
+    bindActionCreators({ restartGame, endTurn }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

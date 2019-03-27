@@ -4,7 +4,10 @@ import {
     FETCH_PRINCIPAL_REJECTED,
     RESTART_GAME_PENDING,
     RESTART_GAME_FULFILLED,
-    RESTART_GAME_REJECTED
+    RESTART_GAME_REJECTED,
+    END_TURN_PENDING,
+    END_TURN_FULFILLED,
+    END_TURN_REJECTED
 } from '../actions/authActions';
 
 // INITIALIZE STATE
@@ -69,6 +72,30 @@ export const AuthReducer = (state = initialState, action) => {
                 error: ''
             };
         case RESTART_GAME_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: false,
+                failed: true,
+                error: action.payload
+            };
+        case END_TURN_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false,
+                error: ''
+            };
+        case END_TURN_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false,
+                error: ''
+            };
+        case END_TURN_REJECTED:
             return {
                 ...state,
                 fetching: false,

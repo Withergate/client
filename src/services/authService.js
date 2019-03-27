@@ -40,6 +40,25 @@ export const restartGame = () => {
     });
 };
 
+export const endTurn = () => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'turn/end', {
+            method: 'POST',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }  
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
 // helper functions
 function getTokenFromUrl() {
     const url = window.location.href;
