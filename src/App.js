@@ -6,14 +6,17 @@ import { bindActionCreators } from 'redux';
 import { LocalizeProvider } from "react-localize-redux";
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Main from './components/Main';
 import LoginPage from './components/LoginPage';
+
+import spinner from './images/spinner.gif';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
 import { fetchVersion } from './actions/appActions';
 import { createClan, selectCharacter } from './actions/clanActions';
-import Footer from './components/Footer';
+
 
 class App extends Component {
 
@@ -25,7 +28,8 @@ class App extends Component {
 
     render() {
         const { 
-            fetched, 
+            fetched,
+            fetching,
             loggedIn, 
             turn, 
             exists, 
@@ -39,25 +43,25 @@ class App extends Component {
         
         return (
             <div>
-                { 
+                <LocalizeProvider>
+                {
                     loggedIn ?
-                        fetched && 
-                            <LocalizeProvider>
-                                <BrowserRouter>
-                                    <div>
-                                        <Header turn={turn} userRole={principal.role} clan={clan}/>
-                                        <Main 
-                                            exists={exists}
-                                            createClan={createClan}
-                                            clan={clan}
-                                            selectedCharacter={selectedCharacter}
-                                            selectCharacter={selectCharacter} />
-                                        <Footer version={version} />
-                                    </div>
-                                </BrowserRouter>
-                            </LocalizeProvider>
-                        : <LoginPage />
+                        fetched &&
+                        <BrowserRouter>
+                            <div>
+                                <Header turn={turn} userRole={principal.role} clan={clan}/>
+                                <Main 
+                                    exists={exists}
+                                    createClan={createClan}
+                                    clan={clan}
+                                    selectedCharacter={selectedCharacter}
+                                    selectCharacter={selectCharacter} />
+                                <Footer version={version} />
+                            </div>
+                        </BrowserRouter>        
+                    : fetching ? <img className="spinner" src={spinner} alt="Loading..." /> : <LoginPage />
                 }
+                </LocalizeProvider>
             </div>
         );
     }
