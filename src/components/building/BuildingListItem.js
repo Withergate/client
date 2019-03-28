@@ -35,7 +35,7 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
                         className="btn btn-dark button-classic" 
                         onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
                         disabled={selectedCharacter.state !== 'READY'}>
-                        Construct
+                        <Translate id="labels.construct" />
                     </button>
                     <ReactTooltip id="construct" effect="solid" place="right">
                         <Translate id="labels.buildingConstruction" />

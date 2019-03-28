@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { toReactTranslate } from '../../translations/translationUtils';
+import { getTranslatedText } from '../../translations/translationUtils';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -14,20 +14,8 @@ import information from '../../images/information.png';
 
 const renderDetail = detail => (
     <div key={detail.id}>
-        <li><small>{toReactTranslate(getDetailText(detail))}</small></li>
+        <li><small>{getTranslatedText(detail.text)}</small></li>
     </div>
-);
-
-const getNotificationText = notification => (
-    localStorage.getItem('lang') && notification && notification.text && notification.text[localStorage.getItem('lang')] ? 
-        notification.text[localStorage.getItem('lang')].text
-    : notification && notification.text && notification.text.en && notification.text.en.text
-);
-
-const getDetailText = detail => (
-    localStorage.getItem('lang') && detail && detail.text && detail.text[localStorage.getItem('lang')] ? 
-        detail.text[localStorage.getItem('lang')].text
-    : detail && detail.text && detail.text.en && detail.text.en.text
 );
 
 const NotificationListItem = ({notification}) => (
@@ -47,7 +35,7 @@ const NotificationListItem = ({notification}) => (
         </div>
         <div className="row p-3">
             {
-                toReactTranslate(getNotificationText(notification))
+                getTranslatedText(notification.text)
             }
         </div>
         {

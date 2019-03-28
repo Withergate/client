@@ -46,34 +46,13 @@
         "previous": ["Previous", "Přechozí"],
         "visit": ["Visit", "Navštívit"],
         "scout": ["Scout", "Pátrat"],
+        "construct": ["Construct", "Stavět"],
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "locationVisit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
         "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
         "locationScout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
         "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
-    },
-    "items": {
-        "knife.name": ["Knife", "Nůž"],
-        "knife.description": ["A dull edged, rusty kitchen knife stained with blood.", "Orezlý kuchyňský nůž od krve."],
-        "bat.name": ["Bat", "Palice"],
-        "bat.description": ["Baseball bat full of splinters enhanced with some nails.", "Baseballová pálka vylepšená několika hřebíky."],
-        "axe.name": ["Axe", "Sekera"],
-        "axe.description": ["One-handed axe.", "Jednoruční sekera."],
-        "chainsaw.name": ["Chainsaw", "Motorová pila"],
-        "chainsaw.description": ["Gas powered chainsaw with some fuel still left in the tank.", "Benzinová motorová pila s palivem v nádrži."],
-        "boomerang.name": ["Boomerang", "Boomerang"],
-        "boomerang.description": ["Wooden boomerang. With some razors attached to it.", "Dřevěný boomerang s přidělanými žiletkami."],
-        "throwingknifes.name": ["Throwing knifes", "Vrhací nože"],
-        "throwingknifes.description": ["A set of well balanced throwing knives.", "Několik dobře vybalancovaných vrhacích nožů."],
-        "crossbow.name": ["Crossbow", "Kuše"],
-        "crossbow.description": ["Modern crossbows can be precise and silent at the same time.", "Moderní kuše. Přesná a tichá."],
-        "handgun.name": ["Hand gun", "Pistole"],
-        "handgun.description": ["Hand gun. Light, practical, deadly.", "Pistole. Lehká, praktická, smrtící."],
-        "smallmedkit.name": ["Small medkit", "Malá lékárnička"],
-        "smallmedkit.description": ["Basic medical equipment for providing first aid and treating minor wounds.", "Malá lékárnička se základními potřebami pro první pomoc."],
-        "largemedkit.name": ["Large medkit", "Velká lékárnička"],
-        "largemedkit.description": ["Large bag containing all sorts of medical equipment. Useful for treating more dangerous wounds.", "Velká lékárnička s vybavením na ošetření težších zranění."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -87,5 +66,6 @@
         "button": ["Enter", "Vstoupit"]
     },
     "MELEE": ["Melee", "Kontaktní"],
-    "RANGED": ["Ranged", "Střelná"]
+    "RANGED": ["Ranged", "Střelná"],
+    "HEALING": ["Healing", "Léčení"]
   }

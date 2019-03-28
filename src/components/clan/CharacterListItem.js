@@ -4,6 +4,8 @@ import { ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip'
 
+import { getTranslatedText } from '../../translations/translationUtils';
+
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
 
@@ -63,9 +65,9 @@ const CharacterListItem = ({character, unequipWeapon}) => (
             </div>
             <div className="col-6 col-md-4"> 
                 { character.weapon != null ?
-                    <div data-tip data-for={character.weapon.details.name}>
-                        <b><Translate id="basic.weapon" /></b>: <Translate id={character.weapon.details.name} />
-                        <ReactTooltip id={character.weapon.details.name} effect="solid" place="left">
+                    <div data-tip data-for={character.weapon.details.identifier}>
+                        <b><Translate id="basic.weapon" /></b>: {getTranslatedText(character.weapon.details.name)}
+                        <ReactTooltip id={character.weapon.details.identifier} effect="solid" place="left">
                             <WeaponTooltip weapon={character.weapon} />
                         </ReactTooltip>
                         <button 

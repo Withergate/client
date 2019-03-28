@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
+import { getTranslatedText } from '../../translations/translationUtils';
+
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
 import TraitItem from './TraitItem';
@@ -39,7 +41,7 @@ const CharacterDetails = ({character}) => (
             </div>
             <div className="col-6 col-md-3">
                 <small>
-                    <b><Translate id="basic.weapon" /></b>: {character.weapon != null ? <Translate id={character.weapon.details.name} /> 
+                    <b><Translate id="basic.weapon" /></b>: {character.weapon != null ? getTranslatedText(character.weapon.details.name) 
                     : <Translate id="basic.unarmed" />}
                 </small>
             </div>
