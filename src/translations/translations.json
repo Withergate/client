@@ -53,20 +53,6 @@
         "locationScout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
         "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
     },
-    "traits": {
-        "fighter.name": ["Fighter", "Rváč"],
-        "fighter.description": ["Character with this trait has a chance to gain a combat bonus when fighting with a melee weapon.", 
-        "Postava s touto schopností má šanci získat bonus k bojové síle při souboji se zbraní nablízko."],
-        "ascetic.name": ["Ascetic", "Asketa"],
-        "ascetic.description": ["Character with this trait does not need to consume any food at the end of each turn.", 
-        "Postava s touto schopností nepotřebuje žádné jídlo na konci kola."],
-        "strong.name": ["Strong", "Silák"],
-        "strong.description": ["Character with this trait can carry additional junk and food when scavenging.", 
-        "Postava s touto schopností unese více šrotu a jídla při prohledávání lokací."],
-        "builder.name": ["Builder", "Stavitel"],
-        "builder.description": ["Character with this trait constructs building faster without paying extra junk for the construction", 
-        "Postava s touto schopností staví budovy rychleji, aniž musela platit šrot navíc."]
-    },
     "buildings": {
         "sickbay.name": ["Sick bay", "Marodka"],
         "sickbay.description": ["Feeling under the weather? Grab a bed and pull yourself together!", 

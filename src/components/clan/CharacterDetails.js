@@ -4,6 +4,7 @@ import { Translate } from "react-localize-redux";
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
+import TraitItem from './TraitItem';
 
 function renderState(state) {
     switch(state) {
@@ -46,8 +47,7 @@ const CharacterDetails = ({character}) => (
                 {character.traits.length > 0 && 
                     character.traits.map(trait => 
                         <div key={trait.id} className="mb-1">
-                            <img data-for={trait.details.name} className="mr-2" height="30" src={trait.details.imageUrl} alt="" />
-                            <small><Translate id={trait.details.name} /></small>
+                            <TraitItem trait={trait} />
                         </div>) 
                 }
             </div>
