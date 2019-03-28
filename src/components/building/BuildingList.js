@@ -10,7 +10,7 @@ const renderList = (buildings, selectedCharacter, constructBuilding) => (
 );
 
 const renderListItem = (building, selectedCharacter, constructBuilding) => (
-    <div key={building.details.name}>
+    <div key={building.details.identifier}>
         <BuildingListItem building={building} selectedCharacter={selectedCharacter} constructBuilding={constructBuilding} />
     </div>
 );

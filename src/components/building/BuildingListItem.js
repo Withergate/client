@@ -4,6 +4,8 @@ import { ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
+import { getTranslatedText } from '../../translations/translationUtils';
+
 const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
     <div className="m-4 p-2 rounded bg-light">
         <div className="row">
@@ -11,9 +13,9 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
                 <img src={building.details.imageUrl} height="120px" alt="" />
             </div>
             <div className="col-12 col-md-8">
-                <b><Translate id={building.details.name} /></b>
-                <p><Translate id={building.details.description} /></p>
-                <p><small className="text-muted"><Translate id={building.details.info} /></small></p>
+                <b>{getTranslatedText(building.details.name)}</b>
+                <p>{getTranslatedText(building.details.description)}</p>
+                <p><small className="text-muted">{getTranslatedText(building.details.info)}</small></p>
                 <b><Translate id="basic.level" />: </b> {building.level}
                 <div className="row">
                     <div className="col-12 col-md-6">
