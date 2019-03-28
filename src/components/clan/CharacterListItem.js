@@ -64,13 +64,12 @@ const CharacterListItem = ({character, unequipWeapon}) => (
             <div className="col-6 col-md-4"> 
                 { character.weapon != null ?
                     <div data-tip data-for={character.weapon.details.name}>
-                        <b><Translate id="basic.weapon" /></b>:
-                        <Translate id={character.weapon.details.name} />
+                        <b><Translate id="basic.weapon" /></b>: <Translate id={character.weapon.details.name} />
                         <ReactTooltip id={character.weapon.details.name} effect="solid" place="left">
                             <WeaponTooltip weapon={character.weapon} />
                         </ReactTooltip>
                         <button 
-                            className="btn btn-dark ml-2 btn-sm" 
+                            className="btn btn-secondary ml-2 btn-sm button-small" 
                             onClick={() => unequipWeapon(character.weapon.id, character.id)}>
                             <Translate id="labels.unequip" />
                         </button> 

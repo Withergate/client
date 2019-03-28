@@ -4,8 +4,6 @@ import { ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
-import help from '../../images/help.png';
-
 const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
     <div className="m-4 p-2 rounded bg-light">
         <div className="row">
@@ -31,13 +29,13 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding}) => (
             { selectedCharacter !== undefined ? 
                 <div>
                     <button
-                        className="btn btn-dark" 
+                        data-tip data-for="construct"
+                        className="btn btn-dark button-classic" 
                         onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
                         disabled={selectedCharacter.state !== 'READY'}>
                         Construct
                     </button>
-                    <img className="ml-2" data-tip data-for="help" height="20" src={help} alt="" />
-                    <ReactTooltip id="help" effect="solid" place="right">
+                    <ReactTooltip id="construct" effect="solid" place="right">
                         <Translate id="labels.buildingConstruction" />
                     </ReactTooltip>
                 </div>

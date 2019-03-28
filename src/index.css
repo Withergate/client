@@ -26,3 +26,11 @@ body {
   right: 0;
   left: 0;
 }
+
+.button-classic {
+  width: 100px;
+}
+
+.button-small {
+  width: 80px;
+}

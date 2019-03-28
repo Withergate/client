@@ -20,7 +20,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipWeapon}) => (
         <div className="row p-3">
             { selectedCharacter !== undefined ? 
                 <button 
-                    className="btn btn-dark" 
+                    className="btn btn-secondary button-classic" 
                     onClick={() => equipWeapon(weapon.id, selectedCharacter.id)}
                     disabled={selectedCharacter.weapon !== null}>
                     <Translate id="labels.equip" />

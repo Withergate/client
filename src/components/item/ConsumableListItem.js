@@ -6,7 +6,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
     <div className="m-4 p-2 rounded bg-light" key={consumable.id}>
         <div className="row">
             <div className="col-12 col-md-4">
-                <img src={consumable.details.imageUrl} height="120px" alt={consumable.details.name} />
+                <img className="w-100" src={consumable.details.imageUrl} alt={consumable.details.name} />
             </div>
             <div className="col-12 col-md-8">
                 <b><Translate id={consumable.details.name} /></b>
@@ -19,7 +19,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
         <div className="row p-3">
             { selectedCharacter !== undefined ? 
                 <button 
-                    className="btn btn-dark" 
+                    className="btn btn-secondary button-classic" 
                     onClick={() => useConsumable(consumable.id, selectedCharacter.id)}>
                     <Translate id="labels.use" />
                 </button> 

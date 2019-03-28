@@ -48,8 +48,10 @@
         "scout": ["Scout", "Pátrat"],
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
-        "locationVisit": ["Character will explore this location. Use this action if you are looking for resources or loot.", "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty."],
-        "locationScout": ["Character will scout this location for information. Use this action if you wish to increase your information level.", "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací."]
+        "locationVisit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
+        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
+        "locationScout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
+        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
     },
     "locations": {
         "neighborhood.name": ["Neighborhood", "Sousedství"],
