@@ -41,3 +41,9 @@ export function toReactTranslate(text) {
     return result.length ? result : text;
 }
 
+export function getTranslatedText(component) {
+  return localStorage.getItem('lang') && component && component[localStorage.getItem('lang')] ? 
+        component[localStorage.getItem('lang')].text
+    : component && component.en && component.en.text;
+}
+

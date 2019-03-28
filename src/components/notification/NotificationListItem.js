@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { toReactTranslate } from '../../translations/translationUtils';
+import { toReactTranslate, getTranslatedText } from '../../translations/translationUtils';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
