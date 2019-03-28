@@ -4,7 +4,7 @@ import { API_URL } from './constants/endpoints';
 export const fetchClan = () => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'clan', {
+        fetch(API_URL.concat('clan'), {
             method: 'GET',
             headers: getHeaders()
         }).then(response => {
@@ -25,7 +25,7 @@ export const fetchClan = () => {
 export const createClan = (clanName) => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'clan', {
+        fetch(API_URL.concat('clan'), {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify({name: clanName})
@@ -46,7 +46,7 @@ export const createClan = (clanName) => {
 export const equipWeapon = (weaponId, characterId) => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'items/weapons/equip', {
+        fetch(API_URL.concat('items/weapons/equip'), {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify({weaponId: weaponId, characterId: characterId})
@@ -67,7 +67,7 @@ export const equipWeapon = (weaponId, characterId) => {
 export const unequipWeapon = (weaponId, characterId) => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'items/weapons/unequip', {
+        fetch(API_URL.concat('items/weapons/unequip'), {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify({weaponId: weaponId, characterId: characterId})
@@ -88,7 +88,7 @@ export const unequipWeapon = (weaponId, characterId) => {
 export const fetchClans = (page) => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'clans?sort=fame,desc' + '&page=' + page, {
+        fetch(API_URL.concat('clans?sort=fame,desc').concat('&page=').concat(page), {
             method: 'GET',
             headers: getHeaders()
         }).then(response => {
@@ -144,3 +144,4 @@ export const constructBuilding = (buildingName, characterId, type) => {
         });
     });
 };
+

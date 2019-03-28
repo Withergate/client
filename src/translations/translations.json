@@ -2,7 +2,7 @@
     "header": {
       "news": ["News", "Novinky"],
       "clan": ["Clan", "Klan"],
-      "locations": ["Locations", "Lokace"],
+      "actions": ["Actions", "Akce"],
       "fame": ["Fame", "Sláva"],
       "administration": ["Administration", "Administrace"],
       "turn": ["Turn", "Kolo"]
@@ -13,6 +13,7 @@
         "overview": ["Overview", "Přehled"],
         "items": ["Items", "Předměty"],
         "buildings": ["Buildings", "Budovy"],
+        "locations": ["Locations", "Lokace"],
         "caps": ["Caps", "Zátky"],
         "junk": ["Junk", "Šrot"],
         "food": ["Food", "Jídlo"],

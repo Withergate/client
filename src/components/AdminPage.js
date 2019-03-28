@@ -27,7 +27,7 @@ class AdminPage extends Component {
                                 This action ends the current turn.
                             </p>
                             <button 
-                                className="btn btn-dark" 
+                                className="btn btn-dark button-classic" 
                                 onClick={() => this.props.endTurn()}>
                                 End turn
                             </button> 
@@ -37,9 +37,9 @@ class AdminPage extends Component {
                                 This action deletes all game-related data from the database and starts the whole game over.
                             </p>
                             <button 
-                                className="btn btn-danger" 
+                                className="btn btn-danger button-classic" 
                                 onClick={() => this.props.restartGame()}>
-                                Restart game
+                                Restart
                             </button> 
                         </div>
                     </div>

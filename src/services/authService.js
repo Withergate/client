@@ -6,7 +6,7 @@ export const fetchPrincipal = () => {
 
     return new Promise((resolve, reject) => {
         // fetch principal
-        fetch(AUTH_URL + 'user', {
+        fetch(AUTH_URL.concat('user'), {
             method: 'GET',
             headers: getHeaders()
         }).then(response => {
@@ -23,7 +23,7 @@ export const fetchPrincipal = () => {
 
 export const restartGame = () => {
     return new Promise((resolve, reject) => {
-        fetch(API_URL + 'restart', {
+        fetch(API_URL.concat('restart'), {
             method: 'POST',
             headers: getHeaders()
         }).then(response => {
@@ -42,7 +42,7 @@ export const restartGame = () => {
 
 export const endTurn = () => {
     return new Promise((resolve, reject) => {
-        fetch(API_URL + 'turn/end', {
+        fetch(API_URL.concat('turn/end'), {
             method: 'POST',
             headers: getHeaders()
         }).then(response => {
@@ -63,7 +63,7 @@ export const endTurn = () => {
 function getTokenFromUrl() {
     const url = window.location.href;
   
-    const regex = new RegExp('[#&]' + 'access_token' + '(=([^&#]*)|&|#|$)'),
+    const regex = new RegExp('[#&]'.concat('access_token').concat('(=([^&#]*)|&|#|$)')),
         results = regex.exec(url);
     if (!results) {
         return;

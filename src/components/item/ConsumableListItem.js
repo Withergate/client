@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
-    <div className="m-4 p-2 rounded bg-light" key={consumable.id}>
-        <div className="row">
-            <div className="col-12 col-md-4">
+    <div className="mb-4 p-3 rounded bg-light" key={consumable.id}>
+        <Row>
+            <Col md={4}>
                 <img className="w-100" src={consumable.details.imageUrl} alt={consumable.details.name} />
-            </div>
-            <div className="col-12 col-md-8">
+            </Col>
+            <Col md={8}>
                 <b>{getTranslatedText(consumable.details.name)}</b>
                 <p className="mt-2">
                     {getTranslatedText(consumable.details.description)}
@@ -19,18 +20,19 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
                     <b><Translate id="basic.type" />: </b><Translate id={consumable.details.effectType} /><br />
                     <b><Translate id="basic.bonus" />: </b>{consumable.details.effect}
                 </small>
-            </div>
-        </div>
-        <div className="row p-3">
+            </Col>
+        </Row>
+        <Row>
             { selectedCharacter !== undefined ? 
-                <button 
-                    className="btn btn-secondary button-classic" 
+                <Button 
+                    variant="secondary"
+                    className="button-classic ml-3 m-2" 
                     onClick={() => useConsumable(consumable.id, selectedCharacter.id)}>
                     <Translate id="labels.use" />
-                </button> 
-                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
+                </Button> 
+                : <small className="text-muted ml-3 m-2"><Translate id="labels.noCharacter" /></small>
             }
-        </div>
+        </Row>
     </div>
 );
 

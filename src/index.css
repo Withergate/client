@@ -34,3 +34,13 @@ body {
 .button-small {
   width: 80px;
 }
+
+.tab-link {
+  color: var(--dark);
+  background-color: white !important;
+}
+
+.tab-link.active {
+  color:white;
+  background-color: var(--dark) !important;
+}

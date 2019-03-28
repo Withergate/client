@@ -9,7 +9,7 @@ import spinner from '../images/spinner.gif';
 
 import HomePage from './HomePage';
 import ClanPage from './ClanPage';
-import LocationsPage from './LocationsPage';
+import ActionPage from './ActionPage';
 import FamePage from './FamePage';
 import ClanSetupForm from './clan/ClanSetupForm';
 import AdminPage from './AdminPage';
@@ -41,12 +41,12 @@ class Main extends Component {
                                 <Switch>
                                     <Route exact path='/' component={HomePage}/>
                                     <Route path='/clan' component={ClanPage}/>
-                                    <Route path='/locations' component={LocationsPage}/>
+                                    <Route path='/action' component={ActionPage}/>
                                     <Route path='/fame' component={FamePage}/>
                                     <Route path='/admin' component={AdminPage}/>
                                 </Switch>
                             </div>
-                            : <ClanSetupForm createClan={this.props.createClan}/>
+                            : this.props.fetching ? <img className="spinner" src={spinner} alt="Loading..." /> : <ClanSetupForm createClan={this.props.createClan}/>
                     : this.props.fetching ?
                         <img className="spinner" src={spinner} alt="Loading..." />
                         : <LoginPage />

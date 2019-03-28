@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import CharacterDetails from './CharacterDetails';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const getTextColor = (character) => {
     switch(character.state) {
@@ -18,31 +19,31 @@ const getTextColor = (character) => {
 };
 
 const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
-    <div className="p-4 dropdown">
-        <div className="row">
-            <div className="col-12 col-md-4">
-                <button className="btn btn-dark btn-block dropdown-toggle" data-toggle="dropdown">
+    <div className="mb-3 dropdown">
+        <Row>
+            <Col md={4}>
+                <Button variant="dark" className="dropdown-toggle w-100" data-toggle="dropdown">
                     { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
-                </button>   
+                </Button>   
                 <div className="dropdown-menu">
                     { characters.map(character => 
-                        <button
-                            className="btn btn-light"
+                        <Button
+                            variant="light"
                             key={character.id}
                             onClick={() => onSelect(character.id)}><div className={getTextColor(character)}>{character.name}</div>
-                        </button>)
+                        </Button>)
                     }
                 </div>
                 <small className="text-muted"><Translate id="labels.selectorDescription" /></small>
-            </div>
-            <div className="col-12 col-md-8">
+            </Col>
+            <Col md={8}>
                 {
                     selectedCharacter !== undefined ? 
                         <CharacterDetails character={selectedCharacter} /> 
                         : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                 }
-            </div>
-        </div>
+            </Col>
+        </Row>
     </div>
 );
 

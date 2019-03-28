@@ -4,43 +4,46 @@ import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
 import { getTranslatedText } from '../../translations/translationUtils';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
-    <div className="m-4 p-2 rounded bg-light" key={location.location}>
-        <div className="row">
-            <div className="col-12 col-md-4">
-                <img className="mb-2" src={location.imageUrl} height="200px" alt={location.location} />
-            </div>
-            <div className="col-12 col-md-6">
+    <div className="mb-4 p-3 rounded bg-light" key={location.location}>
+        <Row>
+            <Col md={4}>
+                <img className="mb-2 w-100" src={location.imageUrl}  alt={location.location} />
+            </Col>
+            <Col md={6}>
                 <h5>{getTranslatedText(location.name)}</h5>
                 <p>{getTranslatedText(location.description)}</p>
                 <p><small className="text-muted">{getTranslatedText(location.info)}</small>
                 </p>
-            </div>
-            <div className="col-12 col-md-2">
+            </Col>
+            <Col md={2}>
                 { selectedCharacter !== undefined ? 
                     <div>
-                        <button
+                        <Button
+                            variant="dark"
                             data-tip data-for="visitButton"
-                            className="btn btn-dark m-2 button-classic" 
+                            className="m-2 button-classic" 
                             onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
                             disabled={selectedCharacter.state !== 'READY'}>
                             <Translate id="labels.visit" />
-                        </button>
-                        <ReactTooltip id="visitButton" effect="solid" place="right">
+                        </Button>
+                        <ReactTooltip id="visitButton" effect="solid" place="left">
                             <Translate id="labels.locationVisit" />
                         </ReactTooltip>
                         { 
                             location.scouting && 
                             <div>
-                                <button
+                                <Button
+                                    variant="dark"
                                     data-tip data-for="scoutButton"
-                                    className="btn btn-dark m-2 button-classic" 
+                                    className="m-2 button-classic" 
                                     onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
                                     disabled={selectedCharacter.state !== 'READY'}>
                                     <Translate id="labels.scout" />
-                                </button>
-                                <ReactTooltip id="scoutButton" effect="solid" place="right">
+                                </Button>
+                                <ReactTooltip id="scoutButton" effect="solid" place="left">
                                     <Translate id="labels.locationScout" />
                                 </ReactTooltip>
                             </div>
@@ -48,8 +51,8 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     </div>
                     : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                 }
-            </div>
-        </div>
+            </Col>
+        </Row>
     </div>
 );
 

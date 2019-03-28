@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar } from 'react-bootstrap';
+import { ProgressBar, Row, Col } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip'
 
@@ -29,41 +29,41 @@ function renderTrait(trait) {
 }
 
 const CharacterListItem = ({character, unequipWeapon}) => (
-    <div className="mb-4 p-2 rounded bg-light">
-        <div className="row">
-            <div className="col">
+    <div className="mb-4 p-3 rounded bg-light">
+        <Row>
+            <Col>
                 <h5 className="mb-2">{renderState(character.state)} {character.name} ({character.level})</h5>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col-12 col-md-2">
+            </Col>
+        </Row>
+        <Row>
+            <Col md={2}>
                 <img className="rounded mb-2" width="120px" src={character.imageUrl} alt="Avatar" />
-            </div>
-            <div className="col-12 col-md-4">
+            </Col>
+            <Col md={4}>
                 <div className="mb-2">
                     <AttributeBar name="basic.combat" value={character.combat} />
                     <AttributeBar name="basic.scavenge" value={character.scavenge} />
                     <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} />
                     <AttributeBar name="basic.intellect" value={character.intellect} /> 
                 </div>
-                <div className="row">
-                    <div className="col-12 col-md-6">
+                <Row className="row">
+                    <Col md={6}>
                         <b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}
-                    </div>
-                    <div className="col-12 col-md-6">
+                    </Col>
+                    <Col md={6}>
                         <ProgressBar min={0} max={character.maxHitpoints} now={character.hitpoints} />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-6">
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={6}>
                         <b><Translate id="basic.experience" /></b>: {character.experience}/{character.nextLevel}
-                    </div>
-                    <div className="col-12 col-md-6">
+                    </Col>
+                    <Col md={6}>
                         <ProgressBar min={0} max={character.nextLevel} now={character.experience} />
-                    </div>
-                </div>
-            </div>
-            <div className="col-6 col-md-4"> 
+                    </Col>
+                </Row>
+            </Col>
+            <Col md={4}> 
                 { character.weapon != null ?
                     <div data-tip data-for={character.weapon.details.identifier}>
                         <b><Translate id="basic.weapon" /></b>: {getTranslatedText(character.weapon.details.name)}
@@ -77,17 +77,15 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                         </button> 
                     </div>
                     : <Translate id="basic.unarmed" /> }
-            </div>
-            <div className="col-6 col-md-2">
+            </Col>
+            <Col md={2}>
                 { 
                     character.traits.length > 0 ? 
                         character.traits.map(trait => renderTrait(trait))
                         : <Translate id="basic.noTraits" />
                 }
-                
-            </div>
-        </div>
-        
+            </Col>
+        </Row>
     </div>
 );
 

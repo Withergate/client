@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Row, Col, Nav } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import CharacterList from './clan/CharacterList';
@@ -14,15 +14,9 @@ import BuildingList from './building/BuildingList';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter,
-    constructBuilding } from '../actions/clanActions';
+import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter } from '../actions/clanActions';
 
 class ClanPage extends Component {
-
-    constructor() {
-        super();
-        this.state = { tabIndex: 0 };
-      }
 
     componentDidMount() {
         this.props.fetchClan();
@@ -36,61 +30,65 @@ class ClanPage extends Component {
                 }
                 {
                     this.props.fetched && 
-                    <div>
-                        <CharacterSelector 
-                            characters={this.props.clan.characters}
-                            selectedCharacter={this.props.selectedCharacter}
-                            onSelect={this.props.selectCharacter} />
-
-                        <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                            <TabList className="pl-4">
-                                <Tab><Translate id="basic.overview" /></Tab>
-                                <Tab><Translate id="basic.characters" /></Tab>
-                                <Tab><Translate id="basic.items" /></Tab>
-                                <Tab><Translate id="basic.buildings" /></Tab>
-                            </TabList>
-                            
-                            <TabPanel>
-                                <ClanSummary clan={this.props.clan} />
-                            </TabPanel>
-                            <TabPanel>
-                                <CharacterList 
-                                    characters={this.props.clan.characters}
-                                    unequipWeapon={this.props.unequipWeapon} />
-                            </TabPanel>
-                            <TabPanel>
-                                <div className="row">
-                                    <div className="col-12 col-md-6">
-                                        <WeaponList 
-                                            weapons={this.props.clan.weapons}
-                                            equipWeapon={this.props.equipWeapon}
-                                            selectedCharacter={this.props.selectedCharacter} />
-                                    </div>
-                                    <div className="col-12 col-md-6">
-                                        <ConsumableList
-                                            consumables={this.props.clan.consumables}
-                                            selectedCharacter={this.props.selectedCharacter} 
-                                            useConsumable={this.props.useConsumable}/>
-                                    </div>
-                                </div>
-                            </TabPanel>
-                            <TabPanel>
-                                <div className="row">
-                                    <div className="col-12 col-md-6">
-                                        <BuildingList 
-                                            buildings={this.props.clan.buildings}
-                                            constructBuilding={this.props.constructBuilding}
-                                            selectedCharacter={this.props.selectedCharacter} />
-                                    </div>
-                                    <div className="col-12 col-md-6">
-                                        <BuildingList 
-                                            buildings={this.props.clan.unconstructedBuildings}
-                                            constructBuilding={this.props.constructBuilding}
-                                            selectedCharacter={this.props.selectedCharacter} />
-                                    </div>
-                                </div>
-                            </TabPanel>
-                        </Tabs>
+                    <div className="m-3">
+                        <Tab.Container id="tab-navigation" defaultActiveKey="overview">
+                            <Row>
+                                <Col md={2} sm={4}>
+                                    <Nav variant="pills" className="flex-column">
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="overview" className="tab-link"><Translate id="basic.overview" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="characters" className="tab-link"><Translate id="basic.characters" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="items"className="tab-link" ><Translate id="basic.items" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="buildings"className="tab-link" ><Translate id="basic.buildings" /></Nav.Link>
+                                        </Nav.Item>
+                                    </Nav>
+                                </Col>
+                                <Col md={10} sm={8}>
+                                    <Tab.Content>
+                                        <Tab.Pane eventKey="overview">
+                                            <ClanSummary clan={this.props.clan} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="characters">
+                                            <CharacterList 
+                                            characters={this.props.clan.characters}
+                                            unequipWeapon={this.props.unequipWeapon} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="items">
+                                            <CharacterSelector 
+                                                characters={this.props.clan.characters}
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                onSelect={this.props.selectCharacter} />
+                                            <Row>
+                                                <Col md={6}>
+                                                    <WeaponList 
+                                                        weapons={this.props.clan.weapons}
+                                                        equipWeapon={this.props.equipWeapon}
+                                                        selectedCharacter={this.props.selectedCharacter} />
+                                                </Col>
+                                                <Col md={6}>
+                                                    <ConsumableList
+                                                        consumables={this.props.clan.consumables}
+                                                        selectedCharacter={this.props.selectedCharacter} 
+                                                        useConsumable={this.props.useConsumable}/>
+                                                </Col>
+                                            </Row>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="buildings">
+                                            <BuildingList 
+                                                buildings={this.props.clan.buildings}
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                actionable={false} />
+                                        </Tab.Pane>
+                                    </Tab.Content>
+                                </Col>
+                            </Row>
+                        </Tab.Container>
                     </div>
                 }
                 {
@@ -111,7 +109,6 @@ ClanPage.propTypes = {
     selectedCharacter: PropTypes.object,
     unequipWeapon: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
-    constructBuilding: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -121,7 +118,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter, constructBuilding }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);

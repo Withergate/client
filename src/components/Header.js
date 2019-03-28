@@ -21,7 +21,7 @@ const Header = ({turn, principal, clan}) => (
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item"><Link className="nav-link" to='/'><Translate id="header.news" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/clan'><Translate id="header.clan" /></Link></li>
-                <li className="nav-item"><Link className="nav-link" to='/locations'><Translate id="header.locations" /></Link></li>
+                <li className="nav-item"><Link className="nav-link" to='/action'><Translate id="header.actions" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/fame'><Translate id="header.fame" /></Link></li>
                 { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link" to='/admin'><Translate id="header.administration" /></Link></li>}
             </ul>

@@ -16,7 +16,7 @@ const renderListItem = (character, unequipWeapon) => (
 );
 
 const CharacterList = (props) => (
-    <div className="p-4">
+    <div>
         {renderList(props.characters, props.unequipWeapon)}
     </div>
 );

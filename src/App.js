@@ -89,7 +89,7 @@ const mapStateToProps = state => {
     const { exists, clan, selectedCharacter } = state.clan;
     const { version } = state.app;
 
-    const fetching = state.auth.fetching || state.turn.fetching;
+    const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching;
     const fetched = state.auth.fetched && state.turn.fetched;
     const failed = state.auth.failed || state.turn.failed;
 
