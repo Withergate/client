@@ -23,28 +23,28 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     <div>
                         <Button
                             variant="dark"
-                            data-tip data-for="visitButton"
+                            data-tip data-for={location.location.concat(".visit")}
                             className="m-2 button-classic" 
                             onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
                             disabled={selectedCharacter.state !== 'READY'}>
                             <Translate id="labels.visit" />
                         </Button>
-                        <ReactTooltip id="visitButton" effect="solid" place="left">
-                            <Translate id="labels.locationVisit" />
+                        <ReactTooltip id={location.location.concat(".visit")} effect="solid" place="left">
+                            <Translate id={location.location.concat(".visit")} />
                         </ReactTooltip>
                         { 
                             location.scouting && 
                             <div>
                                 <Button
                                     variant="dark"
-                                    data-tip data-for="scoutButton"
+                                    data-tip data-for={location.location.concat(".scout")}
                                     className="m-2 button-classic" 
                                     onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
                                     disabled={selectedCharacter.state !== 'READY'}>
                                     <Translate id="labels.scout" />
                                 </Button>
-                                <ReactTooltip id="scoutButton" effect="solid" place="left">
-                                    <Translate id="labels.locationScout" />
+                                <ReactTooltip id={location.location.concat(".scout")} effect="solid" place="left">
+                                    <Translate id={location.location.concat(".scout")} />
                                 </ReactTooltip>
                             </div>
                         }

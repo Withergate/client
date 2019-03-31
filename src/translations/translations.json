@@ -48,12 +48,15 @@
         "visit": ["Visit", "Navštívit"],
         "scout": ["Scout", "Pátrat"],
         "construct": ["Construct", "Stavět"],
+        "noWeapons": ["You don't have any weapons at the moment. You can go to the Actions section to search some locations or perform crafting.",
+        "Momentálně nemáš žádné zbraně. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],
+        "noItems": ["You don't have any items at the moment. You can go to the Actions section to search some locations or perform crafting.",
+        "Momentálně nemáš žádné předměty. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],    
+        "noBuildings": ["You don't have any buildings at the moment. You can go to the Actions section to start a building construction.",
+        "Momentálně nemáš žádné budovy. V sekci Akce můžeš začít se stavbou."], 
+        "noNotifications": ["There are no notifications for this turn.", "V tomto kole nemáš žádné novinky."],   
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
-        "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
-        "locationVisit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
-        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
-        "locationScout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
-        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
+        "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -68,5 +71,31 @@
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
-    "HEALING": ["Healing", "Léčení"]
+    "HEALING": ["Healing", "Léčení"],
+    "NEIGHBORHOOD": {
+        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
+        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
+        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
+        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
+        
+    },
+    "WASTELAND": {
+        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
+        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
+        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
+        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
+        
+    },
+    "CITY_CENTER": {
+        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
+        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
+        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
+        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
+    },
+    "TAVERN": {
+        "visit": ["Character will hire someone in the tavern.", "Postava najme novou posilu v hospodě"]
+    },
+    "ARENA": {
+        "visit": ["Character will fight in the arena.", "Postava se utká v souboji v aréně."]
+    }
   }

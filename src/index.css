@@ -44,3 +44,7 @@ body {
   color:white;
   background-color: var(--dark) !important;
 }
+
+.action-link {
+  color: var(--secondary);
+}

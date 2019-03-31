@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
+import { Link } from 'react-router-dom';
 
 import ConsumableListItem from './ConsumableListItem';
 
@@ -17,7 +19,13 @@ const renderListItem = (consumable, selectedCharacter, useConsumable) => (
 
 const ConsumableList = (props) => (
     <div>
-        {renderList(props.consumables, props.selectedCharacter, props.useConsumable)}
+        {
+            props.consumables.length ? 
+                renderList(props.consumables, props.selectedCharacter, props.useConsumable)
+                : <div>
+                    <Translate id="labels.noItems" /> -> <Link className="action-link" to='/action'><Translate id="header.actions" /></Link>
+                </div>
+            }
     </div>
 );
 

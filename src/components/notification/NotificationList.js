@@ -6,7 +6,12 @@ import NotificationListItem from './NotificationListItem';
 
 const renderList = notifications => (
     <div>
-        {notifications.map(notification => renderListItem(notification))}
+        {
+            notifications.length ? notifications.map(notification => renderListItem(notification))
+            : <div className="m-4">
+                <Translate id="labels.noNotifications" />
+            </div>
+        }
     </div>
 );
 

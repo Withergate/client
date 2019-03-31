@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from "react-localize-redux";
+import { Link } from 'react-router-dom';
 
 import WeaponListItem from './WeaponListItem';
 
@@ -17,7 +19,12 @@ const renderListItem = (weapon, selectedCharacter, equipWeapon) => (
 
 const WeaponList = (props) => (
     <div>
-        {renderList(props.weapons, props.selectedCharacter, props.equipWeapon)}
+        { props.weapons.length ? 
+            renderList(props.weapons, props.selectedCharacter, props.equipWeapon)
+            : <div>
+                 <Translate id="labels.noWeapons" /> -> <Link className="action-link" to='/action'><Translate id="header.actions" /></Link>
+            </div>
+        }
     </div>
 );
 
