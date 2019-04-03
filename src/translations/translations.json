@@ -56,7 +56,8 @@
         "Momentálně nemáš žádné budovy. V sekci Akce můžeš začít se stavbou."], 
         "noNotifications": ["There are no notifications for this turn.", "V tomto kole nemáš žádné novinky."],   
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
-        "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."]
+        "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
+        "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

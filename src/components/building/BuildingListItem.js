@@ -41,6 +41,22 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                             <ReactTooltip id="construct" effect="solid" place="left">
                                 <Translate id="labels.buildingConstruction" />
                             </ReactTooltip>
+                            {
+                                building.details.visitable && 
+                                <div>
+                                    <Button
+                                        data-tip data-for="visit"
+                                        variant="dark"
+                                        className="m-2 button-classic"
+                                        onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
+                                        disabled={selectedCharacter.state !== 'READY' || building.level < 1}>
+                                        <Translate id="labels.visit" />
+                                    </Button>
+                                    <ReactTooltip id="visit" effect="solid" place="left">
+                                        <Translate id="labels.buildingVisit" />
+                                    </ReactTooltip>
+                                </div>
+                            }
                         </div>
                         : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                     }
