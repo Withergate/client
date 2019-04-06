@@ -10,6 +10,7 @@ import LocationList from './location/LocationList';
 import spinner from '../images/spinner.gif';
 import CharacterSelector from './clan/CharacterSelector';
 import BuildingList from './building/BuildingList';
+import QuestList from './quest/QuestList';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
 import { fetchClan, selectCharacter, constructBuilding } from '../actions/clanActions';
@@ -40,6 +41,9 @@ class ActionPage extends Component {
                                         <Nav.Item>
                                             <Nav.Link eventKey="buildings" className="tab-link"><Translate id="basic.buildings" /></Nav.Link>
                                         </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="quests" className="tab-link"><Translate id="basic.quests" /></Nav.Link>
+                                        </Nav.Item>
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
@@ -69,6 +73,12 @@ class ActionPage extends Component {
                                                     selectedCharacter={this.props.selectedCharacter}
                                                     actionable={true} />
                                             </div>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="quests">
+                                            <QuestList 
+                                                quests={this.props.clan.quests.filter(quest => !quest.completed)} 
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                goOnQuest={() => {}} />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
