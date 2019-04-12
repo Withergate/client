@@ -11,6 +11,7 @@ import CharacterSelector from './clan/CharacterSelector';
 import WeaponList from './item/WeaponList';
 import ConsumableList from './item/ConsumableList';
 import BuildingList from './building/BuildingList';
+import QuestListCompleted from './quest/QuestListCompleted';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
@@ -46,6 +47,9 @@ class ClanPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="buildings"className="tab-link" ><Translate id="basic.buildings" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="quests"className="tab-link" ><Translate id="basic.questsCompleted" /></Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -84,6 +88,10 @@ class ClanPage extends Component {
                                                 buildings={this.props.clan.buildings}
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 actionable={false} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="quests">
+                                            <QuestListCompleted 
+                                                quests={this.props.clan.quests.filter(quest => quest.completed)} />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>

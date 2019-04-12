@@ -5,7 +5,8 @@ import {
     unequipWeapon,
     useConsumable,
     constructBuilding,
-    fetchClans } from '../services/clanService';
+    fetchClans, 
+    goOnQuest} from '../services/clanService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
 export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
@@ -35,6 +36,11 @@ export const BUILDING = 'BUILDING';
 export const BUILDING_PENDING = 'BUILDING_PENDING';
 export const BUILDING_FULFILLED = 'BUILDING_FULFILLED';
 export const BUILDING_REJECTED = 'BUILDING_REJECTED';
+
+export const QUEST = 'QUEST';
+export const QUEST_PENDING = 'QUEST_PENDING';
+export const QUEST_FULFILLED = 'QUEST_FULFILLED';
+export const QUEST_REJECTED = 'QUEST_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -132,3 +138,17 @@ const constructBuildingAction = (buildingName, characterId, type) => {
 };
 
 export { constructBuildingAction as constructBuilding };
+
+const goOnQuestAction = (questId, characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: QUEST,
+            payload: goOnQuest(questId, characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+
+export { goOnQuestAction as goOnQuest };

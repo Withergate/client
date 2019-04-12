@@ -18,6 +18,9 @@ import {
     BUILDING_PENDING,
     BUILDING_FULFILLED,
     BUILDING_REJECTED,
+    QUEST_PENDING,
+    QUEST_FULFILLED,
+    QUEST_REJECTED,
 } from '../actions/clanActions';
 
 // INITIALIZE STATE
@@ -201,7 +204,29 @@ export const ClanReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: true,
                 error: action.payload
-            };                       
+            };
+        case QUEST_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case QUEST_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false
+            };
+        case QUEST_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: true,
+                error: action.payload
+            };   
         default:
             return state;
     }

@@ -13,7 +13,7 @@ import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
-import { fetchClan, selectCharacter, constructBuilding } from '../actions/clanActions';
+import { fetchClan, selectCharacter, constructBuilding, goOnQuest } from '../actions/clanActions';
 
 class ActionPage extends Component {
 
@@ -78,7 +78,7 @@ class ActionPage extends Component {
                                             <QuestList 
                                                 quests={this.props.clan.quests.filter(quest => !quest.completed)} 
                                                 selectedCharacter={this.props.selectedCharacter}
-                                                goOnQuest={() => {}} />
+                                                goOnQuest={this.props.goOnQuest} />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
@@ -106,7 +106,8 @@ ActionPage.propTypes = {
     selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
     selectCharacter: PropTypes.func.isRequired,
-    constructBuilding: PropTypes.func.isRequired
+    constructBuilding: PropTypes.func.isRequired,
+    goOnQuest: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -121,7 +122,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter, constructBuilding }, dispatch)
+    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter, constructBuilding, goOnQuest }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionPage);
