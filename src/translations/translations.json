@@ -9,6 +9,7 @@
     },
     "basic": {
         "clan": ["Clan", "Klan"],
+        "marketplace": ["Marketplace", "Tržiště"],
         "characters": ["Characters", "Postavy"],
         "overview": ["Overview", "Přehled"],
         "items": ["Items", "Předměty"],
@@ -51,6 +52,9 @@
         "visit": ["Visit", "Navštívit"],
         "scout": ["Scout", "Pátrat"],
         "construct": ["Construct", "Stavět"],
+        "buy": ["Buy", "Koupit"],
+        "sell": ["Sell", "Prodat"],
+        "resourceTrade": ["Trade resources", "Obchod se surovinami"],
         "noWeapons": ["You don't have any weapons at the moment. You can go to the Actions section to search some locations or perform crafting.",
         "Momentálně nemáš žádné zbraně. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],
         "noItems": ["You don't have any items at the moment. You can go to the Actions section to search some locations or perform crafting.",

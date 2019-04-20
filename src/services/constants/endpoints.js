@@ -7,10 +7,9 @@ export const TOKEN_URL =
   'oauth/authorize' +
   '?response_type=token&client_id=withergate&redirect_uri=http://game.withergate.com';
 
-/*z
+/*
 export const TOKEN_URL =
   AUTH_URL +
   'oauth/authorize' +
   '?response_type=token&client_id=withergate&redirect_uri=http://localhost:3000';
 */
-

@@ -13,7 +13,8 @@ import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
 
 import { fetchLocations, visitLocation } from '../actions/locationActions';
-import { fetchClan, selectCharacter, constructBuilding, goOnQuest } from '../actions/clanActions';
+import { fetchClan, selectCharacter, constructBuilding, goOnQuest, tradeResources } from '../actions/clanActions';
+import ResourceTradePanel from './trade/ResourceTradePanel';
 
 class ActionPage extends Component {
 
@@ -43,6 +44,9 @@ class ActionPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="quests" className="tab-link"><Translate id="basic.quests" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="marketplace" className="tab-link"><Translate id="basic.marketplace" /></Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -80,6 +84,12 @@ class ActionPage extends Component {
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 goOnQuest={this.props.goOnQuest} />
                                         </Tab.Pane>
+                                        <Tab.Pane eventKey="marketplace">
+                                            <ResourceTradePanel 
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                onTrade={this.props.tradeResources}
+                                            />
+                                        </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
                             </Row>
@@ -107,22 +117,25 @@ ActionPage.propTypes = {
     clan: PropTypes.object.isRequired,
     selectCharacter: PropTypes.func.isRequired,
     constructBuilding: PropTypes.func.isRequired,
-    goOnQuest: PropTypes.func.isRequired
+    goOnQuest: PropTypes.func.isRequired,
+    tradeResources: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
-    const { error, locations } = state.data;
+    const { locations } = state.data;
     const { selectedCharacter, clan } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
     const fetched = state.data.fetched && state.clan.fetched;
     const failed = state.data.failed || state.clan.failed;
 
+    const error = state.clan.error || state.data.error;
+
     return { fetching, fetched, failed, error, locations, selectedCharacter, clan };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter, constructBuilding, goOnQuest }, dispatch)
+    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter, constructBuilding, goOnQuest, tradeResources }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionPage);

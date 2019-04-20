@@ -6,7 +6,9 @@ import {
     useConsumable,
     constructBuilding,
     fetchClans, 
-    goOnQuest} from '../services/clanService';
+    goOnQuest,
+    tradeResources
+} from '../services/clanService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
 export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
@@ -41,6 +43,11 @@ export const QUEST = 'QUEST';
 export const QUEST_PENDING = 'QUEST_PENDING';
 export const QUEST_FULFILLED = 'QUEST_FULFILLED';
 export const QUEST_REJECTED = 'QUEST_REJECTED';
+
+export const TRADE_RESOURCES = 'TRADE_RESOURCES';
+export const TRADE_RESOURCES_PENDING = 'TRADE_RESOURCES_PENDING';
+export const TRADE_RESOURCES_FULFILLED = 'TRADE_RESOURCES_FULFILLED';
+export const TRADE_RESOURCES_REJECTED = 'TRADE_RESOURCES_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -152,3 +159,17 @@ const goOnQuestAction = (questId, characterId) => {
 };
 
 export { goOnQuestAction as goOnQuest };
+
+const tradeResourcesAction = (characterId, food, junk, type) => {
+    return (dispatch) => {
+        return dispatch({
+            type: TRADE_RESOURCES,
+            payload: tradeResources(characterId, food, junk, type)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+
+export { tradeResourcesAction as tradeResources };

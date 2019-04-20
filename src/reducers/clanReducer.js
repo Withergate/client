@@ -21,6 +21,9 @@ import {
     QUEST_PENDING,
     QUEST_FULFILLED,
     QUEST_REJECTED,
+    TRADE_RESOURCES_PENDING,
+    TRADE_RESOURCES_FULFILLED,
+    TRADE_RESOURCES_REJECTED
 } from '../actions/clanActions';
 
 // INITIALIZE STATE
@@ -226,7 +229,29 @@ export const ClanReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: true,
                 error: action.payload
-            };   
+            };
+        case TRADE_RESOURCES_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case TRADE_RESOURCES_FULFILLED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: false
+            };
+        case TRADE_RESOURCES_REJECTED:
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                failed: true,
+                error: action.payload
+            };
         default:
             return state;
     }
