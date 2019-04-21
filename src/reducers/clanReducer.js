@@ -3,12 +3,12 @@ import {
     FETCH_CLAN_FULFILLED,
     FETCH_CLAN_REJECTED,
     SELECT_CHARACTER,
-    EQUIP_WEAPON_FULFILLED,
-    EQUIP_WEAPON_REJECTED,
-    EQUIP_WEAPON_PENDING,
-    UNEQUIP_WEAPON_FULFILLED,
-    UNEQUIP_WEAPON_REJECTED,
-    UNEQUIP_WEAPON_PENDING,
+    EQUIP_ITEM_FULFILLED,
+    EQUIP_ITEM_REJECTED,
+    EQUIP_ITEM_PENDING,
+    UNEQUIP_ITEM_FULFILLED,
+    UNEQUIP_ITEM_REJECTED,
+    UNEQUIP_ITEM_PENDING,
     FETCH_CLANS_PENDING,
     FETCH_CLANS_FULFILLED,
     FETCH_CLANS_REJECTED,
@@ -93,21 +93,21 @@ export const ClanReducer = (state = initialState, action) => {
                 ...state,
                 selectedCharacter: state.clan.characters.find(character => character.id === action.payload)
             };
-        case EQUIP_WEAPON_PENDING:
+        case EQUIP_ITEM_PENDING:
             return {
                 ...state,
                 fetching: true,
                 fetched: false,
                 failed: false
             };
-        case EQUIP_WEAPON_FULFILLED:
+        case EQUIP_ITEM_FULFILLED:
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 failed: false
             };
-        case EQUIP_WEAPON_REJECTED:
+        case EQUIP_ITEM_REJECTED:
             return {
                 ...state,
                 fetching: false,
@@ -115,21 +115,21 @@ export const ClanReducer = (state = initialState, action) => {
                 failed: true,
                 error: action.payload
             };
-        case UNEQUIP_WEAPON_PENDING:
+        case UNEQUIP_ITEM_PENDING:
             return {
                 ...state,
                 fetching: true,
                 fetched: false,
                 failed: false
             };
-        case UNEQUIP_WEAPON_FULFILLED:
+        case UNEQUIP_ITEM_FULFILLED:
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 failed: false
             };
-        case UNEQUIP_WEAPON_REJECTED:
+        case UNEQUIP_ITEM_REJECTED:
             return {
                 ...state,
                 fetching: false,

@@ -15,7 +15,16 @@ import QuestListCompleted from './quest/QuestListCompleted';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter } from '../actions/clanActions';
+import { 
+    fetchClan,
+    equipWeapon,
+    unequipWeapon,
+    useConsumable,
+    equipGear,
+    unequipGear,
+    selectCharacter 
+} from '../actions/clanActions';
+import GearList from './item/GearList';
 
 class ClanPage extends Component {
 
@@ -61,7 +70,8 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="characters">
                                             <CharacterList 
                                             characters={this.props.clan.characters}
-                                            unequipWeapon={this.props.unequipWeapon} />
+                                            unequipWeapon={this.props.unequipWeapon}
+                                            unequipGear={this.props.unequipGear} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <CharacterSelector 
@@ -70,9 +80,13 @@ class ClanPage extends Component {
                                                 onSelect={this.props.selectCharacter} />
                                             <Row>
                                                 <Col md={6}>
-                                                    <WeaponList 
+                                                    <WeaponList
                                                         weapons={this.props.clan.weapons}
                                                         equipWeapon={this.props.equipWeapon}
+                                                        selectedCharacter={this.props.selectedCharacter} />
+                                                    <GearList
+                                                        gear={this.props.clan.gear}
+                                                        equipGear={this.props.equipGear}
                                                         selectedCharacter={this.props.selectedCharacter} />
                                                 </Col>
                                                 <Col md={6}>
@@ -115,18 +129,21 @@ ClanPage.propTypes = {
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
+    equipWeapon: PropTypes.func.isRequired,
     unequipWeapon: PropTypes.func.isRequired,
+    equipGear: PropTypes.func.isRequired,
+    unequipGear: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, clan, selectedCharacter, weapons } = state.clan;
+    const { fetching, fetched, failed, error, clan, selectedCharacter } = state.clan;
 
-    return { fetching, fetched, failed, error, clan, selectedCharacter, weapons };
+    return { fetching, fetched, failed, error, clan, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, useConsumable, selectCharacter }, dispatch)
+    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, equipGear, unequipGear, useConsumable, selectCharacter }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);

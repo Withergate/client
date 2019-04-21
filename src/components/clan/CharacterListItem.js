@@ -12,6 +12,7 @@ import busy from '../../images/busy-icon.png';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
+import GearTooltip from '../item/GearTooltip';
 
 function renderState(state) {
     switch(state) {
@@ -28,7 +29,7 @@ function renderTrait(trait) {
     return <TraitItem key={trait.id} trait={trait} />
 }
 
-const CharacterListItem = ({character, unequipWeapon}) => (
+const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
     <div className="mb-4 p-3 rounded bg-light">
         <Row>
             <Col>
@@ -64,6 +65,7 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                 </Row>
             </Col>
             <Col md={4}> 
+                <Row className="mb-1">
                 { character.weapon != null ?
                     <div data-tip data-for={character.weapon.details.identifier}>
                         <b><Translate id="basic.weapon" /></b>: {getTranslatedText(character.weapon.details.name)}
@@ -77,6 +79,22 @@ const CharacterListItem = ({character, unequipWeapon}) => (
                         </button> 
                     </div>
                     : <Translate id="basic.unarmed" /> }
+                </Row>
+                <Row>
+                { character.gear != null ?
+                    <div data-tip data-for={character.gear.details.identifier}>
+                        <b><Translate id="basic.gear" /></b>: {getTranslatedText(character.gear.details.name)}
+                        <ReactTooltip id={character.gear.details.identifier} effect="solid" place="left">
+                            <GearTooltip gear={character.gear} />
+                        </ReactTooltip>
+                        <button 
+                            className="btn btn-secondary ml-2 btn-sm button-small" 
+                            onClick={() => unequipGear(character.gear.id, character.id)}>
+                            <Translate id="labels.unequip" />
+                        </button> 
+                    </div>
+                    : <Translate id="basic.noGear" /> }
+                </Row>
             </Col>
             <Col md={2}>
                 { 
@@ -91,7 +109,8 @@ const CharacterListItem = ({character, unequipWeapon}) => (
 
 CharacterListItem.propTypes = {
     character: PropTypes.object.isRequired,
-    unequipWeapon: PropTypes.func.isRequired
+    unequipWeapon: PropTypes.func.isRequired,
+    unequipGear: PropTypes.func.isRequired
 };
 
 export default CharacterListItem;

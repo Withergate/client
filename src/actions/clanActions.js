@@ -7,7 +7,9 @@ import {
     constructBuilding,
     fetchClans, 
     goOnQuest,
-    tradeResources
+    tradeResources,
+    equipGear,
+    unequipGear
 } from '../services/clanService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -19,15 +21,15 @@ export const CREATE_CLAN = 'CREATE_CLAN';
 
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 
-export const EQUIP_WEAPON = 'EQUIP_WEAPON';
-export const EQUIP_WEAPON_PENDING = 'EQUIP_WEAPON_PENDING';
-export const EQUIP_WEAPON_FULFILLED = 'EQUIP_WEAPON_FULFILLED';
-export const EQUIP_WEAPON_REJECTED = 'EQUIP_WEAPON_REJECTED';
+export const EQUIP_ITEM = 'EQUIP_ITEM';
+export const EQUIP_ITEM_PENDING = 'EQUIP_ITEM_PENDING';
+export const EQUIP_ITEM_FULFILLED = 'EQUIP_ITEM_FULFILLED';
+export const EQUIP_ITEM_REJECTED = 'EQUIP_ITEM_REJECTED';
 
-export const UNEQUIP_WEAPON = 'UNEQUIP_WEAPON';
-export const UNEQUIP_WEAPON_PENDING = 'UNEQUIP_WEAPON_PENDING';
-export const UNEQUIP_WEAPON_FULFILLED = 'UNEQUIP_WEAPON_FULFILLED';
-export const UNEQUIP_WEAPON_REJECTED = 'UNEQUIP_WEAPON_REJECTED';
+export const UNEQUIP_ITEM = 'UNEQUIP_ITEM';
+export const UNEQUIP_ITEM_PENDING = 'UNEQUIP_ITEM_PENDING';
+export const UNEQUIP_ITEM_FULFILLED = 'UNEQUIP_ITEM_FULFILLED';
+export const UNEQUIP_ITEM_REJECTED = 'UNEQUIP_ITEM_REJECTED';
 
 export const USE_CONSUMABLE = 'USE_CONSUMABLE';
 export const USE_CONSUMABLE_PENDING = 'USE_CONSUMABLE_PENDING';
@@ -86,7 +88,7 @@ export { selectedCharacterAction as selectCharacter };
 const equipWeaponAction = (weaponId, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: EQUIP_WEAPON,
+            type: EQUIP_ITEM,
             payload: equipWeapon(weaponId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -100,7 +102,7 @@ export { equipWeaponAction as equipWeapon };
 const unequipWeaponAction = (weaponId, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: UNEQUIP_WEAPON,
+            type: UNEQUIP_ITEM,
             payload: unequipWeapon(weaponId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -110,6 +112,34 @@ const unequipWeaponAction = (weaponId, characterId) => {
 };
 
 export { unequipWeaponAction as unequipWeapon };
+
+const equipGearAction = (gearId, characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: EQUIP_ITEM,
+            payload: equipGear(gearId, characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+
+export { equipGearAction as equipGear };
+
+const unequipGearAction = (gearId, characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: UNEQUIP_ITEM,
+            payload: unequipGear(gearId, characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+
+export { unequipGearAction as unequipGear };
 
 const fetchClansAction = (page) => ({
     type: FETCH_CLANS,

@@ -46,7 +46,7 @@ export const equipWeapon = (weaponId, characterId) => {
         fetch(API_URL.concat('items/weapons/equip'), {
             method: 'POST',
             headers: getHeaders(),
-            body: JSON.stringify({weaponId: weaponId, characterId: characterId})
+            body: JSON.stringify({itemId: weaponId, characterId: characterId})
         }).then(response => {
             if (response.ok) {
                 resolve(response.status);
@@ -66,7 +66,47 @@ export const unequipWeapon = (weaponId, characterId) => {
         fetch(API_URL.concat('items/weapons/unequip'), {
             method: 'POST',
             headers: getHeaders(),
-            body: JSON.stringify({weaponId: weaponId, characterId: characterId})
+            body: JSON.stringify({itemId: weaponId, characterId: characterId})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }   
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const equipGear = (gearId, characterId) => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL.concat('items/gear/equip'), {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({itemId: gearId, characterId: characterId})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const unequipGear = (gearId, characterId) => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL.concat('items/gear/unequip'), {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({itemId: gearId, characterId: characterId})
         }).then(response => {
             if (response.ok) {
                 resolve(response.status);
