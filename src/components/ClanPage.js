@@ -140,7 +140,12 @@ ClanPage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, clan, selectedCharacter } = state.clan;
+    const { clan, selectedCharacter } = state.clan;
+
+    const fetching = state.clan.fetching || state.action.fetching;
+    const fetched = state.clan.fetched && state.action.fetched;
+    const failed = state.clan.failed || state.action.failed;
+    const error = state.clan.error || state.action.error;
 
     return { fetching, fetched, failed, error, clan, selectedCharacter };
 };

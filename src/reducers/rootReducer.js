@@ -4,6 +4,7 @@ import { AuthReducer } from './authReducer';
 import { ClanReducer } from './clanReducer';
 import { DataReducer } from './dataReducer';
 import { TurnReducer } from './turnReducer';
+import { ActionReducer } from './actionReducer';
 import { NotificationReducer } from './notificationReducer';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
     clan: ClanReducer,
     turn: TurnReducer,
     notifications: NotificationReducer,
-    data: DataReducer
+    data: DataReducer,
+    action: ActionReducer
 });
