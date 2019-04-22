@@ -12,8 +12,8 @@ import CharacterSelector from './clan/CharacterSelector';
 import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
 
-import { fetchLocations, visitLocation } from '../actions/locationActions';
-import { fetchClan, selectCharacter, constructBuilding, goOnQuest, tradeResources } from '../actions/clanActions';
+import { fetchLocations, fetchClan } from '../actions/dataActions';
+import { visitLocation, selectCharacter, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
 import ResourceTradePanel from './trade/ResourceTradePanel';
 
 class ActionPage extends Component {

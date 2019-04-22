@@ -12,7 +12,7 @@ import Main from './components/Main';
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn } from './actions/turnActions';
 import { fetchVersion } from './actions/appActions';
-import { createClan, selectCharacter } from './actions/clanActions';
+import { createClan, selectCharacter } from './actions/actionActions';
 
 
 class App extends Component {

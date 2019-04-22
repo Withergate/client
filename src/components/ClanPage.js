@@ -9,6 +9,7 @@ import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
 import CharacterSelector from './clan/CharacterSelector';
 import WeaponList from './item/WeaponList';
+import GearList from './item/GearList';
 import ConsumableList from './item/ConsumableList';
 import BuildingList from './building/BuildingList';
 import QuestListCompleted from './quest/QuestListCompleted';
@@ -16,15 +17,17 @@ import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
 import { 
-    fetchClan,
     equipWeapon,
     unequipWeapon,
     useConsumable,
     equipGear,
     unequipGear,
     selectCharacter 
-} from '../actions/clanActions';
-import GearList from './item/GearList';
+} from '../actions/actionActions';
+import {
+    fetchClan
+} from '../actions/dataActions';
+
 
 class ClanPage extends Component {
 

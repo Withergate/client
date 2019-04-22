@@ -8,7 +8,7 @@ import { Translate } from "react-localize-redux";
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchClans } from '../actions/clanActions';
+import { fetchClans } from '../actions/dataActions';
 
 const columns = [
     {

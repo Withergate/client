@@ -1,21 +1,21 @@
 import { 
-    fetchClan, 
     createClan, 
     equipWeapon, 
     unequipWeapon,
     useConsumable,
-    constructBuilding,
-    fetchClans, 
+    constructBuilding, 
     goOnQuest,
     tradeResources,
     equipGear,
-    unequipGear
-} from '../services/clanService';
+    unequipGear,
+    visitLocation
+} from '../services/actionService';
 
-export const FETCH_CLAN = 'FETCH_CLAN';
-export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
-export const FETCH_CLAN_FULFILLED = 'FETCH_CLAN_FULFILLED';
-export const FETCH_CLAN_REJECTED = 'FETCH_CLAN_REJECTED';
+import {
+    fetchClan,
+} from '../services/dataService';
+
+import { FETCH_CLAN } from './dataActions';
 
 export const CREATE_CLAN = 'CREATE_CLAN';
 
@@ -51,18 +51,10 @@ export const TRADE_RESOURCES_PENDING = 'TRADE_RESOURCES_PENDING';
 export const TRADE_RESOURCES_FULFILLED = 'TRADE_RESOURCES_FULFILLED';
 export const TRADE_RESOURCES_REJECTED = 'TRADE_RESOURCES_REJECTED';
 
-export const FETCH_CLANS = 'FETCH_CLANS';
-export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
-export const FETCH_CLANS_FULFILLED = 'FETCH_CLANS_FULFILLED';
-export const FETCH_CLANS_REJECTED = 'FETCH_CLANS_REJECTED';
-
-const fetchClanAction = () => ({
-    type: FETCH_CLAN,
-    payload: fetchClan()
-});
-
-export { fetchClanAction as fetchClan };
-
+export const VISIT_LOCATION = 'VISIT_LOCATIONS';
+export const VISIT_LOCATION_PENDING = 'VISIT_LOCATIONS_PENDING';
+export const VISIT_LOCATION_FULFILLED = 'VISIT_LOCATIONS_FULFILLED';
+export const VISIT_LOCATION_REJECTED = 'VISIT_LOCATIONS_REJECTED';
 
 const createClanAction = (clanName) => {
     return (dispatch) => {
@@ -75,14 +67,12 @@ const createClanAction = (clanName) => {
         }));
     };
 };
-
 export { createClanAction as createClan };
 
 const selectedCharacterAction = (characterId) => ({
     type: SELECT_CHARACTER,
     payload: characterId
 });
-
 export { selectedCharacterAction as selectCharacter };
 
 const equipWeaponAction = (weaponId, characterId) => {
@@ -96,7 +86,6 @@ const equipWeaponAction = (weaponId, characterId) => {
         }));
     };
 };
-
 export { equipWeaponAction as equipWeapon };
 
 const unequipWeaponAction = (weaponId, characterId) => {
@@ -110,7 +99,6 @@ const unequipWeaponAction = (weaponId, characterId) => {
         }));
     };
 };
-
 export { unequipWeaponAction as unequipWeapon };
 
 const equipGearAction = (gearId, characterId) => {
@@ -124,7 +112,6 @@ const equipGearAction = (gearId, characterId) => {
         }));
     };
 };
-
 export { equipGearAction as equipGear };
 
 const unequipGearAction = (gearId, characterId) => {
@@ -138,15 +125,7 @@ const unequipGearAction = (gearId, characterId) => {
         }));
     };
 };
-
 export { unequipGearAction as unequipGear };
-
-const fetchClansAction = (page) => ({
-    type: FETCH_CLANS,
-    payload: fetchClans(page)
-});
-
-export { fetchClansAction as fetchClans };
 
 const useConsumableAction = (consumableId, characterId) => {
     return (dispatch) => {
@@ -159,7 +138,6 @@ const useConsumableAction = (consumableId, characterId) => {
         }));
     };
 };
-
 export { useConsumableAction as useConsumable };
 
 const constructBuildingAction = (buildingName, characterId, type) => {
@@ -173,7 +151,6 @@ const constructBuildingAction = (buildingName, characterId, type) => {
         }));
     };
 };
-
 export { constructBuildingAction as constructBuilding };
 
 const goOnQuestAction = (questId, characterId) => {
@@ -187,7 +164,6 @@ const goOnQuestAction = (questId, characterId) => {
         }));
     };
 };
-
 export { goOnQuestAction as goOnQuest };
 
 const tradeResourcesAction = (characterId, food, junk, type) => {
@@ -201,5 +177,18 @@ const tradeResourcesAction = (characterId, food, junk, type) => {
         }));
     };
 };
-
 export { tradeResourcesAction as tradeResources };
+
+const visitLocationAction = (characterId, location, type) => {
+    return (dispatch) => {
+        return dispatch({
+            type: VISIT_LOCATION,
+            payload: visitLocation(characterId, location, type)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { visitLocationAction as visitLocation };
+

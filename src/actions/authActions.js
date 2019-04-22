@@ -1,5 +1,5 @@
 import { fetchPrincipal, restartGame, endTurn } from '../services/authService';
-import { fetchClan } from './clanActions';
+import { fetchClan } from './dataActions';
 
 export const FETCH_PRINCIPAL = 'FETCH_PRINCIPAL';
 export const FETCH_PRINCIPAL_PENDING = 'FETCH_PRINCIPAL_PENDING';

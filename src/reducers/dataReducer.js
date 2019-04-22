@@ -1,11 +1,14 @@
 import {
-    FETCH_LOCATIONS_PENDING,
-    FETCH_LOCATIONS_FULFILLED,
-    FETCH_LOCATIONS_REJECTED,
     VISIT_LOCATION_PENDING,
     VISIT_LOCATION_FULFILLED,
     VISIT_LOCATION_REJECTED
-} from '../actions/locationActions';
+} from '../actions/actionActions';
+
+import {
+    FETCH_LOCATIONS_PENDING,
+    FETCH_LOCATIONS_FULFILLED,
+    FETCH_LOCATIONS_REJECTED
+} from '../actions/dataActions';
 
 // INITIALIZE STATE
 
