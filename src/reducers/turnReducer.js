@@ -3,7 +3,8 @@ import {
     FETCH_TURN_FULFILLED,
     FETCH_TURN_REJECTED,
     DISPLAY_TURN_NOTIFICATIONS
-} from '../actions/turnActions';
+} from '../actions/dataActions';
+
 const initialState = {
     turn: {},
     turnDisplayed: 0,

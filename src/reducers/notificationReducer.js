@@ -2,7 +2,8 @@ import {
     FETCH_NOTIFICATIONS_PENDING,
     FETCH_NOTIFICATIONS_FULFILLED,
     FETCH_NOTIFICATIONS_REJECTED
-} from '../actions/notificationActions';
+} from '../actions/dataActions';
+
 const initialState = {
     notifications: [],
     fetching: false,

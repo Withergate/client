@@ -53,3 +53,58 @@ export const fetchLocations = () => {
         });
     });
 };
+
+export const fetchTurn = () => {
+    return new Promise((resolve, reject) => {
+        // fetch turn data
+        fetch(API_URL + 'turn', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching data from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const fetchNotifications = (turn) => {
+    return new Promise((resolve, reject) => {
+        // fetch notifications data
+        var url = API_URL + 'notifications?turn=' + turn;
+        fetch(url, {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching data from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const fetchVersion = () => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'version', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.text());
+            }
+            
+            reject('Error fetching version info from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

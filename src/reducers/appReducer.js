@@ -2,7 +2,8 @@ import {
     FETCH_VERSION_PENDING,
     FETCH_VERSION_FULFILLED,
     FETCH_VERSION_REJECTED
-} from '../actions/appActions';
+} from '../actions/dataActions';
+
 const initialState = {
     version: '',
     fetching: false,
