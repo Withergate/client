@@ -1,70 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar, Row, Col, Button } from 'react-bootstrap';
+import { ProgressBar, Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
 const BuildingListItem = ({building, selectedCharacter, constructBuilding, actionable}) => (
-    <div className="mb-4 p-3 rounded bg-light">
-        <Row>
-            <Col md={4}>
-                <img src={building.details.imageUrl} height="120px" alt="" />
-            </Col>
-            <Col md={actionable ? 6 : 8}>
-                <b>{getTranslatedText(building.details.name)}</b>
-                <p>{getTranslatedText(building.details.description)}</p>
-                <p><small className="text-muted">{getTranslatedText(building.details.info)}</small></p>
-                <b><Translate id="basic.level" />: </b> {building.level}
-                <Row>
-                    <Col md={4}>
-                        <b><Translate id="basic.progress" /></b>: {building.progress}/{building.nextLevel}
-                    </Col>
-                    <Col md={8}>
-                        <ProgressBar min={0} max={building.nextLevel} now={building.progress} />
-                    </Col>
-                </Row>
-            </Col>
-                { actionable && 
-                <Col md={2}>
-                    { selectedCharacter !== undefined ? 
-                        <div>
-                            <Button
-                                data-tip data-for="construct"
-                                variant="dark"
-                                className="m-2 button-classic"
-                                onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
-                                disabled={selectedCharacter.state !== 'READY'}>
-                                <Translate id="labels.construct" />
-                            </Button>
-                            <ReactTooltip id="construct" effect="solid" place="left">
-                                <Translate id="labels.buildingConstruction" />
-                            </ReactTooltip>
-                            {
-                                building.details.visitable && 
-                                <div>
-                                    <Button
-                                        data-tip data-for="visit"
-                                        variant="dark"
-                                        className="m-2 button-classic"
-                                        onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
-                                        disabled={selectedCharacter.state !== 'READY' || building.level < 1}>
-                                        <Translate id="labels.visit" />
-                                    </Button>
-                                    <ReactTooltip id="visit" effect="solid" place="left">
-                                        <Translate id="labels.buildingVisit" />
-                                    </ReactTooltip>
-                                </div>
-                            }
-                        </div>
-                        : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
-                    }
+    <Card className="mb-4" key={building.id}>
+        <Card.Body>
+            <Card.Title>
+                {getTranslatedText(building.details.name)}
+            </Card.Title>
+            <Row>
+                <Col md={4}>
+                    <Image src={building.details.imageUrl} rounded height="120px" />
                 </Col>
-            }
-        </Row>
-        
-    </div>
+                <Col md={8}>
+                    <p>{getTranslatedText(building.details.description)}</p>
+                    <p><small className="text-muted">{getTranslatedText(building.details.info)}</small></p>
+                    <p>
+                        <b><Translate id="basic.level" />: </b> {building.level}
+                    </p>
+                    <ProgressBar min={0} max={building.nextLevel} now={building.progress} label={`${building.progress}/${building.nextLevel}`} />
+                </Col>
+            </Row>
+        </Card.Body>
+        { actionable && 
+            <Card.Footer>
+                { selectedCharacter !== undefined ? 
+                    <Row>
+                        <Button
+                            data-tip data-for="construct"
+                            variant="dark"
+                            className="m-2 button-classic"
+                            onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
+                            disabled={selectedCharacter.state !== 'READY'}>
+                            <Translate id="labels.construct" />
+                        </Button>
+                        <ReactTooltip id="construct" effect="solid" place="left">
+                            <Translate id="labels.buildingConstruction" />
+                        </ReactTooltip>
+                        {
+                            building.details.visitable && 
+                            <div>
+                                <Button
+                                    data-tip data-for="visit"
+                                    variant="dark"
+                                    className="m-2 button-classic"
+                                    onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
+                                    disabled={selectedCharacter.state !== 'READY' || building.level < 1}>
+                                    <Translate id="labels.visit" />
+                                </Button>
+                                <ReactTooltip id="visit" effect="solid" place="left">
+                                    <Translate id="labels.buildingVisit" />
+                                </ReactTooltip>
+                            </div>
+                        }
+                    </Row>
+                    : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
+                }
+            </Card.Footer>
+        }
+    </Card>
 );
 
 BuildingListItem.propTypes = {

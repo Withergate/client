@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col } from 'react-bootstrap';
-
-import caps from '../../images/caps.png';
-import fame from '../../images/fame.png';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 
 const renderList = (quests) => (
     <div>
@@ -14,31 +11,28 @@ const renderList = (quests) => (
 );
 
 const renderListItem = (quest) => (
-    <div key={quest.id}>
-        <div className="mb-4 p-3 rounded bg-light" key={quest.id}>
+    <Card className="mb-4" key={quest.id}>
+        <Card.Body>
             <Row>
                 <Col md={2}>
-                    <img src={quest.details.imageUrl} height="80px" alt="" />
+                    <Image rounded src={quest.details.imageUrl} height="80px" alt="" />
                 </Col>
                 <Col md={10}>
                     <b>{getTranslatedText(quest.details.name)}</b>
-                    <p className="mt-4">
-                    <span><img height="20" src={caps} alt="" /> {quest.details.capsReward} </span>
-                    <span><img height="20" src={fame} alt="" /> {quest.details.fameReward} </span>
-                </p>
+                    <p>
+                        {getTranslatedText(quest.details.description)}
+                    </p>
                 </Col>
             </Row>
-        </div>
-    </div>
+        </Card.Body>
+    </Card>
 );
 
 const QuestListCompleted = (props) => (
     <div>
         { props.quests.length ? 
             renderList(props.quests)
-            : <div>
-                 <Translate id="labels.noCompletedQuests" />
-            </div>
+            : <Translate id="labels.noCompletedQuests" />
         }
     </div>
 );

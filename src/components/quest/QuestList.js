@@ -20,9 +20,7 @@ const QuestList = (props) => (
     <div>
         { props.quests.length ? 
             renderList(props.quests, props.selectedCharacter, props.goOnQuest)
-            : <div>
-                 <Translate id="labels.noQuests" />
-            </div>
+            : <Translate id="labels.noQuests" />
         }
     </div>
 );

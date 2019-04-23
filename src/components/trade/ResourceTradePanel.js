@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
-import { Row, Col, Button, FormControl, InputGroup } from 'react-bootstrap';
+import { Row, Col, Button, FormControl, InputGroup, Image, Card } from 'react-bootstrap';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -15,43 +15,45 @@ class ResourceTradePanel extends React.Component {
     }
 
     render() {
-        return <div className="p-3 rounded bg-light">
-            <Row>
-                <h4 className="ml-3"><Translate id="labels.resourceTrade" /></h4>
-            </Row>
-            <Row>
-                <Col md={2}>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <InputGroup.Text id="junk-trade"><img className="mr-1" height="20" src={junk} alt="" /></InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl
-                            ref={this.junkInput}
-                            type="number"
-                            min={0}
-                            max={10}
-                            placeholder={0}
-                            aria-describedby="junk-trade"
-                        />
-                    </InputGroup>
-                </Col>
-                <Col md={2}>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <InputGroup.Text id="food-trade"><img className="mr-1" height="20" src={food} alt="" /></InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl
-                            ref={this.foodInput}
-                            type="number"
-                            min={0}
-                            max={10}
-                            placeholder={0}
-                            aria-describedby="food-trade"
-                        />
-                    </InputGroup>
-                </Col>
-            </Row>
-            <Row className="ml-1">
+        return <Card>
+            <Card.Body>
+                <Card.Title>
+                    <Translate id="labels.resourceTrade" />
+                </Card.Title>
+                <Row>
+                    <Col md={2}>
+                        <InputGroup className="mb-3">
+                            <InputGroup.Prepend>
+                                <InputGroup.Text id="junk-trade"><Image className="mr-1" height="20" src={junk} /></InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                                ref={this.junkInput}
+                                type="number"
+                                min={0}
+                                max={10}
+                                placeholder={0}
+                                aria-describedby="junk-trade"
+                            />
+                        </InputGroup>
+                    </Col>
+                    <Col md={2}>
+                        <InputGroup className="mb-3">
+                            <InputGroup.Prepend>
+                                <InputGroup.Text id="food-trade"><Image className="mr-1" height="20" src={food} /></InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                                ref={this.foodInput}
+                                type="number"
+                                min={0}
+                                max={10}
+                                placeholder={0}
+                                aria-describedby="food-trade"
+                            />
+                        </InputGroup>
+                    </Col>
+                </Row>
+            </Card.Body>
+            <Card.Footer>
                 { this.props.selectedCharacter !== undefined ? 
                     <div>
                         <Button
@@ -71,8 +73,8 @@ class ResourceTradePanel extends React.Component {
                     </div>
                     : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                 }
-            </Row>
-        </div>
+            </Card.Footer>
+        </Card>
     }
 };
 

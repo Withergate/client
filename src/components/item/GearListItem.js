@@ -3,35 +3,40 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 
 const GearListItem = ({gear, selectedCharacter, equipGear}) => (
-    <div className="mb-4 p-3 rounded bg-light" key={gear.id}>
-        <Row>
-            <Col md={4}>
-                <img src={gear.details.imageUrl} height="120px" alt="" />
-            </Col>
-            <Col md={8}>
-                <b>{getTranslatedText(gear.details.name)}</b>
-                <p>{getTranslatedText(gear.details.description)}</p>
-                <small>
-                    <b><Translate id="basic.bonus" />: </b>{gear.details.bonus}
-                </small>
-            </Col>
-        </Row>
-        <Row>
+    <Card className="mb-4">
+        <Card.Body>
+            <Card.Title>
+            {getTranslatedText(gear.details.name)}
+            </Card.Title>
+            <Row>
+                <Col md={4}>
+                    <Image src={gear.details.imageUrl} rounded width="120px" />
+                </Col>
+                <Col md={8}>
+                    <p>
+                        {getTranslatedText(gear.details.description)}
+                    </p>
+                    <small>
+                        <b><Translate id="basic.bonus" />: </b>{gear.details.bonus}
+                    </small>
+                </Col>
+            </Row>
+        </Card.Body>
+        <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Button 
                     variant="secondary"
-                    className="button-classic ml-3 m-2" 
-                    onClick={() => equipGear(gear.id, selectedCharacter.id)}
-                    disabled={selectedCharacter.gear !== null}>
+                    className="button-classic" 
+                    onClick={() => equipGear(gear.id, selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
-                : <small className="text-muted ml-3 m-2"><Translate id="labels.noCharacter" /></small>
+                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
-        </Row>
-    </div>
+        </Card.Footer>
+    </Card>
 );
 
 GearListItem.propTypes = {
