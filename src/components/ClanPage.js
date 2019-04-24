@@ -24,7 +24,7 @@ import {
     unequipGear
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
-import { selectClanTab, selectCharacter } from '../actions/uiActions';
+import { selectClanTab, selectCharacter, dismissError } from '../actions/uiActions';
 
 class ClanPage extends Component {
 
@@ -36,7 +36,7 @@ class ClanPage extends Component {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} />
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {
                     this.props.fetched && 
@@ -135,7 +135,8 @@ ClanPage.propTypes = {
     unequipGear: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
     selectedTab: PropTypes.string.isRequired,
-    selectClanTab: PropTypes.func.isRequired
+    selectClanTab: PropTypes.func.isRequired,
+    dismissError: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -160,7 +161,8 @@ const mapDispatchToProps = dispatch => (
         unequipGear,
         useConsumable,
         selectCharacter,
-        selectClanTab
+        selectClanTab,
+        dismissError
     }, dispatch)
 );
 

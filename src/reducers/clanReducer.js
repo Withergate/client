@@ -1,5 +1,6 @@
 import {
-    SELECT_CHARACTER
+    SELECT_CHARACTER,
+    DISMISS_ERROR
 } from '../actions/uiActions';
 
 import {
@@ -30,6 +31,12 @@ const initialState = {
 
 export const ClanReducer = (state = initialState, action) => {
     switch(action.type) {
+        case DISMISS_ERROR:
+            return {
+                ...state,
+                failed: false,
+                error: ''
+            };
         case FETCH_CLAN_PENDING:
             return {
                 ...state,

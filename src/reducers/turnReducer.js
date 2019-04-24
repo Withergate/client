@@ -5,6 +5,10 @@ import {
     DISPLAY_TURN_NOTIFICATIONS
 } from '../actions/dataActions';
 
+import {
+    DISMISS_ERROR
+} from '../actions/uiActions';
+
 const initialState = {
     turn: {},
     turnDisplayed: 0,
@@ -16,6 +20,12 @@ const initialState = {
 
 export const TurnReducer = (state = initialState, action) => {
     switch(action.type) {
+        case DISMISS_ERROR:
+            return {
+                ...state,
+                failed: false,
+                error: ''
+            };
         case FETCH_TURN_PENDING:
             return {
                 ...state,

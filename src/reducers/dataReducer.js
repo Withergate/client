@@ -4,6 +4,10 @@ import {
     FETCH_LOCATIONS_REJECTED
 } from '../actions/dataActions';
 
+import {
+    DISMISS_ERROR
+} from '../actions/uiActions';
+
 // INITIALIZE STATE
 
 const initialState = {
@@ -18,6 +22,12 @@ const initialState = {
 
 export const DataReducer = (state = initialState, action) => {
     switch(action.type) {
+        case DISMISS_ERROR:
+            return {
+                ...state,
+                failed: false,
+                error: ''
+            };
         case FETCH_LOCATIONS_PENDING:
             return {
                 ...state,

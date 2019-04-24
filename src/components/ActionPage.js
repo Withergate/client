@@ -14,7 +14,7 @@ import QuestList from './quest/QuestList';
 
 import { fetchLocations, fetchClan } from '../actions/dataActions';
 import { visitLocation, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
-import { selectActionTab, selectCharacter } from '../actions/uiActions';
+import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
 import ResourceTradePanel from './trade/ResourceTradePanel';
 
 class ActionPage extends Component {
@@ -28,7 +28,7 @@ class ActionPage extends Component {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} />
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {
                     this.props.fetched && 
@@ -121,7 +121,8 @@ ActionPage.propTypes = {
     goOnQuest: PropTypes.func.isRequired,
     tradeResources: PropTypes.func.isRequired,
     selectActionTab: PropTypes.func.isRequired,
-    selectedTab: PropTypes.string.isRequired
+    selectedTab: PropTypes.string.isRequired,
+    dismissError: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -148,7 +149,8 @@ const mapDispatchToProps = dispatch => (
         constructBuilding,
         goOnQuest,
         tradeResources,
-        selectActionTab
+        selectActionTab,
+        dismissError
     }, dispatch)
 );
 

@@ -4,6 +4,10 @@ import {
     FETCH_NOTIFICATIONS_REJECTED
 } from '../actions/dataActions';
 
+import {
+    DISMISS_ERROR
+} from '../actions/uiActions';
+
 const initialState = {
     notifications: [],
     fetching: false,
@@ -14,6 +18,12 @@ const initialState = {
 
 export const NotificationReducer = (state = initialState, action) => {
     switch(action.type) {
+        case DISMISS_ERROR:
+            return {
+                ...state,
+                failed: false,
+                error: ''
+            };
         case FETCH_NOTIFICATIONS_PENDING:
             return {
                 ...state,

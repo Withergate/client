@@ -22,6 +22,10 @@ import {
     VISIT_LOCATION_REJECTED
 } from '../actions/actionActions';
 
+import {
+    DISMISS_ERROR
+} from '../actions/uiActions';
+
 // INITIALIZE STATE
 
 const initialState = {
@@ -33,6 +37,12 @@ const initialState = {
 
 export const ActionReducer = (state = initialState, action) => {
     switch(action.type) {
+        case DISMISS_ERROR:
+            return {
+                ...state,
+                failed: false,
+                error: ''
+            };
         case EQUIP_ITEM_PENDING:
             return {
                 ...state,
