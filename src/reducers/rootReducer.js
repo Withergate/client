@@ -6,6 +6,7 @@ import { DataReducer } from './dataReducer';
 import { TurnReducer } from './turnReducer';
 import { ActionReducer } from './actionReducer';
 import { NotificationReducer } from './notificationReducer';
+import { UiReducer } from './uiReducer';
 
 export default combineReducers({
     app: AppReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     turn: TurnReducer,
     notifications: NotificationReducer,
     data: DataReducer,
-    action: ActionReducer
+    action: ActionReducer,
+    ui: UiReducer
 });

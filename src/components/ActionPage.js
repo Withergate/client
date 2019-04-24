@@ -13,7 +13,8 @@ import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
 
 import { fetchLocations, fetchClan } from '../actions/dataActions';
-import { visitLocation, selectCharacter, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
+import { visitLocation, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
+import { selectActionTab, selectCharacter } from '../actions/uiActions';
 import ResourceTradePanel from './trade/ResourceTradePanel';
 
 class ActionPage extends Component {
@@ -32,7 +33,7 @@ class ActionPage extends Component {
                 {
                     this.props.fetched && 
                     <div className="m-3">
-                        <Tab.Container id="tab-navigation" defaultActiveKey="locations">
+                        <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectActionTab(key)}>
                             <Row>
                                 <Col md={2} sm={4}>
                                     <Nav variant="pills" className="flex-column">
@@ -119,6 +120,8 @@ ActionPage.propTypes = {
     constructBuilding: PropTypes.func.isRequired,
     goOnQuest: PropTypes.func.isRequired,
     tradeResources: PropTypes.func.isRequired,
+    selectActionTab: PropTypes.func.isRequired,
+    selectedTab: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => {
@@ -131,11 +134,22 @@ const mapStateToProps = state => {
 
     const error = state.clan.error || state.data.error;
 
-    return { fetching, fetched, failed, error, locations, selectedCharacter, clan };
+    const selectedTab = state.ui.actionTab;
+
+    return { fetching, fetched, failed, error, locations, selectedCharacter, clan, selectedTab };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchLocations, visitLocation, fetchClan, selectCharacter, constructBuilding, goOnQuest, tradeResources }, dispatch)
+    bindActionCreators({ 
+        fetchLocations,
+        visitLocation,
+        fetchClan,
+        selectCharacter,
+        constructBuilding,
+        goOnQuest,
+        tradeResources,
+        selectActionTab
+    }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionPage);

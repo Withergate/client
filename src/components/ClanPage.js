@@ -21,13 +21,10 @@ import {
     unequipWeapon,
     useConsumable,
     equipGear,
-    unequipGear,
-    selectCharacter 
+    unequipGear
 } from '../actions/actionActions';
-import {
-    fetchClan
-} from '../actions/dataActions';
-
+import { fetchClan } from '../actions/dataActions';
+import { selectClanTab, selectCharacter } from '../actions/uiActions';
 
 class ClanPage extends Component {
 
@@ -44,7 +41,7 @@ class ClanPage extends Component {
                 {
                     this.props.fetched && 
                     <div className="m-3">
-                        <Tab.Container id="tab-navigation" defaultActiveKey="overview">
+                        <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectClanTab(key)}>
                             <Row>
                                 <Col md={2} sm={4}>
                                     <Nav variant="pills" className="flex-column">
@@ -137,6 +134,8 @@ ClanPage.propTypes = {
     equipGear: PropTypes.func.isRequired,
     unequipGear: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
+    selectedTab: PropTypes.string.isRequired,
+    selectClanTab: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -147,11 +146,22 @@ const mapStateToProps = state => {
     const failed = state.clan.failed || state.action.failed;
     const error = state.clan.error || state.action.error;
 
-    return { fetching, fetched, failed, error, clan, selectedCharacter };
+    const selectedTab = state.ui.clanTab;
+
+    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClan, equipWeapon, unequipWeapon, equipGear, unequipGear, useConsumable, selectCharacter }, dispatch)
+    bindActionCreators({ 
+        fetchClan,
+        equipWeapon,
+        unequipWeapon,
+        equipGear,
+        unequipGear,
+        useConsumable,
+        selectCharacter,
+        selectClanTab
+    }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClanPage);

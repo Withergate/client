@@ -1,6 +1,6 @@
 import {
     SELECT_CHARACTER
-} from '../actions/actionActions';
+} from '../actions/uiActions';
 
 import {
     FETCH_CLAN_PENDING,

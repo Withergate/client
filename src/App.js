@@ -11,7 +11,8 @@ import Main from './components/Main';
 
 import { fetchPrincipal } from './actions/authActions';
 import { fetchTurn, fetchVersion } from './actions/dataActions';
-import { createClan, selectCharacter } from './actions/actionActions';
+import { createClan } from './actions/actionActions';
+import { selectCharacter } from './actions/uiActions';
 
 class App extends Component {
 

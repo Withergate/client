@@ -19,8 +19,6 @@ import { FETCH_CLAN } from './dataActions';
 
 export const CREATE_CLAN = 'CREATE_CLAN';
 
-export const SELECT_CHARACTER = 'SELECT_CHARACTER';
-
 export const EQUIP_ITEM = 'EQUIP_ITEM';
 export const EQUIP_ITEM_PENDING = 'EQUIP_ITEM_PENDING';
 export const EQUIP_ITEM_FULFILLED = 'EQUIP_ITEM_FULFILLED';
@@ -68,12 +66,6 @@ const createClanAction = (clanName) => {
     };
 };
 export { createClanAction as createClan };
-
-const selectedCharacterAction = (characterId) => ({
-    type: SELECT_CHARACTER,
-    payload: characterId
-});
-export { selectedCharacterAction as selectCharacter };
 
 const equipWeaponAction = (weaponId, characterId) => {
     return (dispatch) => {
