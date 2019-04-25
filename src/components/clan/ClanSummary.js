@@ -29,10 +29,8 @@ const ClanSummary = ({clan}) => (
                 <Col md={2}>
                     <img height="20" src={fame} alt="fame" /> <b><Translate id="basic.fame" /></b>: {clan.fame}
                 </Col>
-            </Row>
-            <Row className="mt-3">
-                <Col>
-                <img height="20" src={characters} alt="" /> <b><Translate id="basic.characters" />: {clan.characters.length}/{clan.populationLimit}</b>
+                <Col md={4}>
+                    <img height="20" src={characters} alt="" /> <b><Translate id="basic.characters" /> </b> :{clan.characters.length}/{clan.populationLimit}
                 </Col>
             </Row>
             <Row className="mt-3">
