@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar, Row, Col, Card, Image } from 'react-bootstrap';
+import { ProgressBar, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip'
 
@@ -18,10 +18,8 @@ function renderState(state) {
     switch(state) {
         case 'READY': 
             return <img height="25" src={ready} alt="Ready" />;
-        case 'BUSY':
-            return <img height="25" src={busy} alt="Busy" />;
         default:
-            return <img height="25" src={ready} alt="Ready" />;
+            return <img height="25" src={busy} alt="Busy" />;
     }
 }
 
@@ -29,7 +27,7 @@ function renderTrait(trait) {
     return <TraitItem key={trait.id} trait={trait} />
 }
 
-const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
+const CharacterListItem = ({character, unequipWeapon, unequipGear, restWithCharacter}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
@@ -38,6 +36,19 @@ const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
             <Row>
                 <Col md={2}>
                     <Image rounded width="120px" src={character.imageUrl} />
+                    <Button
+                        data-tip
+                        data-for={character.id + "rest"}
+                        className="button-small"
+                        size="sm"
+                        variant="dark"
+                        disabled={character.state !== "READY"}
+                        onClick={() => restWithCharacter(character.id)}>
+                        <Translate id="labels.rest" />
+                    </Button>
+                    <ReactTooltip id={character.id + "rest"} effect="solid" place="right">
+                        <Translate id="labels.restTooltip" />
+                    </ReactTooltip>
                 </Col>
                 <Col md={4}>
                     <div className="mb-2">
@@ -81,11 +92,13 @@ const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
                             <ReactTooltip id={character.weapon.details.identifier} effect="solid" place="left">
                                 <WeaponTooltip weapon={character.weapon} />
                             </ReactTooltip>
-                            <button 
-                                className="btn btn-secondary ml-2 btn-sm button-small" 
+                            <Button
+                                variant="outline-dark"
+                                size="sm"
+                                className="ml-2 button-small" 
                                 onClick={() => unequipWeapon(character.weapon.id, character.id)}>
                                 <Translate id="labels.unequip" />
-                            </button> 
+                            </Button> 
                         </div>
                         : <Translate id="basic.unarmed" /> }
                     </Row>
@@ -96,11 +109,13 @@ const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
                             <ReactTooltip id={character.gear.details.identifier} effect="solid" place="left">
                                 <GearTooltip gear={character.gear} />
                             </ReactTooltip>
-                            <button 
-                                className="btn btn-secondary ml-2 btn-sm button-small" 
+                            <Button
+                                variant="outline-dark"
+                                size="sm"
+                                className="ml-2 button-small" 
                                 onClick={() => unequipGear(character.gear.id, character.id)}>
                                 <Translate id="labels.unequip" />
-                            </button> 
+                            </Button> 
                         </div>
                         : <Translate id="basic.noGear" /> }
                     </Row>
@@ -120,7 +135,8 @@ const CharacterListItem = ({character, unequipWeapon, unequipGear}) => (
 CharacterListItem.propTypes = {
     character: PropTypes.object.isRequired,
     unequipWeapon: PropTypes.func.isRequired,
-    unequipGear: PropTypes.func.isRequired
+    unequipGear: PropTypes.func.isRequired,
+    restWithCharacter: PropTypes.func.isRequired
 };
 
 export default CharacterListItem;

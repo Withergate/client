@@ -8,7 +8,8 @@ import {
     tradeResources,
     equipGear,
     unequipGear,
-    visitLocation
+    visitLocation,
+    restWithCharacter
 } from '../services/actionService';
 
 import {
@@ -53,6 +54,11 @@ export const VISIT_LOCATION = 'VISIT_LOCATIONS';
 export const VISIT_LOCATION_PENDING = 'VISIT_LOCATIONS_PENDING';
 export const VISIT_LOCATION_FULFILLED = 'VISIT_LOCATIONS_FULFILLED';
 export const VISIT_LOCATION_REJECTED = 'VISIT_LOCATIONS_REJECTED';
+
+export const REST_CHARACTER = 'REST_CHARACTER';
+export const REST_CHARACTER_PENDING = 'REST_CHARACTER_PENDING';
+export const REST_CHARACTER_FULFILLED = 'REST_CHARACTER_FULFILLED';
+export const REST_CHARACTER_REJECTED = 'REST_CHARACTER_REJECTED';
 
 const createClanAction = (clanName) => {
     return (dispatch) => {
@@ -184,3 +190,15 @@ const visitLocationAction = (characterId, location, type) => {
 };
 export { visitLocationAction as visitLocation };
 
+const restWithCharacterAction = (characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: REST_CHARACTER,
+            payload: restWithCharacter(characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { restWithCharacterAction as restWithCharacter };

@@ -207,3 +207,22 @@ export const visitLocation = (characterId, location, type) => {
     });
 };
 
+export const restWithCharacter = (characterId) => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'characters/rest', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({characterId: characterId})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

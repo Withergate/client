@@ -21,7 +21,8 @@ import {
     unequipWeapon,
     useConsumable,
     equipGear,
-    unequipGear
+    unequipGear,
+    restWithCharacter
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
 import { selectClanTab, selectCharacter, dismissError } from '../actions/uiActions';
@@ -69,9 +70,10 @@ class ClanPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">
                                             <CharacterList 
-                                            characters={this.props.clan.characters}
-                                            unequipWeapon={this.props.unequipWeapon}
-                                            unequipGear={this.props.unequipGear} />
+                                                characters={this.props.clan.characters}
+                                                unequipWeapon={this.props.unequipWeapon}
+                                                unequipGear={this.props.unequipGear}
+                                                restWithCharacter={this.props.restWithCharacter} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <CharacterSelector 
@@ -134,6 +136,7 @@ ClanPage.propTypes = {
     equipGear: PropTypes.func.isRequired,
     unequipGear: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
+    restWithCharacter: PropTypes.func.isRequired,
     selectedTab: PropTypes.string.isRequired,
     selectClanTab: PropTypes.func.isRequired,
     dismissError: PropTypes.func.isRequired,
@@ -160,6 +163,7 @@ const mapDispatchToProps = dispatch => (
         equipGear,
         unequipGear,
         useConsumable,
+        restWithCharacter,
         selectCharacter,
         selectClanTab,
         dismissError

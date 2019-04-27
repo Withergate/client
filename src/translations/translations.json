@@ -57,6 +57,7 @@
         "buy": ["Buy", "Koupit"],
         "sell": ["Sell", "Prodat"],
         "trade": ["Trade", "Obchod"],
+        "rest": ["Rest", "Odpočívat"],
         "resourceTrade": ["Trade resources", "Obchod se surovinami"],
         "noWeapons": ["You don't have any weapons at the moment. You can go to the Actions section to search some locations or perform crafting.",
         "Momentálně nemáš žádné zbraně. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],
@@ -74,7 +75,8 @@
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."],
-        "resourceLimitExceeded": ["Exceeded maximum resource limit.", "Překročen limit surovin."]
+        "resourceLimitExceeded": ["Exceeded maximum resource limit.", "Překročen limit surovin."],
+        "restTooltip": ["Character will rest this turn instead of performing an action. This will allow the character to heal.", "Místo akce bude toto kolo postava odpočívat. To jí umožní léčit ztracené životy."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
