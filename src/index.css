@@ -35,6 +35,10 @@ body {
   width: 80px;
 }
 
+.button-large {
+  width: 140px;
+}
+
 .tab-link {
   color: var(--dark);
   background-color: white !important;

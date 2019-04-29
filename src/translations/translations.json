@@ -58,6 +58,8 @@
         "sell": ["Sell", "Prodat"],
         "trade": ["Trade", "Obchod"],
         "rest": ["Rest", "Odpočívat"],
+        "close": ["Close", "Zavřít"],
+        "confirm": ["Confirm", "Potvrdit"],
         "resourceTrade": ["Trade resources", "Obchod se surovinami"],
         "noWeapons": ["You don't have any weapons at the moment. You can go to the Actions section to search some locations or perform crafting.",
         "Momentálně nemáš žádné zbraně. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],
@@ -76,7 +78,13 @@
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."],
         "resourceLimitExceeded": ["Exceeded maximum resource limit.", "Překročen limit surovin."],
-        "restTooltip": ["Character will rest this turn instead of performing an action. This will allow the character to heal.", "Místo akce bude toto kolo postava odpočívat. To jí umožní léčit ztracené životy."]
+        "restTooltip": ["Character will rest this turn instead of performing an action. This will allow the character to heal.", "Místo akce bude toto kolo postava odpočívat. To jí umožní léčit ztracené životy."],
+        "endTurn": ["End turn", "Ukončit kolo"],
+        "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],
+        "endTurnDescription": ["This action will end the current turn.", "Tato akce ukončí současné kolo"],
+        "restartGame": ["Restart game", "Restartovat hru"],
+        "restartGameConfirmation": ["Are you sure you want to restart the game? This action will delete all game data.", "Jsi si jistý, že chceš restartovat hru? Tato akce smaže veškerá herní data"],
+        "restartGameDescription": ["This action will delete all game data.", "Tato akce smaže veškerá herní data"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

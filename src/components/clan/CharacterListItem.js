@@ -39,7 +39,7 @@ const CharacterListItem = ({character, unequipWeapon, unequipGear, restWithChara
                     <Button
                         data-tip
                         data-for={character.id + "rest"}
-                        className="button-small"
+                        className="button-classic"
                         size="sm"
                         variant="dark"
                         disabled={character.state !== "READY"}

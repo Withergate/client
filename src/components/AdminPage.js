@@ -2,12 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button, Card } from 'react-bootstrap';
 import { restartGame, endTurn } from '../actions/authActions';
+import ConfirmationDialog from '../components/shared/ConfirmationDialog';
 
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
+import { Translate } from 'react-localize-redux';
 
 class AdminPage extends Component {
+    constructor(...args) {
+        super(...args);
+    
+        this.state = { 
+            endTurnModal: false,
+            restartGameModal: false
+        };
+    }
 
     render() {
         return (
@@ -21,27 +32,48 @@ class AdminPage extends Component {
                 {
                     this.props.principal.role === 'ADMIN' && this.props.fetched && 
                     <div className="m-4">
-                        <h5>Admin dashboard</h5>
-                        <div className="mb-4">
-                            <p>
-                                This action ends the current turn.
-                            </p>
-                            <button 
-                                className="btn btn-dark button-classic" 
-                                onClick={() => this.props.endTurn()}>
-                                End turn
-                            </button> 
-                        </div>
-                        <div>
-                            <p className="text-danger">
-                                This action deletes all game-related data from the database and starts the whole game over.
-                            </p>
-                            <button 
-                                className="btn btn-danger button-classic" 
-                                onClick={() => this.props.restartGame()}>
-                                Restart
-                            </button> 
-                        </div>
+                        <Card className="mb-4">
+                            <Card.Body>
+                                <Translate id="labels.endTurnDescription" />
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button
+                                    className="button-large"
+                                    variant="danger"
+                                    onClick={() => this.setState({ endTurnModal: true })} >
+                                    <Translate id="labels.endTurn" />
+                                </Button> 
+                            </Card.Footer>
+                            
+                        </Card>
+
+                        <Card className="mb-4">
+                            <Card.Body>
+                                <Translate id="labels.restartGameDescription" />
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button
+                                    className="button-large"
+                                    variant="danger"
+                                    onClick={() => this.setState({ restartGameModal: true })} >
+                                    <Translate id="labels.restartGame" />
+                                </Button>
+                            </Card.Footer>
+                            
+                        </Card>
+
+                        <ConfirmationDialog
+                            show={this.state.endTurnModal}
+                            text="labels.endTurnConfirmation"
+                            heading="labels.endTurn"
+                            onClose={() => this.setState({ endTurnModal: false })}
+                            onConfirm={() => this.props.endTurn()} />
+                        <ConfirmationDialog
+                            show={this.state.restartGameModal}
+                            text="labels.restartGameConfirmation"
+                            heading="labels.restartGame"
+                            onClose={() => this.setState({ restartGameModal: false })}
+                            onConfirm={() => this.props.restartGame()} />
                     </div>
                 }
                 {
