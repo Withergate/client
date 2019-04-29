@@ -4,6 +4,7 @@
       "clan": ["Clan", "Klan"],
       "actions": ["Actions", "Akce"],
       "fame": ["Fame", "Sláva"],
+      "about": ["About", "O hře"],
       "administration": ["Administration", "Administrace"],
       "turn": ["Turn", "Kolo"]
     },
@@ -81,10 +82,10 @@
         "restTooltip": ["Character will rest this turn instead of performing an action. This will allow the character to heal.", "Místo akce bude toto kolo postava odpočívat. To jí umožní léčit ztracené životy."],
         "endTurn": ["End turn", "Ukončit kolo"],
         "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],
-        "endTurnDescription": ["This action will end the current turn.", "Tato akce ukončí současné kolo"],
+        "endTurnDescription": ["This action will end the current turn.", "Tato akce ukončí současné kolo."],
         "restartGame": ["Restart game", "Restartovat hru"],
-        "restartGameConfirmation": ["Are you sure you want to restart the game? This action will delete all game data.", "Jsi si jistý, že chceš restartovat hru? Tato akce smaže veškerá herní data"],
-        "restartGameDescription": ["This action will delete all game data.", "Tato akce smaže veškerá herní data"]
+        "restartGameConfirmation": ["Are you sure you want to restart the game? This action will delete all game data.", "Jsi si jistý, že chceš restartovat hru? Tato akce smaže veškerá herní data."],
+        "restartGameDescription": ["This action will delete all game data.", "Tato akce smaže veškerá herní data."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -96,6 +97,12 @@
         "redirect": ["By clicking on the link above, you will be taken to an authorization server to login. If you don't have an account, register on the next page and come back once the registration is finished.",
         "Klinutí na tlačítko tě vezme na stránku autorizačního serveru, kde se přihlásíš. Pokud ještě nemáš účet, tak se nejprve na stránkách zaregistruj a poté se vrať sem."],
         "button": ["Enter", "Vstoupit"]
+    },
+    "about": {
+        "text": ["Withergate is an opensource turn-based post-apocalyptic browser game developed by a small group of friends in their free time. We will be very happy if you enjoy playing the game and are open to suggestions for new features, bug reporting and even contributing with game content.",
+        "Withergate je opensource post-apo tahová hra v prohlížeči vyvíjená malou skupinou přátel ve volném čase. Budeme moc rádi, když si užijete hraní a jsme otevřeni všem podnětům pro nové funkce do hry, nahlašování chyb nebo nápady na herní obsah."],
+        "contribution": ["This game is financed from private resources of the game developers. Since running the game servers is costly, we will be very happy for any donations you are willing to contribute for the game development.",
+        "Hra je financována samotnými vývojáři. Pronájem serverů ale něco stojí, a proto budeme moc rádi za jakékoli dary, které jste ochotni věnovat na vývoj hry."]
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],

@@ -23,7 +23,8 @@ const Header = ({turn, principal, clan}) => (
                 <li className="nav-item"><Link className="nav-link" to='/clan'><Translate id="header.clan" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/action'><Translate id="header.actions" /></Link></li>
                 <li className="nav-item"><Link className="nav-link" to='/fame'><Translate id="header.fame" /></Link></li>
-                { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link" to='/admin'><Translate id="header.administration" /></Link></li>}
+                <li className="nav-item"><Link className="nav-link" to='/about'><Translate id="header.about" /></Link></li>
+                { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link text-danger" to='/admin'><Translate id="header.administration" /></Link></li>}
             </ul>
         </div>
         <div className="mr-2 mr-2 p-2 rounded bg-light">

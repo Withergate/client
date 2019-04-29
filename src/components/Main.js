@@ -14,6 +14,7 @@ import FamePage from './FamePage';
 import ClanSetupForm from './clan/ClanSetupForm';
 import AdminPage from './AdminPage';
 import LoginPage from './LoginPage';
+import AboutPage from './AboutPage.js';
 
 class Main extends Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class Main extends Component {
                                     <Route path='/clan' component={ClanPage}/>
                                     <Route path='/action' component={ActionPage}/>
                                     <Route path='/fame' component={FamePage}/>
+                                    <Route path='/about' component={AboutPage}/>
                                     <Route path='/admin' component={AdminPage}/>
                                 </Switch>
                             </div>
