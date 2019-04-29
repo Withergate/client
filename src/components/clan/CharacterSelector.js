@@ -9,12 +9,8 @@ const getTextColor = (character) => {
     switch(character.state) {
         case 'READY': 
             return 'text-dark';
-        case 'BUSY':
-            return 'text-secondary';
-        case 'INJURED':
-            return 'text-danger';
         default:
-            return 'text-dark';
+            return 'text-secondary';
     }
 };
 
