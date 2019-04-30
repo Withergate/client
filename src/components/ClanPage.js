@@ -25,7 +25,13 @@ import {
     restWithCharacter
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
-import { selectClanTab, selectCharacter, dismissError } from '../actions/uiActions';
+import { 
+    selectClanTab,
+    selectCharacter,
+    dismissError,
+    changeCharacterSortKey,
+    changeCharacterSortDirection
+} from '../actions/uiActions';
 
 class ClanPage extends Component {
 
@@ -73,7 +79,10 @@ class ClanPage extends Component {
                                                 characters={this.props.clan.characters}
                                                 unequipWeapon={this.props.unequipWeapon}
                                                 unequipGear={this.props.unequipGear}
-                                                restWithCharacter={this.props.restWithCharacter} />
+                                                restWithCharacter={this.props.restWithCharacter}
+                                                sort={this.props.sort.characters}
+                                                sortKeyAction={this.props.changeCharacterSortKey}
+                                                sortDirectionAction={this.props.changeCharacterSortDirection} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <CharacterSelector 
@@ -140,10 +149,13 @@ ClanPage.propTypes = {
     selectedTab: PropTypes.string.isRequired,
     selectClanTab: PropTypes.func.isRequired,
     dismissError: PropTypes.func.isRequired,
+    sort: PropTypes.object.isRequired,
+    changeCharacterSortKey: PropTypes.func.isRequired,
+    changeCharacterSortDirection: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
-    const { clan, selectedCharacter } = state.clan;
+    const { clan, selectedCharacter, sort } = state.clan;
 
     const fetching = state.clan.fetching || state.action.fetching;
     const fetched = state.clan.fetched && state.action.fetched;
@@ -152,7 +164,7 @@ const mapStateToProps = state => {
 
     const selectedTab = state.ui.clanTab;
 
-    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab };
+    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab, sort };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -166,7 +178,9 @@ const mapDispatchToProps = dispatch => (
         restWithCharacter,
         selectCharacter,
         selectClanTab,
-        dismissError
+        dismissError,
+        changeCharacterSortKey,
+        changeCharacterSortDirection
     }, dispatch)
 );
 

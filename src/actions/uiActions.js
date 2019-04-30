@@ -2,6 +2,8 @@ export const SELECT_CLAN_TAB = 'SELECT_CLAN_TAB';
 export const SELECT_ACTION_TAB = 'SELECT_ACTION_TAB';
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 export const DISMISS_ERROR = 'DISMISS_ERROR';
+export const CHANGE_CHARACTER_SORT_KEY = 'CHANGE_CHARACTER_SORT_KEY';
+export const CHANGE_CHARACTER_SORT_DIRECTION = 'CHANGE_CHARACTER_SORT_DIRECTION';
 
 const selectClanTabAction = (tab) => ({
     type: SELECT_CLAN_TAB,
@@ -25,3 +27,15 @@ const dismissErrorAction = () => ({
     type: DISMISS_ERROR
 });
 export { dismissErrorAction as dismissError };
+
+const changeCharacterSortKeyAction = (key) => ({
+    type: CHANGE_CHARACTER_SORT_KEY,
+    payload: key
+});
+export { changeCharacterSortKeyAction as changeCharacterSortKey };
+
+const changeCharacterSortDirectionAction = (direction) => ({
+    type: CHANGE_CHARACTER_SORT_DIRECTION,
+    payload: direction
+});
+export { changeCharacterSortDirectionAction as changeCharacterSortDirection };

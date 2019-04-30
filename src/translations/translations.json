@@ -52,6 +52,8 @@
         "use": ["Use", "Použij"],
         "next": ["Next", "Další"],
         "previous": ["Previous", "Přechozí"],
+        "sortKey": ["Sort by", "Řadit podle"],
+        "sortDirection": ["Direction", "Směr"],
         "visit": ["Visit", "Navštívit"],
         "scout": ["Scout", "Pátrat"],
         "construct": ["Construct", "Stavět"],
