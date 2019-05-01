@@ -1,13 +1,11 @@
 import { 
     createClan, 
-    equipWeapon, 
-    unequipWeapon,
+    equipItem, 
+    unequipItem,
     useConsumable,
     constructBuilding, 
     goOnQuest,
     tradeResources,
-    equipGear,
-    unequipGear,
     visitLocation,
     restWithCharacter
 } from '../services/actionService';
@@ -73,57 +71,31 @@ const createClanAction = (clanName) => {
 };
 export { createClanAction as createClan };
 
-const equipWeaponAction = (weaponId, characterId) => {
+const equipItemAction = (itemId, type, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: EQUIP_ITEM,
-            payload: equipWeapon(weaponId, characterId)
+            payload: equipItem(itemId, type, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()
         }));
     };
 };
-export { equipWeaponAction as equipWeapon };
+export { equipItemAction as equipItem };
 
-const unequipWeaponAction = (weaponId, characterId) => {
+const unequipItemAction = (itemId, type, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: UNEQUIP_ITEM,
-            payload: unequipWeapon(weaponId, characterId)
+            payload: unequipItem(itemId, type, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()
         }));
     };
 };
-export { unequipWeaponAction as unequipWeapon };
-
-const equipGearAction = (gearId, characterId) => {
-    return (dispatch) => {
-        return dispatch({
-            type: EQUIP_ITEM,
-            payload: equipGear(gearId, characterId)
-        }).then(() => dispatch({
-            type: FETCH_CLAN,
-            payload: fetchClan()
-        }));
-    };
-};
-export { equipGearAction as equipGear };
-
-const unequipGearAction = (gearId, characterId) => {
-    return (dispatch) => {
-        return dispatch({
-            type: UNEQUIP_ITEM,
-            payload: unequipGear(gearId, characterId)
-        }).then(() => dispatch({
-            type: FETCH_CLAN,
-            payload: fetchClan()
-        }));
-    };
-};
-export { unequipGearAction as unequipGear };
+export { unequipItemAction as unequipItem };
 
 const useConsumableAction = (consumableId, characterId) => {
     return (dispatch) => {

@@ -5,23 +5,22 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 
-const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
+const OutfitListItem = ({outfit, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
-                {getTranslatedText(weapon.details.name)}
+                {getTranslatedText(outfit.details.name)}
             </Card.Title>
             <Row>
                 <Col md={4}>
-                    <Image src={weapon.details.imageUrl} rounded width="120px" />
+                    <Image src={outfit.details.imageUrl} rounded width="120px" />
                 </Col>
                 <Col md={8}>
                     <p>
-                        {getTranslatedText(weapon.details.description)}
+                        {getTranslatedText(outfit.details.description)}
                     </p>
                     <small>
-                        <b><Translate id="basic.type" />: </b><Translate id={weapon.details.type} /><br />
-                        <b><Translate id="basic.combat" />: </b>{weapon.details.combat}
+                        <b><Translate id="basic.armor" />: </b>{outfit.details.armor}
                     </small>
                 </Col>
             </Row>
@@ -31,7 +30,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
                 <Button 
                     variant="secondary"
                     className="button-classic" 
-                    onClick={() => equipItem(weapon.id, 'WEAPON', selectedCharacter.id)}>
+                    onClick={() => equipItem(outfit.id, 'OUTFIT', selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -40,10 +39,10 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
     </Card>
 );
 
-WeaponListItem.propTypes = {
-    weapon: PropTypes.object.isRequired,
+OutfitListItem.propTypes = {
+    outfit: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     equipItem: PropTypes.func.isRequired
 };
 
-export default WeaponListItem;
+export default OutfitListItem;

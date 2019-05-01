@@ -14,10 +14,10 @@ const getTextColor = (character) => {
     }
 };
 
-const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
+const CharacterSelector = ({ characters, selectedCharacter, onSelect, orientation}) => (
     <div className="mb-3 dropdown">
         <Row>
-            <Col md={4}>
+            <Col md={orientation === 'horizontal' ? 4 : 12}>
                 <Button variant="dark" className="dropdown-toggle w-100" data-toggle="dropdown">
                     { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
                 </Button>   
@@ -32,7 +32,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                 </div>
                 <small className="text-muted"><Translate id="labels.selectorDescription" /></small>
             </Col>
-            <Col md={8}>
+            <Col md={orientation === 'horizontal' ? 8 : 12}>
                 {
                     selectedCharacter !== undefined ? 
                         <CharacterDetails character={selectedCharacter} /> 
@@ -46,7 +46,12 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
 CharacterSelector.propTypes = {
     characters: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
-    onSelect: PropTypes.func.isRequired
+    onSelect: PropTypes.func.isRequired,
+    orientation: PropTypes.string
+};
+
+CharacterSelector.defaultProps = {
+    orientation: "horizontal"
 };
 
 export default CharacterSelector;

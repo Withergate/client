@@ -8,20 +8,16 @@ import { Translate } from "react-localize-redux";
 import CharacterList from './clan/CharacterList';
 import ClanSummary from './clan/ClanSummary';
 import CharacterSelector from './clan/CharacterSelector';
-import WeaponList from './item/WeaponList';
-import GearList from './item/GearList';
-import ConsumableList from './item/ConsumableList';
+import ItemList from './item/ItemList';
 import BuildingList from './building/BuildingList';
 import QuestListCompleted from './quest/QuestListCompleted';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
 import { 
-    equipWeapon,
-    unequipWeapon,
+    equipItem,
+    unequipItem,
     useConsumable,
-    equipGear,
-    unequipGear,
     restWithCharacter
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
@@ -77,34 +73,31 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="characters">
                                             <CharacterList 
                                                 characters={this.props.clan.characters}
-                                                unequipWeapon={this.props.unequipWeapon}
-                                                unequipGear={this.props.unequipGear}
+                                                unequipItem={this.props.unequipItem}
                                                 restWithCharacter={this.props.restWithCharacter}
                                                 sort={this.props.sort.characters}
                                                 sortKeyAction={this.props.changeCharacterSortKey}
                                                 sortDirectionAction={this.props.changeCharacterSortDirection} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
-                                            <CharacterSelector 
-                                                characters={this.props.clan.characters}
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                onSelect={this.props.selectCharacter} />
+                                            
                                             <Row>
-                                                <Col md={6}>
-                                                    <WeaponList
+                                                <Col>
+                                                    <ItemList
                                                         weapons={this.props.clan.weapons}
-                                                        equipWeapon={this.props.equipWeapon}
-                                                        selectedCharacter={this.props.selectedCharacter} />
-                                                    <GearList
                                                         gear={this.props.clan.gear}
-                                                        equipGear={this.props.equipGear}
+                                                        outfits={this.props.clan.outfits}
+                                                        consumables={this.props.clan.consumables}
+                                                        equipItem={this.props.equipItem}
+                                                        useConsumable={this.props.useConsumable}
                                                         selectedCharacter={this.props.selectedCharacter} />
                                                 </Col>
-                                                <Col md={6}>
-                                                    <ConsumableList
-                                                        consumables={this.props.clan.consumables}
-                                                        selectedCharacter={this.props.selectedCharacter} 
-                                                        useConsumable={this.props.useConsumable}/>
+                                                <Col>
+                                                    <CharacterSelector 
+                                                        characters={this.props.clan.characters}
+                                                        selectedCharacter={this.props.selectedCharacter}
+                                                        onSelect={this.props.selectCharacter}
+                                                        orientation="vertical" />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>
@@ -140,10 +133,8 @@ ClanPage.propTypes = {
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    equipWeapon: PropTypes.func.isRequired,
-    unequipWeapon: PropTypes.func.isRequired,
-    equipGear: PropTypes.func.isRequired,
-    unequipGear: PropTypes.func.isRequired,
+    equipItem: PropTypes.func.isRequired,
+    unequipItem: PropTypes.func.isRequired,
     useConsumable: PropTypes.func.isRequired,
     restWithCharacter: PropTypes.func.isRequired,
     selectedTab: PropTypes.string.isRequired,
@@ -170,10 +161,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchClan,
-        equipWeapon,
-        unequipWeapon,
-        equipGear,
-        unequipGear,
+        equipItem,
+        unequipItem,
         useConsumable,
         restWithCharacter,
         selectCharacter,

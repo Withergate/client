@@ -7,6 +7,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
 import TraitItem from './TraitItem';
+import { Row, Col, Image } from 'react-bootstrap';
 
 function renderState(state) {
     switch(state) {
@@ -20,41 +21,41 @@ function renderState(state) {
 }
 
 const CharacterDetails = ({character}) => (
-    <div className="p-2 rounded bg-light">
-        <div className="row">
-            <div className="col-6 col-md-3">
-                <h6 className="mb-2">{renderState(character.state)} {character.name} ({character.level})</h6>
-                <img className="rounded" width="60px" src={character.imageUrl} alt="Avatar" />
+    <small>
+        <Row>
+            <Col md={3} sm={12}>
+                <b>{renderState(character.state)} {character.name}</b>
+                <Image rounded width="60px" src={character.imageUrl} />
                 <p>
-                    <small><b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}</small>
+                    <b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}
                 </p>
-            </div>
-            <div className="col-6 col-md-3">
-                <table className="mb-2">
-                    <tbody>
-                        <tr><td><small><b><Translate id="basic.combat" /></b>: {character.combat}</small></td></tr>
-                        <tr><td><small><b><Translate id="basic.scavenge" /></b>: {character.scavenge}</small></td></tr>
-                        <tr><td><small><b><Translate id="basic.craftsmanship" /></b>: {character.craftsmanship}</small></td></tr>
-                        <tr><td><small><b><Translate id="basic.intellect" /></b>: {character.intellect}</small></td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div className="col-6 col-md-3">
-                <small>
-                    <b><Translate id="basic.weapon" /></b>: {character.weapon != null ? getTranslatedText(character.weapon.details.name) 
+            </Col>
+            <Col md={3} sm={12}>
+                <b><Translate id="basic.combat" /></b>: {character.combat} <br />
+                <b><Translate id="basic.scavenge" /></b>: {character.scavenge} <br />
+                <b><Translate id="basic.craftsmanship" /></b>: {character.craftsmanship} <br />
+                <b><Translate id="basic.intellect" /></b>: {character.intellect} <br />
+            </Col>
+            <Col md={3} sm={12}>
+                { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>
                     : <Translate id="basic.unarmed" />}
-                </small>
-            </div>
-            <div className="col-6 col-md-3">
+                <br />
+                { character.outfit != null ? <b>{getTranslatedText(character.outfit.details.name)}</b>
+                        : <Translate id="basic.noOutfit" />}
+                <br />
+                { character.gear != null ? <b>{getTranslatedText(character.gear.details.name)}</b>
+                        : <Translate id="basic.noGear" />}
+            </Col>
+            <Col md={3} sm={12}>
                 {character.traits.length > 0 && 
                     character.traits.map(trait => 
                         <div key={trait.id} className="mb-1">
                             <TraitItem trait={trait} />
                         </div>) 
                 }
-            </div>
-        </div>
-    </div>
+            </Col>
+        </Row>
+    </small>
 );
 
 CharacterDetails.propTypes = {

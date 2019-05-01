@@ -24,6 +24,7 @@
         "fame": ["Fame", "Sláva"],
         "level": ["Level", "Úroveň"],
         "combat": ["Combat", "Bojová síla"],
+        "armor": ["Armor", "Zbroj"],
         "scavenge": ["Scavenge", "Hledání"],
         "intellect": ["Intellect", "Intelekt"],
         "craftsmanship": ["Craftsmanship", "Zručnost"],
@@ -33,13 +34,15 @@
         "noTraits": ["No abilities", "Žádné schopnosti"],
         "weapon": ["Weapon", "Zbraň"],
         "gear": ["Gear", "Výbava"],
+        "noOutfit": ["No outfit", "Bez zbroje"],
         "noGear": ["No gear", "Bez výbavy"],
         "progress": ["Progress", "Postup"],
         "unarmed": ["Unarmed", "Neozbrojen"],
         "type": ["Type", "Typ"],
         "bonus": ["Bonus", "Bonus"],
         "information": ["Information", "Informace"],
-        "informationLevel": ["Information level", "Úroveň informací"]
+        "informationLevel": ["Information level", "Úroveň informací"],
+        "name": ["Name", "Jméno"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],

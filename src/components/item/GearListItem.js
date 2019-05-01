@@ -5,11 +5,11 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 
-const GearListItem = ({gear, selectedCharacter, equipGear}) => (
+const GearListItem = ({gear, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
-            {getTranslatedText(gear.details.name)}
+                {getTranslatedText(gear.details.name)}
             </Card.Title>
             <Row>
                 <Col md={4}>
@@ -30,7 +30,7 @@ const GearListItem = ({gear, selectedCharacter, equipGear}) => (
                 <Button 
                     variant="secondary"
                     className="button-classic" 
-                    onClick={() => equipGear(gear.id, selectedCharacter.id)}>
+                    onClick={() => equipItem(gear.id, 'GEAR', selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -42,7 +42,7 @@ const GearListItem = ({gear, selectedCharacter, equipGear}) => (
 GearListItem.propTypes = {
     gear: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    equipGear: PropTypes.func.isRequired
+    equipItem: PropTypes.func.isRequired
 };
 
 export default GearListItem;

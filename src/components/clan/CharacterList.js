@@ -10,12 +10,11 @@ const sort = (list, sort) => {
     return orderBy(list, [sort.key], [sort.direction]);
 }
 
-const renderListItem = (character, unequipWeapon, unequipGear, restWithCharacter) => (
+const renderListItem = (character, unequipItem, restWithCharacter) => (
     <div key={character.id}>
         <CharacterListItem
             character={character}
-            unequipWeapon={unequipWeapon}
-            unequipGear={unequipGear}
+            unequipItem={unequipItem}
             restWithCharacter={restWithCharacter} />
     </div>
 )
@@ -48,15 +47,14 @@ const CharacterList = (props) => (
         </Form.Group>
         {
             sort(props.characters, props.sort)
-                .map(character => renderListItem(character, props.unequipWeapon, props.unequipGear, props.restWithCharacter))
+                .map(character => renderListItem(character, props.unequipItem, props.restWithCharacter))
         }
     </div>
 );
 
 CharacterList.propTypes = {
     characters: PropTypes.array.isRequired,
-    unequipWeapon: PropTypes.func.isRequired,
-    unequipGear: PropTypes.func.isRequired,
+    unequipItem: PropTypes.func.isRequired,
     restWithCharacter: PropTypes.func.isRequired,
     sort: PropTypes.object.isRequired,
     sortKeyAction: PropTypes.func.isRequired,
