@@ -23,25 +23,34 @@ const CharacterList = (props) => (
     <div>
         <Form.Group>
             <Row>
-                <Col md={3}>
+                <Col md={2}>
                     <Form.Label ><Translate id="labels.sortKey" /></Form.Label>
-                    <Form.Control as="select" value={props.sort.key} onChange={(e) => props.sortKeyAction(e.target.value)}>
-                        <option value="name">Name</option>
-                        <option value ="state">State</option>
-                        <option value ="level">Level</option>
-                        <option value ="hitpoints">Hitpoints</option>
-                        <option value ="combat">Combat</option>
-                        <option value ="scavenge">Scavenge</option>
-                        <option value ="craftsmanship">Craftsmanship</option>
-                        <option value ="intellect">Intellect</option>
-                    </Form.Control>
                 </Col>
-                <Col md={3}>
-                    <Form.Label ><Translate id="labels.sortDirection" /></Form.Label>
-                    <Form.Control as="select" value={props.sort.direction} onChange={(e) => props.sortDirectionAction(e.target.value)}>
-                        <option value="asc">Asc</option>
-                        <option value ="desc">Desc</option>
-                    </Form.Control>
+                <Col md={2}>
+                    <Translate>
+                    {({ translate }) =>
+                        <Form.Control as="select" value={props.sort.key} onChange={(e) => props.sortKeyAction(e.target.value)}>
+                            <option value="name">{translate("basic.name")}</option>
+                            <option value ="state">{translate("basic.state")}</option>
+                            <option value ="level">{translate("basic.level")}</option>
+                            <option value ="hitpoints">{translate("basic.health")}</option>
+                            <option value ="combat">{translate("basic.combat")}</option>
+                            <option value ="scavenge">{translate("basic.scavenge")}</option>
+                            <option value ="craftsmanship">{translate("basic.craftsmanship")}</option>
+                            <option value ="intellect">{translate("basic.intellect")}</option>
+                        </Form.Control>
+                    }
+                    </Translate>
+                </Col>
+                <Col md={2}>
+                    <Translate>
+                    {({ translate }) =>
+                        <Form.Control as="select" value={props.sort.direction} onChange={(e) => props.sortDirectionAction(e.target.value)}>
+                            <option value="asc">{translate("labels.asc")}</option>
+                            <option value ="desc">{translate("labels.desc")}</option>
+                        </Form.Control>
+                    }
+                    </Translate>
                 </Col>
             </Row>
         </Form.Group>
