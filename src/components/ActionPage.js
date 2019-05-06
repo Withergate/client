@@ -14,9 +14,17 @@ import QuestList from './quest/QuestList';
 import ArenaPanel from './arena/ArenaPanel';
 
 import { fetchLocations, fetchClan } from '../actions/dataActions';
-import { visitLocation, visitArena, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
+import { 
+    visitLocation,
+    visitArena,
+    visitTavern,
+    constructBuilding,
+    goOnQuest,
+    tradeResources
+} from '../actions/actionActions';
 import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
 import ResourceTradePanel from './trade/ResourceTradePanel';
+import TavernPanel from './location/TavernPanel';
 
 class ActionPage extends Component {
 
@@ -52,6 +60,9 @@ class ActionPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="arena" className="tab-link"><Translate id="basic.arena" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="tavern" className="tab-link"><Translate id="basic.tavern" /></Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -95,6 +106,12 @@ class ActionPage extends Component {
                                             <ArenaPanel 
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 onVisit={this.props.visitArena}
+                                            />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="tavern">
+                                            <TavernPanel 
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                onVisit={this.props.visitTavern}
                                             />
                                         </Tab.Pane>
                                     </Tab.Content>
@@ -141,6 +158,7 @@ const mapDispatchToProps = dispatch => (
         fetchLocations,
         visitLocation,
         visitArena,
+        visitTavern,
         fetchClan,
         selectCharacter,
         constructBuilding,

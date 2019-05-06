@@ -47,7 +47,8 @@
         "outfit": ["Outfit", "Oblečení"],
         "gear": ["Gear", "Výbava"],
         "consumable": ["Consumable", "Zásoby"],
-        "arena": ["Arena", "Aréna"]
+        "arena": ["Arena", "Aréna"],
+        "tavern": ["Tavern", "Hospoda"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],
@@ -122,6 +123,19 @@
         "info": ["Only one character per day can be sent to the arena. This character will be matched with random opponent and fight. Only melee weapons are allowed. Fame and glory awarded in case of victory but characters can get injured.",
         "Každý den můžeš do arény poslat jednu postavu ze svého klanu. Utkáš se s náhodným protivníkem a vítěz vyhraje slávu a zátky. Jsou dovolené pouze kontaktní zbraně."]
     },
+    "tavern": {
+        "description": ["On the edge of Withergate, there is a little establishment where many wastelanders go to spend their hard-earned caps in exhange for home-made booze of discutable quality. Here, you can find scavengers that might be interested in joining your clan for certain cash.",
+        "Na kraji Withergate je malá hospoda, kam se stahují všechny pochybné existence utrácet své pracně vydělané zátky. Třeba zde narazíš na někoho, kdo by se ti mohl hodit."],
+        "info": ["Tavern is used for hiring new characters. Each character costs [100] caps so be prepared to have this amount ready when going to this location.",
+        "V hospodě máš možnost najmout nové postavu. Každá postava stojí [100] zátek, tak měj tuto sumu připravenou, než sem vyrazíš."]
+    },
+    "location": {
+        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
+        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
+        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
+        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
+        
+    },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
     "HEALING": ["Healing", "Léčení"],
@@ -129,28 +143,5 @@
     "BUFF_COMBAT": ["Combat buff", "Zvyšuje bojovou sílu"],
     "BUFF_SCAVENGE": ["Scavenge buff", "Zvyšuje hledání"],
     "BUFF_CRAFTSMANSHIP": ["Craftsmanship buff", "Zvyšuje zručnost"],
-    "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"],
-    "NEIGHBORHOOD": {
-        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
-        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
-        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
-        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
-        
-    },
-    "WASTELAND": {
-        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
-        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
-        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
-        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
-        
-    },
-    "CITY_CENTER": {
-        "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
-        "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
-        "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
-        "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
-    },
-    "TAVERN": {
-        "visit": ["Character will hire someone in the tavern.", "Postava najme novou posilu v hospodě"]
-    }
+    "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"]
   }

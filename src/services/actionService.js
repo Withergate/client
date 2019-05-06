@@ -173,7 +173,31 @@ export const visitArena = (characterId) => {
             characterId: characterId
         };
 
-        fetch(API_URL + 'locations/arena/action', {
+        fetch(API_URL + 'arena/action', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(payload)
+        }).then(response => {
+            if (response.ok) {
+                resolve();
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }  
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const visitTavern = (characterId) => {
+    return new Promise((resolve, reject) => {
+        const payload = {
+            characterId: characterId
+        };
+
+        fetch(API_URL + 'tavern/action', {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify(payload)

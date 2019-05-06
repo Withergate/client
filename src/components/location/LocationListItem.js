@@ -34,7 +34,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                         <Translate id="labels.visit" />
                     </Button>
                     <ReactTooltip id={location.location.concat(".visit")} effect="solid" place="left">
-                        <Translate id={location.location.concat(".visit")} />
+                        <Translate id="location.visit" />
                     </ReactTooltip>
                     { 
                         location.scouting && 
@@ -48,7 +48,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                                     <Translate id="labels.scout" />
                                 </Button>
                                 <ReactTooltip id={location.location.concat(".scout")} effect="solid" place="left">
-                                    <Translate id={location.location.concat(".scout")} />
+                                    <Translate id="location.scout" />
                                 </ReactTooltip>
                             </div>
                         }

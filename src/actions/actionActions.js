@@ -8,7 +8,8 @@ import {
     tradeResources,
     visitLocation,
     restWithCharacter,
-    visitArena
+    visitArena,
+    visitTavern
 } from '../services/actionService';
 
 import {
@@ -175,6 +176,19 @@ const visitArenaAction = (characterId) => {
     };
 };
 export { visitArenaAction as visitArena };
+
+const visitTavernAction = (characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: VISIT_LOCATION,
+            payload: visitTavern(characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { visitTavernAction as visitTavern };
 
 const restWithCharacterAction = (characterId) => {
     return (dispatch) => {
