@@ -4,6 +4,7 @@ export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 export const DISMISS_ERROR = 'DISMISS_ERROR';
 export const CHANGE_CHARACTER_SORT_KEY = 'CHANGE_CHARACTER_SORT_KEY';
 export const CHANGE_CHARACTER_SORT_DIRECTION = 'CHANGE_CHARACTER_SORT_DIRECTION';
+export const CHANGE_ITEM_FILTER = 'CHANGE_ITEM_FILTER';
 
 const selectClanTabAction = (tab) => ({
     type: SELECT_CLAN_TAB,
@@ -39,3 +40,9 @@ const changeCharacterSortDirectionAction = (direction) => ({
     payload: direction
 });
 export { changeCharacterSortDirectionAction as changeCharacterSortDirection };
+
+const changeItemFilterAction = (filter) => ({
+    type: CHANGE_ITEM_FILTER,
+    payload: filter
+});
+export { changeItemFilterAction as changeItemFilter };

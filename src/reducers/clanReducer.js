@@ -1,8 +1,6 @@
 import {
     SELECT_CHARACTER,
-    DISMISS_ERROR,
-    CHANGE_CHARACTER_SORT_KEY,
-    CHANGE_CHARACTER_SORT_DIRECTION
+    DISMISS_ERROR
 } from '../actions/uiActions';
 
 import {
@@ -22,12 +20,6 @@ const initialState = {
     },
     clansPage: {
         content: []
-    },
-    sort: {
-        characters: {
-            key: 'name',
-            direction: 'asc'
-        }
     },
     exists: true,
     selectedCharacter: undefined,
@@ -119,26 +111,6 @@ export const ClanReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: true,
                 error: action.payload
-            };
-        case CHANGE_CHARACTER_SORT_KEY:
-            return {
-                ...state,
-                sort: {
-                    characters: {
-                        ...state.sort.characters,
-                        key: action.payload
-                    }
-                }
-            };
-        case CHANGE_CHARACTER_SORT_DIRECTION:
-            return {
-                ...state,
-                sort: {
-                    characters: {
-                        ...state.sort.characters,
-                        direction: action.payload
-                    }
-                }
             };
         default:
             return state;

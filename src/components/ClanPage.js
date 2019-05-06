@@ -26,7 +26,8 @@ import {
     selectCharacter,
     dismissError,
     changeCharacterSortKey,
-    changeCharacterSortDirection
+    changeCharacterSortDirection,
+    changeItemFilter
 } from '../actions/uiActions';
 
 class ClanPage extends Component {
@@ -90,7 +91,9 @@ class ClanPage extends Component {
                                                         consumables={this.props.clan.consumables}
                                                         equipItem={this.props.equipItem}
                                                         useConsumable={this.props.useConsumable}
-                                                        selectedCharacter={this.props.selectedCharacter} />
+                                                        selectedCharacter={this.props.selectedCharacter}
+                                                        filter={this.props.filter.items }
+                                                        changeFilter={this.props.changeItemFilter} />
                                                 </Col>
                                                 <Col>
                                                     <CharacterSelector 
@@ -142,11 +145,12 @@ ClanPage.propTypes = {
     dismissError: PropTypes.func.isRequired,
     sort: PropTypes.object.isRequired,
     changeCharacterSortKey: PropTypes.func.isRequired,
-    changeCharacterSortDirection: PropTypes.func.isRequired
+    changeCharacterSortDirection: PropTypes.func.isRequired,
+    changeItemFilter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
-    const { clan, selectedCharacter, sort } = state.clan;
+    const { clan, selectedCharacter } = state.clan;
 
     const fetching = state.clan.fetching || state.action.fetching;
     const fetched = state.clan.fetched && state.action.fetched;
@@ -154,8 +158,9 @@ const mapStateToProps = state => {
     const error = state.clan.error || state.action.error;
 
     const selectedTab = state.ui.clanTab;
+    const { sort, filter } = state.ui;
 
-    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab, sort };
+    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab, sort, filter };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -169,7 +174,8 @@ const mapDispatchToProps = dispatch => (
         selectClanTab,
         dismissError,
         changeCharacterSortKey,
-        changeCharacterSortDirection
+        changeCharacterSortDirection,
+        changeItemFilter
     }, dispatch)
 );
 

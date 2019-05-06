@@ -33,8 +33,6 @@
         "health": ["Health", "Zdraví"],
         "traits": ["Abilities", "Schopnosti"],
         "noTraits": ["No abilities", "Žádné schopnosti"],
-        "weapon": ["Weapon", "Zbraň"],
-        "gear": ["Gear", "Výbava"],
         "noOutfit": ["No outfit", "Bez zbroje"],
         "noGear": ["No gear", "Bez výbavy"],
         "progress": ["Progress", "Postup"],
@@ -43,7 +41,12 @@
         "bonus": ["Bonus", "Bonus"],
         "information": ["Information", "Informace"],
         "informationLevel": ["Information level", "Úroveň informací"],
-        "name": ["Name", "Jméno"]
+        "name": ["Name", "Jméno"],
+        "all": ["All", "Všechno"],
+        "weapon": ["Weapon", "Zbraň"],
+        "outfit": ["Outfit", "Oblečení"],
+        "gear": ["Gear", "Výbava"],
+        "consumable": ["Consumable", "Zásoby"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],
@@ -59,6 +62,7 @@
         "desc": ["Descending", "Sestupně"],
         "previous": ["Previous", "Přechozí"],
         "sortKey": ["Sort by", "Řadit podle"],
+        "filter": ["Filter by", "Filtrovat podle"],
         "visit": ["Visit", "Navštívit"],
         "scout": ["Scout", "Pátrat"],
         "construct": ["Construct", "Stavět"],
@@ -115,6 +119,10 @@
     "RANGED": ["Ranged", "Střelná"],
     "HEALING": ["Healing", "Léčení"],
     "EXPERIENCE": ["Experience", "Zkušenosti"],
+    "BUFF_COMBAT": ["Combat buff", "Zvyšuje bojovou sílu"],
+    "BUFF_SCAVENGE": ["Scavenge buff", "Zvyšuje hledání"],
+    "BUFF_CRAFTSMANSHIP": ["Craftsmanship buff", "Zvyšuje zručnost"],
+    "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"],
     "NEIGHBORHOOD": {
         "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
         "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
