@@ -167,6 +167,30 @@ export const visitLocation = (characterId, location, type) => {
     });
 };
 
+export const visitArena = (characterId) => {
+    return new Promise((resolve, reject) => {
+        const payload = {
+            characterId: characterId
+        };
+
+        fetch(API_URL + 'locations/arena/action', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(payload)
+        }).then(response => {
+            if (response.ok) {
+                resolve();
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }  
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
 export const restWithCharacter = (characterId) => {
     return new Promise((resolve, reject) => {
         fetch(API_URL + 'characters/rest', {

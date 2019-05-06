@@ -11,9 +11,10 @@ import spinner from '../images/spinner.gif';
 import CharacterSelector from './clan/CharacterSelector';
 import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
+import ArenaPanel from './arena/ArenaPanel';
 
 import { fetchLocations, fetchClan } from '../actions/dataActions';
-import { visitLocation, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
+import { visitLocation, visitArena, constructBuilding, goOnQuest, tradeResources } from '../actions/actionActions';
 import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
 import ResourceTradePanel from './trade/ResourceTradePanel';
 
@@ -49,6 +50,9 @@ class ActionPage extends Component {
                                         <Nav.Item>
                                             <Nav.Link eventKey="marketplace" className="tab-link"><Translate id="basic.marketplace" /></Nav.Link>
                                         </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="arena" className="tab-link"><Translate id="basic.arena" /></Nav.Link>
+                                        </Nav.Item>
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
@@ -64,20 +68,16 @@ class ActionPage extends Component {
                                                 onVisit={this.props.visitLocation} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="buildings">
-                                            <div>
-                                                <BuildingList 
-                                                    buildings={this.props.clan.buildings}
-                                                    constructBuilding={this.props.constructBuilding}
-                                                    selectedCharacter={this.props.selectedCharacter}
-                                                    actionable={true} />
-                                            </div>
-                                            <div>
-                                                <BuildingList 
-                                                    buildings={this.props.clan.unconstructedBuildings}
-                                                    constructBuilding={this.props.constructBuilding}
-                                                    selectedCharacter={this.props.selectedCharacter}
-                                                    actionable={true} />
-                                            </div>
+                                            <BuildingList 
+                                                buildings={this.props.clan.buildings}
+                                                constructBuilding={this.props.constructBuilding}
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                actionable={true} />
+                                            <BuildingList 
+                                                buildings={this.props.clan.unconstructedBuildings}
+                                                constructBuilding={this.props.constructBuilding}
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                actionable={true} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestList 
@@ -89,6 +89,12 @@ class ActionPage extends Component {
                                             <ResourceTradePanel 
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 onTrade={this.props.tradeResources}
+                                            />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="arena">
+                                            <ArenaPanel 
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                onVisit={this.props.visitArena}
                                             />
                                         </Tab.Pane>
                                     </Tab.Content>
@@ -106,9 +112,6 @@ class ActionPage extends Component {
 }
 
 ActionPage.propTypes = {
-    fetchClan: PropTypes.func.isRequired,
-    fetchLocations: PropTypes.func.isRequired,
-    visitLocation: PropTypes.func.isRequired,
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
@@ -116,13 +119,6 @@ ActionPage.propTypes = {
     locations: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
-    selectCharacter: PropTypes.func.isRequired,
-    constructBuilding: PropTypes.func.isRequired,
-    goOnQuest: PropTypes.func.isRequired,
-    tradeResources: PropTypes.func.isRequired,
-    selectActionTab: PropTypes.func.isRequired,
-    selectedTab: PropTypes.string.isRequired,
-    dismissError: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -144,6 +140,7 @@ const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchLocations,
         visitLocation,
+        visitArena,
         fetchClan,
         selectCharacter,
         constructBuilding,

@@ -46,7 +46,8 @@
         "weapon": ["Weapon", "Zbraň"],
         "outfit": ["Outfit", "Oblečení"],
         "gear": ["Gear", "Výbava"],
-        "consumable": ["Consumable", "Zásoby"]
+        "consumable": ["Consumable", "Zásoby"],
+        "arena": ["Arena", "Aréna"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],
@@ -115,6 +116,12 @@
         "contribution": ["This game is financed from private resources of the game developers. Since running the game servers is costly, we will be very happy for any donations you are willing to contribute for the game development.",
         "Hra je financována samotnými vývojáři. Pronájem serverů ale něco stojí, a proto budeme moc rádi za jakékoli dary, které jste ochotni věnovat na vývoj hry."]
     },
+    "arena": {
+        "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",
+        "Sláva pro vítěze a zátky pro tvůj klan. Ukaž svou sílu a utkej se s ostatními gladiátory. Měj ale na paměti, že tohle není místo pro slabochy a snadno může dojít i ke smrtelným zraněním."],
+        "info": ["Only one character per day can be sent to the arena. This character will be matched with random opponent and fight. Only melee weapons are allowed. Fame and glory awarded in case of victory but characters can get injured.",
+        "Každý den můžeš do arény poslat jednu postavu ze svého klanu. Utkáš se s náhodným protivníkem a vítěz vyhraje slávu a zátky. Jsou dovolené pouze kontaktní zbraně."]
+    },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
     "HEALING": ["Healing", "Léčení"],
@@ -145,8 +152,5 @@
     },
     "TAVERN": {
         "visit": ["Character will hire someone in the tavern.", "Postava najme novou posilu v hospodě"]
-    },
-    "ARENA": {
-        "visit": ["Character will fight in the arena.", "Postava se utká v souboji v aréně."]
     }
   }

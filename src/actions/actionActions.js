@@ -7,7 +7,8 @@ import {
     goOnQuest,
     tradeResources,
     visitLocation,
-    restWithCharacter
+    restWithCharacter,
+    visitArena
 } from '../services/actionService';
 
 import {
@@ -161,6 +162,19 @@ const visitLocationAction = (characterId, location, type) => {
     };
 };
 export { visitLocationAction as visitLocation };
+
+const visitArenaAction = (characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: VISIT_LOCATION,
+            payload: visitArena(characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { visitArenaAction as visitArena };
 
 const restWithCharacterAction = (characterId) => {
     return (dispatch) => {
