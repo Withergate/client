@@ -26,8 +26,8 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                         label={`${quest.progress}/${quest.details.completion}`}
                     />
                     <p className="mt-2">
-                        <span><Image height="20" src={caps}  /> <b>{quest.details.capsReward}</b> </span>
-                        <span><Image height="20" src={fame}  /> <b>{quest.details.fameReward}</b> </span>
+                        <span><Image height="20" src={caps} /> <b>{quest.details.capsReward}</b> </span>
+                        <span><Image height="20" src={fame} /> <b>{quest.details.fameReward}</b> </span>
                     </p>
                 </Col>
             </Row>

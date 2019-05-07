@@ -48,7 +48,8 @@
         "gear": ["Gear", "Výbava"],
         "consumable": ["Consumable", "Zásoby"],
         "arena": ["Arena", "Aréna"],
-        "tavern": ["Tavern", "Hospoda"]
+        "tavern": ["Tavern", "Hospoda"],
+        "itemChance": ["Chance for finding an item", "Šance na nalezení předmětu"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],

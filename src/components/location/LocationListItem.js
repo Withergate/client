@@ -5,6 +5,12 @@ import ReactTooltip from 'react-tooltip';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
+import { TooltipIcon } from '../shared/TooltipIcon';
+
+import junkIcon from '../../images/junk.png';
+import foodIcon from '../../images/food.png';
+import informationIcon from '../../images/information.png'
+import itemIcon from '../../images/item.png';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">
@@ -17,8 +23,25 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     <Image rounded width="240px" src={location.imageUrl} />
                 </Col>
                 <Col md={8}>
-                    <p>{getTranslatedText(location.description)}</p>
-                    <p><small className="text-muted">{getTranslatedText(location.info)}</small></p>
+                    <Row>
+                        <p>{getTranslatedText(location.description)}</p>
+                        <p><small className="text-muted">{getTranslatedText(location.info)}</small></p>
+                    </Row>
+                    <Row>
+                        <b><Translate id="basic.bonus" />: </b>
+                        <TooltipIcon textKey="basic.food">
+                            {location.foodBonus} <Image height="20" src={foodIcon} />
+                        </TooltipIcon>
+                        <TooltipIcon textKey="basic.junk">
+                            {location.junkBonus} <Image height="20" src={junkIcon} />
+                        </TooltipIcon>
+                        <TooltipIcon textKey="basic.information">
+                            {location.informationBonus} <Image height="20" src={informationIcon} />
+                        </TooltipIcon>
+                        <TooltipIcon textKey="basic.itemChance">
+                            {location.itemChance} <Image height="20" src={itemIcon} />
+                        </TooltipIcon>
+                    </Row>
                 </Col>
             </Row>
         </Card.Body>
