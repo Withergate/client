@@ -1,7 +1,10 @@
 import {
     FETCH_LOCATIONS_PENDING,
     FETCH_LOCATIONS_FULFILLED,
-    FETCH_LOCATIONS_REJECTED
+    FETCH_LOCATIONS_REJECTED,
+    FETCH_CLANS_PENDING,
+    FETCH_CLANS_FULFILLED,
+    FETCH_CLANS_REJECTED,
 } from '../actions/dataActions';
 
 import {
@@ -12,6 +15,10 @@ import {
 
 const initialState = {
     locations: [],
+    clans: {
+        content: [],
+        number: 0
+    },
     fetching: false,
     fetched: false,
     failed: false,
@@ -49,6 +56,34 @@ export const DataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 locations: [],
+                fetching: false,
+                fetched: false,
+                failed: true,
+                error: action.payload
+            };
+        case FETCH_CLANS_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case FETCH_CLANS_FULFILLED:
+            return {
+                ...state,
+                clans: action.payload,
+                fetching: false,
+                fetched: true,
+                failed: false,
+                error: ''
+            };
+        case FETCH_CLANS_REJECTED:
+            return {
+                ...state,
+                clans: {
+                    content: [],
+                    number: 0
+                },
                 fetching: false,
                 fetched: false,
                 failed: true,

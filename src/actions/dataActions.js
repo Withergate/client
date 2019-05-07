@@ -45,9 +45,9 @@ const fetchClanAction = () => ({
 });
 export { fetchClanAction as fetchClan };
 
-const fetchClansAction = (page) => ({
+const fetchClansAction = (number) => ({
     type: FETCH_CLANS,
-    payload: fetchClans(page)
+    payload: fetchClans(number)
 });
 export { fetchClansAction as fetchClans };
 

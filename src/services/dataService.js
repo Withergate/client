@@ -21,9 +21,9 @@ export const fetchClan = () => {
     });
 };
 
-export const fetchClans = (page) => {
+export const fetchClans = (number) => {
     return new Promise((resolve, reject) => {
-        fetch(API_URL.concat('clans?sort=fame,desc').concat('&page=').concat(page), {
+        fetch(API_URL.concat('clans?sort=fame,desc').concat('&page=').concat(number).concat('&size=').concat(10), {
             method: 'GET',
             headers: getHeaders()
         }).then(response => {

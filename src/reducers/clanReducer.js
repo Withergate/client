@@ -6,10 +6,7 @@ import {
 import {
     FETCH_CLAN_PENDING,
     FETCH_CLAN_FULFILLED,
-    FETCH_CLAN_REJECTED,
-    FETCH_CLANS_PENDING,
-    FETCH_CLANS_FULFILLED,
-    FETCH_CLANS_REJECTED,
+    FETCH_CLAN_REJECTED
 } from '../actions/dataActions';
 
 // INITIALIZE STATE
@@ -17,9 +14,6 @@ import {
 const initialState = {
     clan: {
         characters: []
-    },
-    clansPage: {
-        content: []
     },
     exists: true,
     selectedCharacter: undefined,
@@ -84,33 +78,6 @@ export const ClanReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedCharacter: state.clan.characters.find(character => character.id === action.payload)
-            };
-        case FETCH_CLANS_PENDING:
-            return {
-                ...state,
-                fetching: true,
-                fetched: false,
-                failed: false
-            };
-        case FETCH_CLANS_FULFILLED:
-            return {
-                ...state,
-                clansPage: action.payload,
-                fetching: false,
-                fetched: true,
-                failed: false,
-                error: ''
-            };
-        case FETCH_CLANS_REJECTED:
-            return {
-                ...state,
-                clansPage: {
-                    content: []
-                },
-                fetching: false,
-                fetched: false,
-                failed: true,
-                error: action.payload
             };
         default:
             return state;

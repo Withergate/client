@@ -2,32 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import BootstrapTable from 'react-bootstrap-table-next';
 import { Translate } from "react-localize-redux";
+import { Table } from 'react-bootstrap';
 
 import { Error } from './shared/Error';
+import { Paginator } from './shared/Paginator';
 import spinner from '../images/spinner.gif';
 
 import { fetchClans } from '../actions/dataActions';
 
-const columns = [
-    {
-        dataField: 'id',
-        text: 'ID',
-        hidden: true
-    }, {
-        dataField: 'name',
-        text: <Translate id="basic.clan" />
-    }, {
-        dataField: 'fame',
-        text: <Translate id="basic.fame" />
-    }
-];
-
 class FamePage extends Component {
 
     componentDidMount() {
-        this.props.fetchClans(0);
+        this.props.fetchClans(this.props.clans.number);
     }
 
     render() {
@@ -39,11 +26,30 @@ class FamePage extends Component {
                 {
                     this.props.fetched && 
                     <div className="m-4">
-                        <BootstrapTable 
-                            keyField="id"
-                            bordered={false}
-                            data={this.props.clansPage.content}
-                            columns={columns} />
+                        <h5><Translate id="labels.page" /> {this.props.clans.number + 1}</h5>
+                        <Paginator
+                            number={this.props.clans.number}
+                            max={this.props.clans.totalPages - 1}
+                            min={0}
+                            onNext={this.props.fetchClans}
+                            onPrevious={this.props.fetchClans} />
+                        <Table className="mt-4" striped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th><Translate id="basic.clan" /></th>
+                                    <th><Translate id="basic.fame" /></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { this.props.clans.content.map(clan =>
+                                    <tr key={clan.id}>
+                                        <td>{clan.name}</td>
+                                        <td>{clan.fame}</td>
+                                    </tr>
+                                    )
+                                }
+                            </tbody>
+                        </Table>
                     </div>
                     
                 }
@@ -61,14 +67,14 @@ FamePage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    clansPage: PropTypes.object.isRequired,
+    clans: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, clansPage } = state.clan;
+    const { fetching, fetched, failed, error, clans } = state.data;
 
 
-    return { fetching, fetched, failed, error, clansPage };
+    return { fetching, fetched, failed, error, clans };
 };
 
 const mapDispatchToProps = dispatch => (

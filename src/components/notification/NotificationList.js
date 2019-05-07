@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import NotificationListItem from './NotificationListItem';
+import { Paginator } from '../shared/Paginator';
 
 const renderList = notifications => (
     <div>
@@ -23,21 +24,15 @@ const renderListItem = notification => (
 
 const NotificationList = (props) => (
     <div>
-        <h5 className="m-4"><Translate id="header.turn" /> {props.turnDisplayed}</h5>
-        <button 
-            className="ml-4 btn btn-light" 
-            style={{width: 100}}
-            disabled={props.turnDisplayed <= 1}
-            onClick={() => props.displayTurnNotifications(props.turnDisplayed - 1)}>
-            <Translate id="labels.previous" />
-        </button> 
-        <button 
-            className="ml-2 btn btn-light" 
-            style={{width: 100}}
-            disabled={props.turnDisplayed === props.currentTurn - 1}
-            onClick={() => props.displayTurnNotifications(props.turnDisplayed + 1)}>
-            <Translate id="labels.next" />
-        </button>
+        <div className="m-4">
+            <h5><Translate id="header.turn" /> {props.turnDisplayed}</h5>
+            <Paginator
+                number={props.turnDisplayed}
+                max={props.currentTurn - 1}
+                min={1}
+                onNext={props.displayTurnNotifications}
+                onPrevious={props.displayTurnNotifications} />
+        </div>
         {renderList(props.notifications)} 
     </div>
 );

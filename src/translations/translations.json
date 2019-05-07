@@ -75,6 +75,7 @@
         "rest": ["Rest", "Odpočívat"],
         "close": ["Close", "Zavřít"],
         "confirm": ["Confirm", "Potvrdit"],
+        "page": ["Page", "Strana"],
         "resourceTrade": ["Trade resources", "Obchod se surovinami"],
         "noWeapons": ["You don't have any weapons at the moment. You can go to the Actions section to search some locations or perform crafting.",
         "Momentálně nemáš žádné zbraně. V sekci Akce můžeš nějaké získat prohledáváním lokací nebo řemeslnou výrobou."],
