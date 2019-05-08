@@ -51,11 +51,15 @@ const fetchClansAction = (number) => ({
 });
 export { fetchClansAction as fetchClans };
 
-const fetchLocationsAction = () => ({
-    type: FETCH_LOCATIONS,
-    payload: fetchLocations()
-});
-export { fetchLocationsAction as fetchLocations };
+const fetchDataAction = () => {
+    return (dispatch) => {
+        return dispatch({
+            type: FETCH_LOCATIONS,
+            payload: fetchLocations()
+        });
+    }
+};
+export { fetchDataAction as fetchData };
 
 const fetchNotificationsAction = (turn) => ({
     type: FETCH_NOTIFICATIONS,

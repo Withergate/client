@@ -12,8 +12,11 @@ import CharacterSelector from './clan/CharacterSelector';
 import BuildingList from './building/BuildingList';
 import QuestList from './quest/QuestList';
 import ArenaPanel from './arena/ArenaPanel';
+import ResourceTradePanel from './trade/ResourceTradePanel';
+import TavernPanel from './location/TavernPanel';
+import ClanOfferList from './trade/ClanOfferList';
 
-import { fetchLocations, fetchClan } from '../actions/dataActions';
+import { fetchData, fetchClan } from '../actions/dataActions';
 import { 
     visitLocation,
     visitArena,
@@ -23,14 +26,12 @@ import {
     tradeResources
 } from '../actions/actionActions';
 import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
-import ResourceTradePanel from './trade/ResourceTradePanel';
-import TavernPanel from './location/TavernPanel';
 
 class ActionPage extends Component {
 
     componentDidMount() {
         this.props.fetchClan();
-        this.props.fetchLocations();
+        this.props.fetchData();
     }
 
     render() {
@@ -99,8 +100,16 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="marketplace">
                                             <ResourceTradePanel 
                                                 selectedCharacter={this.props.selectedCharacter}
-                                                onTrade={this.props.tradeResources}
-                                            />
+                                                onTrade={this.props.tradeResources} />
+                                            <Row className="mt-4">
+                                                <Col md={6}>
+                                                    <ClanOfferList 
+                                                        weapons={this.props.clan.weapons}
+                                                        outfits={this.props.clan.outfits}
+                                                        gear={this.props.clan.gear}
+                                                        consumables={this.props.clan.consumables} />
+                                                </Col>
+                                            </Row>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="arena">
                                             <ArenaPanel 
@@ -139,7 +148,7 @@ ActionPage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { locations } = state.data;
+    const { locations, trade } = state.data;
     const { selectedCharacter, clan } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
@@ -150,12 +159,12 @@ const mapStateToProps = state => {
 
     const selectedTab = state.ui.actionTab;
 
-    return { fetching, fetched, failed, error, locations, selectedCharacter, clan, selectedTab };
+    return { fetching, fetched, failed, error, locations, trade, selectedCharacter, clan, selectedTab };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        fetchLocations,
+        fetchData,
         visitLocation,
         visitArena,
         visitTavern,

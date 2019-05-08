@@ -23,7 +23,6 @@ const Paginator = (props) => (
 );
 
 Paginator.propTypes = {
-    message: PropTypes.string.isRequired,
     onNext: PropTypes.func.isRequired,
     onPrevious: PropTypes.func.isRequired,
     number: PropTypes.number.isRequired,

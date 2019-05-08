@@ -55,6 +55,10 @@ const ItemList = (props) => (
                 </Col>
             </Row>
         </Form.Group>
+        {
+            (props.weapons.length === 0) && (props.outfits.length === 0) && (props.gear.length === 0) && (props.consumables.length === 0)
+            && <Translate id="labels.noItems" />
+        }
         { (props.weapons.length > 0) && (props.filter === ALL || props.filter === WEAPON) &&
             props.weapons.map(weapon => renderWeaponItem(weapon, props.selectedCharacter, props.equipItem))
         }

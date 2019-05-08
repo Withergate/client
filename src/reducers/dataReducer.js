@@ -19,6 +19,9 @@ const initialState = {
         content: [],
         number: 0
     },
+    trade: {
+        offers: []
+    },
     fetching: false,
     fetched: false,
     failed: false,
