@@ -4,7 +4,8 @@ import {
     fetchLocations,
     fetchNotifications,
     fetchTurn,
-    fetchVersion
+    fetchVersion,
+    fetchMarketOffers
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -39,6 +40,11 @@ export const FETCH_VERSION_PENDING = 'FETCH_VERSION_PENDING';
 export const FETCH_VERSION_FULFILLED = 'FETCH_VERSION_FULFILLED';
 export const FETCH_VERSION_REJECTED = 'FETCH_VERSION_REJECTED';
 
+export const FETCH_MARKET_OFFERS = 'FETCH_MARKET_OFFERS';
+export const FETCH_MARKET_OFFERS_PENDING = 'FETCH_MARKET_OFFERS_PENDING';
+export const FETCH_MARKET_OFFERS_FULFILLED = 'FETCH_MARKET_OFFERS_FULFILLED';
+export const FETCH_MARKET_OFFERS_REJECTED = 'FETCH_MARKET_OFFERS_REJECTED';
+
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
     payload: fetchClan()
@@ -56,7 +62,10 @@ const fetchDataAction = () => {
         return dispatch({
             type: FETCH_LOCATIONS,
             payload: fetchLocations()
-        });
+        }).then(() => dispatch({
+            type: FETCH_MARKET_OFFERS,
+            payload: fetchMarketOffers()
+        }));
     }
 };
 export { fetchDataAction as fetchData };

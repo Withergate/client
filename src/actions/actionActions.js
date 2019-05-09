@@ -9,14 +9,15 @@ import {
     visitLocation,
     restWithCharacter,
     visitArena,
-    visitTavern
+    visitTavern,
+    publishOffer
 } from '../services/actionService';
 
 import {
-    fetchClan,
+    fetchClan, fetchMarketOffers,
 } from '../services/dataService';
 
-import { FETCH_CLAN } from './dataActions';
+import { FETCH_CLAN, FETCH_MARKET_OFFERS } from './dataActions';
 
 export const CREATE_CLAN = 'CREATE_CLAN';
 
@@ -167,3 +168,19 @@ const restWithCharacterAction = (characterId) => {
     };
 };
 export { restWithCharacterAction as restWithCharacter };
+
+const publishOfferAction = (itemId, itemType, price) => {
+    return (dispatch) => {
+        return dispatch({
+            type: CHARACTER_ACTION,
+            payload: publishOffer(itemId, itemType, price)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        })).then(() => dispatch({
+            type: FETCH_MARKET_OFFERS,
+            payload: fetchMarketOffers()
+        }));
+    };
+};
+export { publishOfferAction as publishOffer };

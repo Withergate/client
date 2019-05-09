@@ -108,3 +108,21 @@ export const fetchVersion = () => {
         });
     });
 };
+
+export const fetchMarketOffers = () => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'trade/market', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching market offers info from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

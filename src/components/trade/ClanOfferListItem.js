@@ -33,7 +33,7 @@ class ClanOfferListItem extends React.Component {
           event.stopPropagation();
           this.setState({ validated: true });
         } else {
-          console.log("Trade to be implemented"); // TODO: implement trade request
+            this.props.publishOffer(this.props.offer.itemId, this.props.offer.details.itemType, this.state.caps)
         }
       }
 
@@ -63,9 +63,7 @@ class ClanOfferListItem extends React.Component {
                             <Button
                                 variant="outline-dark"
                                 className="button-classic"
-                                type="submit"
-                                // onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
-                                >
+                                type="submit" >
                                 <Translate id="labels.offer" />
                             </Button>
                         </Col>
@@ -95,7 +93,8 @@ class ClanOfferListItem extends React.Component {
 };
 
 ClanOfferListItem.propTypes = {
-    offer: PropTypes.object.isRequired
+    offer: PropTypes.object.isRequired,
+    publishOffer: PropTypes.func.isRequired
 };
 
 export default ClanOfferListItem;

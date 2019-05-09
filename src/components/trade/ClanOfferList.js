@@ -7,13 +7,12 @@ import { Translate } from 'react-localize-redux';
 const createOffer = (item) => {
     const offer = {
         itemId: item.id,
-        type: item.details.itemType,
         details: item.details
     }
     return offer;
 }
 
-const renderList = (weapons, outfits, gear, consumables) => (
+const renderList = (weapons, outfits, gear, consumables, publishOffer) => (
     <div>
         <h5><Translate id="labels.trade.offers" /></h5>
         {
@@ -21,29 +20,29 @@ const renderList = (weapons, outfits, gear, consumables) => (
             <Translate id="labels.noItems" />
         }
         {   weapons.length > 0 &&
-                weapons.map(weapon => renderListItem(createOffer(weapon)))
+                weapons.map(weapon => renderListItem(createOffer(weapon), publishOffer))
         }
         {   outfits.length > 0 &&
-                outfits.map(outfit => renderListItem(createOffer(outfit)))
+                outfits.map(outfit => renderListItem(createOffer(outfit), publishOffer))
         }
         {   gear.length > 0 &&
-                gear.map(gear => renderListItem(createOffer(gear)))
+                gear.map(gear => renderListItem(createOffer(gear), publishOffer))
         }
         {   consumables.length > 0 &&
-                consumables.map(consumable => renderListItem(createOffer(consumable)))
+                consumables.map(consumable => renderListItem(createOffer(consumable), publishOffer))
         }
     </div>
 );
 
-const renderListItem = (offer) => (
-    <div key={offer.type + offer.itemId}>
-        <ClanOfferListItem offer={offer} />
+const renderListItem = (offer, publishOffer) => (
+    <div key={offer.details.itemType + offer.itemId}>
+        <ClanOfferListItem offer={offer} publishOffer={publishOffer} />
     </div>
 );
 
 const ClanOfferList = (props) => (
     <div>
-        {renderList(props.weapons, props.outfits, props.gear, props.consumables)}
+        {renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer)}
     </div>
 );
 
@@ -52,6 +51,7 @@ ClanOfferList.propTypes = {
     outfits: PropTypes.array.isRequired,
     gear: PropTypes.array.isRequired,
     consumables: PropTypes.array.isRequired,
+    publishOffer: PropTypes.func.isRequired
 };
 
 export default ClanOfferList;

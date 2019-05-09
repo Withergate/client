@@ -23,9 +23,11 @@ import {
     visitTavern,
     constructBuilding,
     goOnQuest,
-    tradeResources
+    tradeResources,
+    publishOffer
 } from '../actions/actionActions';
 import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
+import MarketOfferList from './trade/MarketOfferList';
 
 class ActionPage extends Component {
 
@@ -107,7 +109,15 @@ class ActionPage extends Component {
                                                         weapons={this.props.clan.weapons}
                                                         outfits={this.props.clan.outfits}
                                                         gear={this.props.clan.gear}
-                                                        consumables={this.props.clan.consumables} />
+                                                        consumables={this.props.clan.consumables}
+                                                        publishOffer={this.props.publishOffer} />
+                                                </Col>
+                                                <Col md={6}>
+                                                    <MarketOfferList
+                                                        offers={this.props.offers}
+                                                        selectedCharacter={this.props.selectedCharacter}
+                                                        onBuy={() => console.log("Not implemented")}
+                                                        onCancel={() => console.log("Not implemented")} />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>
@@ -148,7 +158,7 @@ ActionPage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { locations, trade } = state.data;
+    const { locations, offers } = state.data;
     const { selectedCharacter, clan } = state.clan;
 
     const fetching = state.data.fetching || state.clan.fetching;
@@ -159,7 +169,7 @@ const mapStateToProps = state => {
 
     const selectedTab = state.ui.actionTab;
 
-    return { fetching, fetched, failed, error, locations, trade, selectedCharacter, clan, selectedTab };
+    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -174,7 +184,8 @@ const mapDispatchToProps = dispatch => (
         goOnQuest,
         tradeResources,
         selectActionTab,
-        dismissError
+        dismissError,
+        publishOffer
     }, dispatch)
 );
 

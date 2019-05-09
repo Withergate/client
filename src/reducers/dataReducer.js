@@ -5,6 +5,9 @@ import {
     FETCH_CLANS_PENDING,
     FETCH_CLANS_FULFILLED,
     FETCH_CLANS_REJECTED,
+    FETCH_MARKET_OFFERS_PENDING,
+    FETCH_MARKET_OFFERS_FULFILLED,
+    FETCH_MARKET_OFFERS_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -19,9 +22,7 @@ const initialState = {
         content: [],
         number: 0
     },
-    trade: {
-        offers: []
-    },
+    offers: [],
     fetching: false,
     fetched: false,
     failed: false,
@@ -87,6 +88,31 @@ export const DataReducer = (state = initialState, action) => {
                     content: [],
                     number: 0
                 },
+                fetching: false,
+                fetched: false,
+                failed: true,
+                error: action.payload
+            };
+        case FETCH_MARKET_OFFERS_PENDING:
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                failed: false
+            };
+        case FETCH_MARKET_OFFERS_FULFILLED:
+            return {
+                ...state,
+                offers: action.payload,
+                fetching: false,
+                fetched: true,
+                failed: false,
+                error: ''
+            };
+        case FETCH_MARKET_OFFERS_REJECTED:
+            return {
+                ...state,
+                offers: [],
                 fetching: false,
                 fetched: false,
                 failed: true,
