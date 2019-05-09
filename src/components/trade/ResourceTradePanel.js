@@ -76,8 +76,6 @@ class ResourceTradePanel extends React.Component {
         this.setState({ 
             caps: capsInfo
         });
-
-        console.log(this.state.junk, this.state.food, this.state.trade);
     }
 
     render() {
@@ -113,7 +111,7 @@ class ResourceTradePanel extends React.Component {
                             </InputGroup>
                         </Col>
                         <Col md={3}>
-                            <InputGroup className="mb-3">
+                            <InputGroup>
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="food-trade"><Image className="mr-1" height="20" src={food} /></InputGroup.Text>
                                 </InputGroup.Prepend>
