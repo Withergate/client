@@ -254,3 +254,42 @@ export const publishOffer = (itemId, itemType, price) => {
         });
     });
 };
+
+export const tradeItem = (characterId, offerId) => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'trade/market/action', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({characterId: characterId, offerId: offerId})
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const deleteOffer = (offerId) => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'trade/market/'.concat(offerId), {
+            method: 'DELETE',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.status);
+            } else {
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
+            }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

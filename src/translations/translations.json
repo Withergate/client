@@ -107,7 +107,8 @@
         "offer": ["Offer", "Nabídnout"],
         "invalidPrice": ["Price must be equal or higher than item's market value!", "Cena musí být stejná nebo vyšší než tržní hodnota předmětu!"],
         "seller": ["Seller", "Prodejce"],
-        "noOffers": ["There are currently no items available at the marketplace.", "Na tržišti momentálně nejsou žádné předměty."]
+        "noOffers": ["There are currently no items available at the marketplace.", "Na tržišti momentálně nejsou žádné předměty."],
+        "cancel": ["Cancel", "Zrušit"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! It is year 2056 and Earth is devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

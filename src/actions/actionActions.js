@@ -10,7 +10,9 @@ import {
     restWithCharacter,
     visitArena,
     visitTavern,
-    publishOffer
+    publishOffer,
+    deleteOffer,
+    tradeItem
 } from '../services/actionService';
 
 import {
@@ -184,3 +186,35 @@ const publishOfferAction = (itemId, itemType, price) => {
     };
 };
 export { publishOfferAction as publishOffer };
+
+const deleteOfferAction = (offerId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: CHARACTER_ACTION,
+            payload: deleteOffer(offerId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        })).then(() => dispatch({
+            type: FETCH_MARKET_OFFERS,
+            payload: fetchMarketOffers()
+        }));
+    };
+};
+export { deleteOfferAction as deleteOffer };
+
+const tradeItemAction = (characterId, offerId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: CHARACTER_ACTION,
+            payload: tradeItem(characterId, offerId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        })).then(() => dispatch({
+            type: FETCH_MARKET_OFFERS,
+            payload: fetchMarketOffers()
+        }));
+    };
+};
+export { tradeItemAction as tradeItem };

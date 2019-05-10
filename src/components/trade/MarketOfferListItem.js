@@ -7,7 +7,7 @@ import { Row, Button, Card, Col, Image } from 'react-bootstrap';
 
 import capsIcon from '../../images/caps.png';
 
-const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel}) => (
+const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
@@ -25,12 +25,20 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel}) => (
             </Row>
         </Card.Body>
         <Card.Footer>
+            { clanId === offer.seller.id &&
+                <Button 
+                    variant="outline-dark"
+                    className="button-classic mr-2" 
+                    onClick={() => onCancel(offer.id)}>
+                    <Translate id="labels.cancel" />
+                </Button> 
+            }
             { selectedCharacter !== undefined ? 
                 <Button 
                     variant="dark"
                     className="button-classic" 
                     disabled={selectedCharacter.state !== 'READY'}
-                    onClick={() => onBuy(offer.id, selectedCharacter.id)}>
+                    onClick={() => onBuy(selectedCharacter.id, offer.id)}>
                     <Translate id="labels.buy" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -43,7 +51,8 @@ MarketOfferListItem.propTypes = {
     offer: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     onBuy: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired
+    onCancel: PropTypes.func.isRequired,
+    clanId: PropTypes.number.isRequired
 };
 
 export default MarketOfferListItem;

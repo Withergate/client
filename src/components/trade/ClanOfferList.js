@@ -18,10 +18,6 @@ const createOffer = (item) => {
 const renderList = (weapons, outfits, gear, consumables, publishOffer, filter, changeFilter) => (
     <div>
         <ItemFilter filter={filter} onChange={changeFilter} />
-        {
-            weapons.length === 0 && outfits.length === 0 && gear.length === 0 && consumables.length === 0 &&
-            <Translate id="labels.noItems" />
-        }
         {   weapons.length > 0 && (filter === ALL || filter === WEAPON) &&
                 weapons.map(weapon => renderListItem(createOffer(weapon), publishOffer))
         }
@@ -46,7 +42,11 @@ const renderListItem = (offer, publishOffer) => (
 const ClanOfferList = (props) => (
     <div>
         <h5><Translate id="labels.trade.offers" /></h5>
-        {renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer, props.filter, props.changeFilter)}
+        {
+            (props.weapons.length === 0 && props.outfits.length === 0 && props.gear.length === 0 && props.consumables.length === 0) ?
+            <Translate id="labels.noItems" />
+            : renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer, props.filter, props.changeFilter)
+        }
     </div>
 );
 

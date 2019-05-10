@@ -24,7 +24,9 @@ import {
     constructBuilding,
     goOnQuest,
     tradeResources,
-    publishOffer
+    publishOffer,
+    deleteOffer,
+    tradeItem
 } from '../actions/actionActions';
 import {
     selectActionTab,
@@ -124,10 +126,11 @@ class ActionPage extends Component {
                                                     <MarketOfferList
                                                         offers={this.props.offers}
                                                         selectedCharacter={this.props.selectedCharacter}
-                                                        onBuy={() => console.log("Not implemented")}
-                                                        onCancel={() => console.log("Not implemented")}
+                                                        onBuy={this.props.tradeItem}
+                                                        onCancel={this.props.deleteOffer}
                                                         filter={this.props.filter.marketOffers }
-                                                        changeFilter={this.props.changeMarketOfferFilter} />
+                                                        changeFilter={this.props.changeMarketOfferFilter}
+                                                        clanId={this.props.clan.id} />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>
@@ -198,7 +201,9 @@ const mapDispatchToProps = dispatch => (
         dismissError,
         publishOffer,
         changeClanOfferFilter,
-        changeMarketOfferFilter
+        changeMarketOfferFilter,
+        deleteOffer,
+        tradeItem
     }, dispatch)
 );
 
