@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Row, Col } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import WeaponListItem from './WeaponListItem';
 import GearListItem from './GearListItem';
 import OutfitListItem from './OutfitListItem';
 import ConsumableListItem from './ConsumableListItem';
+import ItemFilter from './ItemFilter';
 import { ALL, WEAPON, OUTFIT, GEAR, CONSUMABLE } from '../../constants/constants';
 
 const renderWeaponItem = (weapon, selectedCharacter, equipItem) => (
@@ -35,26 +35,7 @@ const renderConsumableItem = (consumable, selectedCharacter, useConsumable) => (
 
 const ItemList = (props) => (
     <div>
-        <Form.Group>
-            <Row>
-                <Col md={4}>
-                    <Form.Label ><Translate id="labels.filter" /></Form.Label>
-                </Col>
-                <Col md={4}>
-                    <Translate>
-                    {({ translate }) =>
-                        <Form.Control as="select" value={props.filter} onChange={(e) => props.changeFilter(e.target.value)}>
-                            <option value={ALL}>{translate("basic.all")}</option>
-                            <option value ={WEAPON}>{translate("basic.weapon")}</option>
-                            <option value ={OUTFIT}>{translate("basic.outfit")}</option>
-                            <option value ={GEAR}>{translate("basic.gear")}</option>
-                            <option value ={CONSUMABLE}>{translate("basic.consumable")}</option>
-                        </Form.Control>
-                    }
-                    </Translate>
-                </Col>
-            </Row>
-        </Form.Group>
+        <ItemFilter filter={props.filter} onChange={props.changeFilter} />
         {
             (props.weapons.length === 0) && (props.outfits.length === 0) && (props.gear.length === 0) && (props.consumables.length === 0)
             && <Translate id="labels.noItems" />

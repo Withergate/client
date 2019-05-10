@@ -26,7 +26,13 @@ import {
     tradeResources,
     publishOffer
 } from '../actions/actionActions';
-import { selectActionTab, selectCharacter, dismissError } from '../actions/uiActions';
+import {
+    selectActionTab,
+    selectCharacter,
+    dismissError,
+    changeClanOfferFilter,
+    changeMarketOfferFilter
+} from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
 
 class ActionPage extends Component {
@@ -110,14 +116,18 @@ class ActionPage extends Component {
                                                         outfits={this.props.clan.outfits}
                                                         gear={this.props.clan.gear}
                                                         consumables={this.props.clan.consumables}
-                                                        publishOffer={this.props.publishOffer} />
+                                                        publishOffer={this.props.publishOffer} 
+                                                        filter={this.props.filter.clanOffers }
+                                                        changeFilter={this.props.changeClanOfferFilter} />
                                                 </Col>
                                                 <Col md={6}>
                                                     <MarketOfferList
                                                         offers={this.props.offers}
                                                         selectedCharacter={this.props.selectedCharacter}
                                                         onBuy={() => console.log("Not implemented")}
-                                                        onCancel={() => console.log("Not implemented")} />
+                                                        onCancel={() => console.log("Not implemented")}
+                                                        filter={this.props.filter.marketOffers }
+                                                        changeFilter={this.props.changeMarketOfferFilter} />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>
@@ -168,8 +178,9 @@ const mapStateToProps = state => {
     const error = state.clan.error || state.data.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
+    const filter = state.ui.filter;
 
-    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab };
+    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab, filter };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -185,7 +196,9 @@ const mapDispatchToProps = dispatch => (
         tradeResources,
         selectActionTab,
         dismissError,
-        publishOffer
+        publishOffer,
+        changeClanOfferFilter,
+        changeMarketOfferFilter
     }, dispatch)
 );
 
