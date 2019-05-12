@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProgressBar, Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
-import ReactTooltip from 'react-tooltip';
+import TooltipWrapper from '../shared/TooltipWrapper';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
@@ -30,32 +30,26 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
             <Card.Footer>
                 { selectedCharacter !== undefined ? 
                     <Row>
-                        <Button
-                            data-tip data-for="construct"
-                            variant="dark"
-                            className="m-2 button-classic"
-                            onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
-                            disabled={selectedCharacter.state !== 'READY'}>
-                            <Translate id="labels.construct" />
-                        </Button>
-                        <ReactTooltip id="construct" effect="solid" place="left">
-                            <Translate id="labels.buildingConstruction" />
-                        </ReactTooltip>
+                        <TooltipWrapper textKey="labels.buildingConstruction">
+                            <Button
+                                variant="dark"
+                                className="m-2 button-classic"
+                                onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
+                                disabled={selectedCharacter.state !== 'READY'}>
+                                <Translate id="labels.construct" />
+                            </Button>
+                        </TooltipWrapper>
                         {
                             building.details.visitable && 
-                            <div>
+                            <TooltipWrapper textKey="labels.buildingVisit">
                                 <Button
-                                    data-tip data-for="visit"
                                     variant="dark"
                                     className="m-2 button-classic"
                                     onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
                                     disabled={selectedCharacter.state !== 'READY' || building.level < 1}>
                                     <Translate id="labels.visit" />
                                 </Button>
-                                <ReactTooltip id="visit" effect="solid" place="left">
-                                    <Translate id="labels.buildingVisit" />
-                                </ReactTooltip>
-                            </div>
+                            </TooltipWrapper>
                         }
                     </Row>
                     : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

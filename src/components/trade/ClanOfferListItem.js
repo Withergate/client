@@ -4,6 +4,7 @@ import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image, Form, InputGroup, FormControl } from 'react-bootstrap';
+import TooltipWrapper from '../shared/TooltipWrapper';
 
 import capsIcon from '../../images/caps.png';
 
@@ -60,12 +61,14 @@ class ClanOfferListItem extends React.Component {
                     onSubmit={e => this.handleSubmit(e)} >
                     <Row>
                         <Col md={4}>
-                            <Button
-                                variant="outline-dark"
-                                className="button-classic"
-                                type="submit" >
-                                <Translate id="labels.offer" />
-                            </Button>
+                            <TooltipWrapper textKey="labels.offerTooltip">
+                                <Button
+                                    variant="outline-dark"
+                                    className="button-classic"
+                                    type="submit" >
+                                    <Translate id="labels.offer" />
+                                </Button>
+                            </TooltipWrapper>
                         </Col>
                         <Col md={8}>
                             <InputGroup>

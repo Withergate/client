@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
-import ReactTooltip from 'react-tooltip';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
-import { TooltipIcon } from '../shared/TooltipIcon';
+import TooltipWrapper from '../shared/TooltipWrapper';
 
 import junkIcon from '../../images/junk.png';
 import foodIcon from '../../images/food.png';
@@ -29,18 +28,18 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     </Row>
                     <Row>
                         <b><Translate id="basic.bonus" />: </b>
-                        <TooltipIcon textKey="basic.food">
+                        <TooltipWrapper textKey="basic.food">
                             {location.foodBonus} <Image height="20" src={foodIcon} />
-                        </TooltipIcon>
-                        <TooltipIcon textKey="basic.junk">
+                        </TooltipWrapper>
+                        <TooltipWrapper textKey="basic.junk">
                             {location.junkBonus} <Image height="20" src={junkIcon} />
-                        </TooltipIcon>
-                        <TooltipIcon textKey="basic.information">
+                        </TooltipWrapper>
+                        <TooltipWrapper textKey="basic.information">
                             {location.informationBonus} <Image height="20" src={informationIcon} />
-                        </TooltipIcon>
-                        <TooltipIcon textKey="basic.itemChance">
+                        </TooltipWrapper>
+                        <TooltipWrapper textKey="basic.itemChance">
                             {location.itemChance} <Image height="20" src={itemIcon} />
-                        </TooltipIcon>
+                        </TooltipWrapper>
                     </Row>
                 </Col>
             </Row>
@@ -48,32 +47,26 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
         <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Row>
-                    <Button
-                        variant="dark"
-                        data-tip data-for={location.location.concat(".visit")}
-                        className="m-2 button-classic" 
-                        onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
-                        disabled={selectedCharacter.state !== 'READY'}>
-                        <Translate id="labels.visit" />
-                    </Button>
-                    <ReactTooltip id={location.location.concat(".visit")} effect="solid" place="left">
-                        <Translate id="location.visit" />
-                    </ReactTooltip>
+                    <TooltipWrapper textKey={"location.visit"}>
+                        <Button
+                            variant="dark"
+                            className="m-2 button-classic" 
+                            onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
+                            disabled={selectedCharacter.state !== 'READY'}>
+                            <Translate id="labels.visit" />
+                        </Button>
+                    </TooltipWrapper>
                     { 
                         location.scouting && 
-                            <div>
+                            <TooltipWrapper textKey={"location.scout"}>
                                 <Button
                                     variant="dark"
-                                    data-tip data-for={location.location.concat(".scout")}
                                     className="m-2 button-classic" 
                                     onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
                                     disabled={selectedCharacter.state !== 'READY'}>
                                     <Translate id="labels.scout" />
                                 </Button>
-                                <ReactTooltip id={location.location.concat(".scout")} effect="solid" place="left">
-                                    <Translate id="location.scout" />
-                                </ReactTooltip>
-                            </div>
+                            </TooltipWrapper>
                         }
                 </Row>
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

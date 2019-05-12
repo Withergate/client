@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
-const TooltipIcon = (props) => (
+const TooltipWrapper = (props) => (
     <div className="ml-1">
         <div data-tip data-for={props.textKey}>
             { props.children }
@@ -14,8 +14,8 @@ const TooltipIcon = (props) => (
     </div>
 );
 
-TooltipIcon.propTypes = {
+TooltipWrapper.propTypes = {
     textKey: PropTypes.string.isRequired
 };
 
-export { TooltipIcon };
+export default TooltipWrapper;
