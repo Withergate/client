@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Form, InputGroup, FormControl, FormLabel, Row, Col } from 'react-bootstrap';
+import { Translate } from "react-localize-redux";
 
 class ClanSetupForm extends Component {
     constructor(props) {
@@ -21,25 +23,30 @@ class ClanSetupForm extends Component {
   
     render() {
         return (
-            <form className="p-4" onSubmit={this.handleSubmit}>
+            <Form className="p-4" onSubmit={this.handleSubmit}>
                 <p>
-                    Welcome to Withergate! It seems that you are a new wastelander. This is a dangerous place to roam alone
-                    so let`s begin with setting up a clan.
+                    <Translate id="clanSetup.text" />
                 </p>
-                <div className="form-group">
-                    <label htmlFor="clan-name">
-                        Clan name:
-                    </label>
-                    <input 
-                        className="form-control"
-                        name="clan-name"
-                        type="text"
-                        style={{width: 200}}
-                        value={this.state.value}
-                        onChange={this.handleChange} />
-                </div>
-                <input className="btn btn-dark" type="submit" value="Submit" />
-            </form>
+                <InputGroup className="form-group">
+                    <Row>
+                        <Col md={5}>
+                            <FormLabel>
+                                <Translate id="clanSetup.name" />
+                            </FormLabel>
+                        </Col>
+                        <Col md={7}>
+                            <FormControl 
+                                name="clan-name"
+                                type="text"
+                                value={this.state.value}
+                                onChange={this.handleChange} />
+                        </Col>
+                    </Row>
+                </InputGroup>
+                <Button className="btn btn-dark" type="submit">
+                    <Translate id="clanSetup.button" />
+                </Button>
+            </Form>
         );
     }
 }

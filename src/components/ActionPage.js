@@ -95,11 +95,6 @@ class ActionPage extends Component {
                                                 constructBuilding={this.props.constructBuilding}
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 actionable={true} />
-                                            <BuildingList 
-                                                buildings={this.props.clan.unconstructedBuildings}
-                                                constructBuilding={this.props.constructBuilding}
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                actionable={true} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestList 
