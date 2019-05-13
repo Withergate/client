@@ -2,12 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 import { Link } from 'react-router-dom';
+import { orderBy } from "lodash";
 
 import BuildingListItem from './BuildingListItem';
+import BuildingSort from './BuildingSort';
 
-const renderList = (buildings, selectedCharacter, constructBuilding, actionable) => (
+const sort = (list, sort) => {
+    return orderBy(list, [sort.key], [sort.direction]);
+}
+
+const renderList = (props) => (
     <div>
-        {buildings.map(building => renderListItem(building, selectedCharacter, constructBuilding, actionable))}
+        <BuildingSort
+            sort={props.sort}
+            sortKeyAction={props.sortKeyAction}
+            sortDirectionAction={props.sortDirectionAction} />
+        {
+            sort(props.buildings, props.sort)
+                .map(building => renderListItem(building, props.selectedCharacter, props.constructBuilding, props.actionable))
+        }
     </div>
 );
 
@@ -25,7 +38,7 @@ const BuildingList = (props) => (
     <div>
         {
             props.buildings.length ?
-                renderList(props.buildings, props.selectedCharacter, props.constructBuilding, props.actionable)
+                renderList(props)
                 : <div>
                     <Translate id="labels.noBuildings" /> -> <Link className="action-link" to='/action'><Translate id="header.actions" /></Link>
                 </div>
@@ -37,7 +50,10 @@ BuildingList.propTypes = {
     buildings: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     constructBuilding: PropTypes.func,
-    actionable: PropTypes.bool.isRequired
+    actionable: PropTypes.bool.isRequired,
+    sort: PropTypes.object.isRequired,
+    sortKeyAction: PropTypes.func.isRequired,
+    sortDirectionAction: PropTypes.func.isRequired
 };
 
 export default BuildingList;

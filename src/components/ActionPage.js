@@ -33,7 +33,9 @@ import {
     selectCharacter,
     dismissError,
     changeClanOfferFilter,
-    changeMarketOfferFilter
+    changeMarketOfferFilter,
+    changeBuildingSortKey,
+    changeBuildingSortDirection
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
 
@@ -94,7 +96,10 @@ class ActionPage extends Component {
                                                 buildings={this.props.clan.buildings}
                                                 constructBuilding={this.props.constructBuilding}
                                                 selectedCharacter={this.props.selectedCharacter}
-                                                actionable={true} />
+                                                actionable={true}
+                                                sort={this.props.sort.buildings}
+                                                sortKeyAction={this.props.changeBuildingSortKey}
+                                                sortDirectionAction={this.props.changeBuildingSortDirection} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestList 
@@ -176,9 +181,9 @@ const mapStateToProps = state => {
     const error = state.clan.error || state.data.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
-    const filter = state.ui.filter;
+    const { filter, sort } = state.ui;
 
-    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab, filter };
+    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab, filter, sort };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -197,6 +202,8 @@ const mapDispatchToProps = dispatch => (
         publishOffer,
         changeClanOfferFilter,
         changeMarketOfferFilter,
+        changeBuildingSortKey,
+        changeBuildingSortDirection,
         deleteOffer,
         tradeItem
     }, dispatch)

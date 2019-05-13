@@ -4,6 +4,8 @@ export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 export const DISMISS_ERROR = 'DISMISS_ERROR';
 export const CHANGE_CHARACTER_SORT_KEY = 'CHANGE_CHARACTER_SORT_KEY';
 export const CHANGE_CHARACTER_SORT_DIRECTION = 'CHANGE_CHARACTER_SORT_DIRECTION';
+export const CHANGE_BUILDING_SORT_KEY = 'CHANGE_BUILDING_SORT_KEY';
+export const CHANGE_BUILDING_SORT_DIRECTION = 'CHANGE_BUILDING_SORT_DIRECTION';
 export const CHANGE_ITEM_FILTER = 'CHANGE_ITEM_FILTER';
 export const CHANGE_CLAN_OFFER_FILTER = 'CHANGE_CLAN_OFFER_FILTER';
 export const CHANGE_MARKET_OFFER_FILTER = 'CHANGE_MARKET_OFFER_FILTER';
@@ -42,6 +44,18 @@ const changeCharacterSortDirectionAction = (direction) => ({
     payload: direction
 });
 export { changeCharacterSortDirectionAction as changeCharacterSortDirection };
+
+const changeBuildingSortKeyAction = (key) => ({
+    type: CHANGE_BUILDING_SORT_KEY,
+    payload: key
+});
+export { changeBuildingSortKeyAction as changeBuildingSortKey };
+
+const changeBuildingSortDirectionAction = (direction) => ({
+    type: CHANGE_BUILDING_SORT_DIRECTION,
+    payload: direction
+});
+export { changeBuildingSortDirectionAction as changeBuildingSortDirection };
 
 const changeItemFilterAction = (filter) => ({
     type: CHANGE_ITEM_FILTER,

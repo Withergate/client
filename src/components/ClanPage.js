@@ -27,6 +27,8 @@ import {
     dismissError,
     changeCharacterSortKey,
     changeCharacterSortDirection,
+    changeBuildingSortKey,
+    changeBuildingSortDirection,
     changeItemFilter
 } from '../actions/uiActions';
 
@@ -81,7 +83,6 @@ class ClanPage extends Component {
                                                 sortDirectionAction={this.props.changeCharacterSortDirection} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
-                                            
                                             <Row>
                                                 <Col>
                                                     <ItemList
@@ -108,7 +109,10 @@ class ClanPage extends Component {
                                             <BuildingList 
                                                 buildings={this.props.clan.buildings}
                                                 selectedCharacter={this.props.selectedCharacter}
-                                                actionable={false} />
+                                                actionable={false}
+                                                sort={this.props.sort.buildings}
+                                                sortKeyAction={this.props.changeBuildingSortKey}
+                                                sortDirectionAction={this.props.changeBuildingSortDirection} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestListCompleted 
@@ -136,17 +140,8 @@ ClanPage.propTypes = {
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    equipItem: PropTypes.func.isRequired,
-    unequipItem: PropTypes.func.isRequired,
-    useConsumable: PropTypes.func.isRequired,
-    restWithCharacter: PropTypes.func.isRequired,
     selectedTab: PropTypes.string.isRequired,
-    selectClanTab: PropTypes.func.isRequired,
-    dismissError: PropTypes.func.isRequired,
-    sort: PropTypes.object.isRequired,
-    changeCharacterSortKey: PropTypes.func.isRequired,
-    changeCharacterSortDirection: PropTypes.func.isRequired,
-    changeItemFilter: PropTypes.func.isRequired,
+    sort: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
@@ -175,6 +170,8 @@ const mapDispatchToProps = dispatch => (
         dismissError,
         changeCharacterSortKey,
         changeCharacterSortDirection,
+        changeBuildingSortKey,
+        changeBuildingSortDirection,
         changeItemFilter
     }, dispatch)
 );

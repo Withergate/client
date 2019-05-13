@@ -3,6 +3,8 @@ import {
     SELECT_ACTION_TAB,
     CHANGE_CHARACTER_SORT_KEY,
     CHANGE_CHARACTER_SORT_DIRECTION,
+    CHANGE_BUILDING_SORT_KEY,
+    CHANGE_BUILDING_SORT_DIRECTION,
     CHANGE_ITEM_FILTER,
     CHANGE_CLAN_OFFER_FILTER,
     CHANGE_MARKET_OFFER_FILTER
@@ -16,6 +18,10 @@ const initialState = {
         characters: {
             key: 'name',
             direction: 'asc'
+        },
+        buildings: {
+            key: 'level',
+            direction: 'desc'
         }
     },
     filter: {
@@ -41,6 +47,7 @@ export const UiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sort: {
+                    ...state.sort,
                     characters: {
                         ...state.sort.characters,
                         key: action.payload
@@ -51,8 +58,31 @@ export const UiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sort: {
+                    ...state.sort,
                     characters: {
                         ...state.sort.characters,
+                        direction: action.payload
+                    }
+                }
+            };
+        case CHANGE_BUILDING_SORT_KEY:
+            return {
+                ...state,
+                sort: {
+                    ...state.sort,
+                    buildings: {
+                        ...state.sort.buildings,
+                        key: action.payload
+                    }
+                }
+            };
+        case CHANGE_BUILDING_SORT_DIRECTION:
+            return {
+                ...state,
+                sort: {
+                    ...state.sort,
+                    buildings: {
+                        ...state.sort.buildings,
                         direction: action.payload
                     }
                 }
