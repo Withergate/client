@@ -129,10 +129,16 @@
         "button": ["Confirm", "Založit"]
     },
     "about": {
-        "text": ["Withergate is an opensource turn-based post-apocalyptic browser game developed by a small group of friends in their free time. We will be very happy if you enjoy playing the game and are open to suggestions for new features, bug reporting and even contributing with game content.",
+        "aboutHeader": ["Introduction", "Slovo úvodem"],
+        "aboutText": ["Withergate is an opensource turn-based post-apocalyptic browser game developed by a small group of friends in their free time. We will be very happy if you enjoy playing the game and are open to suggestions for new features, bug reporting and even contributing with game content.",
         "Withergate je opensource post-apo tahová hra v prohlížeči vyvíjená malou skupinou přátel ve volném čase. Budeme moc rádi, když si užijete hraní a jsme otevřeni všem podnětům pro nové funkce do hry, nahlašování chyb nebo nápady na herní obsah."],
-        "contribution": ["This game is financed from private resources of the game developers. Since running the game servers is costly, we will be very happy for any donations you are willing to contribute for the game development.",
-        "Hra je financována samotnými vývojáři. Pronájem serverů ale něco stojí, a proto budeme moc rádi za jakékoli dary, které jste ochotni věnovat na vývoj hry."]
+        "contributionHeader": ["Contribution", "Jak přispět"],
+        "contributionText": ["This game is financed from private resources of the game developers. Since running the game servers is costly, we will be very happy for any donations you are willing to contribute for the game development.",
+        "Hra je financována samotnými vývojáři. Pronájem serverů ale něco stojí, a proto budeme moc rádi za jakékoli dary, které jste ochotni věnovat na vývoj hry."],
+        "ackHeader": ["Acknowledgement", "Poděkování"],
+        "photosText": ["I would like to thank the following people for allowing me to use their beautiful photos as a game content:",
+        "Rád bych poděkoval následujícím lidem za poskytnutí fotografií pro herní obsah:"],
+        "links": ["Links", "Odkazy"]
     },
     "arena": {
         "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",
