@@ -6,6 +6,7 @@ import { Row, Col, Button, Card } from 'react-bootstrap';
 
 const TavernPanel = ({selectedCharacter, onVisit}) => (
     <Card className="mb-4">
+        <Card.Img variant="top" width="600px" src="https://storage.googleapis.com/withergate-images/locations/tavern.png" />
         <Card.Body>
             <Row>
                 <Col md={12}>

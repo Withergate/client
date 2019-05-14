@@ -6,6 +6,7 @@ import { Row, Col, Button, Card } from 'react-bootstrap';
 
 const ArenaPanel = ({selectedCharacter, onVisit}) => (
     <Card className="mb-4">
+        <Card.Img variant="top" width="600px" src="https://storage.googleapis.com/withergate-images/locations/arena.png" />
         <Card.Body>
             <Row>
                 <Col md={12}>
