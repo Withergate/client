@@ -114,7 +114,7 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                                 variant="outline-dark"
                                 size="sm"
                                 className="ml-2 button-small" 
-                                onClick={() => unequipItem(character.weapon.id, 'OUTFIT', character.id)}>
+                                onClick={() => unequipItem(character.outfit.id, 'OUTFIT', character.id)}>
                                 <Translate id="labels.unequip" />
                             </Button> 
                         </div>
