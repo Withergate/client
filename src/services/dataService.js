@@ -126,3 +126,21 @@ export const fetchMarketOffers = () => {
         });
     });
 };
+
+export const fetchGlobalNotification = () => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'notifications/global', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching global notification from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

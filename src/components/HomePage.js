@@ -7,12 +7,18 @@ import NotificationList from './notification/NotificationList';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 
-import { fetchNotifications, displayTurnNotifications } from '../actions/dataActions';
+import { 
+    fetchNotifications,
+    displayTurnNotifications,
+    fetchGlobalNotification 
+} from '../actions/dataActions';
+import { GlobalNotification } from './notification/GlobalNotification';
 
 class HomePage extends Component {
 
     componentDidMount() {
         this.props.fetchNotifications(this.props.turnDisplayed);
+        this.props.fetchGlobalNotification();
     }
 
     render() {
@@ -20,6 +26,10 @@ class HomePage extends Component {
             <div>
                 {
                     this.props.failed && <Error message={this.props.error} />
+                }
+                {
+                    this.props.global.fetched && this.props.global.active &&
+                        <GlobalNotification message={this.props.global.message} />
                 }
                 {
                     this.props.fetched && 
@@ -40,29 +50,27 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-    fetchNotifications: PropTypes.func.isRequired,
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
     notifications: PropTypes.array.isRequired,
-    turnDisplayed: PropTypes.number.isRequired,
-    displayTurnNotifications: PropTypes.func.isRequired
+    turnDisplayed: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
-    const { error, notifications } = state.notifications;
+    const { error, notifications, global } = state.notifications;
     const { turnDisplayed, turn } = state.turn;
 
     const fetching = state.turn.fetching || state.notifications.fetching;
     const fetched = state.turn.fetched && state.notifications.fetched;
     const failed = state.turn.failed || state.notifications.failed;
 
-    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn };
+    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn, global };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchNotifications, displayTurnNotifications }, dispatch)
+    bindActionCreators({ fetchNotifications, displayTurnNotifications, fetchGlobalNotification }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

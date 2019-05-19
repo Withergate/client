@@ -5,7 +5,8 @@ import {
     fetchNotifications,
     fetchTurn,
     fetchVersion,
-    fetchMarketOffers
+    fetchMarketOffers,
+    fetchGlobalNotification
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -44,6 +45,11 @@ export const FETCH_MARKET_OFFERS = 'FETCH_MARKET_OFFERS';
 export const FETCH_MARKET_OFFERS_PENDING = 'FETCH_MARKET_OFFERS_PENDING';
 export const FETCH_MARKET_OFFERS_FULFILLED = 'FETCH_MARKET_OFFERS_FULFILLED';
 export const FETCH_MARKET_OFFERS_REJECTED = 'FETCH_MARKET_OFFERS_REJECTED';
+
+export const FETCH_GLOBAL_NOTIFICATION = 'FETCH_GLOBAL_NOTIFICATION';
+export const FETCH_GLOBAL_NOTIFICATION_PENDING = 'FETCH_GLOBAL_NOTIFICATION_PENDING';
+export const FETCH_GLOBAL_NOTIFICATION_FULFILLED = 'FETCH_GLOBAL_NOTIFICATION_FULFILLED';
+export const FETCH_GLOBAL_NOTIFICATION_REJECTED = 'FETCH_GLOBAL_NOTIFICATION_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -100,3 +106,9 @@ const fetchVersionAction = () => ({
     payload: fetchVersion()
 });
 export { fetchVersionAction as fetchVersion };
+
+const fetchGlobalNotificationAction = () => ({
+    type: FETCH_GLOBAL_NOTIFICATION,
+    payload: fetchGlobalNotification
+});
+export { fetchGlobalNotificationAction as fetchGlobalNotification };
