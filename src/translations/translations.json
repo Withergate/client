@@ -5,6 +5,7 @@
       "actions": ["Actions", "Akce"],
       "fame": ["Fame", "Sláva"],
       "about": ["About", "O hře"],
+      "forum": ["Forum", "Fórum"],
       "administration": ["Administration", "Administrace"],
       "turn": ["Turn", "Kolo"]
     },
