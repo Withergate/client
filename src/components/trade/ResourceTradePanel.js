@@ -88,8 +88,7 @@ class ResourceTradePanel extends React.Component {
                     id="resourceForm"
                     noValidate
                     validated={this.state.validated}
-                    onSubmit={e => this.handleSubmit(e)}
-                >
+                    onSubmit={e => this.handleSubmit(e)} >
                     <Row>
                         <Col md={3}>
                             <InputGroup className="mb-3">

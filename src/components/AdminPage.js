@@ -9,6 +9,7 @@ import ConfirmationDialog from '../components/shared/ConfirmationDialog';
 import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
+import NotificationPanel from './admin/NotificationPanel';
 
 class AdminPage extends Component {
     constructor(...args) {
@@ -44,7 +45,6 @@ class AdminPage extends Component {
                                     <Translate id="labels.endTurn" />
                                 </Button> 
                             </Card.Footer>
-                            
                         </Card>
 
                         <Card className="mb-4">
@@ -59,7 +59,6 @@ class AdminPage extends Component {
                                     <Translate id="labels.restartGame" />
                                 </Button>
                             </Card.Footer>
-                            
                         </Card>
 
                         <ConfirmationDialog
@@ -74,6 +73,8 @@ class AdminPage extends Component {
                             heading="labels.restartGame"
                             onClose={() => this.setState({ restartGameModal: false })}
                             onConfirm={() => this.props.restartGame()} />
+
+                        <NotificationPanel />
                     </div>
                 }
                 {

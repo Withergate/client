@@ -6,7 +6,8 @@ import {
     fetchTurn,
     fetchVersion,
     fetchMarketOffers,
-    fetchGlobalNotification
+    fetchGlobalNotification,
+    updateGlobalNotification
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -50,6 +51,11 @@ export const FETCH_GLOBAL_NOTIFICATION = 'FETCH_GLOBAL_NOTIFICATION';
 export const FETCH_GLOBAL_NOTIFICATION_PENDING = 'FETCH_GLOBAL_NOTIFICATION_PENDING';
 export const FETCH_GLOBAL_NOTIFICATION_FULFILLED = 'FETCH_GLOBAL_NOTIFICATION_FULFILLED';
 export const FETCH_GLOBAL_NOTIFICATION_REJECTED = 'FETCH_GLOBAL_NOTIFICATION_REJECTED';
+
+export const UPDATE_GLOBAL_NOTIFICATION = 'UPDATE_GLOBAL_NOTIFICATION';
+export const UPDATE_GLOBAL_NOTIFICATION_PENDING = 'UPDATE_GLOBAL_NOTIFICATION_PENDING';
+export const UPDATE_GLOBAL_NOTIFICATION_FULFILLED = 'UPDATE_GLOBAL_NOTIFICATION_FULFILLED';
+export const UPDATE_GLOBAL_NOTIFICATION_REJECTED = 'UPDATE_GLOBAL_NOTIFICATION_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -112,3 +118,16 @@ const fetchGlobalNotificationAction = () => ({
     payload: fetchGlobalNotification
 });
 export { fetchGlobalNotificationAction as fetchGlobalNotification };
+
+const updateGlobalNotificationAction = (message, active) => {
+    return (dispatch) => {
+        return dispatch({
+            type: UPDATE_GLOBAL_NOTIFICATION,
+            payload: updateGlobalNotification(message, active)
+        }).then(() => dispatch({
+            type: FETCH_GLOBAL_NOTIFICATION,
+            payload: fetchGlobalNotification()
+        }));
+    }
+};
+export { updateGlobalNotificationAction as updateGlobalNotification };

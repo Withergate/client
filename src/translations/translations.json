@@ -109,7 +109,11 @@
         "seller": ["Seller", "Prodejce"],
         "noOffers": ["There are currently no items available at the marketplace.", "Na tržišti momentálně nejsou žádné předměty."],
         "cancel": ["Cancel", "Zrušit"],
-        "offerTooltip": ["This will list the item on the marketplace for the specified price.", "Tímto nabídneš předmět na trhu za zvolenou cenu."]
+        "offerTooltip": ["This will list the item on the marketplace for the specified price.", "Tímto nabídneš předmět na trhu za zvolenou cenu."],
+        "message": ["Message", "Zpráva"],
+        "state": ["State", "Stav"],
+        "active": ["Active", "Aktivní"],
+        "hidden": ["Hidden", "Skrytá"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
