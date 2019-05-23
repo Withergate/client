@@ -114,7 +114,9 @@
         "message": ["Message", "Zpráva"],
         "state": ["State", "Stav"],
         "active": ["Active", "Aktivní"],
-        "hidden": ["Hidden", "Skrytá"]
+        "hidden": ["Hidden", "Skrytá"],
+        "rookie": ["Rookie", "Zelenáč"],
+        "veteran": ["Veteran", "Veterán"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

@@ -23,10 +23,10 @@ import { FETCH_CLAN, FETCH_MARKET_OFFERS } from './dataActions';
 
 export const CREATE_CLAN = 'CREATE_CLAN';
 
-export const CHARACTER_ACTION = 'CHARACTER_ACTION';
-export const CHARACTER_ACTION_PENDING = 'CHARACTER_ACTION_PENDING';
-export const CHARACTER_ACTION_FULFILLED = 'CHARACTER_ACTION_FULFILLED';
-export const CHARACTER_ACTION_REJECTED = 'CHARACTER_ACTION_REJECTED';
+export const GAME_ACTION = 'GAME_ACTION';
+export const GAME_ACTION_PENDING = 'GAME_ACTION_PENDING';
+export const GAME_ACTION_FULFILLED = 'GAME_ACTION_FULFILLED';
+export const GAME_ACTION_REJECTED = 'GAME_ACTION_REJECTED';
 
 const createClanAction = (clanName) => {
     return (dispatch) => {
@@ -44,7 +44,7 @@ export { createClanAction as createClan };
 const equipItemAction = (itemId, type, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: equipItem(itemId, type, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -57,7 +57,7 @@ export { equipItemAction as equipItem };
 const unequipItemAction = (itemId, type, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: unequipItem(itemId, type, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -70,7 +70,7 @@ export { unequipItemAction as unequipItem };
 const useConsumableAction = (consumableId, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: useConsumable(consumableId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -83,7 +83,7 @@ export { useConsumableAction as useConsumable };
 const constructBuildingAction = (buildingName, characterId, type) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: constructBuilding(buildingName, characterId, type)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -96,7 +96,7 @@ export { constructBuildingAction as constructBuilding };
 const goOnQuestAction = (questId, characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: goOnQuest(questId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -109,7 +109,7 @@ export { goOnQuestAction as goOnQuest };
 const tradeResourcesAction = (characterId, food, junk, type) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: tradeResources(characterId, food, junk, type)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -122,7 +122,7 @@ export { tradeResourcesAction as tradeResources };
 const visitLocationAction = (characterId, location, type) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: visitLocation(characterId, location, type)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -135,7 +135,7 @@ export { visitLocationAction as visitLocation };
 const visitArenaAction = (characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: visitArena(characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -145,11 +145,11 @@ const visitArenaAction = (characterId) => {
 };
 export { visitArenaAction as visitArena };
 
-const visitTavernAction = (characterId) => {
+const visitTavernAction = (characterId, characterType) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
-            payload: visitTavern(characterId)
+            type: GAME_ACTION,
+            payload: visitTavern(characterId, characterType)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()
@@ -161,7 +161,7 @@ export { visitTavernAction as visitTavern };
 const restWithCharacterAction = (characterId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: restWithCharacter(characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -174,7 +174,7 @@ export { restWithCharacterAction as restWithCharacter };
 const publishOfferAction = (itemId, itemType, price) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: publishOffer(itemId, itemType, price)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -190,7 +190,7 @@ export { publishOfferAction as publishOffer };
 const deleteOfferAction = (offerId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: deleteOffer(offerId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
@@ -206,7 +206,7 @@ export { deleteOfferAction as deleteOffer };
 const tradeItemAction = (characterId, offerId) => {
     return (dispatch) => {
         return dispatch({
-            type: CHARACTER_ACTION,
+            type: GAME_ACTION,
             payload: tradeItem(characterId, offerId)
         }).then(() => dispatch({
             type: FETCH_CLAN,

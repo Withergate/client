@@ -20,7 +20,6 @@ import { fetchData, fetchClan } from '../actions/dataActions';
 import { 
     visitLocation,
     visitArena,
-    visitTavern,
     constructBuilding,
     goOnQuest,
     tradeResources,
@@ -141,10 +140,7 @@ class ActionPage extends Component {
                                             />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="tavern">
-                                            <TavernPanel 
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                onVisit={this.props.visitTavern}
-                                            />
+                                            <TavernPanel />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
@@ -191,7 +187,6 @@ const mapDispatchToProps = dispatch => (
         fetchData,
         visitLocation,
         visitArena,
-        visitTavern,
         fetchClan,
         selectCharacter,
         constructBuilding,

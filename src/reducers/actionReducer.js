@@ -1,7 +1,7 @@
 import {
-    CHARACTER_ACTION_PENDING,
-    CHARACTER_ACTION_FULFILLED,
-    CHARACTER_ACTION_REJECTED
+    GAME_ACTION_PENDING,
+    GAME_ACTION_FULFILLED,
+    GAME_ACTION_REJECTED
 } from '../actions/actionActions';
 
 import {
@@ -25,21 +25,21 @@ export const ActionReducer = (state = initialState, action) => {
                 failed: false,
                 error: ''
             };
-        case CHARACTER_ACTION_PENDING:
+        case GAME_ACTION_PENDING:
             return {
                 ...state,
                 fetching: true,
                 fetched: false,
                 failed: false
             };
-        case CHARACTER_ACTION_FULFILLED:
+        case GAME_ACTION_FULFILLED:
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 failed: false
             };
-        case CHARACTER_ACTION_REJECTED:
+        case GAME_ACTION_REJECTED:
             return {
                 ...state,
                 fetching: false,
