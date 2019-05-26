@@ -116,7 +116,8 @@
         "active": ["Active", "Aktivní"],
         "hidden": ["Hidden", "Skrytá"],
         "rookie": ["Rookie", "Zelenáč"],
-        "veteran": ["Veteran", "Veterán"]
+        "veteran": ["Veteran", "Veterán"],
+        "defaultAction": ["Choose the default action for your characters if no action is set.", "Zvol si výchozí akci pro své postavy, pokud žádná akce není přiřazena."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -173,5 +174,7 @@
     "BUFF_COMBAT": ["Combat buff", "Zvyšuje bojovou sílu"],
     "BUFF_SCAVENGE": ["Scavenge buff", "Zvyšuje hledání"],
     "BUFF_CRAFTSMANSHIP": ["Craftsmanship buff", "Zvyšuje zručnost"],
-    "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"]
+    "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"],
+    "REST": ["Rest", "Odpočinek"],
+    "EXPLORE_NEIGHBORHOOD": ["Neighborhood exploration", "Průzkum sousedství"]
   }

@@ -12,7 +12,8 @@ import {
     visitTavern,
     publishOffer,
     deleteOffer,
-    tradeItem
+    tradeItem,
+    changeDefaultAction
 } from '../services/actionService';
 
 import {
@@ -218,3 +219,16 @@ const tradeItemAction = (characterId, offerId) => {
     };
 };
 export { tradeItemAction as tradeItem };
+
+const changeDefaultActionAction = (defaultAction) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: changeDefaultAction(defaultAction)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { changeDefaultActionAction as changeDefaultAction };

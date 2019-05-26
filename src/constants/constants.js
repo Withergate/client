@@ -8,3 +8,7 @@ export const CONSUMABLE = 'CONSUMABLE';
 // Characters
 export const ROOKIE = 'ROOKIE';
 export const VETERAN = 'VETERAN';
+
+// Default chanction
+export const REST = 'REST';
+export const EXPLORE_NEIGHBORHOOD = 'EXPLORE_NEIGHBORHOOD';

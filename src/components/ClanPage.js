@@ -18,7 +18,8 @@ import {
     equipItem,
     unequipItem,
     useConsumable,
-    restWithCharacter
+    restWithCharacter,
+    changeDefaultAction
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
 import { 
@@ -31,6 +32,7 @@ import {
     changeBuildingSortDirection,
     changeItemFilter
 } from '../actions/uiActions';
+import DefaultActionPanel from './clan/DefaultActionPanel';
 
 class ClanPage extends Component {
 
@@ -72,6 +74,7 @@ class ClanPage extends Component {
                                     <Tab.Content>
                                         <Tab.Pane eventKey="overview">
                                             <ClanSummary clan={this.props.clan} />
+                                            <DefaultActionPanel clan={this.props.clan} changeDefaultAction={this.props.changeDefaultAction} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">
                                             <CharacterList 
@@ -172,7 +175,8 @@ const mapDispatchToProps = dispatch => (
         changeCharacterSortDirection,
         changeBuildingSortKey,
         changeBuildingSortDirection,
-        changeItemFilter
+        changeItemFilter,
+        changeDefaultAction
     }, dispatch)
 );
 
