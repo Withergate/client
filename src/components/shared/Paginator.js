@@ -7,14 +7,19 @@ const Paginator = (props) => (
     <div>
         <Button 
             variant="light"
-            className="button-classic" 
+            size="sm"
+            className="button-small d-inline"
             disabled={props.number <= props.min}
             onClick={() => props.onPrevious(props.number - 1)}>
             <Translate id="labels.previous" />
-        </Button> 
+        </Button>
+        <div className="align-self-center d-inline ml-4 mr-4">
+            { props.children }
+        </div>
         <Button 
             variant="light"
-            className="ml-2 button-classic" 
+            size="sm"
+            className="button-small d-inline"
             disabled={props.number >= props.max}
             onClick={() => props.onNext(props.number + 1)}>
             <Translate id="labels.next" />

@@ -34,9 +34,11 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                         <TooltipWrapper textKey="basic.junk">
                             {location.junkBonus} <Image height="20" src={junkIcon} />
                         </TooltipWrapper>
-                        <TooltipWrapper textKey="basic.information">
-                            {location.informationBonus} <Image height="20" src={informationIcon} />
-                        </TooltipWrapper>
+                        {   location.scouting &&
+                            <TooltipWrapper textKey="basic.information">
+                                {location.informationBonus} <Image height="20" src={informationIcon} />
+                            </TooltipWrapper>
+                        }
                         <TooltipWrapper textKey="basic.itemChance">
                             {location.itemChance} <Image height="20" src={itemIcon} />
                         </TooltipWrapper>

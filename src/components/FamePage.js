@@ -26,13 +26,14 @@ class FamePage extends Component {
                 {
                     this.props.fetched && 
                     <div className="m-4">
-                        <h5><Translate id="labels.page" /> {this.props.clans.number + 1}</h5>
                         <Paginator
                             number={this.props.clans.number}
                             max={this.props.clans.totalPages - 1}
                             min={0}
                             onNext={this.props.fetchClans}
-                            onPrevious={this.props.fetchClans} />
+                            onPrevious={this.props.fetchClans}>
+                            <Translate id="labels.page" /> {this.props.clans.number + 1}
+                        </Paginator>
                         <Table className="mt-4" striped bordered hover>
                             <thead>
                                 <tr>
