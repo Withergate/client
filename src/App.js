@@ -43,7 +43,7 @@ class App extends Component {
                 <LocalizeProvider>
                     <BrowserRouter>
                         <div>
-                            <Header turn={turn} principal={principal} clan={clan}/>
+                            <Header turn={turn} principal={principal} clan={clan} loggedIn={loggedIn} />
                             <Main 
                                 exists={exists}
                                 createClan={createClan}
