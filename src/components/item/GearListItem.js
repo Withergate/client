@@ -4,11 +4,12 @@ import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
+import { RARE } from '../../constants/constants';
 
 const GearListItem = ({gear, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title>
+            <Card.Title className={gear.details.rarity === RARE ? 'text-warning' : ''}>
                 {getTranslatedText(gear.details.name)}
             </Card.Title>
             <Row>

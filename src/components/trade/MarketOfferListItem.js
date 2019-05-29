@@ -6,11 +6,12 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image } from 'react-bootstrap';
 
 import capsIcon from '../../images/caps.png';
+import { RARE } from '../../constants/constants';
 
 const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title>
+            <Card.Title className={offer.details.rarity === RARE ? 'text-warning' : ''}>
                 {getTranslatedText(offer.details.name)}
             </Card.Title>
             <Row>

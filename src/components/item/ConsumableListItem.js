@@ -4,11 +4,12 @@ import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Button, Card, Image, Row, Col } from 'react-bootstrap';
+import { RARE } from '../../constants/constants';
 
 const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title>
+            <Card.Title className={consumable.details.rarity === RARE ? 'text-warning' : ''}>
                 {getTranslatedText(consumable.details.name)}
             </Card.Title>
             <Row>

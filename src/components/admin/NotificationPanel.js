@@ -86,7 +86,7 @@ class NotificationPanel extends Component {
                         <Card.Footer>
                             <Button
                                 form="form"
-                                variant="outline-warning"
+                                variant="warning"
                                 className="button-large"
                                 type="submit">
                                 <Translate id="labels.confirm" />
