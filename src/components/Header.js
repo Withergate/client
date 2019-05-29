@@ -6,10 +6,9 @@ import { Translate } from "react-localize-redux";
 import LanguageToggle from './LanguageToggle';
 import logo from '../images/logo.png';
 import refresh from '../images/refresh.png';
-import capsIcon from '../images/caps.png';
-import junkIcon from '../images/junk.png';
-import foodIcon from '../images/food.png';
-import fameIcon from '../images/fame.png';
+import { GameIcon } from './shared/GameIcon';
+import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
+import { Row } from 'react-bootstrap';
 
 const Header = ({turn, principal, clan, loggedIn}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,20 +28,17 @@ const Header = ({turn, principal, clan, loggedIn}) => (
             </ul>
         </div>
         { loggedIn &&
-            <div className="mr-2 mr-2 p-2 rounded bg-light">
-                <img className="ml-1 mr-1" height="15" src={capsIcon} alt="C" /><small>{clan.caps}</small>
-                <img className="ml-2 mr-1" height="15" src={junkIcon} alt="J" /><small>{clan.junk}</small>
-                <img className="ml-2 mr-1" height="15" src={foodIcon} alt="J" /><small>{clan.food}</small>
-                <img className="ml-2 mr-1" height="15" src={fameIcon} alt="F" /><small>{clan.fame}</small>
-            </div>
+            <Row className="mr-2 mr-2 p-2 rounded bg-light">
+                <GameIcon type={CAPS} size={SMALL} value={clan.caps} />
+                <GameIcon type={JUNK} size={SMALL} value={clan.junk} />
+                <GameIcon type={FOOD} size={SMALL} value={clan.food} />
+                <GameIcon type={FAME} size={SMALL} value={clan.fame} />
+            </Row>
         }
         { loggedIn && <div className="mr-2 mr-2 p-2 rounded bg-light"><small><b><Translate id="header.turn" /></b>: {turn.turnId}</small></div> }
         <div className="ml-2" value="Refresh Page" onClick={() => window.location.reload(true)}>
             <img height="20" src={refresh} alt="Refresh" />
         </div>
-
-        
-       
         <LanguageToggle/>
     </nav>
 );

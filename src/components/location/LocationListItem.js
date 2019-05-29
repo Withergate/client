@@ -6,10 +6,8 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 import TooltipWrapper from '../shared/TooltipWrapper';
 
-import junkIcon from '../../images/junk.png';
-import foodIcon from '../../images/food.png';
-import informationIcon from '../../images/information.png'
-import itemIcon from '../../images/item.png';
+import { GameIcon } from '../shared/GameIcon';
+import { FOOD, LARGE, JUNK, INFORMATION, ITEM_CHANCE } from '../../constants/constants';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">
@@ -28,20 +26,12 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                     </Row>
                     <Row>
                         <b><Translate id="basic.bonus" />: </b>
-                        <TooltipWrapper textKey="basic.food">
-                            {location.foodBonus} <Image height="20" src={foodIcon} />
-                        </TooltipWrapper>
-                        <TooltipWrapper textKey="basic.junk">
-                            {location.junkBonus} <Image height="20" src={junkIcon} />
-                        </TooltipWrapper>
+                        <GameIcon type={FOOD} size={LARGE} value={location.foodBonus} />
+                        <GameIcon type={JUNK} size={LARGE} value={location.junkBonus} />
                         {   location.scouting &&
-                            <TooltipWrapper textKey="basic.information">
-                                {location.informationBonus} <Image height="20" src={informationIcon} />
-                            </TooltipWrapper>
+                            <GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} />
                         }
-                        <TooltipWrapper textKey="basic.itemChance">
-                            {location.itemChance} <Image height="20" src={itemIcon} />
-                        </TooltipWrapper>
+                        <GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance} />
                     </Row>
                 </Col>
             </Row>

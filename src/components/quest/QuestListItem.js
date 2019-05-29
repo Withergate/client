@@ -5,8 +5,8 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, ProgressBar, Card, Image } from 'react-bootstrap';
 
-import caps from '../../images/caps.png';
-import fame from '../../images/fame.png';
+import { GameIcon } from '../shared/GameIcon';
+import { CAPS, LARGE, FAME } from '../../constants/constants';
 
 const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
     <Card className="mb-4">
@@ -19,16 +19,21 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     <Image rounded src={quest.details.imageUrl} height="120px" />
                 </Col>
                 <Col md={8}>
-                    <p>{getTranslatedText(quest.details.description)}</p>
-                    <ProgressBar min={0}
-                        max={quest.details.completion}
-                        now={quest.progress}
-                        label={`${quest.progress}/${quest.details.completion}`}
-                    />
-                    <p className="mt-2">
-                        <span><Image height="20" src={caps} /> <b>{quest.details.capsReward}</b> </span>
-                        <span><Image height="20" src={fame} /> <b>{quest.details.fameReward}</b> </span>
-                    </p>
+                    <Row>
+                        {getTranslatedText(quest.details.description)}
+                    </Row>
+                    <Row className="mt-2">
+                        <b><Translate id="basic.reward" />: </b>
+                        <GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} />
+                        <GameIcon type={FAME} size={LARGE} value={quest.details.fameReward} />
+                    </Row>
+                    <Row className="mt-2">
+                        <b><Translate id="basic.progress" />: </b>
+                        <Col><ProgressBar min={0}
+                            max={quest.details.completion}
+                            now={quest.progress}
+                            label={`${quest.progress}/${quest.details.completion}`} /></Col>
+                    </Row>
                 </Col>
             </Row>
         </Card.Body>

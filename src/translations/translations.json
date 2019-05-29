@@ -51,7 +51,8 @@
         "arena": ["Arena", "Aréna"],
         "tavern": ["Tavern", "Hospoda"],
         "itemChance": ["Chance for finding an item", "Šance na nalezení předmětu"],
-        "price": ["Price", "Cena"]
+        "price": ["Price", "Cena"],
+        "reward": ["Reward", "Odměna"]
     },
     "labels": {
         "selectCharacter": ["Select character", "Vyber postavu"],
