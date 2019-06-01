@@ -158,8 +158,8 @@
     "tavern": {
         "description": ["On the edge of Withergate, there is a little establishment where many wastelanders go to spend their hard-earned caps in exhange for home-made booze of discutable quality. Here, you can find scavengers that might be interested in joining your clan for certain cash.",
         "Na kraji Withergate je malá hospoda, kam se stahují všechny pochybné existence utrácet své pracně vydělané zátky. Třeba zde narazíš na někoho, kdo by se ti mohl hodit."],
-        "info": ["Tavern is used for hiring new characters. Each character costs [100] caps so be prepared to have this amount ready when going to this location.",
-        "V hospodě máš možnost najmout nové postavu. Každá postava stojí [100] zátek, tak měj tuto sumu připravenou, než sem vyrazíš."]
+        "info": ["Tavern is used for hiring new characters. Each character costs certain amount of caps so be prepared to have this amount ready when going to this location.",
+        "V hospodě máš možnost najmout nové postavu. Každá postava stojí určitý počet zátek, tak měj tuto sumu připravenou, než sem vyrazíš."]
     },
     "location": {
         "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
