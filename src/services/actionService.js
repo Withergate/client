@@ -191,11 +191,11 @@ export const visitArena = (characterId) => {
     });
 };
 
-export const visitTavern = (characterId, characterType) => {
+export const visitTavern = (characterId, offerId) => {
     return new Promise((resolve, reject) => {
         const payload = {
             characterId: characterId,
-            characterType: characterType
+            offerId: offerId
         };
 
         fetch(API_URL + 'tavern/action', {

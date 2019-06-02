@@ -146,11 +146,11 @@ const visitArenaAction = (characterId) => {
 };
 export { visitArenaAction as visitArena };
 
-const visitTavernAction = (characterId, characterType) => {
+const visitTavernAction = (characterId, offerId) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: visitTavern(characterId, characterType)
+            payload: visitTavern(characterId, offerId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

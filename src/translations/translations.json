@@ -76,6 +76,7 @@
         "sell": ["Sell", "Prodat"],
         "trade": ["Trade", "Obchod"],
         "rest": ["Rest", "Odpočívat"],
+        "hire": ["Hire", "Najmout"],
         "close": ["Close", "Zavřít"],
         "confirm": ["Confirm", "Potvrdit"],
         "page": ["Page", "Strana"],

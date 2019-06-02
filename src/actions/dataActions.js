@@ -7,7 +7,8 @@ import {
     fetchVersion,
     fetchMarketOffers,
     fetchGlobalNotification,
-    updateGlobalNotification
+    updateGlobalNotification,
+    fetchTavernOffers
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -46,6 +47,11 @@ export const FETCH_MARKET_OFFERS = 'FETCH_MARKET_OFFERS';
 export const FETCH_MARKET_OFFERS_PENDING = 'FETCH_MARKET_OFFERS_PENDING';
 export const FETCH_MARKET_OFFERS_FULFILLED = 'FETCH_MARKET_OFFERS_FULFILLED';
 export const FETCH_MARKET_OFFERS_REJECTED = 'FETCH_MARKET_OFFERS_REJECTED';
+
+export const FETCH_TAVERN_OFFERS = 'FETCH_TAVERN_OFFERS';
+export const FETCH_TAVERN_OFFERS_PENDING = 'FETCH_TAVERN_OFFERS_PENDING';
+export const FETCH_TAVERN_OFFERS_FULFILLED = 'FETCH_TAVERN_OFFERS_FULFILLED';
+export const FETCH_TAVERN_OFFERS_REJECTED = 'FETCH_TAVERN_OFFERS_REJECTED';
 
 export const FETCH_GLOBAL_NOTIFICATION = 'FETCH_GLOBAL_NOTIFICATION';
 export const FETCH_GLOBAL_NOTIFICATION_PENDING = 'FETCH_GLOBAL_NOTIFICATION_PENDING';
@@ -131,3 +137,9 @@ const updateGlobalNotificationAction = (message, active) => {
     }
 };
 export { updateGlobalNotificationAction as updateGlobalNotification };
+
+const fetchTavernOffersAction = () => ({
+    type: FETCH_TAVERN_OFFERS,
+    payload: fetchTavernOffers()
+});
+export { fetchTavernOffersAction as fetchTavernOffers };

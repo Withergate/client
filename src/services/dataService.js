@@ -127,6 +127,24 @@ export const fetchMarketOffers = () => {
     });
 };
 
+export const fetchTavernOffers = () => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'clan/tavernOffers', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching market offers info from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
 export const fetchGlobalNotification = () => {
     return new Promise((resolve, reject) => {
         // fetch clan data
