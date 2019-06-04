@@ -7,7 +7,12 @@ import { Row, Col, Card } from 'react-bootstrap';
 
 import { visitTavern } from '../../actions/actionActions';
 import { fetchTavernOffers } from '../../actions/dataActions';
+import { dismissError } from '../../actions/uiActions';
+
 import TavernOfferList from './TavernOfferList';
+import { Error } from '../shared/Error';
+
+import spinner from '../../images/spinner.gif';
 
 class TavernPanel extends React.Component {
     componentDidMount() {
@@ -15,23 +20,33 @@ class TavernPanel extends React.Component {
     }
 
     render() {
-        return ( this.props.fetched && 
+        return ( 
             <div>
-                <Card className="mb-4">
-                    <Card.Img variant="top" width="600px" src="https://storage.googleapis.com/withergate-images/locations/tavern.png" />
-                    <Card.Body>
-                        <Row>
-                            <Col md={12}>
-                                <p><Translate id="tavern.description" /></p>
-                                <p><small><Translate id="tavern.info" /></small></p>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-                <TavernOfferList 
-                    offers={this.props.offers}
-                    selectedCharacter={this.props.selectedCharacter}
-                    visitTavern={this.props.visitTavern} />
+                {
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                }
+                { this.props.fetched &&
+                    <div>
+                        <Card className="mb-4">
+                            <Card.Img variant="top" width="600px" src="https://storage.googleapis.com/withergate-images/locations/tavern.png" />
+                            <Card.Body>
+                                <Row>
+                                    <Col md={12}>
+                                        <p><Translate id="tavern.description" /></p>
+                                        <p><small><Translate id="tavern.info" /></small></p>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
+                        <TavernOfferList 
+                            offers={this.props.offers}
+                            selectedCharacter={this.props.selectedCharacter}
+                            visitTavern={this.props.visitTavern} />
+                    </div>
+                }
+                {
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
+                }
             </div>
         )
     }
@@ -46,7 +61,7 @@ const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
     const offers = state.clan.tavernOffers.data;
 
-    const fetching = state.clan.tavernOffers.fetching;
+    const fetching = state.clan.tavernOffers.fetching || state.action.fetching;
     const fetched = state.clan.tavernOffers.fetched;
     const failed = state.clan.tavernOffers.failed || state.action.failed;
 
@@ -58,7 +73,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         visitTavern,
-        fetchTavernOffers
+        fetchTavernOffers,
+        dismissError
     }, dispatch)
 );
 

@@ -6,6 +6,7 @@ import { Translate } from "react-localize-redux";
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE } from '../../constants/constants';
+import TraitItem from '../clan/TraitItem';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
     <Card className="mb-4">
@@ -23,7 +24,13 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} />
                     <AttributeBar name="basic.intellect" value={offer.character.intellect} />
                 </Col>
-                <Col md={2}></Col>
+                <Col md={2}>
+                    {
+                        offer.character.traits.length > 0 ?
+                            offer.character.traits.map(trait => <TraitItem trait={trait} />)
+                        : <Translate id="basic.noTraits" />
+                    }
+                </Col>
                 <Col md={2}>
                     <GameIcon type={CAPS} size={LARGE} value={offer.price} />
                 </Col>
