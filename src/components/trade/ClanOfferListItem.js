@@ -50,7 +50,8 @@ class ClanOfferListItem extends React.Component {
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>
-                        <b><Translate id="labels.trade.price" />: </b> {this.props.offer.details.price} <Image height="20" src={capsIcon} />
+                        <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>  
+                        {this.props.offer.details.price} <Image height="20" src={capsIcon} />
                     </Col>
                 </Row>
             </Card.Body>
