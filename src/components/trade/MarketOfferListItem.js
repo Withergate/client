@@ -5,8 +5,8 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image } from 'react-bootstrap';
 
-import capsIcon from '../../images/caps.png';
-import { RARE } from '../../constants/constants';
+import { GameIcon } from '../shared/GameIcon';
+import { CAPS, LARGE, RARE } from '../../constants/constants';
 
 const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
@@ -21,7 +21,15 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}
                 <Col md={8}>
                     <p>{getTranslatedText(offer.details.description)}</p>
                     <p><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
-                    <b><Translate id="basic.price" />: </b>{offer.price} <Image height="20" src={capsIcon} />
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <b><Translate id="basic.price" />: </b>
+                        </li>
+                        <li class="list-inline-item">
+                            <GameIcon type={CAPS} size={LARGE} value={offer.price} />
+                        </li>
+                    </ul>  
                 </Col>
             </Row>
         </Card.Body>

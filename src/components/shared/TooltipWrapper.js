@@ -4,7 +4,7 @@ import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
 const TooltipWrapper = (props) => (
-    <div className="ml-1">
+    <div>
         <div data-tip data-for={props.textKey}>
             { props.children }
         </div>

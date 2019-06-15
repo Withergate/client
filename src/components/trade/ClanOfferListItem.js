@@ -6,6 +6,8 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image, Form, InputGroup, FormControl } from 'react-bootstrap';
 import TooltipWrapper from '../shared/TooltipWrapper';
 
+import { GameIcon } from '../shared/GameIcon';
+import { CAPS, LARGE, RARE } from '../../constants/constants';
 import capsIcon from '../../images/caps.png';
 
 class ClanOfferListItem extends React.Component {
@@ -41,7 +43,7 @@ class ClanOfferListItem extends React.Component {
     render() {
         return<Card className="mb-4">
             <Card.Body>
-                <Card.Title>
+                <Card.Title className={this.props.offer.details.rarity === RARE ? 'text-warning' : ''}>
                     {getTranslatedText(this.props.offer.details.name)}
                 </Card.Title>
                 <Row>
@@ -50,8 +52,14 @@ class ClanOfferListItem extends React.Component {
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>
-                        <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>  
-                        {this.props.offer.details.price} <Image height="20" src={capsIcon} />
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>
+                            </li>
+                            <li class="list-inline-item">
+                                <GameIcon type={CAPS} size={LARGE} value={this.props.offer.details.price} />
+                            </li>
+                        </ul>    
                     </Col>
                 </Row>
             </Card.Body>

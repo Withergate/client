@@ -1,6 +1,5 @@
 export const AUTH_URL = 'http://auth.withergate.com/';
 export const API_URL = 'http://api.withergate.com/';
-// export const API_URL = 'http://localhost:8080/';
 
 var tokenUrl;
 if (process.env.NODE_ENV !== 'production') {
