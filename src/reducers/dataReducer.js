@@ -7,7 +7,10 @@ import {
     FETCH_CLANS_REJECTED,
     FETCH_MARKET_OFFERS_PENDING,
     FETCH_MARKET_OFFERS_FULFILLED,
-    FETCH_MARKET_OFFERS_REJECTED
+    FETCH_MARKET_OFFERS_REJECTED,
+    FETCH_DISASTER_PENDING,
+    FETCH_DISASTER_FULFILLED,
+    FETCH_DISASTER_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -23,6 +26,13 @@ const initialState = {
         number: 0
     },
     offers: [],
+    disaster: {
+        data: undefined,
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
     fetching: false,
     fetched: false,
     failed: false,
@@ -117,6 +127,40 @@ export const DataReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: true,
                 error: action.payload
+            };
+        case FETCH_DISASTER_PENDING:
+            return {
+                ...state,
+                disaster: {
+                    ...state.disaster,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
+            };
+        case FETCH_DISASTER_FULFILLED:
+            return {
+                ...state,
+                disaster: {
+                    ...state.disaster,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                    }
+                };
+        case FETCH_DISASTER_REJECTED:
+            return {
+                ...state,
+                disaster: {
+                    ...state.disaster,
+                    data: undefined,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                }
             };
         default:
             return state;

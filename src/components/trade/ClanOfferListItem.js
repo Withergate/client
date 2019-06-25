@@ -52,11 +52,11 @@ class ClanOfferListItem extends React.Component {
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
+                        <ul className="list-inline">
+                            <li className="list-inline-item">
                                 <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>
                             </li>
-                            <li class="list-inline-item">
+                            <li className="list-inline-item">
                                 <GameIcon type={CAPS} size={LARGE} value={this.props.offer.details.price} />
                             </li>
                         </ul>    

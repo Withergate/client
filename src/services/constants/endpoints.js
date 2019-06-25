@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
   tokenUrl =
     AUTH_URL +
     'oauth/authorize' +
-    '?response_type=token&client_id=withergate&redirect_uri=http://localhost:3000';
+    '?response_type=token&client_id=withergate-local&redirect_uri=http://localhost:3000';
 } else {
   tokenUrl =
     AUTH_URL +

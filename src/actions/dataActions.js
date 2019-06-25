@@ -8,7 +8,8 @@ import {
     fetchMarketOffers,
     fetchGlobalNotification,
     updateGlobalNotification,
-    fetchTavernOffers
+    fetchTavernOffers,
+    fetchDisaster
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -62,6 +63,11 @@ export const UPDATE_GLOBAL_NOTIFICATION = 'UPDATE_GLOBAL_NOTIFICATION';
 export const UPDATE_GLOBAL_NOTIFICATION_PENDING = 'UPDATE_GLOBAL_NOTIFICATION_PENDING';
 export const UPDATE_GLOBAL_NOTIFICATION_FULFILLED = 'UPDATE_GLOBAL_NOTIFICATION_FULFILLED';
 export const UPDATE_GLOBAL_NOTIFICATION_REJECTED = 'UPDATE_GLOBAL_NOTIFICATION_REJECTED';
+
+export const FETCH_DISASTER = 'FETCH_DISASTER';
+export const FETCH_DISASTER_PENDING = 'FETCH_DISASTER_PENDING';
+export const FETCH_DISASTER_FULFILLED = 'FETCH_DISASTER_FULFILLED';
+export const FETCH_DISASTER_REJECTED = 'FETCH_DISASTER_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -143,3 +149,9 @@ const fetchTavernOffersAction = () => ({
     payload: fetchTavernOffers()
 });
 export { fetchTavernOffersAction as fetchTavernOffers };
+
+const fetchDisasterAction = () => ({
+    type: FETCH_DISASTER,
+    payload: fetchDisaster
+});
+export { fetchDisasterAction as fetchDisaster };

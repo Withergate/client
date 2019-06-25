@@ -27,7 +27,7 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                 <Col md={2}>
                     {
                         offer.character.traits.length > 0 ?
-                            offer.character.traits.map(trait => <TraitItem trait={trait} />)
+                            offer.character.traits.map(trait => <TraitItem trait={trait} key={trait.id} />)
                         : <Translate id="basic.noTraits" />
                     }
                 </Col>

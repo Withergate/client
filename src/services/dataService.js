@@ -147,7 +147,7 @@ export const fetchTavernOffers = () => {
 
 export const fetchGlobalNotification = () => {
     return new Promise((resolve, reject) => {
-        // fetch clan data
+        // fetch notification
         fetch(API_URL + 'notifications/global', {
             method: 'GET',
             headers: getHeaders()
@@ -177,6 +177,30 @@ export const updateGlobalNotification = (message, active) => {
                     reject(error.message);
                 });
             }
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
+export const fetchDisaster = () => {
+    return new Promise((resolve, reject) => {
+        // fetch disaster data
+        fetch(API_URL + 'disaster', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                // check if disaster is present
+                var contentType = response.headers.get('content-type')
+                if (contentType && contentType.indexOf('application/json') !== -1) {
+                    resolve(response.json());
+                } else {
+                    // if response is not json and mostly empty
+                    resolve(undefined)
+                }
+            }
+            reject('Error fetching disaster from server.');
         }).catch(error => {
             return reject(error.message);
         });

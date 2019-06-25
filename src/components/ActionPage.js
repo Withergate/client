@@ -37,6 +37,7 @@ import {
     changeBuildingSortDirection
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
+import DisasterPanel from './disaster/DisasterPanel';
 
 class ActionPage extends Component {
 
@@ -75,6 +76,9 @@ class ActionPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="tavern" className="tab-link"><Translate id="basic.tavern" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="disaster" className="tab-link"><Translate id="basic.disaster" /></Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -136,11 +140,13 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="arena">
                                             <ArenaPanel 
                                                 selectedCharacter={this.props.selectedCharacter}
-                                                onVisit={this.props.visitArena}
-                                            />
+                                                onVisit={this.props.visitArena} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="tavern">
                                             <TavernPanel />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="disaster">
+                                            <DisasterPanel />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
