@@ -63,7 +63,6 @@ class FamePage extends Component {
 }
 
 FamePage.propTypes = {
-    fetchClans: PropTypes.func.isRequired,
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
@@ -72,8 +71,9 @@ FamePage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, clans } = state.data;
-
+    const { fetching, fetched, failed } = state.data.clans;
+    const clans = state.data.clans.data;
+    const error = state.data.error;
 
     return { fetching, fetched, failed, error, clans };
 };

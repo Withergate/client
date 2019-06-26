@@ -16,25 +16,22 @@ import ResourceTradePanel from './trade/ResourceTradePanel';
 import TavernPanel from './location/TavernPanel';
 import ClanOfferList from './trade/ClanOfferList';
 
-import { fetchData, fetchClan } from '../actions/dataActions';
+import { fetchClan } from '../actions/dataActions';
 import { 
     visitLocation,
     visitArena,
     constructBuilding,
     goOnQuest,
     tradeResources,
-    publishOffer,
-    deleteOffer,
-    tradeItem
+    publishOffer
 } from '../actions/actionActions';
 import {
     selectActionTab,
     selectCharacter,
     dismissError,
-    changeClanOfferFilter,
-    changeMarketOfferFilter,
     changeBuildingSortKey,
-    changeBuildingSortDirection
+    changeBuildingSortDirection,
+    changeClanOfferFilter
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
@@ -43,14 +40,13 @@ class ActionPage extends Component {
 
     componentDidMount() {
         this.props.fetchClan();
-        this.props.fetchData();
     }
 
     render() {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                    this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {
                     this.props.fetched && 
@@ -89,10 +85,7 @@ class ActionPage extends Component {
                                         onSelect={this.props.selectCharacter} />
                                     <Tab.Content>
                                         <Tab.Pane eventKey="locations">
-                                            <LocationList 
-                                                locations={this.props.locations} 
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                onVisit={this.props.visitLocation} />
+                                            <LocationList />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
@@ -126,14 +119,7 @@ class ActionPage extends Component {
                                                         changeFilter={this.props.changeClanOfferFilter} />
                                                 </Col>
                                                 <Col md={6}>
-                                                    <MarketOfferList
-                                                        offers={this.props.offers}
-                                                        selectedCharacter={this.props.selectedCharacter}
-                                                        onBuy={this.props.tradeItem}
-                                                        onCancel={this.props.deleteOffer}
-                                                        filter={this.props.filter.marketOffers }
-                                                        changeFilter={this.props.changeMarketOfferFilter}
-                                                        clanId={this.props.clan.id} />
+                                                    <MarketOfferList />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>
@@ -167,30 +153,28 @@ ActionPage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    locations: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => {
-    const { locations, offers } = state.data;
+    const offers = state.data.offers;
     const { selectedCharacter, clan } = state.clan;
 
-    const fetching = state.data.fetching || state.clan.fetching;
-    const fetched = state.data.fetched && state.clan.fetched;
-    const failed = state.data.failed || state.clan.failed || state.action.failed;
+    const fetching = state.clan.fetching || state.action.fetching;
+    const fetched = state.clan.fetched && state.action.fetched;
+    const failed = state.clan.failed || state.action.failed;
 
     const error = state.clan.error || state.data.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
     const { filter, sort } = state.ui;
 
-    return { fetching, fetched, failed, error, locations, offers, selectedCharacter, clan, selectedTab, filter, sort };
+    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, filter, sort };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        fetchData,
         visitLocation,
         visitArena,
         fetchClan,
@@ -200,13 +184,10 @@ const mapDispatchToProps = dispatch => (
         tradeResources,
         selectActionTab,
         dismissError,
-        publishOffer,
-        changeClanOfferFilter,
-        changeMarketOfferFilter,
         changeBuildingSortKey,
         changeBuildingSortDirection,
-        deleteOffer,
-        tradeItem
+        changeClanOfferFilter,
+        publishOffer
     }, dispatch)
 );
 

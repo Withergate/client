@@ -22,11 +22,11 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}
                     <p>{getTranslatedText(offer.details.description)}</p>
                     <p><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
 
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
+                    <ul className="list-inline">
+                        <li className="list-inline-item">
                             <b><Translate id="basic.price" />: </b>
                         </li>
-                        <li class="list-inline-item">
+                        <li className="list-inline-item">
                             <GameIcon type={CAPS} size={LARGE} value={offer.price} />
                         </li>
                     </ul>  

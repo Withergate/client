@@ -10,7 +10,6 @@ import { fetchTavernOffers } from '../../actions/dataActions';
 import { dismissError } from '../../actions/uiActions';
 
 import TavernOfferList from './TavernOfferList';
-import { Error } from '../shared/Error';
 
 import spinner from '../../images/spinner.gif';
 
@@ -22,9 +21,6 @@ class TavernPanel extends React.Component {
     render() {
         return ( 
             <div>
-                {
-                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
-                }
                 { this.props.fetched &&
                     <div>
                         <Card className="mb-4">
@@ -61,13 +57,11 @@ const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
     const offers = state.clan.tavernOffers.data;
 
-    const fetching = state.clan.tavernOffers.fetching || state.action.fetching;
+    const fetching = state.clan.tavernOffers.fetching;
     const fetched = state.clan.tavernOffers.fetched;
-    const failed = state.clan.tavernOffers.failed || state.action.failed;
+    const failed = state.clan.tavernOffers.failed;
 
-    const error = state.clan.tavernOffers.error || state.action.error;
-
-    return { fetching, fetched, failed, error, offers, selectedCharacter };
+    return { fetching, fetched, failed, offers, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (

@@ -81,18 +81,21 @@ const fetchClansAction = (number) => ({
 });
 export { fetchClansAction as fetchClans };
 
-const fetchDataAction = () => {
+const fetchLocationsAction = () => ({
+    type: FETCH_LOCATIONS,
+    payload: fetchLocations()
+});
+export { fetchLocationsAction as fetchLocations };
+
+const fetchMarketOffersAction = () => {
     return (dispatch) => {
         return dispatch({
-            type: FETCH_LOCATIONS,
-            payload: fetchLocations()
-        }).then(() => dispatch({
             type: FETCH_MARKET_OFFERS,
             payload: fetchMarketOffers()
-        }));
+        });
     }
 };
-export { fetchDataAction as fetchData };
+export { fetchMarketOffersAction as fetchMarketOffers };
 
 const fetchNotificationsAction = (turn) => ({
     type: FETCH_NOTIFICATIONS,

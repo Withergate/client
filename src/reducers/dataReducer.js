@@ -20,22 +20,31 @@ import {
 // INITIALIZE STATE
 
 const initialState = {
-    locations: [],
-    clans: {
-        content: [],
-        number: 0
+    locations: {
+        data: [],
+        fetching: false,
+        fetched: false,
+        failed: false,
     },
-    offers: [],
+    clans: {
+        data: {},
+        number: 0,
+        fetching: false,
+        fetched: false,
+        failed: false,
+    },
+    offers: {
+        data: [],
+        fetching: false,
+        fetched: false,
+        failed: false,
+    },
     disaster: {
         data: undefined,
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
     },
-    fetching: false,
-    fetched: false,
-    failed: false,
     error: ''
 };
 
@@ -52,80 +61,102 @@ export const DataReducer = (state = initialState, action) => {
         case FETCH_LOCATIONS_PENDING:
             return {
                 ...state,
-                fetching: true,
-                fetched: false,
-                failed: false,
-                error: ''
+                locations: {
+                    ...state.locations,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
             };
         case FETCH_LOCATIONS_FULFILLED:
             return {
                 ...state,
-                locations: action.payload,
-                fetching: false,
-                fetched: true,
-                failed: false,
+                locations: {
+                    ...state.locations,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                },
                 error: ''
             };
         case FETCH_LOCATIONS_REJECTED:
             return {
                 ...state,
-                locations: [],
-                fetching: false,
-                fetched: false,
-                failed: true,
+                locations: {
+                    ...state.locations,
+                    data: [],
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                },
                 error: action.payload
             };
         case FETCH_CLANS_PENDING:
             return {
                 ...state,
-                fetching: true,
-                fetched: false,
-                failed: false
+                clans: {
+                    ...state.clans,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
             };
         case FETCH_CLANS_FULFILLED:
             return {
                 ...state,
-                clans: action.payload,
-                fetching: false,
-                fetched: true,
-                failed: false,
+                clans: {
+                    ...state.clans,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false
+                },
                 error: ''
             };
         case FETCH_CLANS_REJECTED:
             return {
                 ...state,
                 clans: {
-                    content: [],
-                    number: 0
+                    data: [],
+                    number: 0,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
                 },
-                fetching: false,
-                fetched: false,
-                failed: true,
                 error: action.payload
             };
         case FETCH_MARKET_OFFERS_PENDING:
             return {
                 ...state,
-                fetching: true,
-                fetched: false,
-                failed: false
+                offers: {
+                    ...state.offers,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
             };
         case FETCH_MARKET_OFFERS_FULFILLED:
             return {
                 ...state,
-                offers: action.payload,
-                fetching: false,
-                fetched: true,
-                failed: false,
+                offers: {
+                    ...state.offers,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                },
                 error: ''
             };
         case FETCH_MARKET_OFFERS_REJECTED:
             return {
                 ...state,
-                offers: [],
-                fetching: false,
-                fetched: false,
-                failed: true,
+                offers: {
+                    ...state.offers,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                },
                 error: action.payload
             };
         case FETCH_DISASTER_PENDING:
@@ -147,9 +178,9 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
-                    }
-                };
+                },
+                error: ''
+            };
         case FETCH_DISASTER_REJECTED:
             return {
                 ...state,
@@ -159,8 +190,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
-                    error: action.payload
-                }
+                },
+                error: action.payload
             };
         default:
             return state;
