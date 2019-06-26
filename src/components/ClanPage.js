@@ -37,14 +37,16 @@ import DefaultActionPanel from './clan/DefaultActionPanel';
 class ClanPage extends Component {
 
     componentDidMount() {
-        this.props.fetchClan();
+        if (!this.props.fetched) {
+            this.props.fetchClan();
+        }
     }
 
     render() {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                    this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {
                     this.props.fetched && 

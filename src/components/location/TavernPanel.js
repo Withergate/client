@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Translate } from "react-localize-redux";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Translate } from "react-localize-redux";
 import { Row, Col, Card } from 'react-bootstrap';
 
 import { visitTavern } from '../../actions/actionActions';
 import { fetchTavernOffers } from '../../actions/dataActions';
-import { dismissError } from '../../actions/uiActions';
 
 import TavernOfferList from './TavernOfferList';
 
@@ -54,7 +53,7 @@ TavernPanel.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { selectedCharacter } = state.clan;
+    const selectedCharacter = state.clan.selectedCharacter;
     const offers = state.clan.tavernOffers.data;
 
     const fetching = state.clan.tavernOffers.fetching;
@@ -67,8 +66,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         visitTavern,
-        fetchTavernOffers,
-        dismissError
+        fetchTavernOffers
     }, dispatch)
 );
 

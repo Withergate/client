@@ -17,7 +17,9 @@ import { ALL } from '../../constants/constants';
 
 class MarketOfferList extends React.Component {
     componentDidMount() {
-        this.props.fetchMarketOffers();
+        if (!this.props.fetched) {
+            this.props.fetchMarketOffers();
+        }
     }
 
     render() {

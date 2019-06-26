@@ -12,7 +12,9 @@ import spinner from '../../images/spinner.gif';
 
 class LocationList extends React.Component {
     componentDidMount() {
-        this.props.fetchLocations();
+        if (!this.props.fetched) {
+            this.props.fetchLocations();
+        }
     }
 
     render() {

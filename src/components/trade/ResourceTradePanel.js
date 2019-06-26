@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
 import { 
     Button,
@@ -13,6 +15,8 @@ import {
     ToggleButtonGroup,
     ToggleButton
 } from 'react-bootstrap';
+
+import { tradeResources } from '../../actions/actionActions';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -43,7 +47,7 @@ class ResourceTradePanel extends React.Component {
         event.stopPropagation();
         this.setState({ validated: true });
       } else {
-        this.props.onTrade(this.props.selectedCharacter.id, this.state.food, this.state.junk, this.state.trade);
+        this.props.tradeResources(this.props.selectedCharacter.id, this.state.food, this.state.junk, this.state.trade);
         this.setState({ 
             validated: false,
             caps: 0
@@ -169,8 +173,19 @@ class ResourceTradePanel extends React.Component {
 };
 
 ResourceTradePanel.propTypes = {
-    selectedCharacter: PropTypes.object,
-    onTrade: PropTypes.func.isRequired
+    selectedCharacter: PropTypes.object
 };
 
-export default ResourceTradePanel;
+const mapStateToProps = state => {
+    const selectedCharacter = state.clan.selectedCharacter;
+   
+    return { selectedCharacter };
+};
+
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ 
+        tradeResources
+    }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResourceTradePanel);

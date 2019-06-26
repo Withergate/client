@@ -18,11 +18,8 @@ import ClanOfferList from './trade/ClanOfferList';
 
 import { fetchClan } from '../actions/dataActions';
 import { 
-    visitLocation,
-    visitArena,
     constructBuilding,
     goOnQuest,
-    tradeResources,
     publishOffer
 } from '../actions/actionActions';
 import {
@@ -37,9 +34,10 @@ import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
 
 class ActionPage extends Component {
-
     componentDidMount() {
-        this.props.fetchClan();
+        if (!this.props.fetched) {
+            this.props.fetchClan();
+        }
     }
 
     render() {
@@ -104,9 +102,7 @@ class ActionPage extends Component {
                                                 goOnQuest={this.props.goOnQuest} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="marketplace">
-                                            <ResourceTradePanel 
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                onTrade={this.props.tradeResources} />
+                                            <ResourceTradePanel />
                                             <Row className="mt-4">
                                                 <Col md={6}>
                                                     <ClanOfferList 
@@ -124,9 +120,7 @@ class ActionPage extends Component {
                                             </Row>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="arena">
-                                            <ArenaPanel 
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                onVisit={this.props.visitArena} />
+                                            <ArenaPanel />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="tavern">
                                             <TavernPanel />
@@ -175,13 +169,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        visitLocation,
-        visitArena,
         fetchClan,
         selectCharacter,
         constructBuilding,
         goOnQuest,
-        tradeResources,
         selectActionTab,
         dismissError,
         changeBuildingSortKey,
