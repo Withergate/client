@@ -17,14 +17,10 @@ import TavernPanel from './location/TavernPanel';
 import ClanOfferList from './trade/ClanOfferList';
 
 import { fetchClan } from '../actions/dataActions';
-import { 
-    publishOffer
-} from '../actions/actionActions';
 import {
     selectActionTab,
     selectCharacter,
-    dismissError,
-    changeClanOfferFilter
+    dismissError
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
@@ -92,14 +88,7 @@ class ActionPage extends Component {
                                             <ResourceTradePanel />
                                             <Row className="mt-4">
                                                 <Col md={6}>
-                                                    <ClanOfferList 
-                                                        weapons={this.props.clan.weapons}
-                                                        outfits={this.props.clan.outfits}
-                                                        gear={this.props.clan.gear}
-                                                        consumables={this.props.clan.consumables}
-                                                        publishOffer={this.props.publishOffer} 
-                                                        filter={this.props.filter.clanOffers }
-                                                        changeFilter={this.props.changeClanOfferFilter} />
+                                                    <ClanOfferList />
                                                 </Col>
                                                 <Col md={6}>
                                                     <MarketOfferList />
@@ -149,9 +138,8 @@ const mapStateToProps = state => {
     const error = state.clan.error || state.data.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
-    const { filter } = state.ui;
 
-    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, filter };
+    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -159,9 +147,7 @@ const mapDispatchToProps = dispatch => (
         fetchClan,
         selectCharacter,
         selectActionTab,
-        dismissError,
-        changeClanOfferFilter,
-        publishOffer
+        dismissError
     }, dispatch)
 );
 

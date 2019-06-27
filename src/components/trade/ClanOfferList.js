@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ClanOfferListItem from './ClanOfferListItem';
 import { Translate } from 'react-localize-redux';
 import ItemFilter from '../item/ItemFilter';
+
+import { 
+    publishOffer
+} from '../../actions/actionActions';
+import {
+    changeClanOfferFilter
+} from '../../actions/uiActions';
 
 import { ALL, WEAPON, OUTFIT, GEAR, CONSUMABLE } from '../../constants/constants';
 
@@ -45,7 +54,7 @@ const ClanOfferList = (props) => (
         {
             (props.weapons.length === 0 && props.outfits.length === 0 && props.gear.length === 0 && props.consumables.length === 0) ?
             <Translate id="labels.noItems" />
-            : renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer, props.filter, props.changeFilter)
+            : renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer, props.filter, props.changeClanOfferFilter)
         }
     </div>
 );
@@ -55,9 +64,21 @@ ClanOfferList.propTypes = {
     outfits: PropTypes.array.isRequired,
     gear: PropTypes.array.isRequired,
     consumables: PropTypes.array.isRequired,
-    publishOffer: PropTypes.func.isRequired,
     filter: PropTypes.string.isRequired,
-    changeFilter: PropTypes.func.isRequired
 };
 
-export default ClanOfferList;
+const mapStateToProps = state => {
+    const { weapons, outfits, gear, consumables } = state.clan.clan;
+    const filter = state.ui.filter.clanOffers;
+
+    return { weapons, outfits, gear, consumables, filter };
+};
+
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ 
+        publishOffer,
+        changeClanOfferFilter
+    }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClanOfferList);
