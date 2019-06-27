@@ -37,11 +37,11 @@ const DisasterInfo = ({disaster}) => (
                     </Row>
                     <Row>
                         <Col md={12}>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
+                            <ul className="list-inline">
+                                <li className="list-inline-item">
                                     <b><Translate id="basic.reward" />: </b>
                                 </li>
-                                <li class="list-inline-item">
+                                <li className="list-inline-item">
                                     <GameIcon type={FAME} size={LARGE} value={disaster.details.fameReward} />
                                 </li>
                             </ul>  

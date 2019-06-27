@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
+
+import { goOnQuest } from '../../actions/actionActions';
 
 import QuestListItem from './QuestListItem';
 
@@ -27,8 +31,20 @@ const QuestList = (props) => (
 
 QuestList.propTypes = {
     quests: PropTypes.array.isRequired,
-    selectedCharacter: PropTypes.object,
-    goOnQuest: PropTypes.func.isRequired
+    selectedCharacter: PropTypes.object
 };
 
-export default QuestList;
+const mapStateToProps = state => {
+    const quests = state.clan.clan.quests.filter(quest => !quest.completed)
+    const selectedCharacter = state.clan.selectedCharacter;
+
+    return { quests, selectedCharacter };
+};
+
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ 
+        goOnQuest
+    }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestList);

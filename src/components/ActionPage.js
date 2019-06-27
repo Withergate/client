@@ -18,7 +18,6 @@ import ClanOfferList from './trade/ClanOfferList';
 
 import { fetchClan } from '../actions/dataActions';
 import { 
-    goOnQuest,
     publishOffer
 } from '../actions/actionActions';
 import {
@@ -87,10 +86,7 @@ class ActionPage extends Component {
                                                 actionable={true} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
-                                            <QuestList 
-                                                quests={this.props.clan.quests.filter(quest => !quest.completed)} 
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                goOnQuest={this.props.goOnQuest} />
+                                            <QuestList />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="marketplace">
                                             <ResourceTradePanel />
@@ -162,7 +158,6 @@ const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchClan,
         selectCharacter,
-        goOnQuest,
         selectActionTab,
         dismissError,
         changeClanOfferFilter,
