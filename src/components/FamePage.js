@@ -14,7 +14,9 @@ import { fetchClans } from '../actions/dataActions';
 class FamePage extends Component {
 
     componentDidMount() {
-        this.props.fetchClans(this.props.clans.number);
+        if (!this.props.fetched) {
+            this.props.fetchClans(this.props.clans.number);
+        }
     }
 
     render() {

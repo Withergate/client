@@ -28,8 +28,6 @@ import {
     dismissError,
     changeCharacterSortKey,
     changeCharacterSortDirection,
-    changeBuildingSortKey,
-    changeBuildingSortDirection,
     changeItemFilter
 } from '../actions/uiActions';
 import DefaultActionPanel from './clan/DefaultActionPanel';
@@ -112,12 +110,7 @@ class ClanPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
-                                                buildings={this.props.clan.buildings}
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                actionable={false}
-                                                sort={this.props.sort.buildings}
-                                                sortKeyAction={this.props.changeBuildingSortKey}
-                                                sortDirectionAction={this.props.changeBuildingSortDirection} />
+                                                actionable={false} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestListCompleted 
@@ -175,8 +168,6 @@ const mapDispatchToProps = dispatch => (
         dismissError,
         changeCharacterSortKey,
         changeCharacterSortDirection,
-        changeBuildingSortKey,
-        changeBuildingSortDirection,
         changeItemFilter,
         changeDefaultAction
     }, dispatch)

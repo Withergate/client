@@ -18,7 +18,6 @@ import ClanOfferList from './trade/ClanOfferList';
 
 import { fetchClan } from '../actions/dataActions';
 import { 
-    constructBuilding,
     goOnQuest,
     publishOffer
 } from '../actions/actionActions';
@@ -26,8 +25,6 @@ import {
     selectActionTab,
     selectCharacter,
     dismissError,
-    changeBuildingSortKey,
-    changeBuildingSortDirection,
     changeClanOfferFilter
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
@@ -87,13 +84,7 @@ class ActionPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
-                                                buildings={this.props.clan.buildings}
-                                                constructBuilding={this.props.constructBuilding}
-                                                selectedCharacter={this.props.selectedCharacter}
-                                                actionable={true}
-                                                sort={this.props.sort.buildings}
-                                                sortKeyAction={this.props.changeBuildingSortKey}
-                                                sortDirectionAction={this.props.changeBuildingSortDirection} />
+                                                actionable={true} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestList 
@@ -162,21 +153,18 @@ const mapStateToProps = state => {
     const error = state.clan.error || state.data.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
-    const { filter, sort } = state.ui;
+    const { filter } = state.ui;
 
-    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, filter, sort };
+    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, filter };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchClan,
         selectCharacter,
-        constructBuilding,
         goOnQuest,
         selectActionTab,
         dismissError,
-        changeBuildingSortKey,
-        changeBuildingSortDirection,
         changeClanOfferFilter,
         publishOffer
     }, dispatch)
