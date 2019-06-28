@@ -124,7 +124,8 @@
         "marketPrice": ["When you offer items for the market price, they will be automatically purchased by computer at the end of the turn unless someone else decides to buy them.",
         "Pokud své předměty nabídneš za tržní cenu, tak budou na konci kola automaticky koupeny počítačem, pokud je nekoupí jiný hráč."],
         "noDisaster": ["You have no information about any upcomming disasters.", "Nemáš informace o žádné blížící se pohromě"],
-        "disasterConsequences": ["Disaster consequences", "Efekt pohromy"]
+        "disasterConsequences": ["Disaster consequences", "Efekt pohromy"],
+        "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

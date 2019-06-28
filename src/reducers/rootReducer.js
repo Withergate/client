@@ -4,6 +4,7 @@ import { AuthReducer } from './authReducer';
 import { ClanReducer } from './clanReducer';
 import { DataReducer } from './dataReducer';
 import { TurnReducer } from './turnReducer';
+import { GameReducer } from './gameReducer';
 import { ActionReducer } from './actionReducer';
 import { NotificationReducer } from './notificationReducer';
 import { UiReducer } from './uiReducer';
@@ -16,5 +17,6 @@ export default combineReducers({
     notifications: NotificationReducer,
     data: DataReducer,
     action: ActionReducer,
-    ui: UiReducer
+    ui: UiReducer,
+    game: GameReducer
 });

@@ -7,6 +7,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import translations from '../translations/translations.json';
 import spinner from '../images/spinner.gif';
 
+import { Error } from './shared/Error';
 import HomePage from './HomePage';
 import ClanPage from './ClanPage';
 import ActionPage from './ActionPage';
@@ -35,10 +36,16 @@ class Main extends Component {
         return (
             <main>
                 {
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
+                }
+                {
+                    this.props.loggedIn && this.props.failed && this.props.error && <Error message={String(this.props.error)} dismiss={this.props.dismissError} />
+                }
+                {
                     this.props.loggedIn ?
                         this.props.fetched &&
-                            this.props.exists ? 
                             <div>
+                            { this.props.exists ? 
                                 <Switch>
                                     <Route exact path='/' component={HomePage}/>
                                     <Route path='/clan' component={ClanPage}/>
@@ -47,11 +54,11 @@ class Main extends Component {
                                     <Route path='/about' component={AboutPage}/>
                                     <Route path='/admin' component={AdminPage}/>
                                 </Switch>
+
+                                : !this.props.fetching && <ClanSetupForm createClan={this.props.createClan}/>
+                            }
                             </div>
-                            : this.props.fetching ? <img className="spinner" src={spinner} alt="Loading..." /> : <ClanSetupForm createClan={this.props.createClan}/>
-                    : this.props.fetching ?
-                        <img className="spinner" src={spinner} alt="Loading..." />
-                        : <LoginPage />
+                    : !this.props.fetching && <LoginPage />
                 }
             </main>
         );
@@ -64,7 +71,9 @@ Main.propTypes = {
     initialize: PropTypes.func.isRequired,
     loggedIn: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
-    failed: PropTypes.bool.isRequired
+    failed: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+    dismissError: PropTypes.func.isRequired
 };
 
 export default withLocalize(Main);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Tab, Row, Col, Nav } from 'react-bootstrap';
+import { Tab, Row, Col, Nav, Card } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import { Error } from './shared/Error';
@@ -39,7 +39,15 @@ class ActionPage extends Component {
                     this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {
-                    this.props.fetched && 
+                    this.props.turn.turnId > this.props.maxTurns &&
+                    <Card className="m-4" bg="warning">
+                        <Card.Body>
+                            <Translate id="labels.endGame" />
+                        </Card.Body>
+                    </Card>
+                }
+                {
+                    this.props.fetched && this.props.turn.turnId <= this.props.maxTurns &&
                     <div className="m-3">
                         <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectActionTab(key)}>
                             <Row>
@@ -125,6 +133,8 @@ ActionPage.propTypes = {
     error: PropTypes.string.isRequired,
     selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
+    turn: PropTypes.object.isRequired,
+    maxTurns: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
@@ -139,7 +149,10 @@ const mapStateToProps = state => {
 
     const selectedTab = state.ui.actionTab;
 
-    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab };
+    const turn = state.turn.turn;
+    const maxTurns = state.game.properties.maxTurns;
+
+    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, turn, maxTurns };
 };
 
 const mapDispatchToProps = dispatch => (

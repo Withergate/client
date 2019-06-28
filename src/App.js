@@ -10,7 +10,8 @@ import Footer from './components/Footer';
 import Main from './components/Main';
 
 import { fetchPrincipal } from './actions/authActions';
-import { fetchTurn, fetchVersion } from './actions/dataActions';
+import { dismissError } from './actions/uiActions';
+import { fetchTurn, fetchVersion, fetchGameProperties } from './actions/dataActions';
 import { createClan } from './actions/actionActions';
 import { selectCharacter } from './actions/uiActions';
 
@@ -20,6 +21,7 @@ class App extends Component {
         this.props.fetchPrincipal();
         this.props.fetchTurn();
         this.props.fetchVersion();
+        this.props.fetchGameProperties();
     }
 
     render() {
@@ -27,6 +29,7 @@ class App extends Component {
             fetched,
             fetching,
             failed,
+            error,
             loggedIn,
             turn, 
             exists, 
@@ -35,7 +38,9 @@ class App extends Component {
             selectedCharacter, 
             clan, 
             version,
-            principal 
+            principal,
+            dismissError,
+            maxTurns
         } = this.props;
         
         return (
@@ -43,7 +48,12 @@ class App extends Component {
                 <LocalizeProvider>
                     <BrowserRouter>
                         <div>
-                            <Header turn={turn} principal={principal} clan={clan} loggedIn={loggedIn} />
+                            <Header
+                                turn={turn}
+                                maxTurns={maxTurns}
+                                principal={principal}
+                                clan={clan}
+                                loggedIn={loggedIn} />
                             <Main 
                                 exists={exists}
                                 createClan={createClan}
@@ -53,7 +63,9 @@ class App extends Component {
                                 fetching={fetching}
                                 fetched={fetched}
                                 failed={failed}
+                                error={error}
                                 loggedIn={loggedIn}
+                                dismissError={dismissError}
                             />
                             <Footer version={version} />
                         </div>
@@ -87,16 +99,27 @@ const mapStateToProps = state => {
     const { turn } = state.turn;
     const { exists, clan, selectedCharacter } = state.clan;
     const { version } = state.app;
+    const { maxTurns } = state.game.properties;
 
-    const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching;
-    const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched;
-    const failed = state.auth.failed || state.turn.failed || state.clan.failed;
+    const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching || state.game.fetching;
+    const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched && state.game.fetched;
+    const failed = state.auth.failed || state.turn.failed || state.clan.failed || state.game.failed;
+    const error = state.turn.error || state.clan.error || state.game.error;
 
-    return { fetching, fetched, failed, loggedIn, turn, exists, clan, selectedCharacter, version, principal };
+    return { fetching, fetched, failed, loggedIn, turn, maxTurns, exists, clan, selectedCharacter, version, principal, error };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchPrincipal, fetchTurn, createClan, selectCharacter, fetchVersion }, dispatch)
+    bindActionCreators(
+        { 
+            fetchPrincipal, 
+            fetchTurn,
+            fetchGameProperties,
+            createClan, 
+            selectCharacter, 
+            fetchVersion,
+            dismissError
+        }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

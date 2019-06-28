@@ -10,7 +10,15 @@ import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
 import { Row } from 'react-bootstrap';
 
-const Header = ({turn, principal, clan, loggedIn}) => (
+const getTurnText = (turnId, maxTurns) => {
+    if (turnId <= maxTurns) {
+        return turnId + ' / ' + maxTurns;
+    } else {
+        return maxTurns + ' / ' + maxTurns;;
+    }
+}
+
+const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/"><img height="25" src={logo} alt="WITHERGATE" /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +43,14 @@ const Header = ({turn, principal, clan, loggedIn}) => (
                 <GameIcon type={FAME} size={SMALL} value={clan.fame} />
             </Row>
         }
-        { loggedIn && <div className="mr-2 mr-2 p-2 rounded bg-light"><small><b><Translate id="header.turn" /></b>: {turn.turnId}</small></div> }
+        { 
+            loggedIn && 
+            <div className="mr-2 mr-2 p-2 rounded bg-light">
+                <small>
+                    <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
+                </small>
+            </div>
+        }
         <div className="ml-2" value="Refresh Page" onClick={() => window.location.reload(true)}>
             <img height="20" src={refresh} alt="Refresh" />
         </div>
@@ -45,6 +60,7 @@ const Header = ({turn, principal, clan, loggedIn}) => (
 
 Header.propTypes = {
     turn: PropTypes.object.isRequired,
+    maxTurns: PropTypes.number.isRequired,
     clan: PropTypes.object.isRequired,
     principal: PropTypes.object,
     loggedIn: PropTypes.bool.isRequired

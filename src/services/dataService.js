@@ -109,6 +109,24 @@ export const fetchVersion = () => {
     });
 };
 
+export const fetchGameProperties = () => {
+    return new Promise((resolve, reject) => {
+        // fetch clan data
+        fetch(API_URL + 'game/properties', {
+            method: 'GET',
+            headers: getHeaders()
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            
+            reject('Error fetching game properties info from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};
+
 export const fetchMarketOffers = () => {
     return new Promise((resolve, reject) => {
         // fetch clan data

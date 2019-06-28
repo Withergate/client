@@ -9,7 +9,8 @@ import {
     fetchGlobalNotification,
     updateGlobalNotification,
     fetchTavernOffers,
-    fetchDisaster
+    fetchDisaster,
+    fetchGameProperties
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -43,6 +44,11 @@ export const FETCH_VERSION = 'FETCH_VERSION';
 export const FETCH_VERSION_PENDING = 'FETCH_VERSION_PENDING';
 export const FETCH_VERSION_FULFILLED = 'FETCH_VERSION_FULFILLED';
 export const FETCH_VERSION_REJECTED = 'FETCH_VERSION_REJECTED';
+
+export const FETCH_GAME_PROPERTIES = 'FETCH_GAME_PROPERTIES';
+export const FETCH_GAME_PROPERTIES_PENDING = 'FETCH_GAME_PROPERTIES_PENDING';
+export const FETCH_GAME_PROPERTIES_FULFILLED = 'FETCH_GAME_PROPERTIES_FULFILLED';
+export const FETCH_GAME_PROPERTIES_REJECTED = 'FETCH_GAME_PROPERTIES_REJECTED';
 
 export const FETCH_MARKET_OFFERS = 'FETCH_MARKET_OFFERS';
 export const FETCH_MARKET_OFFERS_PENDING = 'FETCH_MARKET_OFFERS_PENDING';
@@ -127,6 +133,12 @@ const fetchVersionAction = () => ({
     payload: fetchVersion()
 });
 export { fetchVersionAction as fetchVersion };
+
+const fetchGamePropertiesAction = () => ({
+    type: FETCH_GAME_PROPERTIES,
+    payload: fetchGameProperties()
+});
+export { fetchGamePropertiesAction as fetchGameProperties };
 
 const fetchGlobalNotificationAction = () => ({
     type: FETCH_GLOBAL_NOTIFICATION,
