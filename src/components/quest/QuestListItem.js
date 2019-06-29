@@ -29,10 +29,12 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     </Row>
                     <Row className="mt-2">
                         <b><Translate id="basic.progress" />: </b>
-                        <Col><ProgressBar min={0}
-                            max={quest.details.completion}
-                            now={quest.progress}
-                            label={`${quest.progress}/${quest.details.completion}`} /></Col>
+                        <Col>
+                            <ProgressBar min={0}
+                                max={quest.details.completion}
+                                now={quest.progress}
+                                label={`${quest.progress}/${quest.details.completion}`} />
+                        </Col>
                     </Row>
                 </Col>
             </Row>
@@ -44,7 +46,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     className="button-classic" 
                     disabled={selectedCharacter.state !== 'READY'}
                     onClick={() => goOnQuest(quest.id, selectedCharacter.id)}>
-                    <Translate id="labels.goOnQuest" />
+                    <Translate id="labels.go" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }

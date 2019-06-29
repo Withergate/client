@@ -38,7 +38,7 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     { selectedCharacter !== undefined ? 
                         <Button
                             variant="dark"
-                            className="m-2 button-classic"
+                            className="button-classic"
                             onClick={() => visitTavern(selectedCharacter.id, offer.id)}
                             disabled={selectedCharacter.state !== 'READY'}>
                             <Translate id="labels.hire" />

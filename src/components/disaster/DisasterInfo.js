@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Card, Image } from 'react-bootstrap';
+import { Row, Col, Card, Image, ProgressBar } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE } from '../../constants/constants';
 
-const DisasterInfo = ({disaster}) => (
+const DisasterInfo = ({disaster, progress}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
@@ -44,7 +44,17 @@ const DisasterInfo = ({disaster}) => (
                                 <li className="list-inline-item">
                                     <GameIcon type={FAME} size={LARGE} value={disaster.details.fameReward} />
                                 </li>
-                            </ul>  
+                            </ul>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <p><Translate id="labels.disasterTurn" data={{ turn: disaster.turn }}/></p>
+                            
+                            <ProgressBar min={0}
+                                max={100}
+                                now={progress}
+                                label={`${progress}/100%`} />
                         </Col>
                     </Row>
                 </Col>
@@ -54,7 +64,8 @@ const DisasterInfo = ({disaster}) => (
 );
 
 DisasterInfo.propTypes = {
-    disaster: PropTypes.object.isRequired
+    disaster: PropTypes.object.isRequired,
+    progress: PropTypes.number.isRequired
 };
 
 export default DisasterInfo;

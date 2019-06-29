@@ -14,7 +14,7 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
             </Card.Title>
             <Row>
                 <Col md={4}>
-                    <Image src={building.details.imageUrl} rounded height="120px" />
+                    <Image src={building.details.imageUrl} rounded width="240px" />
                 </Col>
                 <Col md={8}>
                     <p>{getTranslatedText(building.details.description)}</p>

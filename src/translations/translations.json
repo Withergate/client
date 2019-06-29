@@ -62,7 +62,7 @@
         "Vybraná postava bude použita pro vykonání akce dle tvého výběru."],
         "equip": ["Equip", "Nasadit"],
         "unequip": ["Unequip", "Sundat"],
-        "goOnQuest": ["Go", "Do toho"],
+        "go": ["Go", "Do toho"],
         "use": ["Use", "Použij"],
         "next": ["Next", "Další"],
         "asc": ["Ascending", "Vzestupně"],
@@ -125,6 +125,8 @@
         "Pokud své předměty nabídneš za tržní cenu, tak budou na konci kola automaticky koupeny počítačem, pokud je nekoupí jiný hráč."],
         "noDisaster": ["You have no information about any upcomming disasters.", "Nemáš informace o žádné blížící se pohromě"],
         "disasterConsequences": ["Disaster consequences", "Efekt pohromy"],
+        "disasterTurn": ["This disaster will trigger at the end of turn ${turn}.", "Tato pohroma se vyhodnotí na konci kola ${turn}."],
+        "disasterSolutionReward": ["Reward for completion", "Odměna za splnění"],
         "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."]
     },
     "login": {

@@ -13,7 +13,8 @@ import {
     publishOffer,
     deleteOffer,
     tradeItem,
-    changeDefaultAction
+    changeDefaultAction,
+    handleDisaster
 } from '../services/actionService';
 
 import {
@@ -232,3 +233,16 @@ const changeDefaultActionAction = (defaultAction) => {
     };
 };
 export { changeDefaultActionAction as changeDefaultAction };
+
+const handleDisasterAction = (characterId, solution) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: handleDisaster(characterId, solution)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { handleDisasterAction as handleDisaster };
