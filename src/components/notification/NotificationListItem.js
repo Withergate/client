@@ -11,7 +11,7 @@ import injury from '../../images/injury.png';
 import healing from '../../images/healing.png';
 import experience from '../../images/experience.png';
 import information from '../../images/information.png';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Image } from 'react-bootstrap';
 
 const renderDetail = detail => (
     <li key={detail.id}><small>{getTranslatedText(detail.text)}</small></li>
@@ -34,6 +34,12 @@ const NotificationListItem = ({notification}) => (
                 </small>
             </Card.Title>            
             <Row>
+                {
+                    notification.imageUrl &&
+                    <Col md={2}>
+                        <Image rounded width="120px" src={notification.imageUrl} />
+                    </Col>
+                }
                 <Col>
                     { getTranslatedText(notification.text) }
                 </Col>

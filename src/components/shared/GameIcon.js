@@ -47,7 +47,7 @@ const GameIcon = (props) => (
     <div className="mr-1 ml-1">
         <TooltipWrapper textKey={getTranslationKey(props.type)}>
             <Image height={props.size === LARGE ? "25px" : "20px"} src={getIconSource(props.type)} className="mr-1"/>
-            { props.value && renderValue(props.size, props.value) }  
+            { props.value !== undefined && renderValue(props.size, props.value) }  
         </TooltipWrapper>
 
              
@@ -57,7 +57,7 @@ const GameIcon = (props) => (
 GameIcon.propTypes = {
     type: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
-    value: PropTypes.number
+    value: PropTypes.any
 };
 
 export { GameIcon };

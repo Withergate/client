@@ -29,7 +29,7 @@ const DisasterInfo = ({disaster, progress}) => (
                             <ul>
                                 {
                                     disaster.details.penalties.map(penalty =>
-                                        <li key={penalty.identifier}>{penalty.penaltyType}</li>
+                                        <li key={penalty.identifier}><Translate id={penalty.penaltyType} /></li>
                                     )
                                 }
                             </ul>
@@ -54,7 +54,7 @@ const DisasterInfo = ({disaster, progress}) => (
                             <ProgressBar min={0}
                                 max={100}
                                 now={progress}
-                                label={`${progress}/100%`} />
+                                label={`${progress}%`} />
                         </Col>
                     </Row>
                 </Col>

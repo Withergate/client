@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { LARGE, CAPS, JUNK } from '../../constants/constants';
+import { LARGE, CAPS, JUNK, FOOD } from '../../constants/constants';
 
 const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
     <Card className="mb-4">
@@ -27,12 +27,15 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                                     <b><Translate id="basic.price" />: </b>
                                 </li>
                                 <li className="list-inline-item">
+                                    <GameIcon type={FOOD} size={LARGE} value={solution.foodCost} />
+                                </li>
+                                <li className="list-inline-item">
                                     <GameIcon type={JUNK} size={LARGE} value={solution.junkCost} />
                                 </li>
                                 <li className="list-inline-item">
                                     <GameIcon type={CAPS} size={LARGE} value={solution.capsCost} />
                                 </li>
-                            </ul>  
+                            </ul>
                         </Col>
                     </Row>
                     <Row>

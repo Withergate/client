@@ -31,7 +31,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                         {   location.scouting &&
                             <GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} />
                         }
-                        <GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance} />
+                        <GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance + "%"} />
                     </Row>
                 </Col>
             </Row>
