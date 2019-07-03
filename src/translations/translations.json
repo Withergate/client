@@ -127,7 +127,9 @@
         "disasterConsequences": ["Disaster consequences", "Efekt pohromy"],
         "disasterTurn": ["This disaster will trigger at the end of turn ${turn}.", "Tato pohroma se vyhodnotí na konci kola ${turn}."],
         "disasterSolutionReward": ["Reward for completion", "Odměna za splnění"],
-        "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."]
+        "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."],
+        "end": ["End", "Konec"],
+        "free": ["Free", "Zdarma"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -188,6 +190,7 @@
     "REST": ["Rest", "Odpočinek"],
     "EXPLORE_NEIGHBORHOOD": ["Neighborhood exploration", "Průzkum sousedství"],
     "RESOURCES_LOSS": ["Loss of resources", "Ztráta surovin"],
+    "FAME_LOSS": ["Loss of fame", "Ztráta slávy"],
     "ITEM_LOSS": ["Item loss", "Ztráta předmětu"],
     "CHARACTER_INJURY": ["Characters injury", "Zranění postav"],
     "BUILDING_DESTRUCTION": ["Building destruction", "Poškození budov"]

@@ -14,7 +14,7 @@ const getTurnText = (turnId, maxTurns) => {
     if (turnId <= maxTurns) {
         return turnId + ' / ' + maxTurns;
     } else {
-        return maxTurns + ' / ' + maxTurns;;
+        return <Translate id="labels.end" />;
     }
 }
 

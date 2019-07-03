@@ -24,17 +24,29 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                         <Col md={12}>
                             <ul className="list-inline">
                                 <li className="list-inline-item">
-                                    <b><Translate id="basic.price" />: </b>
+                                    <b><Translate id="basic.price" />:</b>
                                 </li>
-                                <li className="list-inline-item">
-                                    <GameIcon type={FOOD} size={LARGE} value={solution.foodCost} />
-                                </li>
-                                <li className="list-inline-item">
-                                    <GameIcon type={JUNK} size={LARGE} value={solution.junkCost} />
-                                </li>
-                                <li className="list-inline-item">
-                                    <GameIcon type={CAPS} size={LARGE} value={solution.capsCost} />
-                                </li>
+                                {
+                                    solution.foodCost === 0 && solution.junkCost === 0 && solution.capsCost === 0 &&
+                                    <li className="list-inline-item">
+                                        <Translate id="labels.free" />
+                                    </li>
+                                }
+                                { solution.foodCost !== 0 &&
+                                    <li className="list-inline-item">
+                                        <GameIcon type={FOOD} size={LARGE} value={solution.foodCost} />
+                                    </li>
+                                }
+                                { solution.junkCost !== 0 &&
+                                    <li className="list-inline-item">
+                                        <GameIcon type={JUNK} size={LARGE} value={solution.junkCost} />
+                                    </li>
+                                }
+                                { solution.capsCost !== 0 &&
+                                    <li className="list-inline-item">
+                                        <GameIcon type={CAPS} size={LARGE} value={solution.capsCost} />
+                                    </li>
+                                }
                             </ul>
                         </Col>
                     </Row>
