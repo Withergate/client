@@ -11,6 +11,13 @@ import spinner from '../images/spinner.gif';
 
 import { fetchClans } from '../actions/dataActions';
 
+// get number of minutes from last activity
+const getTimeDifference = (activity) => {
+    const now = new Date().getUTCMinutes();
+    var diff = now - new Date(activity).getUTCMinutes();
+    return <Translate id="labels.minutesAgo" data={{ minutes: diff }}/>
+}
+
 class FamePage extends Component {
 
     componentDidMount() {
@@ -41,6 +48,8 @@ class FamePage extends Component {
                                 <tr>
                                     <th><Translate id="basic.clan" /></th>
                                     <th><Translate id="basic.fame" /></th>
+                                    <th><Translate id="labels.numCharacters" /></th>
+                                    <th><Translate id="labels.lastActivity" /></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,6 +57,8 @@ class FamePage extends Component {
                                     <tr key={clan.id}>
                                         <td>{clan.name}</td>
                                         <td>{clan.fame}</td>
+                                        <td>{clan.numCharacters}</td>
+                                        <td>{getTimeDifference(clan.lastActivity)}</td>
                                     </tr>
                                     )
                                 }
