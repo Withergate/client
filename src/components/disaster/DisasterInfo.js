@@ -7,20 +7,33 @@ import { Row, Col, Card, Image, ProgressBar } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE } from '../../constants/constants';
 
-const DisasterInfo = ({disaster, progress}) => (
+const renderPenaltyText = (penalty, i, progress, partialThreshold, failureThreshold) => {
+    if (i === 2 && progress >= failureThreshold) {
+        return <s><Translate id={penalty.penaltyType} /></s>
+    }
+    if (i === 1 && progress >= partialThreshold) {
+        return <s><Translate id={penalty.penaltyType} /></s>
+    }
+    if (i === 0 && progress >= 100) {
+        return <s><Translate id={penalty.penaltyType} /></s>
+    }
+    return <Translate id={penalty.penaltyType} />
+}
+
+const DisasterInfo = (props) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
-                {getTranslatedText(disaster.details.name)}
+                {getTranslatedText(props.disaster.details.name)}
             </Card.Title>
             <Row>
                 <Col md={4}>
-                    <Image rounded width="240px" src={disaster.details.imageUrl} />
+                    <Image rounded width="240px" src={props.disaster.details.imageUrl} />
                 </Col>
                 <Col md={8}>
                     <Row>
                         <Col>
-                            <p>{getTranslatedText(disaster.details.description)}</p>
+                            <p>{getTranslatedText(props.disaster.details.description)}</p>
                         </Col>
                     </Row>
                     <Row>
@@ -28,8 +41,10 @@ const DisasterInfo = ({disaster, progress}) => (
                             <p><b><Translate id="labels.disasterConsequences" /></b></p>
                             <ul>
                                 {
-                                    disaster.details.penalties.map(penalty =>
-                                        <li key={penalty.identifier}><Translate id={penalty.penaltyType} /></li>
+                                    props.disaster.details.penalties.map((penalty, i) =>
+                                        <li key={penalty.identifier}>{renderPenaltyText(penalty, i, props.progress, 
+                                            props.partialThreshold, props.failureThreshold)}
+                                        </li>
                                     )
                                 }
                             </ul>
@@ -42,19 +57,19 @@ const DisasterInfo = ({disaster, progress}) => (
                                     <b><Translate id="basic.reward" />: </b>
                                 </li>
                                 <li className="list-inline-item">
-                                    <GameIcon type={FAME} size={LARGE} value={disaster.details.fameReward} />
+                                    <GameIcon type={FAME} size={LARGE} value={props.disaster.details.fameReward} />
                                 </li>
                             </ul>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <p><Translate id="labels.disasterTurn" data={{ turn: disaster.turn }}/></p>
+                            <p><Translate id="labels.disasterTurn" data={{ turn: props.disaster.turn }}/></p>
                             
                             <ProgressBar min={0}
                                 max={100}
-                                now={progress}
-                                label={`${progress}%`} />
+                                now={props.progress}
+                                label={`${props.progress}%`} />
                         </Col>
                     </Row>
                 </Col>
@@ -65,7 +80,9 @@ const DisasterInfo = ({disaster, progress}) => (
 
 DisasterInfo.propTypes = {
     disaster: PropTypes.object.isRequired,
-    progress: PropTypes.number.isRequired
+    progress: PropTypes.number.isRequired,
+    partialThreshold: PropTypes.number.isRequired,
+    failureThreshold: PropTypes.number.isRequired,
 };
 
 export default DisasterInfo;

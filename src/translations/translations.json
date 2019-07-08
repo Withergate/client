@@ -56,6 +56,7 @@
         "disaster": ["Disaster", "Pohroma"]
     },
     "labels": {
+        "actions": ["Actions", "Akce"],
         "selectCharacter": ["Select character", "Vyber postavu"],
         "noCharacter": ["No character selected", "Není vybrána postava"],
         "selectorDescription": ["The selected character will be used to perform the action of your choice.", 
@@ -123,7 +124,7 @@
         "defaultAction": ["Choose the default action for your characters if no action is set.", "Zvol si výchozí akci pro své postavy, pokud žádná akce není přiřazena."],
         "marketPrice": ["When you offer items for the market price, they will be automatically purchased by computer at the end of the turn unless someone else decides to buy them.",
         "Pokud své předměty nabídneš za tržní cenu, tak budou na konci kola automaticky koupeny počítačem, pokud je nekoupí jiný hráč."],
-        "noDisaster": ["You have no information about any upcomming disasters.", "Nemáš informace o žádné blížící se pohromě"],
+        "noDisaster": ["You have no information about any upcomming disasters. The time you receive the information about next disaster is affected by the level of information of your clan.", "Nemáš informace o žádné blížící se pohromě. S vyšší úrovní informací se o pohromě dozvíš dříve."],
         "disasterConsequences": ["Disaster consequences", "Efekt pohromy"],
         "disasterTurn": ["This disaster will trigger at the end of turn ${turn}.", "Tato pohroma se vyhodnotí na konci kola ${turn}."],
         "disasterSolutionReward": ["Reward for completion", "Odměna za splnění"],
@@ -132,7 +133,12 @@
         "free": ["Free", "Zdarma"],
         "numCharacters": ["Number of characters", "Počet postav"],
         "lastActivity": ["Last activity", "Poslední aktivita"],
-        "minutesAgo": ["${minutes} minutes ago", "Před ${minutes} minutami"]
+        "minutesAgo": ["${minutes} minutes ago", "Před ${minutes} minutami"],
+        "disasterAction": ["What are we going to do?", "Co podnikneme?"],
+        "disasterActionText": ["It seems there are multiple ways how to face this disaster. Perhaps, if we work hard and everybody does what he knows best, we might be able to avert the upcoming problems.", 
+        "Zdá se, že existuje více způsobů, jak se k této pohromě můžeme postavit. Možná, že bychom mohli zkusit různé věci a třeba se nám společnými silami podaří tuto nepříjemnost odvrátit."],
+        "disasterInfo": ["Disaster is coming: ${name}. You have time until the end of turn ${turn} to prepare. You can start by epxloring the 'Disaster' tab in the 'Actions' page.",
+        "Blíží se pohroma ${name}. Máš čas do konce kola ${turn}, aby ses připravil. O pohromě se můžeš dozvědět více v sekci 'Pohroma' na stránce 'Akce'."]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

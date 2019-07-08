@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 
 import { fetchDisaster } from '../../actions/dataActions';
 import { handleDisaster } from '../../actions/actionActions';
-import { dismissError } from '../../actions/uiActions';
 
 import spinner from '../../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
@@ -26,16 +25,27 @@ class DisasterPanel extends React.Component {
                 }
                 { this.props.fetched && this.props.disaster &&
                     <div>
-                        <DisasterInfo disaster={this.props.disaster} progress={this.props.progress} />
+                        <DisasterInfo
+                            disaster={this.props.disaster}
+                            progress={this.props.progress}
+                            partialThreshold={this.props.partialThreshold}
+                            failureThreshold={this.props.failureThreshold}
+                        />
 
-                        {
-                            this.props.disaster.details.solutions.map(solution =>
-                                <DisasterSolution
-                                    key={solution.identifier}
-                                    solution={solution} 
-                                    selectedCharacter={this.props.selectedCharacter}
-                                    disasterAction={this.props.handleDisaster} />
-                            )
+                        { this.props.progress < 100 && 
+                            <div>
+                                <h5><Translate id="labels.disasterAction" /></h5>
+                                <p><Translate id="labels.disasterActionText" /></p>
+                                {
+                                    this.props.disaster.details.solutions.map(solution =>
+                                        <DisasterSolution
+                                            key={solution.identifier}
+                                            solution={solution} 
+                                            selectedCharacter={this.props.selectedCharacter}
+                                            disasterAction={this.props.handleDisaster} />
+                                    )
+                                }
+                            </div>
                         }
                     </div>
                 }
@@ -49,6 +59,7 @@ class DisasterPanel extends React.Component {
 
 DisasterPanel.propTypes = {
     disaster: PropTypes.object,
+    progress: PropTypes.number.isRequired,
     selectedCharacter: PropTypes.object
 };
 
@@ -61,13 +72,15 @@ const mapStateToProps = state => {
     const fetched = state.data.disaster.fetched;
     const failed = state.data.disaster.failed;
 
-    return { fetching, fetched, failed, disaster, selectedCharacter, progress };
+    const partialThreshold = state.game.properties.disasterPartialSuccessThreshold;
+    const failureThreshold = state.game.properties.disasterFailureThreshold;
+
+    return { fetching, fetched, failed, disaster, selectedCharacter, progress, partialThreshold, failureThreshold };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchDisaster,
-        dismissError,
         handleDisaster
     }, dispatch)
 );

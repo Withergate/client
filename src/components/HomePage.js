@@ -13,6 +13,7 @@ import {
     fetchGlobalNotification 
 } from '../actions/dataActions';
 import { GlobalNotification } from './notification/GlobalNotification';
+import DisasterMiniPanel from './disaster/DisasterMiniPanel';
 
 class HomePage extends Component {
 
@@ -30,6 +31,9 @@ class HomePage extends Component {
                 {
                     this.props.global.fetched && this.props.global.active &&
                         <GlobalNotification message={this.props.global.message} />
+                }
+                {
+                    <DisasterMiniPanel />
                 }
                 {
                     this.props.fetched && 

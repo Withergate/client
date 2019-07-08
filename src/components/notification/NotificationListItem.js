@@ -34,18 +34,13 @@ const NotificationListItem = ({notification}) => (
                 </small>
             </Card.Title>            
             <Row>
-                {
-                    notification.imageUrl &&
-                    <Col md={2}>
-                        <Image rounded width="120px" src={notification.imageUrl} />
-                    </Col>
-                }
+                    {   notification.imageUrl &&
+                        <Col md={1}>
+                         <Image align="left" width="70px" src={notification.imageUrl} />
+                        </Col>
+                    }
                 <Col>
                     { getTranslatedText(notification.text) }
-                </Col>
-            </Row>
-            <Row>
-                <Col>
                     {
                         notification.details.length > 0 && 
                         <ul className="mt-2">

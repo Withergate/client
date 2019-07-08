@@ -30,7 +30,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
         <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Button 
-                    variant="secondary"
+                    variant="outline-dark"
                     className="button-classic" 
                     onClick={() => useConsumable(consumable.id, selectedCharacter.id)}>
                     <Translate id="labels.use" />
