@@ -27,6 +27,8 @@ const renderList = (props) => (
             sortDirectionAction={props.changeBuildingSortDirection} />
         {
             sort(props.buildings, props.sort)
+                // filter out buildings with level 0 in the non-actionable list
+                .filter(building => (!props.actionable && building.level < 1) ? false : true)
                 .map(building => renderListItem(building, props.selectedCharacter, props.constructBuilding, props.actionable))
         }
     </div>
