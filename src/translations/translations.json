@@ -143,11 +143,7 @@
         "Zdá se, že existuje více způsobů, jak se k této pohromě můžeme postavit. Možná, že bychom mohli zkusit různé věci a třeba se nám společnými silami podaří tuto nepříjemnost odvrátit."],
         "disasterInfo": ["Disaster is coming: ${name}. You have time until the end of turn ${turn} to prepare. You can start by epxloring the 'Disaster' tab in the 'Actions' page.",
         "Blíží se pohroma ${name}. Máš čas do konce kola ${turn}, aby ses připravil. O pohromě se můžeš dozvědět více v sekci 'Pohroma' na stránce 'Akce'."],
-        "visitCost": ["Cost to visit", "Cena za navštívení"],
-        "mechanics": ["Basic mechanics", "Základní mechaniky"],
-        "foodConsumption": ["Each character consumes ${food} food per turn.", "Každá postava konzumuje ${food} jídla za kolo."],
-        "starvation": ["If there is not enough food, the character will starve and lose ${health} health. Additionaly, such character does not heal when resting and your clan will lose ${fame} fame.",
-        "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."]
+        "visitCost": ["Cost to visit", "Cena za navštívení"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
