@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Button, Form, InputGroup, FormControl, FormLabel, Row, Col } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
+import { Error } from '../shared/Error';
+
+import { createClan } from '../../actions/actionActions';
+import { dismissError } from '../../actions/uiActions';
+
+import spinner from '../../images/spinner.gif';
 
 class ClanSetupForm extends Component {
     constructor(props) {
@@ -23,36 +31,63 @@ class ClanSetupForm extends Component {
   
     render() {
         return (
-            <Form className="p-4" onSubmit={this.handleSubmit}>
-                <p>
-                    <Translate id="clanSetup.text" />
-                </p>
-                <InputGroup className="form-group">
-                    <Row>
-                        <Col md={5}>
-                            <FormLabel>
-                                <Translate id="clanSetup.name" />
-                            </FormLabel>
-                        </Col>
-                        <Col md={7}>
-                            <FormControl 
-                                name="clan-name"
-                                type="text"
-                                value={this.state.value}
-                                onChange={this.handleChange} />
-                        </Col>
-                    </Row>
-                </InputGroup>
-                <Button className="btn btn-dark" type="submit">
-                    <Translate id="clanSetup.button" />
-                </Button>
-            </Form>
+            <div>
+                {
+                    this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                }
+                {   !this.props.fetching &&
+                    <Form className="p-4" onSubmit={this.handleSubmit}>
+                        <p>
+                            <Translate id="clanSetup.text" />
+                        </p>
+                        <InputGroup className="form-group">
+                            <Row>
+                                <Col md={5}>
+                                    <FormLabel>
+                                        <Translate id="clanSetup.name" />
+                                    </FormLabel>
+                                </Col>
+                                <Col md={7}>
+                                    <FormControl 
+                                        name="clan-name"
+                                        type="text"
+                                        value={this.state.value}
+                                        onChange={this.handleChange} />
+                                </Col>
+                            </Row>
+                        </InputGroup>
+                        <Button className="btn btn-dark" type="submit">
+                            <Translate id="clanSetup.button" />
+                        </Button>
+                    </Form>
+                }
+                {
+                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
+                }
+            </div>
+            
         );
     }
 }
 
 ClanSetupForm.propTypes = {
-    createClan: PropTypes.func.isRequired
+    fetched: PropTypes.bool.isRequired,
+    fetching: PropTypes.bool.isRequired,
+    failed: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired
 };
 
-export default ClanSetupForm;
+const mapStateToProps = state => {
+    const { fetched, fetching, failed, error } = state.clan.clanCreation;
+
+    return { fetching, fetched, failed, error };
+};
+
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ 
+        createClan,
+        dismissError
+    }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClanSetupForm);

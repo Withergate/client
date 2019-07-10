@@ -9,8 +9,14 @@ import {
     FETCH_CLAN_REJECTED,
     FETCH_TAVERN_OFFERS_PENDING,
     FETCH_TAVERN_OFFERS_FULFILLED,
-    FETCH_TAVERN_OFFERS_REJECTED
+    FETCH_TAVERN_OFFERS_REJECTED,
 } from '../actions/dataActions';
+
+import {
+    CREATE_CLAN_PENDING,
+    CREATE_CLAN_FULFILLED,
+    CREATE_CLAN_REJECTED
+} from '../actions/actionActions';
 
 // INITIALIZE STATE
 
@@ -20,6 +26,12 @@ const initialState = {
     },
     tavernOffers: {
         data: [],
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    clanCreation: {
         fetching: false,
         fetched: false,
         failed: false,
@@ -39,7 +51,12 @@ export const ClanReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                error: '',
+                clanCreation: {
+                    ...state.clanCreation,
+                    error: '',
+                    failed: false
+                }
             };
         case FETCH_CLAN_PENDING:
             return {
@@ -116,6 +133,36 @@ export const ClanReducer = (state = initialState, action) => {
                 ...state,
                 tavernOffers: {
                     data: [],
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload,
+                }
+            };
+        case CREATE_CLAN_PENDING:
+            return {
+                ...state,
+                clanCreation: {
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                    error: ''
+                },    
+            };
+        case CREATE_CLAN_FULFILLED:
+            return {
+                ...state,
+                clanCreation: {
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: '',
+                }
+            };
+        case CREATE_CLAN_REJECTED:
+            return {
+                ...state,
+                clanCreation: {
                     fetching: false,
                     fetched: false,
                     failed: true,
