@@ -72,7 +72,8 @@
         "sortKey": ["Sort by", "Řadit podle"],
         "filter": ["Filter by", "Filtrovat podle"],
         "visit": ["Visit", "Navštívit"],
-        "scout": ["Scout", "Pátrat"],
+        "search": ["Search", "Prohledat"],
+        "scout": ["Scout", "Výzvědy"],
         "construct": ["Construct", "Stavět"],
         "buy": ["Buy", "Koupit"],
         "sell": ["Sell", "Prodat"],
@@ -132,13 +133,14 @@
         "end": ["End", "Konec"],
         "free": ["Free", "Zdarma"],
         "numCharacters": ["Number of characters", "Počet postav"],
-        "lastActivity": ["Last activity", "Poslední aktivita"],
+        "lastActivity": ["Last activity (UTC)", "Poslední aktivita (UTC)"],
         "minutesAgo": ["${minutes} minutes ago", "Před ${minutes} minutami"],
         "disasterAction": ["What are we going to do?", "Co podnikneme?"],
         "disasterActionText": ["It seems there are multiple ways how to face this disaster. Perhaps, if we work hard and everybody does what he knows best, we might be able to avert the upcoming problems.", 
         "Zdá se, že existuje více způsobů, jak se k této pohromě můžeme postavit. Možná, že bychom mohli zkusit různé věci a třeba se nám společnými silami podaří tuto nepříjemnost odvrátit."],
         "disasterInfo": ["Disaster is coming: ${name}. You have time until the end of turn ${turn} to prepare. You can start by epxloring the 'Disaster' tab in the 'Actions' page.",
-        "Blíží se pohroma ${name}. Máš čas do konce kola ${turn}, aby ses připravil. O pohromě se můžeš dozvědět více v sekci 'Pohroma' na stránce 'Akce'."]
+        "Blíží se pohroma ${name}. Máš čas do konce kola ${turn}, aby ses připravil. O pohromě se můžeš dozvědět více v sekci 'Pohroma' na stránce 'Akce'."],
+        "visitCost": ["Cost to visit", "Cena za navštívení"]
     },
     "login": {
         "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",

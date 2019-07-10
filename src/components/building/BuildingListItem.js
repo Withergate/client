@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { ProgressBar, Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import TooltipWrapper from '../shared/TooltipWrapper';
+import { GameIcon } from '../shared/GameIcon';
+import { JUNK, LARGE } from '../../constants/constants';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
@@ -22,7 +24,22 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                     <p>
                         <b><Translate id="basic.level" />: </b> {building.level}
                     </p>
-                    <ProgressBar min={0} max={building.nextLevel} now={building.progress} label={`${building.progress}/${building.nextLevel}`} />
+                    { actionable && building.details.visitable && 
+                
+                        <ul className="list-inline">
+                            <li className="list-inline-item">
+                                <b><Translate id="labels.visitCost" />: </b>
+                            </li>
+                            <li className="list-inline-item">
+                                <GameIcon type={JUNK} size={LARGE} value={building.details.visitJunkCost} />
+                            </li>
+                        </ul>
+                    }
+                    <ProgressBar
+                        min={0}
+                        max={building.nextLevel}
+                        now={building.progress}
+                        label={`${building.progress}/${building.nextLevel}`} />
                 </Col>
             </Row>
         </Card.Body>

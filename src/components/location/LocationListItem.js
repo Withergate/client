@@ -45,7 +45,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                             className="m-2 button-classic" 
                             onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
                             disabled={selectedCharacter.state !== 'READY'}>
-                            <Translate id="labels.visit" />
+                            <Translate id="labels.search" />
                         </Button>
                     </TooltipWrapper>
                     { 
