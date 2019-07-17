@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
-import { FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME } from '../../constants/constants';
+import { 
+    FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
+    HEALING, INJURY, EXPERIENCE
+ } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
 import foodIcon from '../../images/food.png';
@@ -9,6 +12,10 @@ import capsIcon from '../../images/caps.png';
 import fameIcon from '../../images/fame.png';
 import informationIcon from '../../images/information.png'
 import itemIcon from '../../images/item.png';
+import injuryIcon from '../../images/injury.png';
+import healingIcon from '../../images/healing.png';
+import experienceIcon from '../../images/experience.png';
+
 import TooltipWrapper from './TooltipWrapper';
 
 const getIconSource = (type) => {
@@ -19,6 +26,9 @@ const getIconSource = (type) => {
         case FAME: return fameIcon;
         case INFORMATION: return informationIcon;
         case ITEM_CHANCE: return itemIcon;
+        case INJURY: return injuryIcon;
+        case HEALING: return healingIcon;
+        case EXPERIENCE: return experienceIcon;
         default: return "";
     }
 }
@@ -31,6 +41,9 @@ const getTranslationKey = (type) => {
         case FAME: return "basic.fame";
         case INFORMATION: return "basic.information";
         case ITEM_CHANCE: return "basic.itemChance";
+        case INJURY: return "basic.injury";
+        case HEALING: return "basic.healing";
+        case EXPERIENCE: return "basic.experience";
         default: return "";
     }
 }
@@ -44,7 +57,7 @@ const renderValue = (size, value) => {
 }
 
 const GameIcon = (props) => (
-    <div className="mr-1 ml-1">
+    <div className={props.noPadding ? "" : "mr-1 ml-1"}>
         <TooltipWrapper textKey={getTranslationKey(props.type)}>
             <Image height={props.size === LARGE ? "25px" : "20px"} src={getIconSource(props.type)} className="mr-1"/>
             { props.value !== undefined && renderValue(props.size, props.value) }  
@@ -57,7 +70,8 @@ const GameIcon = (props) => (
 GameIcon.propTypes = {
     type: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
-    value: PropTypes.any
+    value: PropTypes.any,
+    noPadding: PropTypes.bool
 };
 
 export { GameIcon };

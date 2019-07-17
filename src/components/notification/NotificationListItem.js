@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
-import junk from '../../images/junk.png';
-import food from '../../images/food.png';
-import caps from '../../images/caps.png';
-import fame from '../../images/fame.png';
-import injury from '../../images/injury.png';
-import healing from '../../images/healing.png';
-import experience from '../../images/experience.png';
-import information from '../../images/information.png';
 import { Card, Row, Col, Image } from 'react-bootstrap';
+import { GameIcon } from '../shared/GameIcon';
+import { JUNK, LARGE, FOOD, CAPS, FAME, INJURY, HEALING, EXPERIENCE, INFORMATION } from '../../constants/constants';
 
 const renderDetail = detail => (
     <li key={detail.id}><small>{getTranslatedText(detail.text)}</small></li>
@@ -23,20 +17,22 @@ const NotificationListItem = ({notification}) => (
             <Card.Title>
                 { notification.header && <b>{notification.header}</b> }
                 <small className="float-right">
-                    { notification.junkIncome !== 0 && <span><b>{notification.junkIncome}</b> <img height="20" src={junk} alt="" /> </span> }
-                    { notification.foodIncome !== 0 && <span><b>{notification.foodIncome}</b> <img height="20" src={food} alt="" /> </span> }
-                    { notification.capsIncome !== 0 && <span><b>{notification.capsIncome}</b> <img height="20" src={caps} alt="" /> </span> }
-                    { notification.fameIncome !== 0 && <span><b>{notification.fameIncome}</b> <img height="20" src={fame} alt="" /> </span> }
-                    { notification.injury !== 0 && <span><b>{notification.injury}</b> <img height="20" src={injury} alt="" /> </span> }
-                    { notification.healing !== 0 && <span><b>{notification.healing}</b> <img height="20" src={healing} alt="" /> </span> }
-                    { notification.experience !== 0 && <span><b>{notification.experience}</b> <img height="20" src={experience} alt="" /> </span> }
-                    { notification.information !== 0 && <span><b>{notification.information}</b> <img height="20" src={information} alt="" /> </span> }
+                    <ul className="list-inline">
+                    { notification.foodIncome !== 0 && <li className="list-inline-item"><GameIcon type={FOOD} value={notification.foodIncome} size={LARGE} noPadding={true} /></li> }
+                    { notification.junkIncome !== 0 && <li className="list-inline-item"><GameIcon type={JUNK} value={notification.junkIncome} size={LARGE} noPadding={true} /></li> }
+                    { notification.capsIncome !== 0 && <li className="list-inline-item"><GameIcon type={CAPS} value={notification.capsIncome} size={LARGE} noPadding={true} /></li> }
+                    { notification.fameIncome !== 0 && <li className="list-inline-item"><GameIcon type={FAME} value={notification.fameIncome} size={LARGE} noPadding={true} /></li> }
+                    { notification.injury !== 0 && <li className="list-inline-item"><GameIcon type={INJURY} value={notification.injury} size={LARGE} noPadding={true} /></li> }
+                    { notification.healing !== 0 && <li className="list-inline-item"><GameIcon type={HEALING} value={notification.healing} size={LARGE} noPadding={true} /></li> }
+                    { notification.experience !== 0 && <li className="list-inline-item"><GameIcon type={EXPERIENCE} value={notification.experience} size={LARGE} noPadding={true} /></li> }
+                    { notification.information !== 0 && <li className="list-inline-item"><GameIcon type={INFORMATION} value={notification.information} size={LARGE} noPadding={true} /></li> }
+                    </ul>
                 </small>
             </Card.Title>            
             <Row>
                     {   notification.imageUrl &&
                         <Col md={1}>
-                         <Image align="left" width="70px" src={notification.imageUrl} />
+                         <Image align="left" width="60px" src={notification.imageUrl} />
                         </Col>
                     }
                 <Col>

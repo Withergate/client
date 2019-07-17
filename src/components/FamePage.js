@@ -52,7 +52,7 @@ class FamePage extends Component {
                             </thead>
                             <tbody>
                                 { this.props.clans.content.map(clan =>
-                                    <tr key={clan.id}>
+                                    <tr key={clan.id} className={clan.id === this.props.clanId ? "text-success" : ""}>
                                         <td>{clan.name}</td>
                                         <td>{clan.fame}</td>
                                         <td>{clan.numCharacters}</td>
@@ -78,15 +78,17 @@ FamePage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    clans: PropTypes.object.isRequired
+    clans: PropTypes.object.isRequired,
+    clanId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
     const { fetching, fetched, failed } = state.data.clans;
     const clans = state.data.clans.data;
     const error = state.data.error;
+    const clanId = state.clan.clan.id;
 
-    return { fetching, fetched, failed, error, clans };
+    return { fetching, fetched, failed, error, clans, clanId };
 };
 
 const mapDispatchToProps = dispatch => (

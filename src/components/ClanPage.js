@@ -31,6 +31,7 @@ import {
     changeItemFilter
 } from '../actions/uiActions';
 import DefaultActionPanel from './clan/DefaultActionPanel';
+import GameMechanicsOverview from './clan/GameMechanicsOverview';
 
 class ClanPage extends Component {
 
@@ -75,6 +76,7 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="overview">
                                             <ClanSummary clan={this.props.clan} />
                                             <DefaultActionPanel clan={this.props.clan} changeDefaultAction={this.props.changeDefaultAction} />
+                                            <GameMechanicsOverview />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">
                                             <CharacterList 

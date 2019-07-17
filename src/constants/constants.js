@@ -20,6 +20,9 @@ export const INFORMATION = 'INFORMATION';
 export const ITEM_CHANCE = 'ITEM_CHANCE';
 export const CAPS = 'CAPS';
 export const FAME = 'FAME';
+export const INJURY = 'INJURY';
+export const HEALING = 'HEALING';
+export const EXPERIENCE = 'EXPERIENCE';
 
 // Icon size
 export const SMALL = 'SMALL';
