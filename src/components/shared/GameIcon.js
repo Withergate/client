@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-<<<<<<< HEAD
     HEALING, INJURY, EXPERIENCE, DEATH
-=======
-    HEALING, INJURY, EXPERIENCE
->>>>>>> fdd9c4b... task/#95 Add game mechanics component and fix small UI issues
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
