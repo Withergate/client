@@ -55,7 +55,8 @@
         "reward": ["Reward", "Odměna"],
         "disaster": ["Disaster", "Pohroma"],
         "injury": ["Injury", "Zranění"],
-        "healing": ["Healing", "Léčba"]
+        "healing": ["Healing", "Léčba"],
+        "death": ["Death", "Smrt"]
     },
     "labels": {
         "actions": ["Actions", "Akce"],

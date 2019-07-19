@@ -7,8 +7,9 @@ import { Row, Button, Card, Col, Image, Form, InputGroup, FormControl } from 're
 import TooltipWrapper from '../shared/TooltipWrapper';
 
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, RARE } from '../../constants/constants';
+import { CAPS, LARGE } from '../../constants/constants';
 import capsIcon from '../../images/caps.png';
+import { getRarityTextColor } from '../item/itemUtils';
 
 class ClanOfferListItem extends React.Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class ClanOfferListItem extends React.Component {
     render() {
         return<Card className="mb-4">
             <Card.Body>
-                <Card.Title className={this.props.offer.details.rarity === RARE ? 'text-warning' : ''}>
+                <Card.Title className={getRarityTextColor(this.props.offer.details.rarity)}>
                     {getTranslatedText(this.props.offer.details.name)}
                 </Card.Title>
                 <Row>

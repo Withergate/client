@@ -4,12 +4,12 @@ import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
-import { RARE } from '../../constants/constants';
+import { getRarityTextColor } from './itemUtils';
 
 const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title className={weapon.details.rarity === RARE ? 'text-warning' : ''}>
+            <Card.Title className={getRarityTextColor(weapon.details.rarity)}>
                 {getTranslatedText(weapon.details.name)}
             </Card.Title>
             <Row>

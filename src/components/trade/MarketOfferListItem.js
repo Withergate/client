@@ -6,12 +6,13 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, RARE } from '../../constants/constants';
+import { CAPS, LARGE } from '../../constants/constants';
+import { getRarityTextColor } from '../item/itemUtils';
 
 const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title className={offer.details.rarity === RARE ? 'text-warning' : ''}>
+            <Card.Title className={getRarityTextColor(offer.details.rarity)}>
                 {getTranslatedText(offer.details.name)}
             </Card.Title>
             <Row>

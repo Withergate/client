@@ -8,6 +8,7 @@ export const CONSUMABLE = 'CONSUMABLE';
 // Rarity
 export const COMMON = 'COMMON';
 export const RARE = 'RARE';
+export const EPIC = 'EPIC';
 
 // Default chanction
 export const REST = 'REST';
@@ -23,6 +24,7 @@ export const FAME = 'FAME';
 export const INJURY = 'INJURY';
 export const HEALING = 'HEALING';
 export const EXPERIENCE = 'EXPERIENCE';
+export const DEATH = 'DEATH';
 
 // Icon size
 export const SMALL = 'SMALL';

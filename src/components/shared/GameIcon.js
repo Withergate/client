@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, EXPERIENCE
+    HEALING, INJURY, EXPERIENCE, DEATH
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -15,6 +15,7 @@ import itemIcon from '../../images/item.png';
 import injuryIcon from '../../images/injury.png';
 import healingIcon from '../../images/healing.png';
 import experienceIcon from '../../images/experience.png';
+import deathIcon from '../../images/death.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -29,6 +30,7 @@ const getIconSource = (type) => {
         case INJURY: return injuryIcon;
         case HEALING: return healingIcon;
         case EXPERIENCE: return experienceIcon;
+        case DEATH: return deathIcon;
         default: return "";
     }
 }
@@ -44,6 +46,7 @@ const getTranslationKey = (type) => {
         case INJURY: return "basic.injury";
         case HEALING: return "basic.healing";
         case EXPERIENCE: return "basic.experience";
+        case DEATH: return "basic.death";
         default: return "";
     }
 }
