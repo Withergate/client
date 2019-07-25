@@ -25,7 +25,7 @@
         "fame": ["Fame", "Sláva"],
         "level": ["Level", "Úroveň"],
         "state": ["State", "Stav"],
-        "combat": ["Combat", "Bojová síla"],
+        "combat": ["Combat", "Bojeschopnost"],
         "armor": ["Armor", "Zbroj"],
         "scavenge": ["Scavenge", "Hledání"],
         "intellect": ["Intellect", "Intelekt"],

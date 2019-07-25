@@ -36,22 +36,28 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
             </Card.Title>
             <Row>
                 <Col md={2}>
-                    <Image rounded width="120px" src={character.imageUrl} />
-                    <Button
-                        data-tip
-                        data-for={character.id + "rest"}
-                        className="button-classic"
-                        size="sm"
-                        variant="dark"
-                        disabled={character.state !== "READY"}
-                        onClick={() => restWithCharacter(character.id)}>
-                        <Translate id="labels.rest" />
-                    </Button>
-                    <ReactTooltip id={character.id + "rest"} effect="solid" place="right">
-                        <Translate id="labels.restTooltip" />
-                    </ReactTooltip>
+                    <Row>
+                        <Col><Image rounded width="120px" src={character.imageUrl} /></Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Button
+                                data-tip
+                                data-for={character.id + "rest"}
+                                className="button-classic"
+                                size="sm"
+                                variant="dark"
+                                disabled={character.state !== "READY"}
+                                onClick={() => restWithCharacter(character.id)}>
+                                <Translate id="labels.rest" />
+                            </Button>
+                            <ReactTooltip id={character.id + "rest"} effect="solid" place="right">
+                                <Translate id="labels.restTooltip" />
+                            </ReactTooltip>
+                        </Col>
+                    </Row>
                 </Col>
-                <Col md={4}>
+                <Col md={5}>
                     <div className="mb-2">
                         <AttributeBar name="basic.combat" value={character.combat} />
                         <AttributeBar name="basic.scavenge" value={character.scavenge} />
@@ -64,11 +70,11 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                         </Col>
                         <Col md={6}>
                             <ProgressBar
+                                variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
                                 min={0}
                                 max={character.maxHitpoints}
                                 now={character.hitpoints}
-                                label={`${character.hitpoints}/${character.maxHitpoints}`}
-                            />
+                                label={`${character.hitpoints}/${character.maxHitpoints}`} />
                         </Col>
                     </Row>
                     <Row>
@@ -76,7 +82,7 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                             <b><Translate id="basic.experience" /></b>
                         </Col>
                         <Col md={6}>
-                            <ProgressBar 
+                            <ProgressBar
                                 min={0}
                                 max={character.nextLevel}
                                 now={character.experience}
@@ -144,11 +150,10 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                         </Col>
                     </Row>
                 </Col>
-                <Col md={2}>
+                <Col md={1}>
                     { 
-                        character.traits.length > 0 ? 
+                        character.traits.length > 0 && 
                             character.traits.map(trait => renderTrait(trait))
-                            : <Translate id="basic.noTraits" />
                     }
                 </Col>
             </Row>

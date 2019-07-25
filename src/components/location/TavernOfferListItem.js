@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Row, Col, Card, Image, Button, ProgressBar } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
@@ -23,6 +23,19 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     <AttributeBar name="basic.scavenge" value={offer.character.scavenge} />
                     <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} />
                     <AttributeBar name="basic.intellect" value={offer.character.intellect} />
+                    <Row>
+                        <Col>
+                            <Translate id="basic.health" />
+                        </Col>
+                        <Col>
+                            <ProgressBar
+                                variant="success"
+                                min={0}
+                                max={offer.character.maxHitpoints}
+                                now={offer.character.hitpoints}
+                                label={`${offer.character.hitpoints}/${offer.character.maxHitpoints}`} />
+                        </Col>
+                    </Row>
                 </Col>
                 <Col md={2}>
                     {

@@ -6,8 +6,10 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import ready from '../../images/ready-icon.png';
 import busy from '../../images/busy-icon.png';
+
+import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Image, ProgressBar } from 'react-bootstrap';
 
 function renderState(state) {
     switch(state) {
@@ -24,17 +26,24 @@ const CharacterDetails = ({character}) => (
     <small>
         <Row>
             <Col md={3} sm={12}>
-                <b>{renderState(character.state)} {character.name}</b>
-                <Image rounded width="60px" src={character.imageUrl} />
-                <p>
-                    <b><Translate id="basic.health" /></b>: {character.hitpoints}/{character.maxHitpoints}
-                </p>
+                <Row>
+                    <Col><b>{renderState(character.state)} {character.name}</b></Col>
+                </Row>
+                <Row>
+                    <Col><Image rounded width="60px" src={character.imageUrl} /></Col>
+                </Row>
             </Col>
             <Col md={3} sm={12}>
-                <b><Translate id="basic.combat" /></b>: {character.combat} <br />
-                <b><Translate id="basic.scavenge" /></b>: {character.scavenge} <br />
-                <b><Translate id="basic.craftsmanship" /></b>: {character.craftsmanship} <br />
-                <b><Translate id="basic.intellect" /></b>: {character.intellect} <br />
+                <AttributeBar name="basic.combat" value={character.combat} hideText />
+                <AttributeBar name="basic.scavenge" value={character.scavenge} hideText />
+                <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText />
+                <AttributeBar name="basic.intellect" value={character.intellect} hideText />
+                <ProgressBar
+                    variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
+                    min={0}
+                    max={character.maxHitpoints}
+                    now={character.hitpoints}
+                    label={`${character.hitpoints}/${character.maxHitpoints}`} />
             </Col>
             <Col md={3} sm={12}>
                 { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>

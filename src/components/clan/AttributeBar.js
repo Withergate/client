@@ -1,28 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Translate } from "react-localize-redux";
+import { Translate } from 'react-localize-redux';
 
-import star from '../../images/round-star.png';
+import TooltipWrapper from '../shared/TooltipWrapper';
+import { Row, Col, ProgressBar } from 'react-bootstrap';
+import { MAX_ATTRIBUTE } from '../../constants/constants';
 
-function renderBar(value) {
-    var stars = [];
-    for (var i = 0; i < value; i++) {
-        stars.push(<span key={i}><img className="m-1" height="15" src={star} alt="*" /></span>);
-    }
-    return stars;
-}
-
-
-const AttributeBar = ({name, value}) => (
-    <div className="row">
-        <div className="col"><Translate id={name} /></div>
-        <div className="col">{renderBar(value)}</div>
-    </div>
+const AttributeBar = ({name, value, hideText}) => (
+    <Row>
+        {   
+            !hideText &&
+            <Col><Translate id={name} /></Col>
+        }
+        <Col className="mb-1">
+            <TooltipWrapper textKey={name}>
+                <ProgressBar
+                    variant="warning"
+                    now={value}
+                    max={MAX_ATTRIBUTE} />
+            </TooltipWrapper>
+        </Col>
+    </Row>
 );
 
 AttributeBar.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired
+    value: PropTypes.number.isRequired,
+    hideText: PropTypes.bool
 };
 
 export default AttributeBar;

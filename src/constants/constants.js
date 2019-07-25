@@ -29,3 +29,6 @@ export const DEATH = 'DEATH';
 // Icon size
 export const SMALL = 'SMALL';
 export const LARGE = 'LARGE';
+
+// Game constants
+export const MAX_ATTRIBUTE = 6;
