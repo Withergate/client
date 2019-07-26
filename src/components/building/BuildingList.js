@@ -19,6 +19,10 @@ const sort = (list, sort) => {
     return orderBy(list, [sort.key], [sort.direction]);
 }
 
+const hasBuildings = (actionable, buildings) => {
+    return buildings.filter(building => (!actionable && building.level < 1) ? false : true).length > 0
+}
+
 const renderList = (props) => (
     <div>
         <BuildingSort
@@ -26,10 +30,12 @@ const renderList = (props) => (
             sortKeyAction={props.changeBuildingSortKey}
             sortDirectionAction={props.changeBuildingSortDirection} />
         {
-            sort(props.buildings, props.sort)
-                // filter out buildings with level 0 in the non-actionable list
-                .filter(building => (!props.actionable && building.level < 1) ? false : true)
-                .map(building => renderListItem(building, props.selectedCharacter, props.constructBuilding, props.actionable))
+            hasBuildings(props.actionable, props.buildings) ?
+                sort(props.buildings, props.sort)
+                    // filter out buildings with level 0 in the non-actionable list
+                    .filter(building => (!props.actionable && building.level < 1) ? false : true)
+                    .map(building => renderListItem(building, props.selectedCharacter, props.constructBuilding, props.actionable))
+                : <Translate id="labels.noBuildings" />
         }
     </div>
 );

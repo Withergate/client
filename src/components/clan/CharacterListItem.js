@@ -92,14 +92,15 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                     </Row>
                 </Col>
                 <Col md={4}> 
-                    <Row className="mb-1">
-                        <Col>
-                        { character.weapon != null ?
-                            <div data-tip data-for={character.weapon.details.identifier}>
+                    { character.weapon != null ?
+                        <Row className="mb-1">
+                            <Col data-tip data-for={character.weapon.details.identifier}>
                                 <b>{getTranslatedText(character.weapon.details.name)}</b>
                                 <ReactTooltip id={character.weapon.details.identifier} effect="solid" place="left">
                                     <WeaponTooltip weapon={character.weapon} />
                                 </ReactTooltip>
+                            </Col>
+                            <Col>
                                 <Button
                                     variant="outline-dark"
                                     size="sm"
@@ -107,18 +108,19 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                                     onClick={() => unequipItem(character.weapon.id, 'WEAPON', character.id)}>
                                     <Translate id="labels.unequip" />
                                 </Button> 
-                            </div>
-                            : <Translate id="basic.unarmed" /> }
-                        </Col>
-                    </Row>
-                    <Row className="mb-1">
-                        <Col>
-                        { character.outfit != null ?
-                            <div data-tip data-for={character.outfit.details.identifier}>
+                            </Col>
+                        </Row>
+                        : <Row className="mb-1"><Col><Translate id="basic.unarmed" /></Col></Row> 
+                    }
+                    { character.outfit != null ?
+                        <Row className="mb-1">
+                            <Col data-tip data-for={character.outfit.details.identifier}>
                                 <b>{getTranslatedText(character.outfit.details.name)}</b>
                                 <ReactTooltip id={character.outfit.details.identifier} effect="solid" place="left">
                                     <OutfitTooltip outfit={character.outfit} />
                                 </ReactTooltip>
+                            </Col>
+                            <Col>
                                 <Button
                                     variant="outline-dark"
                                     size="sm"
@@ -126,18 +128,19 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                                     onClick={() => unequipItem(character.outfit.id, 'OUTFIT', character.id)}>
                                     <Translate id="labels.unequip" />
                                 </Button> 
-                            </div>
-                        : <Translate id="basic.noOutfit" /> }
-                        </Col>
-                    </Row>
-                    <Row className="mb-1">
-                        <Col>
-                        { character.gear != null ?
-                            <div data-tip data-for={character.gear.details.identifier}>
+                            </Col>
+                        </Row>
+                        : <Row className="mb-1"><Col><Translate id="basic.noOutfit" /></Col></Row>  
+                    }
+                    { character.gear != null ?
+                        <Row className="mb-1">
+                            <Col data-tip data-for={character.gear.details.identifier}>
                                 <b>{getTranslatedText(character.gear.details.name)}</b>
                                 <ReactTooltip id={character.gear.details.identifier} effect="solid" place="left">
                                     <GearTooltip gear={character.gear} />
                                 </ReactTooltip>
+                            </Col>
+                            <Col>
                                 <Button
                                     variant="outline-dark"
                                     size="sm"
@@ -145,10 +148,10 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                                     onClick={() => unequipItem(character.gear.id, 'GEAR', character.id)}>
                                     <Translate id="labels.unequip" />
                                 </Button> 
-                            </div>
-                            : <Translate id="basic.noGear" /> }
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
+                        : <Row className="mb-1"><Col><Translate id="basic.noGear" /></Col></Row> 
+                    }
                 </Col>
                 <Col md={1}>
                     { 
