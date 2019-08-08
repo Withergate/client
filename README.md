@@ -4,13 +4,13 @@ This is a client application used for the Withergate game. The application is wr
 
 ## 🔧 Installation
 
-This project is craeted using [Create-react-app](https://github.com/facebook/create-react-app) and expect [Node](https://nodejs.org/en/) 8+ and NPM(https://www.npmjs.com/) 3.5+ to be installed locally.
+This project is craeted using [Create-react-app](https://github.com/facebook/create-react-app) and expect [Node](https://nodejs.org/en/) 8+, [NPM](https://www.npmjs.com/) 3.5+ and [YARN](https://yarnpkg.com/lang/en/) to be installed locally.
 
 ## 🚦 Usage
 
-The application can be run using `npm start`
+The application can be run using `yarn dev`
 
-Similarly, building the application can be run using `npm build`.
+Similarly, building the application can be run using `yarn build`.
 
 ## 🔖 License
 
