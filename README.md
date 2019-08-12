@@ -12,6 +12,8 @@ The application can be run using `yarn dev`
 
 Similarly, building the application can be run using `yarn build`.
 
+When developing locally, Api and Auth server need to be running on the local machine. They can be easily launched using the bundled `docker-compose` by running `docker-compuse up`.
+
 ## 🔖 License
 
 The code is released under the Apache 2.0 license. See [LICENSE](https://github.com/Withergate/client/blob/master/LICENSE) for details.
