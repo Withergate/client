@@ -150,8 +150,8 @@
         "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."]
     },
     "login": {
-        "intro1": ["Welcome, wastelander! Welcome to the year 2010 in an alternative universe, where Cold war resulted in an open conflict between the United States and SSSR. Earth has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Sociaty split into small groups which fight each other over the remaining resources found in the wasteland and city ruins.",
-        "Vítej, vandráku! Píše se rok 2010 v alternativní verzi historie, kdy Studená válka vyústila v otevřený konflikt mezi Spojenými Státy a SSSR. Země zůstala zdevastována jak konvenčními, tak nukleárními zbraněmi. Těch pár šťastlivců, co přežilo, je nyní rozděleno do malých skupin, které spolu soupeří o zbývající zdroje v pustině a ruinách velkých měst."],
+        "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",
+        "Ahoj, vandráku! Vítej v alternativním, post-apokalyptickém světě. Země zůstala zdevastována jak konvenčními, tak nukleárními zbraněmi. Těch pár šťastlivců, co přežilo, je nyní rozděleno do malých skupin, které spolu soupeří o zbývající zdroje v pustině a ruinách velkých měst."],
         "intro2": ["This is a story about such struggle. You will find yourself leading a small clan near the ruins of former metropolis - now called Withergate. It is a dangerous place to live in but your only chance for survival. Are you up for it?",
         "Toto je příběh o jedné takové skupině. Máš možnost stát se vůdcem malého klanu přeživších v blízkosti bývalé metropole - nyní známé pod názvem Withergate. Je to nebezpečné místo, ale zároveň jediná šance na přežití. Jdeš do toho?"],
         "info": ["Withergate is a turn-based browser game. Players control clans consisting of several characters. Interacting with the game is done via assigning actions to these characters. Twice a day, at 6 am. and 6 pm. (UTC), these actions are evaluated and your characters become ready again.",
@@ -173,6 +173,9 @@
         "contributionHeader": ["Contribution", "Jak přispět"],
         "contributionText": ["This game is financed from private resources of the game developers. Since running the game servers is costly, we will be very happy for any donations you are willing to contribute for the game development.",
         "Hra je financována samotnými vývojáři. Pronájem serverů ale něco stojí, a proto budeme moc rádi za jakékoli dary, které jste ochotni věnovat na vývoj hry."],
+        "developmentHeader": ["Development", "Vývoj"],
+        "developmentText": ["The game is being developed as an open-source project initiative. Anyone willing to contribute to the code-base, provide art, photos or any other type of content is welcomed to do so. Take a look at the game forum or the Github link below for more information.",
+        "Tato hra je vyvíjena jako open-source. Kdokoli, kdo má zájem se nějakým způsobem podílet na tvůrčím procesu, ať již samotným vývojem zdrojového kódu, poskytnutím grafiky, fotografií nebo případně jiným typem obsahu, je vítán. Na herním fóru, případně na Githubu (link níže) najtete více informací."],
         "ackHeader": ["Acknowledgement", "Poděkování"],
         "photosText": ["I would like to thank the following people for allowing me to use their beautiful photos as a game content:",
         "Rád bych poděkoval následujícím lidem za poskytnutí fotografií pro herní obsah:"],

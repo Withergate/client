@@ -4,6 +4,7 @@ import { Table, Image } from 'react-bootstrap';
 
 import CardanoIcon from '../images/cardano.png';
 import BitcoinIcon from '../images/bitcoin.png';
+import GithubIcon from '../images/github.png';
 
 class AboutPage extends Component {
     render() {
@@ -14,12 +15,14 @@ class AboutPage extends Component {
 
                 <h3><Translate id="about.contributionHeader" /></h3>
                 <p><Translate id="about.contributionText" /></p>
-                <p>
-                    <Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>Ae2tdPwUPEZ2WWNpiWoSW1wKoXp8mZWctTkBieMBsAarV9xiA6ZTdVMz1nB
-                </p>
-                <p>
-                    <Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>39CRNV8DotZ1LDkdoPVkuy8j1tRa7S7Cna
-                </p>
+
+                <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>39CRNV8DotZ1LDkdoPVkuy8j1tRa7S7Cna</p>
+                <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>Ae2tdPwUPEZ2WWNpiWoSW1wKoXp8mZWctTkBieMBsAarV9xiA6ZTdVMz1nB</p>
+                
+                <h3><Translate id="about.developmentHeader" /></h3>
+                <p><Translate id="about.developmentText" /></p>
+                <p><Image src={GithubIcon} width="25px" className="mr-2" /> <a href="https://github.com/withergate">Github</a></p>
+
                 <h3><Translate id="about.ackHeader" /></h3>
                 <p><Translate id="about.photosText" /></p>
                 
