@@ -33,7 +33,7 @@ const CharacterDetails = ({character}) => (
                     <Col><Image rounded width="60px" src={character.imageUrl} /></Col>
                 </Row>
             </Col>
-            <Col md={3} sm={12}>
+            <Col md={4} sm={12}>
                 <AttributeBar name="basic.combat" value={character.combat} hideText />
                 <AttributeBar name="basic.scavenge" value={character.scavenge} hideText />
                 <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText />
@@ -55,7 +55,7 @@ const CharacterDetails = ({character}) => (
                 { character.gear != null ? <b>{getTranslatedText(character.gear.details.name)}</b>
                         : <Translate id="basic.noGear" />}
             </Col>
-            <Col md={3} sm={12}>
+            <Col md={2} sm={12}>
                 {character.traits.length > 0 && 
                     character.traits.map(trait => 
                         <div key={trait.id} className="mb-1">

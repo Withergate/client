@@ -21,18 +21,21 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                 </Col>
                 <Col md={8}>
                     <Row>
-                        <p>{getTranslatedText(location.description)}</p>
-                        <p><small className="text-muted">{getTranslatedText(location.info)}</small></p>
+                        <Col>
+                            <p>{getTranslatedText(location.description)}</p>
+                            <p><small className="text-muted">{getTranslatedText(location.info)}</small></p>
+                            <ul className="list-inline">
+                                <li className="list-inline-item"><b><Translate id="basic.bonus" />: </b></li>
+                                <li className="list-inline-item"><GameIcon type={FOOD} size={LARGE} value={location.foodBonus} /></li>
+                                <li className="list-inline-item"><GameIcon type={JUNK} size={LARGE} value={location.junkBonus} /></li>
+                                {   location.scouting &&
+                                    <li className="list-inline-item"><GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} /></li>
+                                }
+                                <li className="list-inline-item"><GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance + "%"} /></li>
+                            </ul>
+                        </Col>
                     </Row>
-                    <Row>
-                        <b><Translate id="basic.bonus" />: </b>
-                        <GameIcon type={FOOD} size={LARGE} value={location.foodBonus} />
-                        <GameIcon type={JUNK} size={LARGE} value={location.junkBonus} />
-                        {   location.scouting &&
-                            <GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} />
-                        }
-                        <GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance + "%"} />
-                    </Row>
+                    
                 </Col>
             </Row>
         </Card.Body>

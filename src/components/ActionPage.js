@@ -51,7 +51,7 @@ class ActionPage extends Component {
                     <div className="m-3">
                         <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectActionTab(key)}>
                             <Row>
-                                <Col md={2} sm={4}>
+                                <Col md={2} sm={4} className="mb-4">
                                     <Nav variant="pills" className="flex-column">
                                         <Nav.Item>
                                             <Nav.Link eventKey="locations" className="tab-link"><Translate id="basic.locations" /></Nav.Link>

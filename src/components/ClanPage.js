@@ -52,7 +52,7 @@ class ClanPage extends Component {
                     <div className="m-3">
                         <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectClanTab(key)}>
                             <Row>
-                                <Col md={2} sm={4}>
+                                <Col md={2} sm={4} className="mb-4">
                                     <Nav variant="pills" className="flex-column">
                                         <Nav.Item>
                                             <Nav.Link eventKey="overview" className="tab-link"><Translate id="basic.overview" /></Nav.Link>
@@ -89,7 +89,13 @@ class ClanPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <Row>
-                                                <Col>
+                                                <Col md={12}>
+                                                    <CharacterSelector 
+                                                        characters={this.props.clan.characters}
+                                                        selectedCharacter={this.props.selectedCharacter}
+                                                        onSelect={this.props.selectCharacter} />
+                                                </Col>
+                                                <Col md={12}>
                                                     <ItemList
                                                         weapons={this.props.clan.weapons}
                                                         gear={this.props.clan.gear}
@@ -100,13 +106,6 @@ class ClanPage extends Component {
                                                         selectedCharacter={this.props.selectedCharacter}
                                                         filter={this.props.filter.items }
                                                         changeFilter={this.props.changeItemFilter} />
-                                                </Col>
-                                                <Col>
-                                                    <CharacterSelector 
-                                                        characters={this.props.clan.characters}
-                                                        selectedCharacter={this.props.selectedCharacter}
-                                                        onSelect={this.props.selectCharacter}
-                                                        orientation="vertical" />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>

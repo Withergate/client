@@ -10,14 +10,14 @@ const getTextColor = (character) => {
         case 'READY': 
             return 'text-dark';
         default:
-            return 'text-secondary';
+            return 'text-danger';
     }
 };
 
-const CharacterSelector = ({ characters, selectedCharacter, onSelect, orientation}) => (
+const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
     <div className="mb-3 dropdown">
         <Row>
-            <Col md={orientation === 'horizontal' ? 4 : 12}>
+            <Col md={4}>
                 <Button variant="dark" className="dropdown-toggle w-100" data-toggle="dropdown">
                     { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
                 </Button>   
@@ -32,7 +32,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect, orientatio
                 </div>
                 <small className="text-muted"><Translate id="labels.selectorDescription" /></small>
             </Col>
-            <Col md={orientation === 'horizontal' ? 8 : 12}>
+            <Col md={8}>
                 {
                     selectedCharacter !== undefined ? 
                         <CharacterDetails character={selectedCharacter} /> 
@@ -46,8 +46,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect, orientatio
 CharacterSelector.propTypes = {
     characters: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
-    onSelect: PropTypes.func.isRequired,
-    orientation: PropTypes.string
+    onSelect: PropTypes.func.isRequired
 };
 
 CharacterSelector.defaultProps = {

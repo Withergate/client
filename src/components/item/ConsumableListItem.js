@@ -13,10 +13,10 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
                 {getTranslatedText(consumable.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={2}>
                     <Image src={consumable.details.imageUrl} rounded width="120px" />
                 </Col>
-                <Col md={8}>
+                <Col md={10}>
                     <p>
                         {getTranslatedText(consumable.details.description)}
                     </p>

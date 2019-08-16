@@ -5,10 +5,8 @@ import { Translate } from "react-localize-redux";
 
 import LanguageToggle from './LanguageToggle';
 import logo from '../images/logo.png';
-import refresh from '../images/refresh.png';
 import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
-import { Row } from 'react-bootstrap';
 
 const getTurnText = (turnId, maxTurns) => {
     if (turnId <= maxTurns) {
@@ -21,7 +19,7 @@ const getTurnText = (turnId, maxTurns) => {
 const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/"><img height="25" src={logo} alt="WITHERGATE" /></a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,25 +32,21 @@ const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
                 <li className="nav-item"><a className="nav-link" href='http://withergate.proboards.com/'  rel="noopener noreferrer" target='_blank'><Translate id="header.forum" /></a></li>
                 { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link text-danger" to='/admin'><Translate id="header.administration" /></Link></li>}
             </ul>
-        </div>
-        { loggedIn &&
-            <Row className="mr-2 mr-2 p-2 rounded bg-light">
-                <GameIcon type={CAPS} size={SMALL} value={clan.caps} />
-                <GameIcon type={JUNK} size={SMALL} value={clan.junk} />
-                <GameIcon type={FOOD} size={SMALL} value={clan.food} />
-                <GameIcon type={FAME} size={SMALL} value={clan.fame} />
-            </Row>
-        }
-        { 
-            loggedIn && 
-            <div className="mr-2 mr-2 p-2 rounded bg-light">
-                <small>
-                    <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
-                </small>
-            </div>
-        }
-        <div className="ml-2" value="Refresh Page" onClick={() => window.location.reload(true)}>
-            <img height="20" src={refresh} alt="Refresh" />
+            { loggedIn &&
+                <div>
+                    <ul className="m-1 p-2 mr-auto list-inline rounded bg-light">
+                        <li className="list-inline-item"><GameIcon type={CAPS} size={SMALL} value={clan.caps} /></li>
+                        <li className="list-inline-item"><GameIcon type={JUNK} size={SMALL} value={clan.junk} /></li>
+                        <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>
+                        <li className="list-inline-item"><GameIcon type={FAME} size={SMALL} value={clan.fame} /></li>
+                        <li className="list-inline-item">
+                            <small className="p-2">
+                                <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+            }
         </div>
         <LanguageToggle/>
     </nav>

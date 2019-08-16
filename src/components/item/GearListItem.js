@@ -13,10 +13,10 @@ const GearListItem = ({gear, selectedCharacter, equipItem}) => (
                 {getTranslatedText(gear.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={2}>
                     <Image src={gear.details.imageUrl} rounded width="120px" />
                 </Col>
-                <Col md={8}>
+                <Col md={10}>
                     <p>
                         {getTranslatedText(gear.details.description)}
                     </p>
