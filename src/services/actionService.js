@@ -61,7 +61,7 @@ export const unequipItem = (itemId, type, characterId) => {
     });
 };
 
-export const useConsumable = (consumableId, characterId) => {
+export const consume = (consumableId, characterId) => {
     return new Promise((resolve, reject) => {
         fetch(API_URL + 'items/consumables/use', {
             method: 'POST',

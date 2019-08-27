@@ -27,9 +27,9 @@ const renderOutfitItem = (outfit, selectedCharacter, equipItem) => (
     </div>
 );
 
-const renderConsumableItem = (consumable, selectedCharacter, useConsumable) => (
+const renderConsumableItem = (consumable, selectedCharacter, consume) => (
     <div key={consumable.id}>
-        <ConsumableListItem consumable={consumable} selectedCharacter={selectedCharacter} useConsumable={useConsumable} />
+        <ConsumableListItem consumable={consumable} selectedCharacter={selectedCharacter} consume={consume} />
     </div>
 );
 
@@ -50,7 +50,7 @@ const ItemList = (props) => (
             props.outfits.map(outfit => renderOutfitItem(outfit, props.selectedCharacter, props.equipItem))
         }
         { (props.consumables.length > 0) && (props.filter === ALL || props.filter === CONSUMABLE) &&
-            props.consumables.map(consumable => renderConsumableItem(consumable, props.selectedCharacter, props.useConsumable))
+            props.consumables.map(consumable => renderConsumableItem(consumable, props.selectedCharacter, props.consume))
         }
     </div>
 );
@@ -62,7 +62,7 @@ ItemList.propTypes = {
     consumables: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     equipItem: PropTypes.func.isRequired,
-    useConsumable: PropTypes.func.isRequired,
+    consume: PropTypes.func.isRequired,
     filter: PropTypes.string.isRequired,
     changeFilter: PropTypes.func.isRequired
 };

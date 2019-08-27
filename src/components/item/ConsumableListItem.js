@@ -6,7 +6,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Button, Card, Image, Row, Col } from 'react-bootstrap';
 import { getRarityTextColor } from './itemUtils';
 
-const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
+const ConsumableListItem = ({consumable, selectedCharacter, consume}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title className={getRarityTextColor(consumable.details.rarity)}>
@@ -32,7 +32,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
                 <Button 
                     variant="outline-dark"
                     className="button-classic" 
-                    onClick={() => useConsumable(consumable.id, selectedCharacter.id)}>
+                    onClick={() => consume(consumable.id, selectedCharacter.id)}>
                     <Translate id="labels.use" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -44,7 +44,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, useConsumable}) => (
 ConsumableListItem.propTypes = {
     consumable: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    useConsumable: PropTypes.func.isRequired
+    consume: PropTypes.func.isRequired
 };
 
 export default ConsumableListItem;

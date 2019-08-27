@@ -17,7 +17,7 @@ import spinner from '../images/spinner.gif';
 import { 
     equipItem,
     unequipItem,
-    useConsumable,
+    consume,
     restWithCharacter,
     changeDefaultAction
 } from '../actions/actionActions';
@@ -102,7 +102,7 @@ class ClanPage extends Component {
                                                         outfits={this.props.clan.outfits}
                                                         consumables={this.props.clan.consumables}
                                                         equipItem={this.props.equipItem}
-                                                        useConsumable={this.props.useConsumable}
+                                                        consume={this.props.consume}
                                                         selectedCharacter={this.props.selectedCharacter}
                                                         filter={this.props.filter.items }
                                                         changeFilter={this.props.changeItemFilter} />
@@ -162,7 +162,7 @@ const mapDispatchToProps = dispatch => (
         fetchClan,
         equipItem,
         unequipItem,
-        useConsumable,
+        consume,
         restWithCharacter,
         selectCharacter,
         selectClanTab,
