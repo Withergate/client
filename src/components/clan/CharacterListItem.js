@@ -14,6 +14,7 @@ import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
+import TooltipWrapper from '../shared/TooltipWrapper';
 
 function renderState(state) {
     switch(state) {
@@ -69,12 +70,13 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                             <b><Translate id="basic.health" /></b>
                         </Col>
                         <Col md={6}>
-                            <ProgressBar
-                                variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
-                                min={0}
-                                max={character.maxHitpoints}
-                                now={character.hitpoints}
-                                label={`${character.hitpoints}/${character.maxHitpoints}`} />
+                            <TooltipWrapper textKey="basic.health" value={character.hitpoints + "/" + character.maxHitpoints}>
+                                <ProgressBar
+                                    variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
+                                    min={0}
+                                    max={character.maxHitpoints}
+                                    now={character.hitpoints} />
+                            </TooltipWrapper>
                         </Col>
                     </Row>
                     <Row>
@@ -82,12 +84,12 @@ const CharacterListItem = ({character, unequipItem, restWithCharacter}) => (
                             <b><Translate id="basic.experience" /></b>
                         </Col>
                         <Col md={6}>
-                            <ProgressBar
-                                min={0}
-                                max={character.nextLevel}
-                                now={character.experience}
-                                label={`${character.experience}/${character.nextLevel}`}
-                            />
+                            <TooltipWrapper textKey="basic.experience" value={character.experience + "/" + character.nextLevel}>
+                                <ProgressBar
+                                    min={0}
+                                    max={character.nextLevel}
+                                    now={character.experience} />
+                            </TooltipWrapper>
                         </Col>
                     </Row>
                 </Col>

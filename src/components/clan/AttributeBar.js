@@ -13,7 +13,7 @@ const AttributeBar = ({name, value, hideText}) => (
             <Col><Translate id={name} /></Col>
         }
         <Col className="mb-1">
-            <TooltipWrapper textKey={name}>
+            <TooltipWrapper textKey={name} value={value}>
                 <ProgressBar
                     variant="warning"
                     now={value}

@@ -9,6 +9,7 @@ import busy from '../../images/busy-icon.png';
 
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
+import TooltipWrapper from '../shared/TooltipWrapper';
 import { Row, Col, Image, ProgressBar } from 'react-bootstrap';
 
 function renderState(state) {
@@ -38,12 +39,13 @@ const CharacterDetails = ({character}) => (
                 <AttributeBar name="basic.scavenge" value={character.scavenge} hideText />
                 <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText />
                 <AttributeBar name="basic.intellect" value={character.intellect} hideText />
-                <ProgressBar
-                    variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
-                    min={0}
-                    max={character.maxHitpoints}
-                    now={character.hitpoints}
-                    label={`${character.hitpoints}/${character.maxHitpoints}`} />
+                <TooltipWrapper textKey="basic.health" value={character.hitpoints + "/" + character.maxHitpoints}>
+                    <ProgressBar
+                        variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
+                        min={0}
+                        max={character.maxHitpoints}
+                        now={character.hitpoints} />
+                </TooltipWrapper>
             </Col>
             <Col md={3} sm={12}>
                 { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>
