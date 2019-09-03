@@ -22,6 +22,9 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     <Row>
                         {getTranslatedText(quest.details.description)}
                     </Row>
+                    <Row>
+                        <small><Translate id={"questDescription." + quest.details.type} /></small>
+                    </Row>
                     <Row className="mt-2">
                         <b><Translate id="basic.reward" />: </b>
                         <GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} />

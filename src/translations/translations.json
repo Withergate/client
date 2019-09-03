@@ -200,6 +200,12 @@
         "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
         
     },
+    "questDescription": {
+        "COMBAT": ["Tackling this quest will result in a combat. The quest will be completed once all enemies are defeated.", "Plnění tohoto úkolu vyústí v souboj. Úkol bude splněn, jakmile budou poraženi všichni nepřátelé."],
+        "INTELLECT": ["Tackling this quest will result in an intellect roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na intelekt. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
+        "CRAFTSMANSHIP": ["Tackling this quest will result in a craftsmanship roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolu vyústí v hod na zručnost. Úkol bude splněn, jamile dojde k úspěšnému přehození daného počtu hodů."],
+        "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jamile bude přehozen určitý počet hodů."]
+    },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
     "HEALING": ["Healing", "Léčení"],
