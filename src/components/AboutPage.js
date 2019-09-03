@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Translate } from "react-localize-redux";
 import { Table, Image } from 'react-bootstrap';
 
+import PatreonIcon from '../images/patreon.png';
 import CardanoIcon from '../images/cardano.png';
 import BitcoinIcon from '../images/bitcoin.png';
 import GithubIcon from '../images/github.png';
@@ -16,6 +17,7 @@ class AboutPage extends Component {
                 <h3><Translate id="about.contributionHeader" /></h3>
                 <p><Translate id="about.contributionText" /></p>
 
+                <p><Image src={PatreonIcon} width="25px" className="mr-2" /> <b>Patreon: </b><a href="https://www.patreon.com/withergate">link</a></p>
                 <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>39CRNV8DotZ1LDkdoPVkuy8j1tRa7S7Cna</p>
                 <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>Ae2tdPwUPEZ2WWNpiWoSW1wKoXp8mZWctTkBieMBsAarV9xiA6ZTdVMz1nB</p>
                 
@@ -76,8 +78,5 @@ class AboutPage extends Component {
         );
     }
 }
-
-AboutPage.propTypes = {
-};
 
 export default AboutPage;
