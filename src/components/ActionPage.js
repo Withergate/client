@@ -24,6 +24,7 @@ import {
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
+import BasePanel from './location/BasePanel';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -74,6 +75,9 @@ class ActionPage extends Component {
                                         <Nav.Item>
                                             <Nav.Link eventKey="disaster" className="tab-link"><Translate id="basic.disaster" /></Nav.Link>
                                         </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="base" className="tab-link"><Translate id="basic.base" /></Nav.Link>
+                                        </Nav.Item>
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
@@ -111,6 +115,9 @@ class ActionPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="disaster">
                                             <DisasterPanel />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="base">
+                                            <BasePanel />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>

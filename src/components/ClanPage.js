@@ -18,7 +18,6 @@ import {
     equipItem,
     unequipItem,
     consume,
-    restWithCharacter,
     changeDefaultAction
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
@@ -82,7 +81,7 @@ class ClanPage extends Component {
                                             <CharacterList 
                                                 characters={this.props.clan.characters}
                                                 unequipItem={this.props.unequipItem}
-                                                restWithCharacter={this.props.restWithCharacter}
+                                                selectCharacter={this.props.selectCharacter}
                                                 sort={this.props.sort.characters}
                                                 sortKeyAction={this.props.changeCharacterSortKey}
                                                 sortDirectionAction={this.props.changeCharacterSortDirection} />
@@ -140,7 +139,8 @@ ClanPage.propTypes = {
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     selectedTab: PropTypes.string.isRequired,
-    sort: PropTypes.object.isRequired
+    sort: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
@@ -163,7 +163,6 @@ const mapDispatchToProps = dispatch => (
         equipItem,
         unequipItem,
         consume,
-        restWithCharacter,
         selectCharacter,
         selectClanTab,
         dismissError,

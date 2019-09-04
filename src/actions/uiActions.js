@@ -22,11 +22,11 @@ const selectActionTabAction = (tab) => ({
 });
 export { selectActionTabAction as selectActionTab };
 
-const selectedCharacterAction = (characterId) => ({
+const selectCharacterAction = (characterId) => ({
     type: SELECT_CHARACTER,
     payload: characterId
 });
-export { selectedCharacterAction as selectCharacter };
+export { selectCharacterAction as selectCharacter };
 
 const dismissErrorAction = () => ({
     type: DISMISS_ERROR

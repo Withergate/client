@@ -21,7 +21,7 @@ const TooltipWrapper = (props) => (
 
 TooltipWrapper.propTypes = {
     textKey: PropTypes.string.isRequired,
-    value: PropTypes.string
+    value: PropTypes.any
 };
 
 export default TooltipWrapper;

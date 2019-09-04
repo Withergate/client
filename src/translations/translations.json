@@ -10,6 +10,7 @@
       "turn": ["Turn", "Kolo"]
     },
     "basic": {
+        "base": ["Base", "Kemp"],
         "clan": ["Clan", "Klan"],
         "marketplace": ["Marketplace", "Tržiště"],
         "characters": ["Characters", "Postavy"],
@@ -104,7 +105,7 @@
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."],
         "resourceLimitExceeded": ["Exceeded maximum resource limit.", "Překročen limit surovin."],
-        "restTooltip": ["Character will rest this turn instead of performing an action. This will allow the character to heal.", "Místo akce bude toto kolo postava odpočívat. To jí umožní léčit ztracené životy."],
+        "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
         "endTurn": ["End turn", "Ukončit kolo"],
         "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],
         "endTurnDescription": ["This action will end the current turn.", "Tato akce ukončí současné kolo."],
