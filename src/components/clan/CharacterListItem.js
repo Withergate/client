@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ProgressBar, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
-import { Link } from 'react-router-dom';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
@@ -16,6 +15,8 @@ import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
 import TooltipWrapper from '../shared/TooltipWrapper';
+import { PENDING } from '../../constants/constants';
+import ActionButton from './ActionButton';
 
 function renderState(state) {
     switch(state) {
@@ -46,16 +47,10 @@ class CharacterListItem extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <Link to="/action">
-                                <Button
-                                    className="w-100"
-                                    size="sm"
-                                    variant="outline-dark"
-                                    disabled={character.state !== "READY"}
-                                    onClick={() => selectCharacter(character.id)}>
-                                    <Translate id="labels.actions" />
-                                </Button>
-                                </Link>
+                                <ActionButton
+                                    pendingAction={character.actions.find(action => action.state === PENDING)}
+                                    character={character}
+                                    selectCharacter={selectCharacter} />
                             </Col>
                         </Row>
                     </Col>

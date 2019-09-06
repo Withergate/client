@@ -207,6 +207,21 @@
         "CRAFTSMANSHIP": ["Tackling this quest will result in a craftsmanship roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolu vyústí v hod na zručnost. Úkol bude splněn, jamile dojde k úspěšnému přehození daného počtu hodů."],
         "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jamile bude přehozen určitý počet hodů."]
     },
+    "actions": {
+        "LOCATION": {
+            "VISIT": ["Searching for resources", "Hledá suroviny"],
+            "SCOUT": ["Scouting for information", "Hledá informace"]
+        },
+        "BUILDING": {
+            "CONSTRUCT": ["Constructing buildings", "Pracuje na stavbě"],
+            "VISIT": ["Visitting a building", "Pracuje v budově"]
+        },
+        "TRADE": ["Trading at marketplace", "Nakupuje na tržišti"],
+        "ARENA": ["Fighting in the arena", "Bojuje v aréně"],
+        "DISASTER": ["Preventing disaster", "Odvrací pohromu"],
+        "QUEST": ["On a quest", "Plní úkol"],
+        "TAVERN": ["Drinking in the tavern", "Pije v taverně"]
+    },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
     "HEALING": ["Healing", "Léčení"],

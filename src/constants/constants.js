@@ -1,3 +1,6 @@
+// Actions
+export const PENDING = 'PENDING';
+
 // Items
 export const ALL = 'ALL';
 export const WEAPON = 'WEAPON';
