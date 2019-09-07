@@ -19,6 +19,9 @@ const GameMechanicsOverview = ({properties}) => (
                         <li>
                             <Translate id="labels.starvation" data={{ health: properties.starvationInjury, fame: properties.starvationFame }}/>
                         </li>
+                        <li>
+                            <Translate id="labels.construction" data={{ fame: properties.buildingFame }}/>
+                        </li>
                     </ul>      
                 </Col>
             </Row>

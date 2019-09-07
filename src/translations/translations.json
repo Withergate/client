@@ -148,7 +148,9 @@
         "mechanics": ["Basic mechanics", "Základní mechaniky"],
         "foodConsumption": ["Each character consumes ${food} food per turn.", "Každá postava konzumuje ${food} jídla za kolo."],
         "starvation": ["If there is not enough food, the character will starve and lose ${health} health. Additionaly, such character does not heal when resting and your clan will lose ${fame} fame.",
-        "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."]
+        "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."],
+        "construction": ["Fame can be also increased by building construction. For each level of your newly constructed building, you will gain ${fame} fame.",
+        "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."]
     },
     "login": {
         "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -206,6 +208,13 @@
         "INTELLECT": ["Tackling this quest will result in an intellect roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na intelekt. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
         "CRAFTSMANSHIP": ["Tackling this quest will result in a craftsmanship roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolu vyústí v hod na zručnost. Úkol bude splněn, jamile dojde k úspěšnému přehození daného počtu hodů."],
         "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jamile bude přehozen určitý počet hodů."]
+    },
+    "actionDescription": {
+        "AUTOMATIC": ["This action will always be successful.", "Tato akce je vždy úspěšná."],
+        "COMBAT": ["Taking this action will result in a combat.", "Tato akce vyústí v souboj."],
+        "INTELLECT": ["Taking this action will result in an intellect roll.", "Tato akce vyústí v hod na intelekt."],
+        "CRAFTSMANSHIP": ["Taking this action will result in a craftsmanship roll.", "Tato akce vyústí v hod na zručnost."],
+        "SCAVENGE": ["Taking this action will result in a scavenge roll.", "Tato vyústí v hod na hledání."]
     },
     "actions": {
         "LOCATION": {

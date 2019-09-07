@@ -18,6 +18,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                     <Row>
                         <Col>
                             <p>{getTranslatedText(solution.description)}</p>
+                            <p><small><Translate id={"actionDescription." + solution.solutionType} /></small></p>
                         </Col>
                     </Row>
                     <Row>
