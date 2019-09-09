@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { orderBy } from "lodash";
 
 import LocationListItem from './LocationListItem';
 
@@ -33,7 +34,10 @@ class LocationList extends React.Component {
 
 const renderList = (locations, selectedCharacter, onVisit) => (
     <div>
-        {locations.map(location => renderListItem(location, selectedCharacter, onVisit))}
+        {
+            orderBy(locations, "encounterChance", "asc")
+            .map(location => renderListItem(location, selectedCharacter, onVisit))
+        }
     </div>
 );
 

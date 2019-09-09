@@ -9,7 +9,7 @@ const OutfitTooltip = ({outfit}) => (
         <b>{getTranslatedText(outfit.details.name)}</b>
         <p>{getTranslatedText(outfit.details.description)}</p>
         <small>
-            <b><Translate id="basic.armor" />: </b>{outfit.details.bonus}
+            <b><Translate id="basic.armor" />: </b>{outfit.details.armor}
         </small>
     </div>
 );
