@@ -229,7 +229,8 @@
         "ARENA": ["Fighting in the arena", "Bojuje v aréně"],
         "DISASTER": ["Preventing disaster", "Odvrací pohromu"],
         "QUEST": ["On a quest", "Plní úkol"],
-        "TAVERN": ["Drinking in the tavern", "Pije v taverně"]
+        "TAVERN": ["Drinking in the tavern", "Pije v taverně"],
+        "RESTING": ["Resting", "Odpočívá"]
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],

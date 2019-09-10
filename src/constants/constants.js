@@ -1,5 +1,8 @@
 // Actions
-export const PENDING = 'PENDING';
+export const PENDING = 'PENDING';;
+
+// Character
+export const RESTING = 'RESTING'
 
 // Items
 export const ALL = 'ALL';
