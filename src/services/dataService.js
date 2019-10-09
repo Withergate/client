@@ -224,3 +224,19 @@ export const fetchDisaster = () => {
         });
     });
 };
+
+export const fetchArenaStats = () => {
+    return new Promise((resolve, reject) => {
+        fetch(API_URL + 'arena/stats', {
+            method: 'GET',
+            headers: getHeaders(),
+        }).then(response => {
+            if (response.ok) {
+                resolve(response.json());
+            }
+            reject('Error fetching data from server.');
+        }).catch(error => {
+            return reject(error.message);
+        });
+    });
+};

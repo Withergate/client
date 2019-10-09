@@ -12,6 +12,7 @@
     "basic": {
         "base": ["Base", "Kemp"],
         "clan": ["Clan", "Klan"],
+        "character": ["Character", "Postava"],
         "marketplace": ["Marketplace", "Tržiště"],
         "characters": ["Characters", "Postavy"],
         "overview": ["Overview", "Přehled"],
@@ -150,7 +151,8 @@
         "starvation": ["If there is not enough food, the character will starve and lose ${health} health. Additionaly, such character does not heal when resting and your clan will lose ${fame} fame.",
         "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."],
         "construction": ["Fame can be also increased by building construction. For each level of your newly constructed building, you will gain ${fame} fame.",
-        "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."]
+        "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."],
+        "numWins": ["Number of wins", "Počet vítězství"]
     },
     "login": {
         "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",

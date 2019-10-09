@@ -10,7 +10,8 @@ import {
     updateGlobalNotification,
     fetchTavernOffers,
     fetchDisaster,
-    fetchGameProperties
+    fetchGameProperties,
+    fetchArenaStats
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -74,6 +75,11 @@ export const FETCH_DISASTER = 'FETCH_DISASTER';
 export const FETCH_DISASTER_PENDING = 'FETCH_DISASTER_PENDING';
 export const FETCH_DISASTER_FULFILLED = 'FETCH_DISASTER_FULFILLED';
 export const FETCH_DISASTER_REJECTED = 'FETCH_DISASTER_REJECTED';
+
+export const FETCH_ARENA_STATS = 'FETCH_ARENA_STATS';
+export const FETCH_ARENA_STATS_PENDING = 'FETCH_ARENA_STATS_PENDING';
+export const FETCH_ARENA_STATS_FULFILLED = 'FETCH_ARENA_STATS_FULFILLED';
+export const FETCH_ARENA_STATS_REJECTED = 'FETCH_ARENA_STATS_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -142,7 +148,7 @@ export { fetchGamePropertiesAction as fetchGameProperties };
 
 const fetchGlobalNotificationAction = () => ({
     type: FETCH_GLOBAL_NOTIFICATION,
-    payload: fetchGlobalNotification
+    payload: fetchGlobalNotification()
 });
 export { fetchGlobalNotificationAction as fetchGlobalNotification };
 
@@ -167,6 +173,12 @@ export { fetchTavernOffersAction as fetchTavernOffers };
 
 const fetchDisasterAction = () => ({
     type: FETCH_DISASTER,
-    payload: fetchDisaster
+    payload: fetchDisaster()
 });
 export { fetchDisasterAction as fetchDisaster };
+
+const fetchArenaStatsAction = () => ({
+    type: FETCH_ARENA_STATS,
+    payload: fetchArenaStats()
+});
+export { fetchArenaStatsAction as fetchArenaStats };

@@ -10,7 +10,10 @@ import {
     FETCH_MARKET_OFFERS_REJECTED,
     FETCH_DISASTER_PENDING,
     FETCH_DISASTER_FULFILLED,
-    FETCH_DISASTER_REJECTED
+    FETCH_DISASTER_REJECTED,
+    FETCH_ARENA_STATS_PENDING,
+    FETCH_ARENA_STATS_FULFILLED,
+    FETCH_ARENA_STATS_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -41,6 +44,12 @@ const initialState = {
     },
     disaster: {
         data: undefined,
+        fetching: false,
+        fetched: false,
+        failed: false,
+    },
+    arenaStats: {
+        data: [],
         fetching: false,
         fetched: false,
         failed: false,
@@ -187,6 +196,40 @@ export const DataReducer = (state = initialState, action) => {
                 disaster: {
                     ...state.disaster,
                     data: undefined,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                },
+                error: action.payload
+            };
+        case FETCH_ARENA_STATS_PENDING:
+            return {
+                ...state,
+                arenaStats: {
+                    ...state.arenaStats,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
+            };
+        case FETCH_ARENA_STATS_FULFILLED:
+            return {
+                ...state,
+                arenaStats: {
+                    ...state.arenaStats,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                },
+                error: ''
+            };
+        case FETCH_ARENA_STATS_REJECTED:
+            return {
+                ...state,
+                arenaStats: {
+                    ...state.arenaStats,
+                    data: [],
                     fetching: false,
                     fetched: false,
                     failed: true,
