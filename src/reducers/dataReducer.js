@@ -30,8 +30,9 @@ const initialState = {
         failed: false,
     },
     clans: {
-        data: {},
-        number: 0,
+        data: {
+            number: 0
+        },
         fetching: false,
         fetched: false,
         failed: false,
