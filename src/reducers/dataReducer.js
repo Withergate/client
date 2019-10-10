@@ -38,7 +38,9 @@ const initialState = {
         failed: false,
     },
     offers: {
-        data: [],
+        data: {
+            number: 0
+        },
         fetching: false,
         fetched: false,
         failed: false,

@@ -8,10 +8,10 @@ import { ALL, WEAPON, OUTFIT, GEAR, CONSUMABLE } from '../../constants/constants
 const ItemFilter = (props) => (
     <Form.Group>
         <Row>
-            <Col md={4}>
-                <Form.Label ><Translate id="labels.filter" /></Form.Label>
+            <Col md={3}>
+                <Form.Label ><small><Translate id="labels.filter" /></small></Form.Label>
             </Col>
-            <Col md={4}>
+            <Col md={9}>
                 <Translate>
                     {({ translate }) =>
                         <Form.Control as="select" value={props.filter} onChange={(e) => props.onChange(e.target.value)}>

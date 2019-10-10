@@ -127,10 +127,10 @@ export const fetchGameProperties = () => {
     });
 };
 
-export const fetchMarketOffers = () => {
+export const fetchMarketOffers = (number) => {
     return new Promise((resolve, reject) => {
         // fetch clan data
-        fetch(API_URL + 'trade/market', {
+        fetch(API_URL + 'trade/market'.concat('?page=').concat(number).concat('&size=').concat(10), {
             method: 'GET',
             headers: getHeaders()
         }).then(response => {

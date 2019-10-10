@@ -99,11 +99,11 @@ const fetchLocationsAction = () => ({
 });
 export { fetchLocationsAction as fetchLocations };
 
-const fetchMarketOffersAction = () => {
+const fetchMarketOffersAction = (number) => {
     return (dispatch) => {
         return dispatch({
             type: FETCH_MARKET_OFFERS,
-            payload: fetchMarketOffers()
+            payload: fetchMarketOffers(number)
         });
     }
 };

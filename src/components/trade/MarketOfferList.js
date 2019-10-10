@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import MarketOfferListItem from './MarketOfferListItem';
+import { Paginator } from '../shared/Paginator';
 
 import { publishOffer, deleteOffer, tradeItem } from '../../actions/actionActions';
 import { changeMarketOfferFilter } from '../../actions/uiActions';
@@ -18,7 +19,7 @@ import { ALL } from '../../constants/constants';
 class MarketOfferList extends React.Component {
     componentDidMount() {
         if (!this.props.fetched) {
-            this.props.fetchMarketOffers();
+            this.props.fetchMarketOffers(this.props.offers.number);
         }
     }
 
@@ -28,8 +29,18 @@ class MarketOfferList extends React.Component {
                 { this.props.fetched &&
                     <div>
                         <h5><Translate id="basic.marketplace" /></h5>
-                        { this.props.offers.length ? 
-                            renderList(this.props.offers, this.props.selectedCharacter, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.changeMarketOfferFilter, this.props.clanId)
+                        <ItemFilter filter={this.props.filter} onChange={this.props.changeMarketOfferFilter} />
+                        <Paginator
+                            number={this.props.offers.number}
+                            max={this.props.offers.totalPages - 1}
+                            min={0}
+                            onNext={this.props.fetchMarketOffers}
+                            onPrevious={this.props.fetchMarketOffers}>
+                            <Translate id="labels.page" /> {this.props.offers.number + 1}
+                        </Paginator>
+
+                        { this.props.offers.content.length ? 
+                            renderList(this.props.offers.content, this.props.selectedCharacter, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
                             : <Translate id="labels.noOffers" />
                         }
                     </div>
@@ -42,9 +53,8 @@ class MarketOfferList extends React.Component {
     }
 };
 
-const renderList = (offers, selectedCharacter, onBuy, onCancel, filter, changeFilter, clanId) => (
-    <div>
-        <ItemFilter filter={filter} onChange={changeFilter} />
+const renderList = (offers, selectedCharacter, onBuy, onCancel, filter, clanId) => (
+    <div className="mt-2">
         {
             offers
                 .filter(offer => (offer.details.itemType === filter || filter === ALL))
@@ -60,7 +70,7 @@ const renderListItem = (offer, selectedCharacter, onBuy, onCancel, clanId) => (
 );
 
 MarketOfferList.propTypes = {
-    offers: PropTypes.array.isRequired,
+    offers: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     filter: PropTypes.string.isRequired,
     clanId: PropTypes.number.isRequired
