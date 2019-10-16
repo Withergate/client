@@ -18,8 +18,8 @@ class AboutPage extends Component {
                 <p><Translate id="about.contributionText" /></p>
 
                 <p><Image src={PatreonIcon} width="25px" className="mr-2" /> <b>Patreon: </b><a href="https://www.patreon.com/withergate">link</a></p>
-                <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>39CRNV8DotZ1LDkdoPVkuy8j1tRa7S7Cna</p>
-                <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>Ae2tdPwUPEZ2WWNpiWoSW1wKoXp8mZWctTkBieMBsAarV9xiA6ZTdVMz1nB</p>
+                <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>{ window._env_.BITCOIN }</p>
+                <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>{ window._env_.CARDANO }</p>
                 
                 <h3><Translate id="about.developmentHeader" /></h3>
                 <p><Translate id="about.developmentText" /></p>
