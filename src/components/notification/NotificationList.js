@@ -8,10 +8,7 @@ import { Paginator } from '../shared/Paginator';
 const renderList = notifications => (
     <div>
         {
-            notifications.length ? notifications.map(notification => renderListItem(notification))
-            : <div className="m-4">
-                <Translate id="labels.noNotifications" />
-            </div>
+            notifications.map(notification => renderListItem(notification))
         }
     </div>
 );

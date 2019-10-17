@@ -52,3 +52,18 @@ body {
 .action-link {
   color: var(--secondary);
 }
+
+/*
+ * Carousel - tutorial
+ */
+.carousel {
+  background-color: var(--secondary);
+}
+
+.carousel-item {
+  width: 650px;
+  height: 600px;
+  text-align: center;
+  bottom: auto;
+}
+

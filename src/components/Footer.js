@@ -5,7 +5,7 @@ import { version as clientVersion }  from '../../package.json';
 
 
 const Footer = ({version}) => (
-    <div className="w-80 m-4"><small className="float-right text-muted">api: {version} / client: {clientVersion}</small></div>
+    <div className="w-80 m-4 mt-4"><small className="float-right text-muted">api: {version} / client: {clientVersion}</small></div>
 );
 
 Footer.propTypes = {

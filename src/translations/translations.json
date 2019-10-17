@@ -101,7 +101,6 @@
         "Momentálně nemáš žádné úkoly. Zvýšením úrovně informací svého klanu může nové úkoly získat."],
         "noCompletedQuests": ["You have not completed any quests yet.",
         "Zatím nemáš žádné dokončené úkoly."], 
-        "noNotifications": ["There are no notifications for this turn.", "V tomto kole nemáš žádné novinky."],   
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."],
@@ -233,6 +232,18 @@
         "QUEST": ["On a quest", "Plní úkol"],
         "TAVERN": ["Drinking in the tavern", "Pije v taverně"],
         "RESTING": ["Resting", "Odpočívá"]
+    },
+    "tutorial": {
+        "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 and and 6 pm UTC (8:00 and 20:00 CEST).",
+        "Withergate je tahová hra. Tvoje akce se nevyhodnocují ihned, ale musíš počkat, až do konce kola. Jakmile kolo skončí, akce všech hráčů se provedou současně. Aktuální kolo můžeš vidět v pravém horním sloupci. K vyhodnocení dochází dvakrát denně v 6:00 a 18:00 UTC (tedy 8:00 a 20:00 CEST)."],
+        "news": ["This is the notification page. Once you perform some game actions and the turn is evaluated, you will see the outcome of your actions here. Apart from notification text, some messages also contain income in the top right corner of details under the main section.",
+        "Toto je stránka notifikací. Až podnikneš nějaké herní akce a vyhodnotí se kolo, uvidíš výsledek svého úsili zde. Kromě textu zprávy ještě některé události obsahují příjem/ztrátu v pravém horním rohu a nebo detaily pod hlavním textem."],
+        "clan": ["In the clan section, you can see the overview of your clan. You can view your characters, equip/unequip items, check current resources and information levels or view constructed buildings here.",
+        "V sekci Klan si můžeš prohlédnout aktuální podobu svého klanu. Najdeš zde své postavy, kterým můžeš měnit výzbroj a výstroj, kontrolovat aktuální stav surovin a informací nebo si ptohlížet splněné úkoly a postavené budovy."],
+        "actions": ["This is probably the most important section. All your game actions will be done here. After you select a character, you will be able to assign an action to him. This action will be performed at the end of the turn. Remember that each character can perform only one action per turn.",
+        "Toto je asi nejdůležitější sekce. Veškeré herní akce budou vybírány tady. Jakmile si vybereš postavu, budeš ji moci přiřadit akci z bohaté nabídky. Výsledek bude vyhodnocen na konci kola. Pamatuj, že každá postava může vykonat pouze jednu akci za kolo."],
+        "fame": ["The goal of the game is to gain as much fame as possible for your clan by performing game actions. The clan with highest level of fame at the end of the last turn will win the era.",
+        "Cílem hry je získat co nejvíce slávy pro tvůj klan pomocí herních akcí. Ten, jež dosáhne největší hodnoty slávy na konci posledního kola se stane vítězem věku."]
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],
