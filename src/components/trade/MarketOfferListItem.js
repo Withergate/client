@@ -37,7 +37,7 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}
         <Card.Footer>
             { clanId === offer.seller.id &&
                 <Button 
-                    variant="outline-dark"
+                    variant="outline-success"
                     className="button-classic mr-2" 
                     onClick={() => onCancel(offer.id)}>
                     <Translate id="labels.cancel" />
@@ -45,7 +45,7 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}
             }
             { selectedCharacter !== undefined ? 
                 <Button 
-                    variant="dark"
+                    variant="success"
                     className="button-classic" 
                     disabled={selectedCharacter.state !== 'READY'}
                     onClick={() => onBuy(selectedCharacter.id, offer.id)}>

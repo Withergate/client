@@ -44,7 +44,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                 <Row>
                     <TooltipWrapper textKey={"location.visit"}>
                         <Button
-                            variant="dark"
+                            variant="success"
                             className="m-2 button-classic" 
                             onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
                             disabled={selectedCharacter.state !== 'READY'}>
@@ -55,7 +55,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                         location.scouting && 
                             <TooltipWrapper textKey={"location.scout"}>
                                 <Button
-                                    variant="dark"
+                                    variant="success"
                                     className="m-2 button-classic" 
                                     onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
                                     disabled={selectedCharacter.state !== 'READY'}>

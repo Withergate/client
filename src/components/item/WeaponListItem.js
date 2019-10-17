@@ -30,7 +30,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
         <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Button 
-                    variant="outline-dark"
+                    variant="outline-success"
                     className="button-classic" 
                     onClick={() => equipItem(weapon.id, 'WEAPON', selectedCharacter.id)}>
                     <Translate id="labels.equip" />

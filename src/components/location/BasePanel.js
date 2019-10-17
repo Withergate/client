@@ -25,7 +25,7 @@ class BasePanel extends React.Component {
                         { this.props.selectedCharacter !== undefined ? 
                             <Row>
                                 <Button
-                                    variant="dark"
+                                    variant="success"
                                     className="m-2 button-classic" 
                                     onClick={() => this.props.restWithCharacter(this.props.selectedCharacter.id)}
                                     disabled={this.props.selectedCharacter.state !== 'READY'}>

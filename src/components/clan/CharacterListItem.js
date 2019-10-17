@@ -100,7 +100,7 @@ class CharacterListItem extends Component {
                                 </Col>
                                 <Col>
                                     <Button
-                                        variant="outline-dark"
+                                        variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
                                         onClick={() => unequipItem(character.weapon.id, 'WEAPON', character.id)}>
@@ -120,7 +120,7 @@ class CharacterListItem extends Component {
                                 </Col>
                                 <Col>
                                     <Button
-                                        variant="outline-dark"
+                                        variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
                                         onClick={() => unequipItem(character.outfit.id, 'OUTFIT', character.id)}>
@@ -140,7 +140,7 @@ class CharacterListItem extends Component {
                                 </Col>
                                 <Col>
                                     <Button
-                                        variant="outline-dark"
+                                        variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
                                         onClick={() => unequipItem(character.gear.id, 'GEAR', character.id)}>

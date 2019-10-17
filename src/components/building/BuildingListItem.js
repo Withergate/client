@@ -49,7 +49,7 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                     <Row>
                         <TooltipWrapper textKey="labels.buildingConstruction">
                             <Button
-                                variant="dark"
+                                variant="success"
                                 className="m-2 button-classic"
                                 onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
                                 disabled={selectedCharacter.state !== 'READY'}>
@@ -60,7 +60,7 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                             building.details.visitable && 
                             <TooltipWrapper textKey="labels.buildingVisit">
                                 <Button
-                                    variant="dark"
+                                    variant="success"
                                     className="m-2 button-classic"
                                     onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
                                     disabled={selectedCharacter.state !== 'READY' || building.level < 1}>

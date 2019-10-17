@@ -160,7 +160,7 @@ class ResourceTradePanel extends React.Component {
                     <Button
                         form="resourceForm"
                         type="submit"
-                        variant="dark"
+                        variant="success"
                         className="mr-2 button-classic" 
                         disabled={this.props.selectedCharacter.state !== 'READY'}>
                         <Translate id="labels.trade" />

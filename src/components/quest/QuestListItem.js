@@ -45,7 +45,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
         <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Button 
-                    variant="dark"
+                    variant="success"
                     className="button-classic" 
                     disabled={selectedCharacter.state !== 'READY'}
                     onClick={() => goOnQuest(quest.id, selectedCharacter.id)}>

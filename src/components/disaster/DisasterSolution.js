@@ -60,7 +60,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                 <Col md={2}>
                     { selectedCharacter !== undefined ? 
                         <Button
-                            variant="dark"
+                            variant="success"
                             className="button-classic"
                             onClick={() => disasterAction(selectedCharacter.id, solution.identifier)}
                             disabled={selectedCharacter.state !== 'READY'}>

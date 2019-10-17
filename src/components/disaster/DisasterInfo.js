@@ -8,14 +8,26 @@ import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE } from '../../constants/constants';
 
 const renderPenaltyText = (penalty, i, progress, partialThreshold, failureThreshold) => {
-    if (i === 2 && progress >= failureThreshold) {
-        return <s><Translate id={penalty.penaltyType} /></s>
+    if (i === 2) {
+        if (progress >= failureThreshold) {
+            return <s><Translate id={penalty.penaltyType} /> (less then { failureThreshold }%)</s>
+        } else {
+            return <><Translate id={penalty.penaltyType} /> (less then { failureThreshold }%)</>
+        }
     }
-    if (i === 1 && progress >= partialThreshold) {
-        return <s><Translate id={penalty.penaltyType} /></s>
+    if (i === 1) {
+        if (progress >= partialThreshold) {
+            return <s><Translate id={penalty.penaltyType} /> (less then { partialThreshold }%)</s>
+        } else {
+            return <><Translate id={penalty.penaltyType} /> (less then { partialThreshold }%)</>
+        }
     }
-    if (i === 0 && progress >= 100) {
-        return <s><Translate id={penalty.penaltyType} /></s>
+    if (i === 0) {
+        if (progress >= 100) {
+            return <s><Translate id={penalty.penaltyType} /> (less then 100%)</s>
+        } else {
+            return <><Translate id={penalty.penaltyType} /> (less then 100%)</>
+        }
     }
     return <Translate id={penalty.penaltyType} />
 }

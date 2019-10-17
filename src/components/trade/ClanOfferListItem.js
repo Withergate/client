@@ -73,7 +73,7 @@ class ClanOfferListItem extends React.Component {
                         <Col md={4}>
                             <TooltipWrapper textKey="labels.offerTooltip">
                                 <Button
-                                    variant="outline-dark"
+                                    variant="outline-success"
                                     className="button-classic"
                                     type="submit" >
                                     <Translate id="labels.offer" />
