@@ -52,8 +52,8 @@ class ArenaPanel extends React.Component {
                     <Table className="mt-4" striped bordered hover>
                         <thead>
                             <tr>
-                                <th><Translate id="basic.clan" /></th>
                                 <th><Translate id="basic.character" /></th>
+                                <th><Translate id="basic.clan" /></th>
                                 <th><Translate id="labels.numWins" /></th>
                             </tr>
                         </thead>
