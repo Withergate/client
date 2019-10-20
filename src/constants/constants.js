@@ -31,6 +31,10 @@ export const INJURY = 'INJURY';
 export const HEALING = 'HEALING';
 export const EXPERIENCE = 'EXPERIENCE';
 export const DEATH = 'DEATH';
+export const COMBAT = 'COMBAT';
+export const SCAVENGE = 'SCAVENGE';
+export const CRAFTSMANSHIP = 'CRAFTSMASHIP';
+export const INTELLECT = 'INTELLECT';
 
 // Icon size
 export const SMALL = 'SMALL';

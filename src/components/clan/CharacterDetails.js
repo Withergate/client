@@ -11,6 +11,7 @@ import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import TooltipWrapper from '../shared/TooltipWrapper';
 import { Row, Col, Image, ProgressBar } from 'react-bootstrap';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
 
 function renderState(state) {
     switch(state) {
@@ -35,10 +36,10 @@ const CharacterDetails = ({character}) => (
                 </Row>
             </Col>
             <Col md={4} sm={12}>
-                <AttributeBar name="basic.combat" value={character.combat} hideText />
-                <AttributeBar name="basic.scavenge" value={character.scavenge} hideText />
-                <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText />
-                <AttributeBar name="basic.intellect" value={character.intellect} hideText />
+                <AttributeBar name="basic.combat" value={character.combat} hideText iconType={COMBAT} />
+                <AttributeBar name="basic.scavenge" value={character.scavenge} hideText iconType={SCAVENGE} />
+                <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText iconType={CRAFTSMANSHIP} />
+                <AttributeBar name="basic.intellect" value={character.intellect} hideText iconType={INTELLECT} />
                 <TooltipWrapper textKey="basic.health" value={character.hitpoints + "/" + character.maxHitpoints}>
                     <ProgressBar
                         variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}

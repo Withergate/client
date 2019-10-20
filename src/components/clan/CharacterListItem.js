@@ -15,7 +15,7 @@ import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
 import TooltipWrapper from '../shared/TooltipWrapper';
-import { PENDING } from '../../constants/constants';
+import { PENDING, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
 import ActionButton from './ActionButton';
 
 function renderState(state) {
@@ -56,10 +56,10 @@ class CharacterListItem extends Component {
                     </Col>
                     <Col md={5}>
                         <div className="mb-2">
-                            <AttributeBar name="basic.combat" value={character.combat} />
-                            <AttributeBar name="basic.scavenge" value={character.scavenge} />
-                            <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} />
-                            <AttributeBar name="basic.intellect" value={character.intellect} /> 
+                            <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
+                            <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
+                            <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
+                            <AttributeBar name="basic.intellect" value={character.intellect} iconType={INTELLECT} /> 
                         </div>
                         <Row className="row">
                             <Col md={6}>

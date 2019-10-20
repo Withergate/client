@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, EXPERIENCE, DEATH
+    HEALING, INJURY, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -16,6 +16,10 @@ import injuryIcon from '../../images/injury.png';
 import healingIcon from '../../images/healing.png';
 import experienceIcon from '../../images/experience.png';
 import deathIcon from '../../images/death.png';
+import combatIcon from '../../images/combat.png';
+import scavengeIcon from '../../images/scavenge.png';
+import craftsmanshipIcon from '../../images/craftsmanship.png';
+import intellectIcon from '../../images/intellect.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -31,6 +35,10 @@ const getIconSource = (type) => {
         case HEALING: return healingIcon;
         case EXPERIENCE: return experienceIcon;
         case DEATH: return deathIcon;
+        case COMBAT: return combatIcon;
+        case SCAVENGE: return scavengeIcon;
+        case CRAFTSMANSHIP: return craftsmanshipIcon;
+        case INTELLECT: return intellectIcon;
         default: return "";
     }
 }
@@ -47,6 +55,10 @@ const getTranslationKey = (type) => {
         case HEALING: return "basic.healing";
         case EXPERIENCE: return "basic.experience";
         case DEATH: return "basic.death";
+        case COMBAT: return "basic.combat";
+        case SCAVENGE: return "basic.scavenge";
+        case CRAFTSMANSHIP: return "basic.craftsmanship";
+        case INTELLECT: return "basic.intellect";
         default: return "";
     }
 }

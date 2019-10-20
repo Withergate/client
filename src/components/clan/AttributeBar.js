@@ -4,21 +4,27 @@ import { Translate } from 'react-localize-redux';
 
 import TooltipWrapper from '../shared/TooltipWrapper';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
-import { MAX_ATTRIBUTE } from '../../constants/constants';
+import { MAX_ATTRIBUTE, SMALL } from '../../constants/constants';
+import { GameIcon } from '../shared/GameIcon';
 
-const AttributeBar = ({name, value, hideText}) => (
+const AttributeBar = ({name, value, hideText, iconType}) => (
     <Row>
         {   
             !hideText &&
             <Col><Translate id={name} /></Col>
         }
         <Col className="mb-1">
-            <TooltipWrapper textKey={name} value={value}>
-                <ProgressBar
-                    variant="warning"
-                    now={value}
-                    max={MAX_ATTRIBUTE} />
-            </TooltipWrapper>
+            <Row>
+                <Col md={2}><GameIcon type={iconType} size={SMALL} /></Col>
+                <Col className="mt-1">
+                    <TooltipWrapper textKey={name} value={value}>
+                        <ProgressBar
+                            variant="warning"
+                            now={value}
+                            max={MAX_ATTRIBUTE} />
+                    </TooltipWrapper>
+                </Col>
+            </Row>
         </Col>
     </Row>
 );
@@ -26,7 +32,8 @@ const AttributeBar = ({name, value, hideText}) => (
 AttributeBar.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
-    hideText: PropTypes.bool
+    hideText: PropTypes.bool,
+    iconType: PropTypes.string.isRequired
 };
 
 export default AttributeBar;

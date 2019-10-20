@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE } from '../../constants/constants';
+import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
 import TraitItem from '../clan/TraitItem';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
@@ -19,10 +19,10 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     <Image rounded width="120px" src={offer.character.imageUrl} />
                 </Col>
                 <Col md={4}>
-                    <AttributeBar name="basic.combat" value={offer.character.combat} />
-                    <AttributeBar name="basic.scavenge" value={offer.character.scavenge} />
-                    <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} />
-                    <AttributeBar name="basic.intellect" value={offer.character.intellect} />
+                    <AttributeBar name="basic.combat" value={offer.character.combat} iconType={COMBAT} />
+                    <AttributeBar name="basic.scavenge" value={offer.character.scavenge} iconType={SCAVENGE} />
+                    <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} iconType={CRAFTSMANSHIP} />
+                    <AttributeBar name="basic.intellect" value={offer.character.intellect} iconType={INTELLECT} />
                     <Row>
                         <Col>
                             <Translate id="basic.health" />
