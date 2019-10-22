@@ -4,6 +4,7 @@ import { Translate } from "react-localize-redux";
 
 import NotificationListItem from './NotificationListItem';
 import { Paginator } from '../shared/Paginator';
+import Tutorial from './Tutorial';
 
 const renderList = notifications => (
     <div>
@@ -25,13 +26,19 @@ const NotificationList = (props) => (
             <Paginator
                 number={props.turnDisplayed}
                 max={props.currentTurn - 1}
-                min={1}
+                min={0}
                 onNext={props.displayTurnNotifications}
                 onPrevious={props.displayTurnNotifications}>
                 <Translate id="header.turn" /> {props.turnDisplayed}
             </Paginator>
         </div>
-        {renderList(props.notifications)} 
+        { props.notifications.length ? 
+            renderList(props.notifications)
+            : <div className="m-4">
+                <Translate id="labels.noNotifications" />
+                <Tutorial />
+            </div>
+        } 
     </div>
 );
 

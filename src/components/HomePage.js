@@ -14,7 +14,6 @@ import {
 } from '../actions/dataActions';
 import { GlobalNotification } from './notification/GlobalNotification';
 import DisasterMiniPanel from './disaster/DisasterMiniPanel';
-import Tutorial from './notification/Tutorial';
 
 class HomePage extends Component {
 
@@ -38,16 +37,12 @@ class HomePage extends Component {
                 }
                 {
                     this.props.fetched && 
-                    <div>
-                        { this.props.notifications.length ?
-                            <NotificationList 
-                                notifications={this.props.notifications} 
-                                currentTurn={this.props.turn.turnId}
-                                turnDisplayed={this.props.turnDisplayed}
-                                displayTurnNotifications={this.props.displayTurnNotifications} />
-                            : <Tutorial />
-                        }
-                    </div>
+                        <NotificationList 
+                            notifications={this.props.notifications} 
+                            currentTurn={this.props.turn.turnId}
+                            turnDisplayed={this.props.turnDisplayed}
+                            displayTurnNotifications={this.props.displayTurnNotifications} />
+                    }
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />

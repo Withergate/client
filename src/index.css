@@ -65,5 +65,6 @@ body {
   height: 600px;
   text-align: center;
   bottom: auto;
+  position: unset;
 }
 
