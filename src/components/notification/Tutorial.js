@@ -8,7 +8,7 @@ const Tutorial = () => (
             <Carousel.Caption>
                 <Image
                     className="d-block w-100 mb-4"
-                    src="https://storage.cloud.google.com/withergate-images/tutorial/turns.png"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/turns.png"
                 />
                 <h3><Translate id="header.turn" /></h3>
                 <p><Translate id="tutorial.turns" /></p>
@@ -18,7 +18,7 @@ const Tutorial = () => (
             <Carousel.Caption>
                 <Image
                     className="d-block w-100 mt-4 mb-4"
-                    src="https://storage.cloud.google.com/withergate-images/tutorial/news.png"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/news.png"
                 />
                 <h3><Translate id="header.news" /></h3>
                 <p><Translate id="tutorial.news" /></p>
@@ -28,7 +28,7 @@ const Tutorial = () => (
             <Carousel.Caption>
                 <Image
                     className="d-block w-100 mt-4 mb-4"
-                    src="https://storage.cloud.google.com/withergate-images/tutorial/clan.png"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/clan.png"
                 />
                 <h3><Translate id="header.clan" /></h3>
                 <p><Translate id="tutorial.clan" /></p>
@@ -38,7 +38,7 @@ const Tutorial = () => (
             <Carousel.Caption>
                 <Image
                     className="d-block w-100 mt-4 mb-4"
-                    src="https://storage.cloud.google.com/withergate-images/tutorial/actions.png"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/actions.png"
                 />
                 <h3><Translate id="header.actions" /></h3>
                 <p><Translate id="tutorial.actions" /></p>
@@ -48,7 +48,7 @@ const Tutorial = () => (
             <Carousel.Caption>
                 <Image
                     className="d-block w-100 mt-4 mb-4"
-                    src="https://storage.cloud.google.com/withergate-images/tutorial/fame.png"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/fame.png" 
                 />
                 <h3><Translate id="header.fame" /></h3>
                 <p><Translate id="tutorial.fame" /></p>

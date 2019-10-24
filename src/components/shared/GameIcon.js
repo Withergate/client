@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT
+    HEALING, INJURY, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -20,6 +20,7 @@ import combatIcon from '../../images/combat.png';
 import scavengeIcon from '../../images/scavenge.png';
 import craftsmanshipIcon from '../../images/craftsmanship.png';
 import intellectIcon from '../../images/intellect.png';
+import encounterIcon from '../../images/encounter.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -39,6 +40,7 @@ const getIconSource = (type) => {
         case SCAVENGE: return scavengeIcon;
         case CRAFTSMANSHIP: return craftsmanshipIcon;
         case INTELLECT: return intellectIcon;
+        case ENCOUNTER: return encounterIcon;
         default: return "";
     }
 }
@@ -59,6 +61,7 @@ const getTranslationKey = (type) => {
         case SCAVENGE: return "basic.scavenge";
         case CRAFTSMANSHIP: return "basic.craftsmanship";
         case INTELLECT: return "basic.intellect";
+        case ENCOUNTER: return "labels.encounterChance";
         default: return "";
     }
 }

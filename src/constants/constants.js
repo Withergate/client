@@ -35,6 +35,7 @@ export const COMBAT = 'COMBAT';
 export const SCAVENGE = 'SCAVENGE';
 export const CRAFTSMANSHIP = 'CRAFTSMASHIP';
 export const INTELLECT = 'INTELLECT';
+export const ENCOUNTER = 'ENCOUNTER';
 
 // Icon size
 export const SMALL = 'SMALL';

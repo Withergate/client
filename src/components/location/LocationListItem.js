@@ -7,7 +7,7 @@ import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 import TooltipWrapper from '../shared/TooltipWrapper';
 
 import { GameIcon } from '../shared/GameIcon';
-import { FOOD, LARGE, JUNK, INFORMATION, ITEM_CHANCE } from '../../constants/constants';
+import { FOOD, LARGE, JUNK, INFORMATION, ITEM_CHANCE, ENCOUNTER } from '../../constants/constants';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">
@@ -32,6 +32,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                                     <li className="list-inline-item"><GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} /></li>
                                 }
                                 <li className="list-inline-item"><GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance + "%"} /></li>
+                                <li className="list-inline-item"><GameIcon type={ENCOUNTER} size={LARGE} value={location.encounterChance + "%"} /></li>
                             </ul>
                         </Col>
                     </Row>
