@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Translate } from "react-localize-redux";
 import { Table, Image } from 'react-bootstrap';
 
+import CzechIcon from '../images/lang/czech.png';
 import PatreonIcon from '../images/patreon.png';
 import CardanoIcon from '../images/cardano.png';
 import BitcoinIcon from '../images/bitcoin.png';
@@ -13,6 +14,10 @@ class AboutPage extends Component {
             <div className="m-4">
                 <h3><Translate id="about.aboutHeader" /></h3>
                 <p><Translate id="about.aboutText" /></p>
+
+                <p>
+                    <Image src={CzechIcon} width="25px" className="mr-2" /> <a href="https://witherpedia.fandom.com/cs/wiki/N%C3%A1pov%C4%9Bda_ke_h%C5%99e">Wiki</a>
+                </p>
 
                 <h3><Translate id="about.contributionHeader" /></h3>
                 <p><Translate id="about.contributionText" /></p>
