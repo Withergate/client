@@ -7,6 +7,8 @@ import LanguageToggle from './LanguageToggle';
 import logo from '../images/logo.png';
 import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
+import { Button } from 'react-bootstrap';
+import { AUTH_URL } from '../services/constants/endpoints';
 
 const getTurnText = (turnId, maxTurns) => {
     if (turnId <= maxTurns) {
@@ -14,6 +16,13 @@ const getTurnText = (turnId, maxTurns) => {
     } else {
         return <Translate id="labels.end" />;
     }
+}
+const logout = () => {
+    // delete token
+    localStorage.removeItem('token');
+
+    // redirect to auth logout
+    window.location = AUTH_URL + "logout"
 }
 
 const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
@@ -48,7 +57,15 @@ const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
                 </div>
             }
         </div>
-        <LanguageToggle/>
+        <div className="ml-4">
+            <LanguageToggle />
+            {
+                loggedIn &&
+                <Button onClick={logout} variant="dark" size="sm" className="mt-1">
+                    <GameIcon type="LOGOUT" size={SMALL} />
+                </Button>
+            }   
+        </div>
     </nav>
 );
 

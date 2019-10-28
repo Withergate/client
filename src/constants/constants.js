@@ -1,3 +1,6 @@
+// Header
+export const LOGOUT = 'LOGOUT';
+
 // Actions
 export const PENDING = 'PENDING';;
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER
+    HEALING, INJURY, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -21,6 +21,7 @@ import scavengeIcon from '../../images/scavenge.png';
 import craftsmanshipIcon from '../../images/craftsmanship.png';
 import intellectIcon from '../../images/intellect.png';
 import encounterIcon from '../../images/encounter.png';
+import logoutIcon from '../../images/logout.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -41,6 +42,7 @@ const getIconSource = (type) => {
         case CRAFTSMANSHIP: return craftsmanshipIcon;
         case INTELLECT: return intellectIcon;
         case ENCOUNTER: return encounterIcon;
+        case LOGOUT: return logoutIcon;
         default: return "";
     }
 }
@@ -62,6 +64,7 @@ const getTranslationKey = (type) => {
         case CRAFTSMANSHIP: return "basic.craftsmanship";
         case INTELLECT: return "basic.intellect";
         case ENCOUNTER: return "labels.encounterChance";
+        case LOGOUT: return "header.logout";
         default: return "";
     }
 }
