@@ -3,7 +3,7 @@ import { Translate } from "react-localize-redux";
 import { Carousel, Image } from 'react-bootstrap';
 
 const Tutorial = () => (
-    <Carousel className="m-4">
+    <Carousel className="mt-4" interval={null} slide={false}>
         <Carousel.Item>
             <Carousel.Caption>
                 <Image

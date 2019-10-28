@@ -152,7 +152,10 @@
         "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."],
         "construction": ["Fame can be also increased by building construction. For each level of your newly constructed building, you will gain ${fame} fame.",
         "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."],
-        "numWins": ["Number of wins", "Počet vítězství"]
+        "numWins": ["Number of wins", "Počet vítězství"],
+        "noNotifications": ["There are no notifications for this turn. But you can check this tutorial how to play instead.", "Pro toto kolo nemáš žádné novinky. Ale místo toho si můžeš projít tento krátký tutorial."],	
+        "encounterChance": ["This is the risk that random encounter will triggered. Handling the encounter requires various skills of the character. If the character handles the situation successfully, there will be a reward plus some portion of the action resources will be awarded as well. In case of unsuccessful encounter, the character will not find any resources and penalty might be triggered.",	
+        "Toto je šance na náhodnou událost. Řešení události vyžaduje použití nějaké z vlastností dané postavy. Pokud postava v situaci uspěje, dostane odměnu a navíc ještě část surovin, které by normálně získala z prováděné akce. Pokud ovšem neuspěje, nedostane nic a navíc může následovat nějaký negativní efekt."]
     },
     "login": {
         "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",
@@ -160,7 +163,7 @@
         "intro2": ["This is a story about such struggle. You will find yourself leading a small clan near the ruins of former metropolis - now called Withergate. It is a dangerous place to live in but your only chance for survival. Are you up for it?",
         "Toto je příběh o jedné takové skupině. Máš možnost stát se vůdcem malého klanu přeživších v blízkosti bývalé metropole - nyní známé pod názvem Withergate. Je to nebezpečné místo, ale zároveň jediná šance na přežití. Jdeš do toho?"],
         "info": ["Withergate is a turn-based browser game. Players control clans consisting of several characters. Interacting with the game is done via assigning actions to these characters. Twice a day, at 6 am and 6 pm UTC time (8 am and 8pm CEST) and, these actions are evaluated and your characters become ready again.",
-        "Withergate je textová tahová strategie ovládaná přes prohlížeč. Hráči kontrolují klan s několika postavami. Herní interakce probíhá pomocí přiřazování akcí k jednolivým hrdinů. Všechny akce jsou vyhodnocovány dvakrát denně v 6:00 a 18:00 UTC (tedy 8:00 a 20:00 CEST)."],
+        "Withergate je textová tahová strategie ovládaná přes prohlížeč. Hráči kontrolují klan s několika postavami. Herní interakce probíhá pomocí přiřazování akcí k jednolivým hrdinů. Všechny akce jsou vyhodnocovány dvakrát denně v 6:00 a 18:00 UTC (tedy 8:00 a 20:00 CEST, tedy Středoevropského času)."],
         "redirect": ["By clicking on the link above, you will be taken to an authorization server to login. If you don't have an account, register on the next page and come back once the registration is finished.",
         "Klinutí na tlačítko tě vezme na stránku autorizačního serveru, kde se přihlásíš. Pokud ještě nemáš účet, tak se nejprve na stránkách zaregistruj a poté se vrať sem."],
         "button": ["Enter", "Vstoupit"]
@@ -236,7 +239,7 @@
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 and and 6 pm UTC (8:00 and 20:00 CEST).",
-        "Withergate je tahová hra. Tvoje akce se nevyhodnocují ihned, ale musíš počkat, až do konce kola. Jakmile kolo skončí, akce všech hráčů se provedou současně. Aktuální kolo můžeš vidět v pravém horním sloupci. K vyhodnocení dochází dvakrát denně v 6:00 a 18:00 UTC (tedy 8:00 a 20:00 CEST)."],
+        "Withergate je tahová hra. Tvoje akce se nevyhodnocují ihned, ale musíš počkat, až do konce kola. Jakmile kolo skončí, akce všech hráčů se provedou současně. Aktuální kolo můžeš vidět v pravém horním sloupci. K vyhodnocení dochází dvakrát denně v 6:00 a 18:00 UTC (tedy 8:00 a 20:00 Sředoevrospkého času)."],
         "news": ["This is the notification page. Once you perform some game actions and the turn is evaluated, you will see the outcome of your actions here. Apart from notification text, some messages also contain income in the top right corner of details under the main section.",
         "Toto je stránka notifikací. Až podnikneš nějaké herní akce a vyhodnotí se kolo, uvidíš výsledek svého úsili zde. Kromě textu zprávy ještě některé události obsahují příjem/ztrátu v pravém horním rohu a nebo detaily pod hlavním textem."],
         "clan": ["In the clan section, you can see the overview of your clan. You can view your characters, equip/unequip items, check current resources and information levels or view constructed buildings here.",

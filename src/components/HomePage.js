@@ -42,7 +42,6 @@ class HomePage extends Component {
                             currentTurn={this.props.turn.turnId}
                             turnDisplayed={this.props.turnDisplayed}
                             displayTurnNotifications={this.props.displayTurnNotifications} />
-                    }
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
