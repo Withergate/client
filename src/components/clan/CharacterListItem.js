@@ -6,9 +6,6 @@ import ReactTooltip from 'react-tooltip';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 
-import ready from '../../images/ready-icon.png';
-import busy from '../../images/busy-icon.png';
-
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
@@ -18,14 +15,6 @@ import TooltipWrapper from '../shared/TooltipWrapper';
 import { PENDING, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
 import ActionButton from './ActionButton';
 
-function renderState(state) {
-    switch(state) {
-        case 'READY': 
-            return <img height="25" src={ready} alt="Ready" />;
-        default:
-            return <img height="25" src={busy} alt="Busy" />;
-    }
-}
 
 function renderTrait(trait) {
     return <Row key={trait.id}><Col><TraitItem trait={trait} /></Col></Row>
@@ -38,7 +27,7 @@ class CharacterListItem extends Component {
         return <Card className="mb-4">
             <Card.Body>
                 <Card.Title>
-                    {renderState(character.state)} {character.name} ({character.level})
+                    {character.name} ({character.level})
                 </Card.Title>
                 <Row>
                     <Col md={2}>
