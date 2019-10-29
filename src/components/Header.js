@@ -9,6 +9,7 @@ import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
 import { Button } from 'react-bootstrap';
 import { AUTH_URL } from '../services/constants/endpoints';
+import TooltipWrapper from './shared/TooltipWrapper';
 
 const getTurnText = (turnId, maxTurns) => {
     if (turnId <= maxTurns) {
@@ -17,6 +18,33 @@ const getTurnText = (turnId, maxTurns) => {
         return <Translate id="labels.end" />;
     }
 }
+
+const getTimeToNextTurn = (turnTimes) => {
+    const date = new Date();
+    const utcHours = date.getUTCHours();
+
+    var hours = 0;
+    var minutes = 0;
+
+    var times = turnTimes.split(",");
+    times.push(Number(times[0]) + 24);
+
+    for (let i = 0; i < times.length; i++) {
+        if (utcHours < Number(times[i])) {
+            hours = Number(times[i]) - utcHours - 1;
+            break;
+        }
+    }
+
+    minutes = 60 - date.getMinutes()
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return hours + ":" + minutes;
+}
+
 const logout = () => {
     // delete token
     localStorage.removeItem('token');
@@ -25,7 +53,7 @@ const logout = () => {
     window.location = AUTH_URL + "logout"
 }
 
-const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
+const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/"><img height="25" src={logo} alt="WITHERGATE" /></a>
         <button className="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,9 +77,11 @@ const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
                         <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>
                         <li className="list-inline-item"><GameIcon type={FAME} size={SMALL} value={clan.fame} /></li>
                         <li className="list-inline-item">
-                            <small className="p-2">
-                                <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
-                            </small>
+                            <TooltipWrapper textKey="header.timeRemaining" value={getTimeToNextTurn(turnTimes)} >
+                                <small className="p-2">
+                                    <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
+                                </small>
+                            </TooltipWrapper>
                         </li>
                     </ul>
                 </div>
@@ -72,6 +102,7 @@ const Header = ({turn, maxTurns, principal, clan, loggedIn}) => (
 Header.propTypes = {
     turn: PropTypes.object.isRequired,
     maxTurns: PropTypes.number.isRequired,
+    turnTimes: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     principal: PropTypes.object,
     loggedIn: PropTypes.bool.isRequired

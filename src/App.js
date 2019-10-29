@@ -40,7 +40,8 @@ class App extends Component {
             version,
             principal,
             dismissError,
-            maxTurns
+            maxTurns,
+            turnTimes
         } = this.props;
         
         return (
@@ -51,6 +52,7 @@ class App extends Component {
                             <Header
                                 turn={turn}
                                 maxTurns={maxTurns}
+                                turnTimes={turnTimes}
                                 principal={principal}
                                 clan={clan}
                                 loggedIn={loggedIn} />
@@ -99,14 +101,14 @@ const mapStateToProps = state => {
     const { turn } = state.turn;
     const { exists, clan, selectedCharacter } = state.clan;
     const { version } = state.app;
-    const { maxTurns } = state.game.properties;
+    const { maxTurns, turnTimes } = state.game.properties;
 
     const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching || state.game.fetching;
     const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched && state.game.fetched;
     const failed = state.auth.failed || state.turn.failed || state.clan.failed || state.game.failed;
     const error = state.turn.error || state.clan.error || state.game.error;
 
-    return { fetching, fetched, failed, loggedIn, turn, maxTurns, exists, clan, selectedCharacter, version, principal, error };
+    return { fetching, fetched, failed, loggedIn, turn, maxTurns, turnTimes, exists, clan, selectedCharacter, version, principal, error };
 };
 
 const mapDispatchToProps = dispatch => (

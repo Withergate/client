@@ -10,7 +10,8 @@ import {
 
 const initialState = {
     properties: {
-        maxTurns: 0
+        maxTurns: 0,
+        turnTimes: '6,18'
     },
     fetching: false,
     fetched: false,
@@ -47,7 +48,8 @@ export const GameReducer = (state = initialState, action) => {
             return {
                 ...state,
                 properties: {
-                    maxTurns: 0
+                    maxTurns: 0,
+                    turnTimes: '6,18'
                 },
                 fetching: false,
                 fetched: false,
