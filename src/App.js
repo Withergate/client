@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { LocalizeProvider } from "react-localize-redux";
+import ReactGA from 'react-ga';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -15,9 +16,15 @@ import { fetchTurn, fetchVersion, fetchGameProperties } from './actions/dataActi
 import { createClan } from './actions/actionActions';
 import { selectCharacter } from './actions/uiActions';
 
-class App extends Component {
+function initializeReactGA() {
+    ReactGA.initialize('UA-151263839-1');
+    ReactGA.pageview('/homepage');
+}
 
+class App extends Component {
     componentDidMount() {
+        initializeReactGA();
+
         this.props.fetchPrincipal();
         this.props.fetchTurn();
         this.props.fetchVersion();
