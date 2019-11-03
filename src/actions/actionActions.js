@@ -3,7 +3,8 @@ import {
     equipItem, 
     unequipItem,
     consume,
-    constructBuilding, 
+    constructBuilding,
+    doResearch,
     goOnQuest,
     tradeResources,
     visitLocation,
@@ -97,6 +98,19 @@ const constructBuildingAction = (buildingName, characterId, type) => {
     };
 };
 export { constructBuildingAction as constructBuilding };
+
+const researchAction = (researchName, characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: doResearch(researchName, characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { researchAction as doResearch };
 
 const goOnQuestAction = (questId, characterId) => {
     return (dispatch) => {

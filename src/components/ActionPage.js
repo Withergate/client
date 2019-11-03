@@ -25,6 +25,7 @@ import {
 import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
 import BasePanel from './location/BasePanel';
+import ResearchList from './research/ResearchList';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -61,6 +62,9 @@ class ActionPage extends Component {
                                             <Nav.Link eventKey="buildings" className="tab-link"><Translate id="basic.buildings" /></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
+                                            <Nav.Link eventKey="research" className="tab-link"><Translate id="basic.research" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
                                             <Nav.Link eventKey="quests" className="tab-link"><Translate id="basic.quests" /></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
@@ -92,6 +96,9 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
                                                 actionable={true} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="research">
+                                            <ResearchList actionable={true} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
                                             <QuestList />

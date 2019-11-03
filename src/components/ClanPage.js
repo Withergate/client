@@ -31,6 +31,7 @@ import {
 } from '../actions/uiActions';
 import DefaultActionPanel from './clan/DefaultActionPanel';
 import GameMechanicsOverview from './clan/GameMechanicsOverview';
+import ResearchList from './research/ResearchList';
 
 class ClanPage extends Component {
 
@@ -64,6 +65,9 @@ class ClanPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="buildings"className="tab-link" ><Translate id="basic.buildings" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="research"className="tab-link" ><Translate id="basic.research" /></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="quests"className="tab-link" ><Translate id="basic.questsCompleted" /></Nav.Link>
@@ -110,6 +114,10 @@ class ClanPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
+                                                actionable={false} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="research">
+                                            <ResearchList 
                                                 actionable={false} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="quests">
