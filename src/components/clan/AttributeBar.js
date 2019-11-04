@@ -1,30 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Translate } from 'react-localize-redux';
 
 import TooltipWrapper from '../shared/TooltipWrapper';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 import { MAX_ATTRIBUTE, SMALL } from '../../constants/constants';
 import { GameIcon } from '../shared/GameIcon';
 
-const AttributeBar = ({name, value, hideText, iconType}) => (
-    <Row>
-        {   
-            !hideText &&
-            <Col><Translate id={name} /></Col>
-        }
-        <Col className="mb-1">
-            <Row>
-                <Col md={2}><GameIcon type={iconType} size={SMALL} /></Col>
-                <Col className="mt-1">
-                    <TooltipWrapper textKey={name} value={value}>
-                        <ProgressBar
-                            variant="warning"
-                            now={value}
-                            max={MAX_ATTRIBUTE} />
-                    </TooltipWrapper>
-                </Col>
-            </Row>
+const AttributeBar = ({name, value, iconType, max, variant}) => (
+    <Row className="mt-1 mb-1">
+        <Col md={1}><GameIcon type={iconType} size={SMALL} noPadding /></Col>
+        <Col className="mt-1">
+            <TooltipWrapper textKey={name} value={max ? value + "/" + max : value}>
+                <ProgressBar
+                    variant={variant ? variant : "warning"}
+                    now={value}
+                    max={max ? max : MAX_ATTRIBUTE} />
+            </TooltipWrapper>
         </Col>
     </Row>
 );
@@ -32,8 +23,9 @@ const AttributeBar = ({name, value, hideText, iconType}) => (
 AttributeBar.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
-    hideText: PropTypes.bool,
-    iconType: PropTypes.string.isRequired
+    iconType: PropTypes.string.isRequired,
+    max: PropTypes.number,
+    variant: PropTypes.string
 };
 
 export default AttributeBar;

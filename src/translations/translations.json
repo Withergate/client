@@ -37,7 +37,7 @@
         "experience": ["Experience", "Zkušenosti"],
         "health": ["Health", "Zdraví"],
         "traits": ["Abilities", "Schopnosti"],
-        "noTraits": ["No abilities", "Žádné schopnosti"],
+        "noTraits": ["No traits", "Žádné schopnosti"],
         "noOutfit": ["No outfit", "Bez zbroje"],
         "noGear": ["No gear", "Bez výbavy"],
         "progress": ["Progress", "Postup"],

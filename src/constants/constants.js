@@ -39,6 +39,8 @@ export const SCAVENGE = 'SCAVENGE';
 export const CRAFTSMANSHIP = 'CRAFTSMASHIP';
 export const INTELLECT = 'INTELLECT';
 export const ENCOUNTER = 'ENCOUNTER';
+export const HEALTH = 'HEALTH';
+export const EXPERIENCE_STAT = 'EXPERIENCE_STAT';
 
 // Icon size
 export const SMALL = 'SMALL';

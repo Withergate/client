@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar, Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
@@ -11,8 +11,7 @@ import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
-import TooltipWrapper from '../shared/TooltipWrapper';
-import { PENDING, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
+import { PENDING, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT } from '../../constants/constants';
 import ActionButton from './ActionButton';
 
 
@@ -30,7 +29,7 @@ class CharacterListItem extends Component {
                     {character.name} ({character.level})
                 </Card.Title>
                 <Row>
-                    <Col md={2}>
+                    <Col md={2} sm={12}>
                         <Row>
                             <Col><Image rounded width="120px" src={character.imageUrl} /></Col>
                         </Row>
@@ -43,42 +42,25 @@ class CharacterListItem extends Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col md={5}>
-                        <div className="mb-2">
-                            <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
-                            <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
-                            <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
-                            <AttributeBar name="basic.intellect" value={character.intellect} iconType={INTELLECT} /> 
-                        </div>
-                        <Row className="row">
-                            <Col md={6}>
-                                <b><Translate id="basic.health" /></b>
-                            </Col>
-                            <Col md={6}>
-                                <TooltipWrapper textKey="basic.health" value={character.hitpoints + "/" + character.maxHitpoints}>
-                                    <ProgressBar
-                                        variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
-                                        min={0}
-                                        max={character.maxHitpoints}
-                                        now={character.hitpoints} />
-                                </TooltipWrapper>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={6}>
-                                <b><Translate id="basic.experience" /></b>
-                            </Col>
-                            <Col md={6}>
-                                <TooltipWrapper textKey="basic.experience" value={character.experience + "/" + character.nextLevel}>
-                                    <ProgressBar
-                                        min={0}
-                                        max={character.nextLevel}
-                                        now={character.experience} />
-                                </TooltipWrapper>
-                            </Col>
-                        </Row>
+                    <Col md={4} sm={12}>
+                        <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
+                        <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
+                        <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
+                        <AttributeBar name="basic.intellect" value={character.intellect} iconType={INTELLECT} />
+                        <AttributeBar 
+                            name="basic.health"
+                            value={character.hitpoints} 
+                            iconType={HEALTH}
+                            max={character.maxHitpoints}
+                            variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"} />
+                        <AttributeBar 
+                            name="basic.experience"
+                            value={character.experience} 
+                            iconType={EXPERIENCE_STAT}
+                            max={character.nextLevel}
+                            variant="primary" />
                     </Col>
-                    <Col md={4}> 
+                    <Col md={4} sm={12}> 
                         { character.weapon != null ?
                             <Row className="mb-1">
                                 <Col data-tip data-for={character.weapon.details.identifier}>
@@ -140,10 +122,11 @@ class CharacterListItem extends Component {
                             : <Row className="mb-1"><Col><Translate id="basic.noGear" /></Col></Row> 
                         }
                     </Col>
-                    <Col md={1}>
+                    <Col md={2} sm={12}>
                         { 
-                            character.traits.length > 0 && 
+                            character.traits.length > 0 ?
                                 character.traits.map(trait => renderTrait(trait))
+                            : <Translate id="basic.noTraits" />
                         }
                     </Col>
                 </Row>

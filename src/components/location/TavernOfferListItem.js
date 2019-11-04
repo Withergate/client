@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Card, Image, Button, ProgressBar } from 'react-bootstrap';
+import { Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
+import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
 import TraitItem from '../clan/TraitItem';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
@@ -23,19 +23,12 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     <AttributeBar name="basic.scavenge" value={offer.character.scavenge} iconType={SCAVENGE} />
                     <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} iconType={CRAFTSMANSHIP} />
                     <AttributeBar name="basic.intellect" value={offer.character.intellect} iconType={INTELLECT} />
-                    <Row>
-                        <Col>
-                            <Translate id="basic.health" />
-                        </Col>
-                        <Col>
-                            <ProgressBar
-                                variant="success"
-                                min={0}
-                                max={offer.character.maxHitpoints}
-                                now={offer.character.hitpoints}
-                                label={`${offer.character.hitpoints}/${offer.character.maxHitpoints}`} />
-                        </Col>
-                    </Row>
+                    <AttributeBar 
+                            name="basic.health"
+                            value={offer.character.hitpoints} 
+                            iconType={HEALTH}
+                            max={offer.character.maxHitpoints}
+                            variant="success" />
                 </Col>
                 <Col md={2}>
                     {

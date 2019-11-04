@@ -6,14 +6,13 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
-import TooltipWrapper from '../shared/TooltipWrapper';
-import { Row, Col, Image, ProgressBar } from 'react-bootstrap';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT } from '../../constants/constants';
+import { Row, Col, Image } from 'react-bootstrap';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
 
 const CharacterDetails = ({character}) => (
     <small>
         <Row>
-            <Col md={3} sm={12}>
+            <Col md={2} sm={12}>
                 <Row>
                     <Col><b>{character.name}</b></Col>
                 </Row>
@@ -22,19 +21,18 @@ const CharacterDetails = ({character}) => (
                 </Row>
             </Col>
             <Col md={4} sm={12}>
-                <AttributeBar name="basic.combat" value={character.combat} hideText iconType={COMBAT} />
-                <AttributeBar name="basic.scavenge" value={character.scavenge} hideText iconType={SCAVENGE} />
-                <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} hideText iconType={CRAFTSMANSHIP} />
-                <AttributeBar name="basic.intellect" value={character.intellect} hideText iconType={INTELLECT} />
-                <TooltipWrapper textKey="basic.health" value={character.hitpoints + "/" + character.maxHitpoints}>
-                    <ProgressBar
-                        variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"}
-                        min={0}
-                        max={character.maxHitpoints}
-                        now={character.hitpoints} />
-                </TooltipWrapper>
+                <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
+                <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
+                <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
+                <AttributeBar name="basic.intellect" value={character.intellect} iconType={INTELLECT} />
+                <AttributeBar 
+                    name="basic.health"
+                    value={character.hitpoints} 
+                    iconType={HEALTH}
+                    max={character.maxHitpoints}
+                    variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"} />
             </Col>
-            <Col md={3} sm={12}>
+            <Col md={4} sm={12}>
                 { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>
                     : <Translate id="basic.unarmed" />}
                 <br />
