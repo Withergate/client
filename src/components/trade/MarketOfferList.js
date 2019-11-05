@@ -11,7 +11,9 @@ import { Paginator } from '../shared/Paginator';
 import { publishOffer, deleteOffer, tradeItem } from '../../actions/actionActions';
 import { changeMarketOfferFilter } from '../../actions/uiActions';
 import { fetchMarketOffers } from '../../actions/dataActions';
+import { dismissError } from '../../actions/uiActions';
 
+import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 
 import { ALL } from '../../constants/constants';
@@ -48,6 +50,9 @@ class MarketOfferList extends React.Component {
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
+                {
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                }
             </div>
         )
     }
@@ -81,12 +86,10 @@ const mapStateToProps = state => {
     const clanId = state.clan.clan.id;
     const offers = state.data.offers.data;
 
-    const fetching = state.data.offers.fetching;
-    const fetched = state.data.offers.fetched;
-    const failed = state.data.offers.failed;
+    const { fetched, fetching, failed, error } = state.data.offers;
     const filter = state.ui.filter.marketOffers;
 
-    return { fetching, fetched, failed, offers, clanId, selectedCharacter, filter };
+    return { fetching, fetched, failed, error, offers, clanId, selectedCharacter, filter };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -95,7 +98,8 @@ const mapDispatchToProps = dispatch => (
         changeMarketOfferFilter,
         deleteOffer,
         tradeItem,
-        fetchMarketOffers
+        fetchMarketOffers,
+        dismissError
     }, dispatch)
 );
 

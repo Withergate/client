@@ -8,7 +8,9 @@ import LocationListItem from './LocationListItem';
 
 import { visitLocation } from '../../actions/actionActions';
 import { fetchLocations } from '../../actions/dataActions';
+import { dismissError } from '../../actions/uiActions';
 
+import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 
 class LocationList extends React.Component {
@@ -26,6 +28,9 @@ class LocationList extends React.Component {
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
+                }
+                {
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
             </div>
         )
@@ -57,17 +62,16 @@ const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
     const locations = state.data.locations.data;
 
-    const fetching = state.data.locations.fetching;
-    const fetched = state.data.locations.fetched;
-    const failed = state.data.locations.failed;
+    const { fetched, fetching, failed, error } = state.data.locations;
 
-    return { fetching, fetched, failed, locations, selectedCharacter };
+    return { fetching, fetched, failed, error, locations, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         visitLocation,
-        fetchLocations
+        fetchLocations,
+        dismissError
     }, dispatch)
 );
 

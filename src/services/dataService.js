@@ -1,5 +1,6 @@
-import { getHeaders } from './apiFetch';
+import { apiGet, apiGetText, apiPut, getHeaders } from './apiFetch';
 import { API_URL } from './constants/endpoints';
+import { NOT_FOUND } from '../constants/constants';
 
 export const fetchClan = () => {
     return new Promise((resolve, reject) => {
@@ -11,8 +12,8 @@ export const fetchClan = () => {
                 resolve(response.json());
             }
             // clan not found
-            if(response.status === 404) {
-                reject('404');
+            if(response.status === NOT_FOUND) {
+                reject(NOT_FOUND);
             }
             reject('Error fetching data from server.');
         }).catch(error => {
@@ -22,221 +23,51 @@ export const fetchClan = () => {
 };
 
 export const fetchClans = (number) => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL.concat('clans?sort=fame,desc').concat('&page=').concat(number).concat('&size=').concat(10), {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-    
-            reject('Error fetching data from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('clans?sort=fame,desc').concat('&page=').concat(number).concat('&size=').concat(10));
 };
 
 export const fetchLocations = () => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL + 'locations', {
-            method: 'GET',
-            headers: getHeaders(),
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            reject('Error fetching data from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('locations'));
 };
 
 export const fetchTurn = () => {
-    return new Promise((resolve, reject) => {
-        // fetch turn data
-        fetch(API_URL + 'turn', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching data from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('turn'));
 };
 
 export const fetchNotifications = (turn) => {
-    return new Promise((resolve, reject) => {
-        // fetch notifications data
-        var url = API_URL + 'notifications?turn=' + turn;
-        fetch(url, {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching data from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('notifications?turn=').concat(turn));
 };
 
 export const fetchVersion = () => {
-    return new Promise((resolve, reject) => {
-        // fetch clan data
-        fetch(API_URL + 'version', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.text());
-            }
-            
-            reject('Error fetching version info from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGetText(API_URL.concat('version'));
 };
 
 export const fetchGameProperties = () => {
-    return new Promise((resolve, reject) => {
-        // fetch clan data
-        fetch(API_URL + 'game/properties', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching game properties info from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('game/properties'));
 };
 
 export const fetchMarketOffers = (number) => {
-    return new Promise((resolve, reject) => {
-        // fetch clan data
-        fetch(API_URL + 'trade/market'.concat('?page=').concat(number).concat('&size=').concat(10), {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching market offers info from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('trade/market').concat('?page=').concat(number).concat('&size=').concat(10));
 };
 
 export const fetchTavernOffers = () => {
-    return new Promise((resolve, reject) => {
-        // fetch clan data
-        fetch(API_URL + 'clan/tavernOffers', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching market offers info from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('clan/tavernOffers'));
 };
 
 export const fetchGlobalNotification = () => {
-    return new Promise((resolve, reject) => {
-        // fetch notification
-        fetch(API_URL + 'notifications/global', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            
-            reject('Error fetching global notification from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('notifications/global'));
 };
 
 export const updateGlobalNotification = (message, active) => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL + 'notifications/global', {
-            method: 'PUT',
-            headers: getHeaders(),
-            body: JSON.stringify({message: message, active: active})
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.status);
-            } else {
-                response.json().then(function(error) {
-                    reject(error.message);
-                });
-            }
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiPut(
+        API_URL.concat('notifications/global'), 
+        JSON.stringify({message: message, active: active}));
 };
 
 export const fetchDisaster = () => {
-    return new Promise((resolve, reject) => {
-        // fetch disaster data
-        fetch(API_URL + 'disaster', {
-            method: 'GET',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                // check if disaster is present
-                var contentType = response.headers.get('content-type')
-                if (contentType && contentType.indexOf('application/json') !== -1) {
-                    resolve(response.json());
-                } else {
-                    // if response is not json and mostly empty
-                    resolve(undefined)
-                }
-            }
-            reject('Error fetching disaster from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('disaster'));
 };
 
 export const fetchArenaStats = () => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL + 'arena/stats', {
-            method: 'GET',
-            headers: getHeaders(),
-        }).then(response => {
-            if (response.ok) {
-                resolve(response.json());
-            }
-            reject('Error fetching data from server.');
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiGet(API_URL.concat('arena/stats'));
 };

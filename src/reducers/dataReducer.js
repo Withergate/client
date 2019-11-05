@@ -28,6 +28,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
+        error: ''
     },
     clans: {
         data: {
@@ -36,6 +37,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
+        error: ''
     },
     offers: {
         data: {
@@ -44,20 +46,22 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
+        error: ''
     },
     disaster: {
         data: undefined,
         fetching: false,
         fetched: false,
         failed: false,
+        error: ''
     },
     arenaStats: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-    },
-    error: ''
+        error: ''
+    }
 };
 
 // REDUCER
@@ -68,7 +72,26 @@ export const DataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                clans: {
+                    ...state.clans,
+                    failed: false
+                },
+                locations: {
+                    ...state.locations,
+                    failed: false
+                },
+                offers: {
+                    ...state.offers,
+                    failed: false
+                },
+                disaster: {
+                    ...state.disaster,
+                    failed: false
+                },
+                arenaStats: {
+                    ...state.arenaStats,
+                    failed: false
+                }
             };
         case FETCH_LOCATIONS_PENDING:
             return {
@@ -89,8 +112,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                },
-                error: ''
+                    error: ''
+                }
             };
         case FETCH_LOCATIONS_REJECTED:
             return {
@@ -101,8 +124,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
+                    error: action.payload
                 },
-                error: action.payload
             };
         case FETCH_CLANS_PENDING:
             return {
@@ -122,9 +145,9 @@ export const DataReducer = (state = initialState, action) => {
                     data: action.payload,
                     fetching: false,
                     fetched: true,
-                    failed: false
-                },
-                error: ''
+                    failed: false,
+                    error: ''
+                }
             };
         case FETCH_CLANS_REJECTED:
             return {
@@ -135,8 +158,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
-                },
-                error: action.payload
+                    error: action.payload
+                }
             };
         case FETCH_MARKET_OFFERS_PENDING:
             return {
@@ -157,8 +180,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                },
-                error: ''
+                    error: ''
+                }
             };
         case FETCH_MARKET_OFFERS_REJECTED:
             return {
@@ -168,8 +191,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
-                },
-                error: action.payload
+                    error: action.payload
+                }
             };
         case FETCH_DISASTER_PENDING:
             return {
@@ -190,8 +213,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                },
-                error: ''
+                    error: ''
+                }
             };
         case FETCH_DISASTER_REJECTED:
             return {
@@ -202,8 +225,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
+                    error: action.payload
                 },
-                error: action.payload
             };
         case FETCH_ARENA_STATS_PENDING:
             return {
@@ -224,8 +247,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                },
-                error: ''
+                    error: ''
+                }
             };
         case FETCH_ARENA_STATS_REJECTED:
             return {
@@ -236,8 +259,8 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: false,
                     failed: true,
+                    error: action.payload
                 },
-                error: action.payload
             };
         default:
             return state;

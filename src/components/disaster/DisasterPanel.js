@@ -5,7 +5,9 @@ import { bindActionCreators } from 'redux';
 
 import { fetchDisaster } from '../../actions/dataActions';
 import { handleDisaster } from '../../actions/actionActions';
+import { dismissError } from '../../actions/uiActions';
 
+import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
 import DisasterInfo from './DisasterInfo';
@@ -52,6 +54,9 @@ class DisasterPanel extends React.Component {
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
+                {
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                }
             </div>
         )
     }
@@ -68,20 +73,19 @@ const mapStateToProps = state => {
     const progress = state.clan.clan.disasterProgress;
     const disaster = state.data.disaster.data;
 
-    const fetching = state.data.disaster.fetching;
-    const fetched = state.data.disaster.fetched;
-    const failed = state.data.disaster.failed;
+    const { fetched, fetching, failed, error } = state.data.disaster;
 
     const partialThreshold = state.game.properties.disasterPartialSuccessThreshold;
     const failureThreshold = state.game.properties.disasterFailureThreshold;
 
-    return { fetching, fetched, failed, disaster, selectedCharacter, progress, partialThreshold, failureThreshold };
+    return { fetching, fetched, failed, error, disaster, selectedCharacter, progress, partialThreshold, failureThreshold };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchDisaster,
-        handleDisaster
+        handleDisaster,
+        dismissError
     }, dispatch)
 );
 

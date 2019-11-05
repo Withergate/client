@@ -10,6 +10,7 @@ import { Paginator } from './shared/Paginator';
 import spinner from '../images/spinner.gif';
 
 import { fetchClans } from '../actions/dataActions';
+import { dismissError } from '../actions/uiActions';
 
 // get formatted date time
 const getFormattedTime = (datetime) => {
@@ -27,9 +28,6 @@ class FamePage extends Component {
     render() {
         return (
             <div>
-                {
-                    this.props.failed && <Error message={this.props.error} />
-                }
                 {
                     this.props.fetched && 
                     <div className="m-4">
@@ -68,6 +66,9 @@ class FamePage extends Component {
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
+                {
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                }
             </div>
         );
     }
@@ -83,16 +84,15 @@ FamePage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed } = state.data.clans;
+    const { fetching, fetched, failed, error } = state.data.clans;
     const clans = state.data.clans.data;
-    const error = state.data.error;
     const clanId = state.clan.clan.id;
 
     return { fetching, fetched, failed, error, clans, clanId };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClans }, dispatch)
+    bindActionCreators({ fetchClans, dismissError }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(FamePage);

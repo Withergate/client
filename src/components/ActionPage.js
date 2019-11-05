@@ -159,7 +159,7 @@ const mapStateToProps = state => {
     const fetched = state.clan.fetched && state.action.fetched;
     const failed = state.clan.failed || state.action.failed;
 
-    const error = state.clan.error || state.data.error || state.action.error;
+    const error = state.clan.error || state.action.error;
 
     const selectedTab = state.ui.actionTab;
 

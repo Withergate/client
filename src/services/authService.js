@@ -1,4 +1,4 @@
-import { getHeaders } from './apiFetch';
+import { apiPost, getHeaders } from './apiFetch';
 import { AUTH_URL, API_URL } from './constants/endpoints';
 
 export const fetchPrincipal = () => {
@@ -22,41 +22,11 @@ export const fetchPrincipal = () => {
 };
 
 export const restartGame = () => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL.concat('restart'), {
-            method: 'POST',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response);
-            } else {
-                response.json().then(function(error) {
-                    reject(error.message);
-                });
-            }  
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiPost(API_URL.concat('restart'), null);
 };
 
 export const endTurn = () => {
-    return new Promise((resolve, reject) => {
-        fetch(API_URL.concat('turn/end'), {
-            method: 'POST',
-            headers: getHeaders()
-        }).then(response => {
-            if (response.ok) {
-                resolve(response);
-            } else {
-                response.json().then(function(error) {
-                    reject(error.message);
-                });
-            }  
-        }).catch(error => {
-            return reject(error.message);
-        });
-    });
+    return apiPost(API_URL.concat('turn/end'), null);
 };
 
 // helper functions

@@ -11,7 +11,7 @@ import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
-import { PENDING, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT } from '../../constants/constants';
 import ActionButton from './ActionButton';
 
 
@@ -36,7 +36,7 @@ class CharacterListItem extends Component {
                         <Row>
                             <Col>
                                 <ActionButton
-                                    pendingAction={character.actions.find(action => action.state === PENDING)}
+                                    pendingAction={character.action}
                                     character={character}
                                     selectCharacter={selectCharacter} />
                             </Col>

@@ -17,6 +17,7 @@ import {
     CREATE_CLAN_FULFILLED,
     CREATE_CLAN_REJECTED
 } from '../actions/actionActions';
+import { NOT_FOUND } from '../constants/constants';
 
 // INITIALIZE STATE
 
@@ -82,7 +83,7 @@ export const ClanReducer = (state = initialState, action) => {
             };
         case FETCH_CLAN_REJECTED:
             // check if fetch failed or clan does not exists 
-            if (action.payload === '404') {
+            if (action.payload === NOT_FOUND) {
                 return {
                     ...state,
                     exists: false,

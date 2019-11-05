@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
 
 import { visitArena } from '../../actions/actionActions';
+import { dismissError } from '../../actions/uiActions';
 import { fetchArenaStats } from '../../actions/dataActions';
 
 import { Row, Col, Button, Card, Table } from 'react-bootstrap';
@@ -73,7 +74,7 @@ class ArenaPanel extends React.Component {
                     this.propsfetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
-                    this.props.failed && <Error message={this.props.error} />
+                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
             </div>
         )
@@ -84,7 +85,8 @@ ArenaPanel.propTypes = {
     selectedCharacter: PropTypes.object,
     stats: PropTypes.array.isRequired,
     visitArena: PropTypes.func.isRequired,
-    fetchArenaStats: PropTypes.func.isRequired
+    fetchArenaStats: PropTypes.func.isRequired,
+    error: PropTypes.string
 };
 
 const mapStateToProps = state => {
@@ -93,7 +95,7 @@ const mapStateToProps = state => {
     const fetching = state.data.arenaStats.fetching;
     const fetched = state.data.arenaStats.fetched;
     const failed = state.data.arenaStats.failed;
-    const error = state.data.error;
+    const error = state.data.arenaStats.error;
 
     return { selectedCharacter, stats, fetching, fetched, failed, error};
 };
@@ -101,7 +103,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         visitArena,
-        fetchArenaStats
+        fetchArenaStats,
+        dismissError
     }, dispatch)
 );
 

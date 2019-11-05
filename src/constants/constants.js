@@ -48,3 +48,6 @@ export const LARGE = 'LARGE';
 
 // Game constants
 export const MAX_ATTRIBUTE = 6;
+
+// API
+export const NOT_FOUND = 404;
