@@ -8,19 +8,22 @@ const GameMechanicsOverview = ({properties}) => (
     <Card className="mt-4">
         <Card.Body>
             <Card.Title>
-                <Translate id="labels.mechanics" />
+                <Translate id="mechanics.header" />
             </Card.Title>
             <Row>
                 <Col>
                     <ul>
                         <li>
-                            <Translate id="labels.foodConsumption" data={{ food: properties.foodConsumption }}/>
+                            <Translate id="mechanics.foodConsumption" data={{ food: properties.foodConsumption }}/>
                         </li>
                         <li>
-                            <Translate id="labels.starvation" data={{ health: properties.starvationInjury, fame: properties.starvationFame }}/>
+                            <Translate id="mechanics.starvation" data={{ health: properties.starvationInjury, fame: properties.starvationFame }}/>
                         </li>
                         <li>
-                            <Translate id="labels.construction" data={{ fame: properties.buildingFame }}/>
+                            <Translate id="mechanics.construction" data={{ fame: properties.buildingFame }}/>
+                        </li>
+                        <li>
+                            <Translate id="mechanics.research" data={{ fame: properties.researchFame }}/>
                         </li>
                     </ul>      
                 </Col>

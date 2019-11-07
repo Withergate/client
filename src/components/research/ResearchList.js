@@ -7,11 +7,11 @@ import { doResearch } from '../../actions/actionActions';
 import ResearchListItem from './ResearchListItem';
 import { Translate } from 'react-localize-redux';
 
-const filterResearch = (actionable, research) => {
+const filterResearch = (actionable, clan) => {
     if (actionable) {
-        return research.filter(research => !research.completed)
+        return clan.research.filter(research => !research.completed && research.details.informationLevel <= clan.informationLevel)
     } else {
-        return research.filter(research => research.completed)
+        return clan.research.filter(research => research.completed)
     }
 }
 
@@ -32,20 +32,26 @@ const renderListItem = (research, selectedCharacter, doResearch, actionable) => 
 );
 
 const ResearchList = (props) => (
-    renderList(filterResearch(props.actionable, props.research), props.selectedCharacter, props.doResearch, props.actionable)
+    <div>
+        { renderList(filterResearch(props.actionable, props.clan), props.selectedCharacter, props.doResearch, props.actionable) }
+        { props.actionable && <Translate id="labels.lockedResearch" 
+            data={{ count: props.clan.research.filter(r => !r.completed && r.details.informationLevel > props.clan.informationLevel).length }}/>}
+    </div>
+    
 );
 
 ResearchList.propTypes = {
+    clan: PropTypes.object.isRequired,
     research: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     actionable: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
-    const research = state.clan.clan.research;
+    const clan = state.clan.clan;
     const selectedCharacter = state.clan.selectedCharacter;
 
-    return { research, selectedCharacter };
+    return { clan, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
