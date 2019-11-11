@@ -69,9 +69,9 @@ export const deleteOffer = (offerId) => {
     return apiDelete(API_URL.concat('trade/market/').concat(offerId));
 };
 
-export const tradeItem = (characterId, offerId) => {
+export const tradeItem = (offerId) => {
     return apiPost(API_URL.concat('trade/market/action'), 
-    JSON.stringify({characterId: characterId, offerId: offerId}));
+    JSON.stringify({offerId: offerId}));
 };
 
 export const handleDisaster = (characterId, solution) => {

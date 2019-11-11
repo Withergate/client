@@ -39,7 +39,10 @@ const NotificationListItem = ({notification}) => (
                     </Col>
                 }
                 <Col md={11}>
-                    { getTranslatedText(notification.text).split("\n").map((text, index) => <p key={notification.id + "i" + index}>{text}</p>) }
+                    { 
+                        getTranslatedText(notification.text) &&
+                        getTranslatedText(notification.text).split("\n").map((text, index) => <p key={notification.id + "i" + index}>{text}</p>)
+                    }
                     {
                         notification.details.length > 0 && 
                         <ul className="mt-2">

@@ -42,7 +42,7 @@ class MarketOfferList extends React.Component {
                         </Paginator>
 
                         { this.props.offers.content.length ? 
-                            renderList(this.props.offers.content, this.props.selectedCharacter, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
+                            renderList(this.props.offers.content, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
                             : <Translate id="labels.noOffers" />
                         }
                     </div>
@@ -58,38 +58,36 @@ class MarketOfferList extends React.Component {
     }
 };
 
-const renderList = (offers, selectedCharacter, onBuy, onCancel, filter, clanId) => (
+const renderList = (offers, onBuy, onCancel, filter, clanId) => (
     <div className="mt-2">
         {
             offers
                 .filter(offer => (offer.details.itemType === filter || filter === ALL))
-                .map(offer => renderListItem(offer, selectedCharacter, onBuy, onCancel, clanId))
+                .map(offer => renderListItem(offer, onBuy, onCancel, clanId))
             }
     </div>
 );
 
-const renderListItem = (offer, selectedCharacter, onBuy, onCancel, clanId) => (
+const renderListItem = (offer, onBuy, onCancel, clanId) => (
     <div key={offer.id}>
-        <MarketOfferListItem offer={offer} selectedCharacter={selectedCharacter} onBuy={onBuy} onCancel={onCancel} clanId={clanId} />
+        <MarketOfferListItem offer={offer} onBuy={onBuy} onCancel={onCancel} clanId={clanId} />
     </div>
 );
 
 MarketOfferList.propTypes = {
     offers: PropTypes.object.isRequired,
-    selectedCharacter: PropTypes.object,
     filter: PropTypes.string.isRequired,
     clanId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
-    const selectedCharacter = state.clan.selectedCharacter;
     const clanId = state.clan.clan.id;
     const offers = state.data.offers.data;
 
     const { fetched, fetching, failed, error } = state.data.offers;
     const filter = state.ui.filter.marketOffers;
 
-    return { fetching, fetched, failed, error, offers, clanId, selectedCharacter, filter };
+    return { fetching, fetched, failed, error, offers, clanId, filter };
 };
 
 const mapDispatchToProps = dispatch => (

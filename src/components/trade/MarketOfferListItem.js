@@ -9,7 +9,7 @@ import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE } from '../../constants/constants';
 import { getRarityTextColor } from '../item/itemUtils';
 
-const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}) => (
+const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title className={getRarityTextColor(offer.details.rarity)}>
@@ -43,23 +43,20 @@ const MarketOfferListItem = ({offer, selectedCharacter, onBuy, onCancel, clanId}
                     <Translate id="labels.cancel" />
                 </Button> 
             }
-            { selectedCharacter !== undefined ? 
-                <Button 
-                    variant="success"
-                    className="button-classic" 
-                    disabled={selectedCharacter.state !== 'READY'}
-                    onClick={() => onBuy(selectedCharacter.id, offer.id)}>
-                    <Translate id="labels.buy" />
-                </Button> 
-                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
-            }
+
+            <Button 
+                variant="outline-success"
+                className="button-classic"
+                onClick={() => onBuy(offer.id)}>
+                <Translate id="labels.buy" />
+            </Button>
+            
         </Card.Footer>
     </Card>
 );
 
 MarketOfferListItem.propTypes = {
     offer: PropTypes.object.isRequired,
-    selectedCharacter: PropTypes.object,
     onBuy: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
     clanId: PropTypes.number.isRequired
