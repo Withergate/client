@@ -7,14 +7,24 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import { Row, Col, Image } from 'react-bootstrap';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, SMALL, INJURY_INFO } from '../../constants/constants';
+import { GameIcon } from '../shared/GameIcon';
 
 const CharacterDetails = ({character}) => (
     <small>
         <Row>
-            <Col md={2} sm={12}>
+            <Col md={3} sm={12}>
                 <Row>
-                    <Col><b>{character.name}</b></Col>
+                    <Col>
+                        <ul className="list-inline">
+                            { character.hitpoints < (character.maxHitpoints * 2 / 3.0) && 
+                                <li className="list-inline-item">
+                                    <GameIcon type={INJURY_INFO} size={SMALL} noPadding />
+                                </li> 
+                            }
+                            <li className="list-inline-item"><b>{character.name}</b></li>
+                        </ul>
+                    </Col>
                 </Row>
                 <Row>
                     <Col><Image rounded width="60px" src={character.imageUrl} /></Col>
@@ -32,7 +42,7 @@ const CharacterDetails = ({character}) => (
                     max={character.maxHitpoints}
                     variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"} />
             </Col>
-            <Col md={4} sm={12}>
+            <Col md={3} sm={12}>
                 { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>
                     : <Translate id="basic.unarmed" />}
                 <br />
@@ -41,6 +51,7 @@ const CharacterDetails = ({character}) => (
                 <br />
                 { character.gear != null ? <b>{getTranslatedText(character.gear.details.name)}</b>
                         : <Translate id="basic.noGear" />}
+                <br />
             </Col>
             <Col md={2} sm={12}>
                 {character.traits.length > 0 && 

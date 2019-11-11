@@ -155,7 +155,8 @@
         "research": ["Research", "Zkoumat"],
         "noResearch": ["You have not researched anything yet. Go to the Actions section and research something for your clan!", "Zatím nemáš nic vyzkoumaného. Můžeš jít do sekce Akce a něco vyzkoumat tam!"],
         "lockedResearch": ["${count} of research projects are yet to be discovered. Increase your information level to uncover them.",
-        "${count} výzkumných projektů čeká na objevení. Zvyš úroveň informací svého klanu pro jejich odkrytí."]
+        "${count} výzkumných projektů čeká na objevení. Zvyš úroveň informací svého klanu pro jejich odkrytí."],
+        "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně snížený následkem zranění."]
     },
     "mechanics": {
         "mechanics": ["Basic mechanics", "Základní mechaniky"],

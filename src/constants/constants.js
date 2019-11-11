@@ -31,6 +31,7 @@ export const ITEM_CHANCE = 'ITEM_CHANCE';
 export const CAPS = 'CAPS';
 export const FAME = 'FAME';
 export const INJURY = 'INJURY';
+export const INJURY_INFO = 'INJURY_INFO';
 export const HEALING = 'HEALING';
 export const EXPERIENCE = 'EXPERIENCE';
 export const DEATH = 'DEATH';

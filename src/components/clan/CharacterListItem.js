@@ -11,8 +11,9 @@ import TraitItem from './TraitItem';
 import WeaponTooltip from '../item/WeaponTooltip';
 import GearTooltip from '../item/GearTooltip';
 import OutfitTooltip from '../item/OutfitTooltip';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, INJURY_INFO, LARGE } from '../../constants/constants';
 import ActionButton from './ActionButton';
+import { GameIcon } from '../shared/GameIcon';
 
 
 function renderTrait(trait) {
@@ -26,7 +27,14 @@ class CharacterListItem extends Component {
         return <Card className="mb-4">
             <Card.Body>
                 <Card.Title>
-                    {character.name} ({character.level})
+                    <ul className="list-inline">
+                        { character.hitpoints < (character.maxHitpoints * 2 / 3.0) && 
+                            <li className="list-inline-item">
+                                <GameIcon type={INJURY_INFO} size={LARGE} noPadding />
+                            </li> 
+                        }
+                        <li className="list-inline-item">{character.name} ({character.level})</li>
+                    </ul>
                 </Card.Title>
                 <Row>
                     <Col md={2} sm={12}>
