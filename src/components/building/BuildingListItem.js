@@ -31,7 +31,7 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                                 <b><Translate id="labels.visitCost" />: </b>
                             </li>
                             <li className="list-inline-item">
-                                <GameIcon type={JUNK} size={LARGE} value={building.details.visitJunkCost} />
+                                <GameIcon type={JUNK} size={LARGE} value={building.visitJunkCost} />
                             </li>
                         </ul>
                     }
