@@ -5,14 +5,14 @@ export const createClan = (clanName) => {
     return apiPost(API_URL.concat('clan'), JSON.stringify({name: clanName}));
 };
 
-export const equipItem = (itemId, type, characterId) => {
+export const equipItem = (itemId, characterId) => {
     return apiPost(API_URL.concat('items/equip'), 
-    JSON.stringify({itemId: itemId, itemType: type, characterId: characterId}));
+    JSON.stringify({itemId: itemId, characterId: characterId}));
 };
 
-export const unequipItem = (itemId, type, characterId) => {
+export const unequipItem = (itemId, characterId) => {
     return apiPost(API_URL.concat('items/unequip'), 
-    JSON.stringify({itemId: itemId, itemType: type, characterId: characterId}));
+    JSON.stringify({itemId: itemId, characterId: characterId}));
 };
 
 export const consume = (consumableId, characterId) => {

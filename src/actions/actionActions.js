@@ -47,11 +47,11 @@ const createClanAction = (clanName) => {
 };
 export { createClanAction as createClan };
 
-const equipItemAction = (itemId, type, characterId) => {
+const equipItemAction = (itemId, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: equipItem(itemId, type, characterId)
+            payload: equipItem(itemId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()
@@ -60,11 +60,11 @@ const equipItemAction = (itemId, type, characterId) => {
 };
 export { equipItemAction as equipItem };
 
-const unequipItemAction = (itemId, type, characterId) => {
+const unequipItemAction = (itemId, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: unequipItem(itemId, type, characterId)
+            payload: unequipItem(itemId, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

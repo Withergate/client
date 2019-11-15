@@ -31,7 +31,7 @@ const GearListItem = ({gear, selectedCharacter, equipItem}) => (
                 <Button 
                     variant="outline-success"
                     className="button-classic" 
-                    onClick={() => equipItem(gear.id, 'GEAR', selectedCharacter.id)}>
+                    onClick={() => equipItem(gear.id, selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

@@ -10,7 +10,7 @@ const WeaponTooltip = ({weapon}) => (
         <p>{getTranslatedText(weapon.details.description)}</p>
         <small>
             <b><Translate id="basic.type" />: </b><Translate id={weapon.details.type} /><br />
-            <b><Translate id="basic.bonus" />: </b>{weapon.details.combat}
+            <b><Translate id="basic.bonus" />: </b>{weapon.details.bonus}
         </small>
     </div>
 );

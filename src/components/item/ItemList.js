@@ -37,29 +37,29 @@ const ItemList = (props) => (
     <div>
         <ItemFilter filter={props.filter} onChange={props.changeFilter} />
         {
-            (props.weapons.length === 0) && (props.outfits.length === 0) && (props.gear.length === 0) && (props.consumables.length === 0)
-            && <Translate id="labels.noItems" />
+            props.items.length === 0 && <Translate id="labels.noItems" />
         }
-        { (props.weapons.length > 0) && (props.filter === ALL || props.filter === WEAPON) &&
-            props.weapons.map(weapon => renderWeaponItem(weapon, props.selectedCharacter, props.equipItem))
+        { (props.filter === ALL || props.filter === WEAPON) &&
+            props.items.filter(item => item.details.itemType === WEAPON)
+            .map(weapon => renderWeaponItem(weapon, props.selectedCharacter, props.equipItem))
         }
-        { (props.gear.length > 0) && (props.filter === ALL || props.filter === GEAR) &&
-            props.gear.map(gear => renderGearItem(gear, props.selectedCharacter, props.equipItem))
+        { (props.filter === ALL || props.filter === GEAR) &&
+            props.items.filter(item => item.details.itemType === GEAR)
+            .map(gear => renderGearItem(gear, props.selectedCharacter, props.equipItem))
         }
-        { (props.outfits.length > 0) && (props.filter === ALL || props.filter === OUTFIT) &&
-            props.outfits.map(outfit => renderOutfitItem(outfit, props.selectedCharacter, props.equipItem))
+        { (props.filter === ALL || props.filter === OUTFIT) &&
+            props.items.filter(item => item.details.itemType === OUTFIT)
+            .map(outfit => renderOutfitItem(outfit, props.selectedCharacter, props.equipItem))
         }
-        { (props.consumables.length > 0) && (props.filter === ALL || props.filter === CONSUMABLE) &&
-            props.consumables.map(consumable => renderConsumableItem(consumable, props.selectedCharacter, props.consume))
+        { (props.filter === ALL || props.filter === CONSUMABLE) &&
+            props.items.filter(item => item.details.itemType === CONSUMABLE)
+            .map(consumable => renderConsumableItem(consumable, props.selectedCharacter, props.consume))
         }
     </div>
 );
 
 ItemList.propTypes = {
-    weapons: PropTypes.array.isRequired,
-    gear: PropTypes.array.isRequired,
-    outfits: PropTypes.array.isRequired,
-    consumables: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     equipItem: PropTypes.func.isRequired,
     consume: PropTypes.func.isRequired,

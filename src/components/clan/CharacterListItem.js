@@ -82,7 +82,7 @@ class CharacterListItem extends Component {
                                         variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
-                                        onClick={() => unequipItem(character.weapon.id, 'WEAPON', character.id)}>
+                                        onClick={() => unequipItem(character.weapon.id, character.id)}>
                                         <Translate id="labels.unequip" />
                                     </Button> 
                                 </Col>
@@ -102,7 +102,7 @@ class CharacterListItem extends Component {
                                         variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
-                                        onClick={() => unequipItem(character.outfit.id, 'OUTFIT', character.id)}>
+                                        onClick={() => unequipItem(character.outfit.id, character.id)}>
                                         <Translate id="labels.unequip" />
                                     </Button> 
                                 </Col>
@@ -122,7 +122,7 @@ class CharacterListItem extends Component {
                                         variant="outline-success"
                                         size="sm"
                                         className="ml-2 button-small" 
-                                        onClick={() => unequipItem(character.gear.id, 'GEAR', character.id)}>
+                                        onClick={() => unequipItem(character.gear.id, character.id)}>
                                         <Translate id="labels.unequip" />
                                     </Button> 
                                 </Col>

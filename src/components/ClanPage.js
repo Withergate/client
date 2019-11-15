@@ -100,10 +100,7 @@ class ClanPage extends Component {
                                                 </Col>
                                                 <Col md={12}>
                                                     <ItemList
-                                                        weapons={this.props.clan.weapons}
-                                                        gear={this.props.clan.gear}
-                                                        outfits={this.props.clan.outfits}
-                                                        consumables={this.props.clan.consumables}
+                                                        items={this.props.clan.items}
                                                         equipItem={this.props.equipItem}
                                                         consume={this.props.consume}
                                                         selectedCharacter={this.props.selectedCharacter}

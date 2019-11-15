@@ -24,20 +24,24 @@ const createOffer = (item) => {
     return offer;
 }
 
-const renderList = (weapons, outfits, gear, consumables, publishOffer, filter, changeFilter) => (
+const renderList = (items, publishOffer, filter, changeFilter) => (
     <div>
         <ItemFilter filter={filter} onChange={changeFilter} />
-        {   weapons.length > 0 && (filter === ALL || filter === WEAPON) &&
-                weapons.map(weapon => renderListItem(createOffer(weapon), publishOffer))
+        {   (filter === ALL || filter === WEAPON) &&
+                items.filter(item => item.details.itemType === WEAPON)
+                .map(weapon => renderListItem(createOffer(weapon), publishOffer))
         }
-        {   outfits.length > 0 && (filter === ALL || filter === OUTFIT) &&
-                outfits.map(outfit => renderListItem(createOffer(outfit), publishOffer))
+        {   (filter === ALL || filter === OUTFIT) &&
+                items.filter(item => item.details.itemType === OUTFIT)
+                .map(outfit => renderListItem(createOffer(outfit), publishOffer))
         }
-        {   gear.length > 0 && (filter === ALL || filter === GEAR) &&
-                gear.map(gear => renderListItem(createOffer(gear), publishOffer))
+        {   (filter === ALL || filter === GEAR) &&
+                items.filter(item => item.details.itemType === GEAR)
+                .map(gear => renderListItem(createOffer(gear), publishOffer))
         }
-        {   consumables.length > 0 && (filter === ALL || filter === CONSUMABLE) &&
-                consumables.map(consumable => renderListItem(createOffer(consumable), publishOffer))
+        {   (filter === ALL || filter === CONSUMABLE) &&
+                items.filter(item => item.details.itemType === CONSUMABLE)
+                .map(consumable => renderListItem(createOffer(consumable), publishOffer))
         }
     </div>
 );
@@ -52,26 +56,23 @@ const ClanOfferList = (props) => (
     <div>
         <h5><Translate id="labels.trade.offers" /></h5>
         {
-            (props.weapons.length === 0 && props.outfits.length === 0 && props.gear.length === 0 && props.consumables.length === 0) ?
-            <Translate id="labels.noItems" />
-            : renderList(props.weapons, props.outfits, props.gear, props.consumables, props.publishOffer, props.filter, props.changeClanOfferFilter)
+            props.items.length === 0 ?
+                <Translate id="labels.noItems" />
+            : renderList(props.items, props.publishOffer, props.filter, props.changeClanOfferFilter)
         }
     </div>
 );
 
 ClanOfferList.propTypes = {
-    weapons: PropTypes.array.isRequired,
-    outfits: PropTypes.array.isRequired,
-    gear: PropTypes.array.isRequired,
-    consumables: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
     filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => {
-    const { weapons, outfits, gear, consumables } = state.clan.clan;
+    const { items } = state.clan.clan;
     const filter = state.ui.filter.clanOffers;
 
-    return { weapons, outfits, gear, consumables, filter };
+    return { items, filter };
 };
 
 const mapDispatchToProps = dispatch => (

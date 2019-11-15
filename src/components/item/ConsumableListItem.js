@@ -22,7 +22,7 @@ const ConsumableListItem = ({consumable, selectedCharacter, consume}) => (
                     </p>
                     <small>
                         <b><Translate id="basic.type" />: </b><Translate id={consumable.details.effectType} /><br />
-                        <b><Translate id="basic.bonus" />: </b>{consumable.details.effect}
+                        <b><Translate id="basic.bonus" />: </b>{consumable.details.bonus}
                     </small>
                 </Col>
             </Row>

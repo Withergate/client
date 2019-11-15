@@ -21,7 +21,7 @@ const OutfitListItem = ({outfit, selectedCharacter, equipItem}) => (
                         {getTranslatedText(outfit.details.description)}
                     </p>
                     <small>
-                        <b><Translate id="basic.armor" />: </b>{outfit.details.armor}
+                        <b><Translate id="basic.armor" />: </b>{outfit.details.bonus}
                     </small>
                 </Col>
             </Row>
@@ -31,7 +31,7 @@ const OutfitListItem = ({outfit, selectedCharacter, equipItem}) => (
                 <Button 
                     variant="outline-success"
                     className="button-classic" 
-                    onClick={() => equipItem(outfit.id, 'OUTFIT', selectedCharacter.id)}>
+                    onClick={() => equipItem(outfit.id, selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

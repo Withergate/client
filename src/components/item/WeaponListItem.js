@@ -21,8 +21,8 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
                         {getTranslatedText(weapon.details.description)}
                     </p>
                     <small>
-                        <b><Translate id="basic.type" />: </b><Translate id={weapon.details.type} /><br />
-                        <b><Translate id="basic.combat" />: </b>{weapon.details.combat}
+                        <b><Translate id="basic.type" />: </b><Translate id={weapon.details.weaponType} /><br />
+                        <b><Translate id="basic.combat" />: </b>{weapon.details.bonus}
                     </small>
                 </Col>
             </Row>
@@ -32,7 +32,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
                 <Button 
                     variant="outline-success"
                     className="button-classic" 
-                    onClick={() => equipItem(weapon.id, 'WEAPON', selectedCharacter.id)}>
+                    onClick={() => equipItem(weapon.id, selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
