@@ -8,9 +8,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
-import WeaponTooltip from '../item/WeaponTooltip';
-import GearTooltip from '../item/GearTooltip';
-import OutfitTooltip from '../item/OutfitTooltip';
+import ItemTooltip from '../item/ItemTooltip';
 import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, INJURY_INFO, LARGE } from '../../constants/constants';
 import ActionButton from './ActionButton';
 import { GameIcon } from '../shared/GameIcon';
@@ -74,7 +72,7 @@ class CharacterListItem extends Component {
                                 <Col data-tip data-for={character.weapon.details.identifier}>
                                     <b>{getTranslatedText(character.weapon.details.name)}</b>
                                     <ReactTooltip id={character.weapon.details.identifier} effect="solid" place="left">
-                                        <WeaponTooltip weapon={character.weapon} />
+                                        <ItemTooltip item={character.weapon} />
                                     </ReactTooltip>
                                 </Col>
                                 <Col>
@@ -94,7 +92,7 @@ class CharacterListItem extends Component {
                                 <Col data-tip data-for={character.outfit.details.identifier}>
                                     <b>{getTranslatedText(character.outfit.details.name)}</b>
                                     <ReactTooltip id={character.outfit.details.identifier} effect="solid" place="left">
-                                        <OutfitTooltip outfit={character.outfit} />
+                                        <ItemTooltip item={character.outfit} />
                                     </ReactTooltip>
                                 </Col>
                                 <Col>
@@ -114,7 +112,7 @@ class CharacterListItem extends Component {
                                 <Col data-tip data-for={character.gear.details.identifier}>
                                     <b>{getTranslatedText(character.gear.details.name)}</b>
                                     <ReactTooltip id={character.gear.details.identifier} effect="solid" place="left">
-                                        <GearTooltip gear={character.gear} />
+                                        <ItemTooltip item={character.gear} />
                                     </ReactTooltip>
                                 </Col>
                                 <Col>

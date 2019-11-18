@@ -2,28 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
+import ItemDetails from './ItemDetails';
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { getRarityTextColor } from './itemUtils';
 
-const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
+const ItemListItem = ({item, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title className={getRarityTextColor(weapon.details.rarity)}>
-                {getTranslatedText(weapon.details.name)}
+            <Card.Title className={getRarityTextColor(item.details.rarity)}>
+                {getTranslatedText(item.details.name)}
             </Card.Title>
             <Row>
                 <Col md={2}>
-                    <Image src={weapon.details.imageUrl} rounded width="120px" />
+                    <Image src={item.details.imageUrl} rounded width="120px" />
                 </Col>
                 <Col md={10}>
                     <p>
-                        {getTranslatedText(weapon.details.description)}
+                        {getTranslatedText(item.details.description)}
                     </p>
-                    <small>
-                        <b><Translate id="basic.type" />: </b><Translate id={weapon.details.weaponType} /><br />
-                        <b><Translate id="basic.combat" />: </b>{weapon.details.bonus}
-                    </small>
+                    <ItemDetails details={item.details} />
                 </Col>
             </Row>
         </Card.Body>
@@ -32,7 +30,7 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
                 <Button 
                     variant="outline-success"
                     className="button-classic" 
-                    onClick={() => equipItem(weapon.id, selectedCharacter.id)}>
+                    onClick={() => equipItem(item.id, selectedCharacter.id)}>
                     <Translate id="labels.equip" />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -41,10 +39,10 @@ const WeaponListItem = ({weapon, selectedCharacter, equipItem}) => (
     </Card>
 );
 
-WeaponListItem.propTypes = {
-    weapon: PropTypes.object.isRequired,
+ItemListItem.propTypes = {
+    item: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     equipItem: PropTypes.func.isRequired
 };
 
-export default WeaponListItem;
+export default ItemListItem;

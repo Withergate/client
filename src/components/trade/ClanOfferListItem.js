@@ -10,6 +10,7 @@ import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE } from '../../constants/constants';
 import capsIcon from '../../images/caps.png';
 import { getRarityTextColor } from '../item/itemUtils';
+import ItemDetails from '../item/ItemDetails';
 
 class ClanOfferListItem extends React.Component {
     constructor(props) {
@@ -53,6 +54,8 @@ class ClanOfferListItem extends React.Component {
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>
+                        <ItemDetails details={this.props.offer.details} />
+                        <br />
                         <ul className="list-inline">
                             <li className="list-inline-item">
                                 <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>

@@ -8,6 +8,7 @@ import { Row, Button, Card, Col, Image } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE } from '../../constants/constants';
 import { getRarityTextColor } from '../item/itemUtils';
+import ItemDetails from '../item/ItemDetails';
 
 const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
@@ -21,6 +22,9 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
                 </Col>
                 <Col md={8}>
                     <p>{getTranslatedText(offer.details.description)}</p>
+                    <ItemDetails details={offer.details} />
+                    <br />
+
                     <p><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
 
                     <ul className="list-inline">

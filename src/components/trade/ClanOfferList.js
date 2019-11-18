@@ -14,7 +14,7 @@ import {
     changeClanOfferFilter
 } from '../../actions/uiActions';
 
-import { ALL, WEAPON, OUTFIT, GEAR, CONSUMABLE } from '../../constants/constants';
+import { ALL } from '../../constants/constants';
 
 const createOffer = (item) => {
     const offer = {
@@ -27,21 +27,10 @@ const createOffer = (item) => {
 const renderList = (items, publishOffer, filter, changeFilter) => (
     <div>
         <ItemFilter filter={filter} onChange={changeFilter} />
-        {   (filter === ALL || filter === WEAPON) &&
-                items.filter(item => item.details.itemType === WEAPON)
-                .map(weapon => renderListItem(createOffer(weapon), publishOffer))
-        }
-        {   (filter === ALL || filter === OUTFIT) &&
-                items.filter(item => item.details.itemType === OUTFIT)
-                .map(outfit => renderListItem(createOffer(outfit), publishOffer))
-        }
-        {   (filter === ALL || filter === GEAR) &&
-                items.filter(item => item.details.itemType === GEAR)
-                .map(gear => renderListItem(createOffer(gear), publishOffer))
-        }
-        {   (filter === ALL || filter === CONSUMABLE) &&
-                items.filter(item => item.details.itemType === CONSUMABLE)
-                .map(consumable => renderListItem(createOffer(consumable), publishOffer))
+        {   (filter === ALL) ?
+                items.map(item => renderListItem(createOffer(item), publishOffer))
+            : items.filter(item => item.details.itemType === filter)
+                .map(item => renderListItem(createOffer(item), publishOffer))
         }
     </div>
 );
