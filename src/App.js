@@ -15,6 +15,7 @@ import { dismissError } from './actions/uiActions';
 import { fetchTurn, fetchVersion, fetchGameProperties } from './actions/dataActions';
 import { createClan } from './actions/actionActions';
 import { selectCharacter } from './actions/uiActions';
+import { Alert } from 'react-bootstrap';
 
 function initializeReactGA() {
     ReactGA.initialize('UA-151263839-1');
@@ -53,6 +54,11 @@ class App extends Component {
         
         return (
             <div>
+                { (window._env_.PROFILE === 'LOCAL' || window._env_.PROFILE === 'DEV') && 
+                    <Alert variant="danger" className="m-0 p-2">
+                        The application is running in {window._env_.PROFILE} profile. Database can be wiped anytime without warning!
+                    </Alert>
+                }
                 <LocalizeProvider>
                     <BrowserRouter>
                         <div>
