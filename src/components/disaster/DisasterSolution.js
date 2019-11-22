@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { LARGE, CAPS, JUNK, FOOD } from '../../constants/constants';
+import { ActionButton } from '../shared/ActionButton';
 
 const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
     <Card className="mb-4">
@@ -18,7 +19,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                     <Row>
                         <Col>
                             <p>{getTranslatedText(solution.description)}</p>
-                            <p><small><Translate id={"actionDescription." + solution.solutionType} /></small></p>
+                            <p><small><Translate id={"disaster." + solution.solutionType} /></small></p>
                         </Col>
                     </Row>
                     <Row>
@@ -58,14 +59,12 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                     </Row>
                 </Col>
                 <Col md={2}>
-                    { selectedCharacter !== undefined ? 
-                        <Button
-                            variant="success"
-                            className="button-classic"
-                            onClick={() => disasterAction(selectedCharacter.id, solution.identifier)}
-                            disabled={selectedCharacter.state !== 'READY'}>
-                            <Translate id="labels.go" />
-                        </Button>
+                    { selectedCharacter !== undefined ?
+                        <ActionButton
+                            character={selectedCharacter}
+                            action={() => disasterAction(selectedCharacter.id, solution.identifier)}
+                            buttonText="labels.go"
+                            tooltip="disaster.tooltip" />
                         : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                     }
                 </Col>

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
 import TraitItem from '../clan/TraitItem';
+import { ActionButton } from '../shared/ActionButton';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
     <Card className="mb-4">
@@ -41,14 +42,12 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                     <GameIcon type={CAPS} size={LARGE} value={offer.price} />
                 </Col>
                 <Col md={2}>
-                    { selectedCharacter !== undefined ? 
-                        <Button
-                            variant="success"
-                            className="button-classic"
-                            onClick={() => visitTavern(selectedCharacter.id, offer.id)}
-                            disabled={selectedCharacter.state !== 'READY'}>
-                            <Translate id="labels.hire" />
-                        </Button>
+                    { selectedCharacter !== undefined ?
+                        <ActionButton
+                            character={selectedCharacter}
+                            action={() => visitTavern(selectedCharacter.id, offer.id)}
+                            buttonText="labels.hire"
+                            tooltip="tavern.tooltip" />
                         : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                     }
                 </Col>

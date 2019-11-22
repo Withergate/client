@@ -24,6 +24,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                 <div className="dropdown-menu">
                     { characters.map(character => 
                         <Button
+                            className="w-100"
                             variant="light"
                             key={character.id}
                             onClick={() => onSelect(character.id)}><div className={getTextColor(character)}>{character.name}</div>

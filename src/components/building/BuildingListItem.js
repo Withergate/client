@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar, Row, Col, Button, Card, Image } from 'react-bootstrap';
+import { ProgressBar, Row, Col, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
-import TooltipWrapper from '../shared/TooltipWrapper';
 import { GameIcon } from '../shared/GameIcon';
 import { JUNK, LARGE } from '../../constants/constants';
 
 import { getTranslatedText } from '../../translations/translationUtils';
+import { ActionButton } from '../shared/ActionButton';
 
 const BuildingListItem = ({building, selectedCharacter, constructBuilding, actionable}) => (
     <Card className="mb-4" key={building.id}>
@@ -47,26 +47,19 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
             <Card.Footer>
                 { selectedCharacter !== undefined ? 
                     <Row>
-                        <TooltipWrapper textKey="labels.buildingConstruction">
-                            <Button
-                                variant="success"
-                                className="m-2 button-classic"
-                                onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
-                                disabled={selectedCharacter.state !== 'READY'}>
-                                <Translate id="labels.construct" />
-                            </Button>
-                        </TooltipWrapper>
+                        <ActionButton
+                            character={selectedCharacter}
+                            action={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'CONSTRUCT')}
+                            buttonText="labels.construct"
+                            tooltip="labels.buildingConstruction" />
                         {
-                            building.details.visitable && 
-                            <TooltipWrapper textKey="labels.buildingVisit">
-                                <Button
-                                    variant="success"
-                                    className="m-2 button-classic"
-                                    onClick={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
-                                    disabled={selectedCharacter.state !== 'READY' || building.level < 1}>
-                                    <Translate id="labels.visit" />
-                                </Button>
-                            </TooltipWrapper>
+                            building.details.visitable &&
+                                <ActionButton
+                                    character={selectedCharacter}
+                                    action={() => constructBuilding(building.details.identifier, selectedCharacter.id, 'VISIT')}
+                                    buttonText="labels.visit"
+                                    tooltip="labels.buildingVisit"
+                                    condition={building.level < 1} />
                         }
                     </Row>
                     : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

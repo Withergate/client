@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Button, Card, Image } from 'react-bootstrap';
-import TooltipWrapper from '../shared/TooltipWrapper';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
 import { FOOD, LARGE, JUNK, INFORMATION, ITEM_CHANCE, ENCOUNTER } from '../../constants/constants';
+import { ActionButton } from '../shared/ActionButton';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">
@@ -36,33 +36,24 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                             </ul>
                         </Col>
                     </Row>
-                    
                 </Col>
             </Row>
         </Card.Body>
         <Card.Footer>
             { selectedCharacter !== undefined ? 
                 <Row>
-                    <TooltipWrapper textKey={"location.visit"}>
-                        <Button
-                            variant="success"
-                            className="m-2 button-classic" 
-                            onClick={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
-                            disabled={selectedCharacter.state !== 'READY'}>
-                            <Translate id="labels.search" />
-                        </Button>
-                    </TooltipWrapper>
+                    <ActionButton
+                        character={selectedCharacter}
+                        action={() => onVisit(selectedCharacter.id, location.location, "VISIT")}
+                        buttonText="labels.search"
+                        tooltip="location.visit" />
                     { 
-                        location.scouting && 
-                            <TooltipWrapper textKey={"location.scout"}>
-                                <Button
-                                    variant="success"
-                                    className="m-2 button-classic" 
-                                    onClick={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
-                                    disabled={selectedCharacter.state !== 'READY'}>
-                                    <Translate id="labels.scout" />
-                                </Button>
-                            </TooltipWrapper>
+                        location.scouting &&
+                            <ActionButton
+                                character={selectedCharacter}
+                                action={() => onVisit(selectedCharacter.id, location.location, "SCOUT")}
+                                buttonText="labels.scout"
+                                tooltip="location.scout" />
                         }
                 </Row>
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>

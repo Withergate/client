@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 
 import { restWithCharacter } from '../../actions/actionActions';
+import { ActionButton } from '../shared/ActionButton';
 
 class BasePanel extends React.Component {
 
@@ -17,20 +18,18 @@ class BasePanel extends React.Component {
                     <Card.Body>
                         <Row>
                             <Col md={12}>
-                                <p><Translate id="labels.restDescription" /></p>
+                                <p><Translate id="base.restDescription" /></p>
                             </Col>
                         </Row>
                     </Card.Body>
                     <Card.Footer>
                         { this.props.selectedCharacter !== undefined ? 
                             <Row>
-                                <Button
-                                    variant="success"
-                                    className="m-2 button-classic" 
-                                    onClick={() => this.props.restWithCharacter(this.props.selectedCharacter.id)}
-                                    disabled={this.props.selectedCharacter.state !== 'READY'}>
-                                    <Translate id="labels.rest" />
-                                </Button>
+                                <ActionButton
+                                    character={this.props.selectedCharacter}
+                                    action={() => this.props.restWithCharacter(this.props.selectedCharacter.id)}
+                                    buttonText="labels.rest"
+                                    tooltip="base.restTooltip" />
                             </Row>
                             : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                         }

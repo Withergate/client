@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Button, ProgressBar, Card, Image } from 'react-bootstrap';
+import { Row, Col, ProgressBar, Card, Image } from 'react-bootstrap';
+import { ActionButton } from '../shared/ActionButton';
 
 const ResearchListItem = ({research, selectedCharacter, doResearch, actionable}) => (
     <Card className="mb-4">
@@ -42,14 +43,14 @@ const ResearchListItem = ({research, selectedCharacter, doResearch, actionable})
         </Card.Body>
         { actionable &&
             <Card.Footer>
-                { selectedCharacter !== undefined ? 
-                    <Button 
-                        variant="success"
-                        className="button-classic" 
-                        disabled={selectedCharacter.state !== 'READY'}
-                        onClick={() => doResearch(research.details.identifier, selectedCharacter.id)}>
-                        <Translate id="labels.research" />
-                    </Button> 
+                { selectedCharacter !== undefined ?
+                    <Row>
+                        <ActionButton
+                            character={selectedCharacter}
+                            action={() => doResearch(research.details.identifier, selectedCharacter.id)}
+                            buttonText="labels.research"
+                            tooltip="research.tooltip" />
+                    </Row>
                     : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                 }
             </Card.Footer>

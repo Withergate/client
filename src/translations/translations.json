@@ -108,7 +108,6 @@
         "Postava zvýší postup úrovně této budovy o svou zručnost. Stejný počet šrotu musí být zaplacen pro zahájení této akce."],
         "buildingVisit": ["Character will perform this building's special action..", "Postava vykoná speciální akci této budovy."],
         "resourceLimitExceeded": ["Exceeded maximum resource limit.", "Překročen limit surovin."],
-        "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
         "endTurn": ["End turn", "Ukončit kolo"],
         "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],
         "endTurnDescription": ["This action will end the current turn.", "Tato akce ukončí současné kolo."],
@@ -207,28 +206,34 @@
         "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",
         "Sláva pro vítěze a zátky pro tvůj klan. Ukaž svou sílu a utkej se s ostatními gladiátory. Měj ale na paměti, že tohle není místo pro slabochy a snadno může dojít i ke smrtelným zraněním."],
         "info": ["Only one character per day can be sent to the arena. This character will be matched with random opponent and fight. Only melee weapons are allowed. Fame and glory awarded in case of victory but characters can get injured.",
-        "Každý den můžeš do arény poslat jednu postavu ze svého klanu. Utkáš se s náhodným protivníkem a vítěz vyhraje slávu a zátky. Jsou dovolené pouze kontaktní zbraně."]
+        "Každý den můžeš do arény poslat jednu postavu ze svého klanu. Utkáš se s náhodným protivníkem a vítěz vyhraje slávu a zátky. Jsou dovolené pouze kontaktní zbraně."],
+        "tooltip": ["Character will fight random enemy character for fame and caps.", "Postava se utká s náhodným protivníkem o slávu a zátky."]
     },
     "tavern": {
         "description": ["On the edge of Withergate, there is a little establishment where many wastelanders go to spend their hard-earned caps in exhange for home-made booze of discutable quality. Here, you can find scavengers that might be interested in joining your clan for certain cash.",
         "Na kraji Withergate je malá hospoda, kam se stahují všechny pochybné existence utrácet své pracně vydělané zátky. Třeba zde narazíš na někoho, kdo by se ti mohl hodit."],
         "info": ["Tavern is used for hiring new characters. Each character costs certain amount of caps so be prepared to have this amount ready when going to this location.",
-        "V hospodě máš možnost najmout nové postavu. Každá postava stojí určitý počet zátek, tak měj tuto sumu připravenou, než sem vyrazíš."]
+        "V hospodě máš možnost najmout nové postavu. Každá postava stojí určitý počet zátek, tak měj tuto sumu připravenou, než sem vyrazíš."],
+        "tooltip": ["Character will hire this hero at the end of the turn.", "Postava najme tohoto hrdinu na konci kola."]
     },
     "location": {
         "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",
         "Postava půjde prohledávat tuto lokaci. Ideální akce, pokud chceš najít suroviny nebo předměty. Výsledek akce je ovlivněn hodnotou hledání tvé postavy."],
         "scout": ["Character will scout this location for information. Use this action if you wish to increase your information level. Your character's intellect attribute affects the result of this action.",
         "Postava vyrazí pátrat v této lokaci. Ideální akce, pokud chceš zvýšit svou úroveň informací. Výsledek akce je ovlivněn hodnotou intelektu tvé postavy."]
-        
     },
-    "questDescription": {
+    "research": {
+        "tooltip": ["Character will icrease the progress of this research by the value of his/her intellect.", "Postup v tomto výzkumu se zvýší o hodnotu intelektu dané postavy."]
+    },
+    "quest": {
+        "tooltip": ["Character will try to increase progress os this quest.", "Postava se pokusí zvýšit postup tohoto úkolu."],
         "COMBAT": ["Tackling this quest will result in a combat. The quest will be completed once all enemies are defeated.", "Plnění tohoto úkolu vyústí v souboj. Úkol bude splněn, jakmile budou poraženi všichni nepřátelé."],
         "INTELLECT": ["Tackling this quest will result in an intellect roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na intelekt. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
         "CRAFTSMANSHIP": ["Tackling this quest will result in a craftsmanship roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolu vyústí v hod na zručnost. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
         "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jakmile bude přehozen určitý počet hodů."]
     },
-    "actionDescription": {
+    "disaster": {
+        "tooltip": ["Character will try to increase progress of the disaster resolution.", "Postava se pokusí zvýšit postup odvracení pohromy."],
         "AUTOMATIC": ["This action will always be successful.", "Tato akce je vždy úspěšná."],
         "COMBAT": ["Taking this action will result in a combat.", "Tato akce vyústí v souboj."],
         "INTELLECT": ["Taking this action will result in an intellect roll.", "Tato akce vyústí v hod na intelekt."],
@@ -251,6 +256,10 @@
         "TAVERN": ["Drinking in the tavern", "Pije v taverně"],
         "RESTING": ["Resting", "Odpočívá"],
         "RESEARCH": ["Researching", "Zkoumá"]
+    },
+    "base": {
+        "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
+        "restTooltip": ["Character will rest and recover lost health.", "Postava bude odpočívat a doplní si zraněné životy."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 and and 6 pm UTC (7:00 and 19:00 CET).",

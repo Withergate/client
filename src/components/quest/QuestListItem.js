@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, Button, ProgressBar, Card, Image } from 'react-bootstrap';
+import { Row, Col, ProgressBar, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, FAME } from '../../constants/constants';
+import { ActionButton } from '../shared/ActionButton';
 
 const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
     <Card className="mb-4">
@@ -23,7 +24,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                         {getTranslatedText(quest.details.description)}
                     </Row>
                     <Row>
-                        <small><Translate id={"questDescription." + quest.details.type} /></small>
+                        <small><Translate id={"quest." + quest.details.type} /></small>
                     </Row>
                     <Row className="mt-2">
                         <b><Translate id="basic.reward" />: </b>
@@ -43,14 +44,14 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
             </Row>
         </Card.Body>
         <Card.Footer>
-            { selectedCharacter !== undefined ? 
-                <Button 
-                    variant="success"
-                    className="button-classic" 
-                    disabled={selectedCharacter.state !== 'READY'}
-                    onClick={() => goOnQuest(quest.id, selectedCharacter.id)}>
-                    <Translate id="labels.go" />
-                </Button> 
+            { selectedCharacter !== undefined ?
+                <Row>
+                    <ActionButton
+                        character={selectedCharacter}
+                        action={() => goOnQuest(quest.id, selectedCharacter.id)}
+                        buttonText="labels.go"
+                        tooltip="quest.tooltip" />
+                </Row>
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
         </Card.Footer>

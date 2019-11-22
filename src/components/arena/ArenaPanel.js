@@ -8,10 +8,11 @@ import { visitArena } from '../../actions/actionActions';
 import { dismissError } from '../../actions/uiActions';
 import { fetchArenaStats } from '../../actions/dataActions';
 
-import { Row, Col, Button, Card, Table } from 'react-bootstrap';
+import { Row, Col, Card, Table } from 'react-bootstrap';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
+import { ActionButton } from '../shared/ActionButton';
 
 class ArenaPanel extends React.Component {
     componentDidMount() {
@@ -34,13 +35,11 @@ class ArenaPanel extends React.Component {
                     <Card.Footer>
                         { this.props.selectedCharacter !== undefined ? 
                             <Row>
-                                <Button
-                                    variant="success"
-                                    className="m-2 button-classic" 
-                                    onClick={() => this.props.visitArena(this.props.selectedCharacter.id)}
-                                    disabled={this.props.selectedCharacter.state !== 'READY'}>
-                                    <Translate id="labels.visit" />
-                                </Button>
+                                <ActionButton
+                                    character={this.props.selectedCharacter}
+                                    action={() => this.props.visitArena(this.props.selectedCharacter.id)}
+                                    buttonText="labels.visit"
+                                    tooltip="arena.tooltip" />
                             </Row>
                             : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                         }
