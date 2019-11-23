@@ -152,8 +152,8 @@
         "encounterChance": ["This is the risk that random encounter will trigger. Handling the encounter requires various skills of the character. If the character handles the situation successfully, there will be a reward plus some portion of the action resources will be awarded as well. In case of unsuccessful encounter, the character will not find any resources and penalty might be triggered.",	
         "Toto je šance na náhodnou událost. Řešení události vyžaduje použití nějaké z vlastností dané postavy. Pokud postava v situaci uspěje, dostane odměnu a navíc ještě část surovin, které by normálně získala z prováděné akce. Pokud ovšem neuspěje, nedostane nic a navíc může následovat nějaký negativní efekt."],
         "research": ["Research", "Zkoumat"],
-        "noResearch": ["You have not researched anything yet. Go to the Actions section and research something for your clan!", "Zatím nemáš nic vyzkoumaného. Můžeš jít do sekce Akce a něco vyzkoumat tam!"],
-        "lockedResearch": ["${count} of research projects are yet to be discovered. Increase your information level to uncover them.",
+        "noResearch": ["There are no research projects to show.", "Žádný výzkum není k dispozici."],
+        "lockedResearch": ["${count} research projects are yet to be discovered. Increase your information level to uncover them.",
         "${count} výzkumných projektů čeká na objevení. Zvyš úroveň informací svého klanu pro jejich odkrytí."],
         "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně sníženy následkem zranění."]
     },
@@ -165,7 +165,7 @@
         "construction": ["Fame can be also increased by building construction. For each level of your newly constructed building, you will gain ${fame} fame.",
         "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."],
         "research": ["Every research you finish will grant you ${fame} fame. Some research projects need higher information level to become available to your clan.",
-        "Každý výzkum, který dokončíš, či přinese ${fame} slávy. Některé výzkumné projekty se ti zpřístupní až s vyšší úrovní informací tvého klanu."]
+        "Každý výzkum, který dokončíš, ti přinese ${fame} slávy. Některé výzkumné projekty se ti zpřístupní až s vyšší úrovní informací tvého klanu."]
     },
     "login": {
         "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",

@@ -2,7 +2,6 @@ import {
     createClan, 
     equipItem, 
     unequipItem,
-    consume,
     constructBuilding,
     doResearch,
     goOnQuest,
@@ -72,19 +71,6 @@ const unequipItemAction = (itemId, characterId) => {
     };
 };
 export { unequipItemAction as unequipItem };
-
-const consumeAction = (consumableId, characterId) => {
-    return (dispatch) => {
-        return dispatch({
-            type: GAME_ACTION,
-            payload: consume(consumableId, characterId)
-        }).then(() => dispatch({
-            type: FETCH_CLAN,
-            payload: fetchClan()
-        }));
-    };
-};
-export { consumeAction as consume };
 
 const constructBuildingAction = (buildingName, characterId, type) => {
     return (dispatch) => {

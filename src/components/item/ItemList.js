@@ -31,7 +31,6 @@ ItemList.propTypes = {
     items: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     equipItem: PropTypes.func.isRequired,
-    consume: PropTypes.func.isRequired,
     filter: PropTypes.string.isRequired,
     changeFilter: PropTypes.func.isRequired
 };

@@ -15,11 +15,6 @@ export const unequipItem = (itemId, characterId) => {
     JSON.stringify({itemId: itemId, characterId: characterId}));
 };
 
-export const consume = (consumableId, characterId) => {
-    return apiPost(API_URL.concat('items/consumables/use'), 
-    JSON.stringify({consumableId: consumableId, characterId: characterId}));
-};
-
 export const constructBuilding = (buildingName, characterId, type) => {
     return apiPost(API_URL.concat('buildings/action'), 
     JSON.stringify({building: buildingName, characterId: characterId, type: type}));

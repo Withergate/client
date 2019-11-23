@@ -17,7 +17,6 @@ import spinner from '../images/spinner.gif';
 import { 
     equipItem,
     unequipItem,
-    consume,
     changeDefaultAction
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
@@ -167,7 +166,6 @@ const mapDispatchToProps = dispatch => (
         fetchClan,
         equipItem,
         unequipItem,
-        consume,
         selectCharacter,
         selectClanTab,
         dismissError,

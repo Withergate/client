@@ -6,6 +6,7 @@ import ItemDetails from './ItemDetails';
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { getRarityTextColor } from './itemUtils';
+import { CONSUMABLE } from '../../constants/constants';
 
 const ItemListItem = ({item, selectedCharacter, equipItem}) => (
     <Card className="mb-4">
@@ -31,7 +32,7 @@ const ItemListItem = ({item, selectedCharacter, equipItem}) => (
                     variant="outline-success"
                     className="button-classic" 
                     onClick={() => equipItem(item.id, selectedCharacter.id)}>
-                    <Translate id="labels.equip" />
+                    <Translate id={item.details.itemType === CONSUMABLE ? "labels.use" : "labels.equip"} />
                 </Button> 
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
             }
