@@ -14,7 +14,8 @@ import {
     deleteOffer,
     tradeItem,
     changeDefaultAction,
-    handleDisaster
+    handleDisaster,
+    activateTrait
 } from '../services/actionService';
 
 import {
@@ -249,3 +250,16 @@ const handleDisasterAction = (characterId, solution) => {
     };
 };
 export { handleDisasterAction as handleDisaster };
+
+const activateTraitAction = (characterId, traitName) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: activateTrait(characterId, traitName)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { activateTraitAction as activateTrait };

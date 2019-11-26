@@ -54,8 +54,9 @@ const CharacterDetails = ({character}) => (
                 <br />
             </Col>
             <Col md={2} sm={12}>
-                {character.traits.length > 0 && 
-                    character.traits.map(trait => 
+                {character.traits.filter(trait => trait.active).length > 0 && 
+                    character.traits.filter(trait => trait.active)
+                    .map(trait => 
                         <div key={trait.id} className="mb-1">
                             <TraitItem trait={trait} />
                         </div>) 

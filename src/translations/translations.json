@@ -155,7 +155,8 @@
         "noResearch": ["There are no research projects to show.", "Žádný výzkum není k dispozici."],
         "lockedResearch": ["${count} research projects are yet to be discovered. Increase your information level to uncover them.",
         "${count} výzkumných projektů čeká na objevení. Zvyš úroveň informací svého klanu pro jejich odkrytí."],
-        "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně sníženy následkem zranění."]
+        "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně sníženy následkem zranění."],
+        "skillpoint": ["Skill point available. Assign new trait to this character in the Actions->Base.", "Dovednostní bod je k dispozici. Přiřaď postavě novou schopnost v sekci Akce->Kemp."]
     },
     "mechanics": {
         "header": ["Basic mechanics", "Základní mechaniky"],
@@ -260,7 +261,12 @@
     },
     "base": {
         "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
-        "restTooltip": ["Character will rest and recover lost health.", "Postava bude odpočívat a doplní si zraněné životy."]
+        "restTooltip": ["Character will rest and recover lost health.", "Postava bude odpočívat a doplní si zraněné životy."],
+        "trainingDescription": ["You say you wanna learn something? Sit down and listen - practice makes perfect! Characters with available skill points can get a new trait here. The number of available traits depends on the level of your Training Grounds. Once the trait is selected, your character will rest until the end of the turn so you will not be able to use him/her for any actions this turn.",
+        "Říkáš, že se chceš něco naučit? Tak sedni a poslouchej - cvičení dělá mistra! Tvé postavy se zde mohou naučit novou schopnost. Velikost nabídky je ovlivněna úrovní tvého Cvičiště. Jakmile si vybereš schopnost, tvá postava ji získá a bude do konce kola odpočívat, takže ji toto kolo již nevyužiješ na žádné akce."],
+        "noSkillpoints": ["No skillpoints", "Žádné dovednostní body"],
+        "train": ["Train", "Trénuj"],
+        "trainTooltip": ["Character will gain a new trait and rest. All the standard benefits of resting will be applied.", "Postava se naučí novou schopnost a půjde odpočívat. Veškeré další bonusy spojené s odpočinkem se započítají."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 and and 6 pm UTC (7:00 and 19:00 CET).",

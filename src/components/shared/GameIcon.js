@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT,
-    HEALTH, EXPERIENCE_STAT
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -25,6 +25,7 @@ import encounterIcon from '../../images/encounter.png';
 import logoutIcon from '../../images/logout.png';
 import healthIcon from '../../images/health.png';
 import experienceStatIcon from '../../images/experienceStat.png';
+import skillpointIcon from '../../images/skillpoint.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -47,6 +48,7 @@ const getIconSource = (type) => {
         case INTELLECT: return intellectIcon;
         case HEALTH: return healthIcon;
         case EXPERIENCE_STAT: return experienceStatIcon;
+        case SKILLPOINT: return skillpointIcon;
         case ENCOUNTER: return encounterIcon;
         case LOGOUT: return logoutIcon;
         default: return "";
@@ -72,6 +74,7 @@ const getTranslationKey = (type) => {
         case INTELLECT: return "basic.intellect";
         case HEALTH: return "basic.health";
         case EXPERIENCE_STAT: return "basic.experience";
+        case SKILLPOINT: return "labels.skillpoint";
         case ENCOUNTER: return "labels.encounterChance";
         case LOGOUT: return "header.logout";
         default: return "";

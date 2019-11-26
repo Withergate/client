@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
+import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, SKILLPOINT } from '../../constants/constants';
 import TraitItem from '../clan/TraitItem';
 import { ActionButton } from '../shared/ActionButton';
 
@@ -13,7 +13,13 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
-                {offer.character.name}
+                <ul className="list-inline">
+                    {
+                        offer.character.skillPoints > 0 && 
+                            <li className="list-inline-item"><GameIcon type={SKILLPOINT} size={LARGE} /></li>
+                    }
+                    <li className="list-inline-item">{offer.character.name}</li>
+                </ul>
             </Card.Title>
             <Row>
                 <Col md={2}>

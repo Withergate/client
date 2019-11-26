@@ -42,6 +42,7 @@ export const INTELLECT = 'INTELLECT';
 export const ENCOUNTER = 'ENCOUNTER';
 export const HEALTH = 'HEALTH';
 export const EXPERIENCE_STAT = 'EXPERIENCE_STAT';
+export const SKILLPOINT = 'SKILLPOINT';
 
 // Icon size
 export const SMALL = 'SMALL';

@@ -9,10 +9,9 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import ItemTooltip from '../item/ItemTooltip';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, INJURY_INFO, LARGE } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, INJURY_INFO, LARGE, SKILLPOINT } from '../../constants/constants';
 import ActionButton from './ActionButton';
 import { GameIcon } from '../shared/GameIcon';
-
 
 function renderTrait(trait) {
     return <Row key={trait.id}><Col><TraitItem trait={trait} /></Col></Row>
@@ -30,6 +29,10 @@ class CharacterListItem extends Component {
                             <li className="list-inline-item">
                                 <GameIcon type={INJURY_INFO} size={LARGE} noPadding />
                             </li> 
+                        }
+                        {
+                            character.skillPoints > 0 && 
+                                <li className="list-inline-item"><GameIcon type={SKILLPOINT} size={LARGE} noPadding /></li>
                         }
                         <li className="list-inline-item">{character.name} ({character.level})</li>
                     </ul>
@@ -129,9 +132,10 @@ class CharacterListItem extends Component {
                         }
                     </Col>
                     <Col md={2} sm={12}>
-                        { 
-                            character.traits.length > 0 ?
-                                character.traits.map(trait => renderTrait(trait))
+                        {
+                            character.traits.filter(trait => trait.active).length > 0 ?
+                                character.traits.filter(trait => trait.active)
+                                .map(trait => renderTrait(trait))
                             : <Translate id="basic.noTraits" />
                         }
                     </Col>

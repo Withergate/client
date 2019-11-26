@@ -26,6 +26,7 @@ import MarketOfferList from './trade/MarketOfferList';
 import DisasterPanel from './disaster/DisasterPanel';
 import BasePanel from './location/BasePanel';
 import ResearchList from './research/ResearchList';
+import TraitPanel from './clan/TraitPanel';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -125,6 +126,7 @@ class ActionPage extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="base">
                                             <BasePanel />
+                                            <TraitPanel />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
