@@ -81,6 +81,8 @@ class AboutPage extends Component {
                         </tr>
                     </tbody>
                 </Table>
+
+                <p><Translate id="about.patronText" />{ window._env_.PATRONS }</p>
             </div>
         );
     }

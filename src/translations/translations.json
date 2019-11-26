@@ -200,7 +200,8 @@
         "ackHeader": ["Acknowledgement", "Poděkování"],
         "photosText": ["I would like to thank the following people for allowing me to use their beautiful photos as a game content:",
         "Rád bych poděkoval následujícím lidem za poskytnutí fotografií pro herní obsah:"],
-        "links": ["Links", "Odkazy"]
+        "links": ["Links", "Odkazy"],
+        "patronText": ["Special thanks to all Patreon supporters: ", "Speciální díky všem, kteří nás podporují na Patreonu: "]
     },
     "arena": {
         "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",
