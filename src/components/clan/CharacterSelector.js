@@ -4,6 +4,8 @@ import { Translate } from "react-localize-redux";
 
 import CharacterDetails from './CharacterDetails';
 import { Row, Col, Button } from 'react-bootstrap';
+import CharacterHeader from './CharacterHeader';
+import { SMALL } from '../../constants/constants';
 
 const getTextColor = (character) => {
     switch(character.state) {
@@ -27,7 +29,10 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                             className="w-100"
                             variant="light"
                             key={character.id}
-                            onClick={() => onSelect(character.id)}><div className={getTextColor(character)}>{character.name}</div>
+                            onClick={() => onSelect(character.id)}>
+                                <div className={getTextColor(character)}>
+                                    <CharacterHeader character={character} size={SMALL} />
+                                </div>
                         </Button>)
                     }
                 </div>

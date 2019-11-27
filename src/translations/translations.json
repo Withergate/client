@@ -144,7 +144,7 @@
         "disasterAction": ["What are we going to do?", "Co podnikneme?"],
         "disasterActionText": ["It seems there are multiple ways how to face this disaster. Perhaps, if we work hard and everybody does what he knows best, we might be able to avert the upcoming problems.", 
         "Zdá se, že existuje více způsobů, jak se k této pohromě můžeme postavit. Možná, že bychom mohli zkusit různé věci a třeba se nám společnými silami podaří tuto nepříjemnost odvrátit."],
-        "disasterInfo": ["Disaster is coming: ${name}. You have time until the end of turn ${turn} to prepare. You can start by epxloring the 'Disaster' tab in the 'Actions' page.",
+        "disasterInfo": ["Disaster is coming: ${name}. You have time until the end of turn ${turn} to prepare. You can start by exploring the 'Disaster' tab in the 'Actions' page.",
         "Blíží se pohroma ${name}. Máš čas do konce kola ${turn}, aby ses připravil. O pohromě se můžeš dozvědět více v sekci 'Pohroma' na stránce 'Akce'."],
         "visitCost": ["Cost to visit", "Cena za navštívení"],
         "numWins": ["Number of wins", "Počet vítězství"],

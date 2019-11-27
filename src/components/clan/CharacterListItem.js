@@ -9,9 +9,9 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import ItemTooltip from '../item/ItemTooltip';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, INJURY_INFO, LARGE, SKILLPOINT } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LARGE } from '../../constants/constants';
 import ActionButton from './ActionButton';
-import { GameIcon } from '../shared/GameIcon';
+import CharacterHeader from './CharacterHeader';
 
 function renderTrait(trait) {
     return <Row key={trait.id}><Col><TraitItem trait={trait} /></Col></Row>
@@ -24,31 +24,23 @@ class CharacterListItem extends Component {
         return <Card className="mb-4">
             <Card.Body>
                 <Card.Title>
-                    <ul className="list-inline">
-                        { character.hitpoints < (character.maxHitpoints * 2 / 3.0) && 
-                            <li className="list-inline-item">
-                                <GameIcon type={INJURY_INFO} size={LARGE} noPadding />
-                            </li> 
-                        }
-                        {
-                            character.skillPoints > 0 && 
-                                <li className="list-inline-item"><GameIcon type={SKILLPOINT} size={LARGE} noPadding /></li>
-                        }
-                        <li className="list-inline-item">{character.name} ({character.level})</li>
-                    </ul>
+                    <CharacterHeader character={character} size={LARGE} />
                 </Card.Title>
                 <Row>
                     <Col md={2} sm={12}>
                         <Row>
                             <Col><Image rounded width="120px" src={character.imageUrl} /></Col>
                         </Row>
-                        <Row>
+                        <Row className="mt-1">
                             <Col>
                                 <ActionButton
                                     pendingAction={character.action}
                                     character={character}
                                     selectCharacter={selectCharacter} />
                             </Col>
+                        </Row>
+                        <Row className="mt-1">
+                            <Col><b><Translate id="basic.level" />: </b>{character.level}</Col>
                         </Row>
                     </Col>
                     <Col md={4} sm={12}>

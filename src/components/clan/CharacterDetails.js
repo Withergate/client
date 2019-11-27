@@ -7,8 +7,8 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import { Row, Col, Image } from 'react-bootstrap';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, SMALL, INJURY_INFO } from '../../constants/constants';
-import { GameIcon } from '../shared/GameIcon';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, SMALL } from '../../constants/constants';
+import CharacterHeader from './CharacterHeader';
 
 const CharacterDetails = ({character}) => (
     <small>
@@ -16,14 +16,7 @@ const CharacterDetails = ({character}) => (
             <Col md={3} sm={12}>
                 <Row>
                     <Col>
-                        <ul className="list-inline">
-                            { character.hitpoints < (character.maxHitpoints * 2 / 3.0) && 
-                                <li className="list-inline-item">
-                                    <GameIcon type={INJURY_INFO} size={SMALL} noPadding />
-                                </li> 
-                            }
-                            <li className="list-inline-item"><b>{character.name}</b></li>
-                        </ul>
+                        <CharacterHeader character={character} size={SMALL} />
                     </Col>
                 </Row>
                 <Row>
