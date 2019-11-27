@@ -82,3 +82,7 @@ export const activateTrait = (characterId, traitName) => {
     return apiPost(API_URL.concat('characters/trait'), 
     JSON.stringify({characterId: characterId, traitName: traitName}));
 };
+
+export const refreshTavern = () => {
+    return apiPost(API_URL.concat('clan/tavernOffers/refresh'), null);
+};

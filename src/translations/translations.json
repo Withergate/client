@@ -216,7 +216,8 @@
         "Na kraji Withergate je malá hospoda, kam se stahují všechny pochybné existence utrácet své pracně vydělané zátky. Třeba zde narazíš na někoho, kdo by se ti mohl hodit."],
         "info": ["Tavern is used for hiring new characters. Each character costs certain amount of caps so be prepared to have this amount ready when going to this location.",
         "V hospodě máš možnost najmout nové postavu. Každá postava stojí určitý počet zátek, tak měj tuto sumu připravenou, než sem vyrazíš."],
-        "tooltip": ["Character will hire this hero at the end of the turn.", "Postava najme tohoto hrdinu na konci kola."]
+        "tooltip": ["Character will hire this hero at the end of the turn.", "Postava najme tohoto hrdinu na konci kola."],
+        "refresh": ["Refresh offers", "Změnit nabídku"]
     },
     "location": {
         "visit": ["Character will explore this location. Use this action if you are looking for resources or loot. Your character's scavenge attribute affects the result of this action.",

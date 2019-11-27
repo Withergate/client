@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 
-import { visitTavern } from '../../actions/actionActions';
+import { visitTavern, refreshTavern } from '../../actions/actionActions';
 import { fetchTavernOffers } from '../../actions/dataActions';
 
 import TavernOfferList from './TavernOfferList';
 
 import spinner from '../../images/spinner.gif';
+import { GameIcon } from '../shared/GameIcon';
+import { CAPS, LARGE } from '../../constants/constants';
 
 class TavernPanel extends React.Component {
     componentDidMount() {
@@ -32,6 +34,13 @@ class TavernPanel extends React.Component {
                                     </Col>
                                 </Row>
                             </Card.Body>
+                            <Card.Footer>
+                                <Button
+                                    variant="outline-success"
+                                    onClick={() => this.props.refreshTavern()}>
+                                    <Translate id="tavern.refresh" /><GameIcon type={CAPS} size={LARGE} value={this.props.refreshCost} noPadding />
+                                </Button>
+                            </Card.Footer>
                         </Card>
                         <TavernOfferList 
                             offers={this.props.offers}
@@ -55,17 +64,19 @@ TavernPanel.propTypes = {
 const mapStateToProps = state => {
     const selectedCharacter = state.clan.selectedCharacter;
     const offers = state.clan.tavernOffers.data;
+    const refreshCost = state.game.properties.tavernRefreshPrice;
 
     const fetching = state.clan.tavernOffers.fetching;
     const fetched = state.clan.tavernOffers.fetched;
     const failed = state.clan.tavernOffers.failed;
 
-    return { fetching, fetched, failed, offers, selectedCharacter };
+    return { fetching, fetched, failed, offers, selectedCharacter, refreshCost };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         visitTavern,
+        refreshTavern,
         fetchTavernOffers
     }, dispatch)
 );
