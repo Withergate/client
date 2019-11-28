@@ -49,14 +49,13 @@ class ClanOfferListItem extends React.Component {
                     {getTranslatedText(this.props.offer.details.name)}
                 </Card.Title>
                 <Row>
-                    <Col md={4}>
+                    <Col md={4} className="mb-2">
                         <Image rounded src={this.props.offer.details.imageUrl} width="120px" />
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>
                         <ItemDetails details={this.props.offer.details} />
-                        <br />
-                        <ul className="list-inline">
+                        <ul className="list-inline mt-2">
                             <li className="list-inline-item">
                                 <TooltipWrapper textKey="labels.marketPrice"><b><Translate id="labels.trade.price" />: </b></TooltipWrapper>
                             </li>
@@ -92,6 +91,7 @@ class ClanOfferListItem extends React.Component {
                                     name="caps"
                                     type="number"
                                     min={this.props.offer.details.price}
+                                    max={this.props.offer.details.price * 2}
                                     value={this.state.caps}
                                     aria-describedby="caps-trade"
                                     onChange={e => this.handleCapsChange(e)}

@@ -42,7 +42,6 @@ const ResearchList = (props) => (
 
 ResearchList.propTypes = {
     clan: PropTypes.object.isRequired,
-    research: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
     actionable: PropTypes.bool.isRequired
 };

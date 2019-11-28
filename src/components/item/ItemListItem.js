@@ -15,7 +15,7 @@ const ItemListItem = ({item, selectedCharacter, equipItem}) => (
                 {getTranslatedText(item.details.name)}
             </Card.Title>
             <Row>
-                <Col md={2}>
+                <Col md={2} className="mb-2">
                     <Image src={item.details.imageUrl} rounded width="120px" />
                 </Col>
                 <Col md={10}>

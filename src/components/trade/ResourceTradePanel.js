@@ -113,7 +113,7 @@ class ResourceTradePanel extends React.Component {
                                 </Form.Control.Feedback>
                             </InputGroup>
                         </Col>
-                        <Col md={3}>
+                        <Col md={3} className="mb-3">
                             <InputGroup>
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="food-trade"><Image className="mr-1" height="20" src={food} /></InputGroup.Text>
@@ -133,7 +133,7 @@ class ResourceTradePanel extends React.Component {
                                 </Form.Control.Feedback>
                             </InputGroup>
                         </Col>
-                        <Col md={3}>
+                        <Col md={3} className="mb-3">
                             <InputGroup>
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="caps-trade"><Image className="mr-1" height="20" src={caps} /></InputGroup.Text>

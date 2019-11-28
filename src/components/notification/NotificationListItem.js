@@ -34,7 +34,7 @@ const NotificationListItem = ({notification}) => (
                 </Row>
             <Row>
                 { notification.imageUrl &&
-                    <Col md={1}>
+                    <Col md={1} className="mb-2">
                         <Image width="60px" src={notification.imageUrl} />
                     </Col>
                 }

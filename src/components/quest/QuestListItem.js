@@ -16,7 +16,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                 {getTranslatedText(quest.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <Image rounded src={quest.details.imageUrl} height="120px" />
                 </Col>
                 <Col md={8}>

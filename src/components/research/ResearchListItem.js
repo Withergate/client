@@ -13,7 +13,7 @@ const ResearchListItem = ({research, selectedCharacter, doResearch, actionable})
                 {getTranslatedText(research.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <Image rounded src={research.details.imageUrl} width="240px" />
                 </Col>
                 <Col md={8}>

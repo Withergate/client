@@ -71,7 +71,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
             </ul>
             { loggedIn &&
                 <div>
-                    <ul className="m-1 p-2 mr-auto list-inline rounded bg-light">
+                    <ul className="mt-1 mb-1 p-2 mr-auto list-inline rounded bg-light">
                         <li className="list-inline-item"><GameIcon type={CAPS} size={SMALL} value={clan.caps} /></li>
                         <li className="list-inline-item"><GameIcon type={JUNK} size={SMALL} value={clan.junk} /></li>
                         <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>
@@ -86,15 +86,15 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                     </ul>
                 </div>
             }
-        </div>
-        <div className="ml-4">
-            <LanguageToggle />
-            {
-                loggedIn &&
-                <Button onClick={logout} variant="dark" size="sm" className="mt-1">
-                    <GameIcon type="LOGOUT" size={SMALL} />
-                </Button>
-            }   
+            <div className="ml-md-3 ml-sm-0">
+                <LanguageToggle />
+                {
+                    loggedIn &&
+                    <Button onClick={logout} variant="dark" size="sm" className="mt-1">
+                        <GameIcon type="LOGOUT" size={SMALL} />
+                    </Button>
+                }   
+            </div>
         </div>
     </nav>
 );

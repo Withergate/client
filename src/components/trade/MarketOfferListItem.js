@@ -17,15 +17,14 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
                 {getTranslatedText(offer.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <Image rounded src={offer.details.imageUrl} height="120px" />
                 </Col>
                 <Col md={8}>
                     <p>{getTranslatedText(offer.details.description)}</p>
                     <ItemDetails details={offer.details} />
-                    <br />
 
-                    <p><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
+                    <p className="mt-2"><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
 
                     <ul className="list-inline">
                         <li className="list-inline-item">

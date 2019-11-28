@@ -13,10 +13,13 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title>
-                {getTranslatedText(location.name)}
+                <ul className="list-inline">
+                    <li className="list-inline-item">{getTranslatedText(location.name)}</li>
+                    <li className="list-inline-item"><GameIcon type={ENCOUNTER} size={LARGE} value={location.encounterChance + "%"} /></li>
+                </ul>
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <Image rounded width="240px" src={location.imageUrl} />
                 </Col>
                 <Col md={8}>
@@ -32,7 +35,6 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
                                     <li className="list-inline-item"><GameIcon type={INFORMATION} size={LARGE} value={location.informationBonus} /></li>
                                 }
                                 <li className="list-inline-item"><GameIcon type={ITEM_CHANCE} size={LARGE} value={location.itemChance + "%"} /></li>
-                                <li className="list-inline-item"><GameIcon type={ENCOUNTER} size={LARGE} value={location.encounterChance + "%"} /></li>
                             </ul>
                         </Col>
                     </Row>
