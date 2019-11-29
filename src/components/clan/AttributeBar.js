@@ -8,8 +8,8 @@ import { GameIcon } from '../shared/GameIcon';
 
 const AttributeBar = ({name, value, iconType, max, variant}) => (
     <Row className="mt-1 mb-1">
-        <Col md={1}><GameIcon type={iconType} size={SMALL} noPadding /></Col>
-        <Col className="mt-1">
+        <Col xs={1}><GameIcon type={iconType} size={SMALL} noPadding /></Col>
+        <Col xs={10} className="mt-1">
             <TooltipWrapper textKey={name} value={max ? value + "/" + max : value}>
                 <ProgressBar
                     variant={variant ? variant : "warning"}
