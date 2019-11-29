@@ -8,7 +8,7 @@ const ActionButton = (props) => (
     <TooltipWrapper textKey={props.tooltip}>
         <Button 
             variant="success"
-            className="ml-2 button-classic" 
+            className="button-classic ml-2" 
             onClick={props.action}
             disabled={props.condition ? props.condition || props.character.state !== 'READY' : props.character.state !== 'READY'}>
             <Translate id={props.buttonText} />

@@ -13,10 +13,6 @@ import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LA
 import ActionButton from './ActionButton';
 import CharacterHeader from './CharacterHeader';
 
-function renderTrait(trait) {
-    return <Row key={trait.id}><Col><TraitItem trait={trait} /></Col></Row>
-}
-
 class CharacterListItem extends Component {
     render() {
         const {character, unequipItem, selectCharacter} = this.props;
@@ -27,7 +23,7 @@ class CharacterListItem extends Component {
                     <CharacterHeader character={character} size={LARGE} />
                 </Card.Title>
                 <Row>
-                    <Col md={2} sm={12}>
+                    <Col md={2} xs={5}>
                         <Row>
                             <Col><Image rounded width="120px" src={character.imageUrl} /></Col>
                         </Row>
@@ -39,11 +35,8 @@ class CharacterListItem extends Component {
                                     selectCharacter={selectCharacter} />
                             </Col>
                         </Row>
-                        <Row className="mt-1">
-                            <Col><b><Translate id="basic.level" />: </b>{character.level}</Col>
-                        </Row>
                     </Col>
-                    <Col md={4} sm={12}>
+                    <Col md={4} xs={7}>
                         <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
                         <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
                         <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
@@ -61,7 +54,7 @@ class CharacterListItem extends Component {
                             max={character.nextLevel}
                             variant="primary" />
                     </Col>
-                    <Col md={4} sm={12}> 
+                    <Col md={4} xs={12}> 
                         { character.weapon != null ?
                             <Row className="mb-1">
                                 <Col data-tip data-for={character.weapon.details.identifier}>
@@ -123,11 +116,20 @@ class CharacterListItem extends Component {
                             : <Row className="mb-1"><Col><Translate id="basic.noGear" /></Col></Row> 
                         }
                     </Col>
-                    <Col md={2} sm={12}>
-                        {
-                            character.traits.filter(trait => trait.active).length > 0 ?
+                    <Col md={2} xs={12}>
+                        <Row className="mb-2">
+                            <Col><b><Translate id="basic.level" />: </b>{character.level}</Col>
+                        </Row>
+                        {character.traits.filter(trait => trait.active).length > 0 ? 
+                            <ul className="list-inline">
+                            {
                                 character.traits.filter(trait => trait.active)
-                                .map(trait => renderTrait(trait))
+                                .map(trait => 
+                                    <li className="list-inline-item">
+                                        <TraitItem trait={trait} />
+                                    </li>)
+                            }
+                            </ul>
                             : <Translate id="basic.noTraits" />
                         }
                     </Col>

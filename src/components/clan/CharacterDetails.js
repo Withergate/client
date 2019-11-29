@@ -13,17 +13,17 @@ import CharacterHeader from './CharacterHeader';
 const CharacterDetails = ({character}) => (
     <small>
         <Row>
-            <Col md={3} sm={12}>
-                <Row>
+            <Col md={2} xs={4} className="mb-2">
+                <Row className="mb-2">
                     <Col><Image rounded width="90px" src={character.imageUrl} /></Col>
                 </Row>
-                <Row className="mt-2">
+                <Row>
                     <Col>
                         <CharacterHeader character={character} size={LARGE} skipName />
                     </Col>
                 </Row>
             </Col>
-            <Col md={4} sm={12}>
+            <Col md={4} xs={8} className="mb-2">
                 <AttributeBar name="basic.combat" value={character.combat} iconType={COMBAT} />
                 <AttributeBar name="basic.scavenge" value={character.scavenge} iconType={SCAVENGE} />
                 <AttributeBar name="basic.craftsmanship" value={character.craftsmanship} iconType={CRAFTSMANSHIP} />
@@ -35,7 +35,7 @@ const CharacterDetails = ({character}) => (
                     max={character.maxHitpoints}
                     variant={character.hitpoints < character.maxHitpoints ? "danger" : "success"} />
             </Col>
-            <Col md={3} sm={12}>
+            <Col md={4} xs={4} className="mb-2">
                 { character.weapon != null ? <b>{getTranslatedText(character.weapon.details.name)}</b>
                     : <Translate id="basic.unarmed" />}
                 <br />
@@ -46,13 +46,18 @@ const CharacterDetails = ({character}) => (
                         : <Translate id="basic.noGear" />}
                 <br />
             </Col>
-            <Col md={2} sm={12}>
-                {character.traits.filter(trait => trait.active).length > 0 && 
-                    character.traits.filter(trait => trait.active)
-                    .map(trait => 
-                        <div key={trait.id} className="mb-1">
-                            <TraitItem trait={trait} />
-                        </div>) 
+            <Col md={2} xs={8}>
+                {character.traits.filter(trait => trait.active).length > 0 ? 
+                    <ul className="list-inline">
+                    {
+                        character.traits.filter(trait => trait.active)
+                        .map(trait => 
+                            <li className="list-inline-item">
+                                <TraitItem trait={trait} />
+                            </li>)
+                    }
+                    </ul>
+                    : <Translate id="basic.noTraits" />
                 }
             </Col>
         </Row>

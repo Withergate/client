@@ -6,7 +6,6 @@ import { Translate } from "react-localize-redux";
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
-import TraitItem from '../clan/TraitItem';
 import { ActionButton } from '../shared/ActionButton';
 import CharacterHeader from '../clan/CharacterHeader';
 
@@ -17,10 +16,10 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                 <CharacterHeader character={offer.character} size={LARGE} />
             </Card.Title>
             <Row>
-                <Col md={2} className="mb-2">
+                <Col md={2} xs={5} className="mb-2">
                     <Image rounded width="120px" src={offer.character.imageUrl} />
                 </Col>
-                <Col md={4} className="mb-2">
+                <Col md={4} xs={7} className="mb-2">
                     <AttributeBar name="basic.combat" value={offer.character.combat} iconType={COMBAT} />
                     <AttributeBar name="basic.scavenge" value={offer.character.scavenge} iconType={SCAVENGE} />
                     <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} iconType={CRAFTSMANSHIP} />
@@ -32,23 +31,18 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                             max={offer.character.maxHitpoints}
                             variant="success" />
                 </Col>
-                <Col md={2} className="mb-2">
-                    {
-                        offer.character.traits.length > 0 ?
-                            offer.character.traits.map(trait => <TraitItem trait={trait} key={trait.id} />)
-                        : <Translate id="basic.noTraits" />
-                    }
-                </Col>
-                <Col md={2} className="mb-2">
+                <Col md={2} className="mb-3">
                     <GameIcon type={CAPS} size={LARGE} value={offer.price} noPadding />
                 </Col>
                 <Col md={2}>
                     { selectedCharacter !== undefined ?
-                        <ActionButton
-                            character={selectedCharacter}
-                            action={() => visitTavern(selectedCharacter.id, offer.id)}
-                            buttonText="labels.hire"
-                            tooltip="tavern.tooltip" />
+                        <Row>
+                            <ActionButton
+                                character={selectedCharacter}
+                                action={() => visitTavern(selectedCharacter.id, offer.id)}
+                                buttonText="labels.hire"
+                                tooltip="tavern.tooltip" />
+                        </Row>
                         : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
                     }
                 </Col>

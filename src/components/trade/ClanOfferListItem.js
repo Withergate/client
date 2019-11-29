@@ -72,17 +72,7 @@ class ClanOfferListItem extends React.Component {
                     validated={this.state.validated}
                     onSubmit={e => this.handleSubmit(e)} >
                     <Row>
-                        <Col md={4}>
-                            <TooltipWrapper textKey="labels.offerTooltip">
-                                <Button
-                                    variant="outline-success"
-                                    className="button-classic"
-                                    type="submit" >
-                                    <Translate id="labels.offer" />
-                                </Button>
-                            </TooltipWrapper>
-                        </Col>
-                        <Col md={8}>
+                        <Col md={8} className="mb-2">
                             <InputGroup>
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="caps-trade"><Image className="mr-1" height="20" src={capsIcon} /></InputGroup.Text>
@@ -100,6 +90,16 @@ class ClanOfferListItem extends React.Component {
                                     <Translate id="labels.invalidPrice" />
                                 </Form.Control.Feedback>
                             </InputGroup>
+                        </Col>
+                        <Col md={4}>
+                            <TooltipWrapper textKey="labels.offerTooltip">
+                                <Button
+                                    variant="outline-success"
+                                    className="button-classic"
+                                    type="submit" >
+                                    <Translate id="labels.offer" />
+                                </Button>
+                            </TooltipWrapper>
                         </Col>
                     </Row>
                 </Form>

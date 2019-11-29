@@ -15,7 +15,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                 {getTranslatedText(solution.name)}
             </Card.Title>
             <Row>
-                <Col md={10}>
+                <Col md={10} className="mb-4">
                     <Row>
                         <Col>
                             <p>{getTranslatedText(solution.description)}</p>

@@ -39,7 +39,7 @@ const DisasterInfo = (props) => (
                 {getTranslatedText(props.disaster.details.name)}
             </Card.Title>
             <Row>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <Image rounded width="240px" src={props.disaster.details.imageUrl} />
                 </Col>
                 <Col md={8}>

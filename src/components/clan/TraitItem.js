@@ -6,7 +6,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 const TraitItem = ({trait}) => (
     <div data-tip data-for={trait.details.identifier}>
-        <img className="mr-2 mb-2" height="32" src={trait.details.imageUrl} alt="" />
+        <img className="mr-2 mt-2" height="32" src={trait.details.imageUrl} alt="" />
         
         <ReactTooltip id={trait.details.identifier} effect="solid">
             <b>{getTranslatedText(trait.details.name)}</b>

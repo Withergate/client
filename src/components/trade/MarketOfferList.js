@@ -40,11 +40,12 @@ class MarketOfferList extends React.Component {
                             onPrevious={this.props.fetchMarketOffers}>
                             <Translate id="labels.page" /> {this.props.offers.number + 1}
                         </Paginator>
-
-                        { this.props.offers.content.length ? 
-                            renderList(this.props.offers.content, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
-                            : <Translate id="labels.noOffers" />
-                        }
+                        <div className="mt-2">
+                            { this.props.offers.content.length ? 
+                                renderList(this.props.offers.content, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
+                                : <Translate id="labels.noOffers" />
+                            }
+                        </div>
                     </div>
                 }
                 {
@@ -59,13 +60,9 @@ class MarketOfferList extends React.Component {
 };
 
 const renderList = (offers, onBuy, onCancel, filter, clanId) => (
-    <div className="mt-2">
-        {
-            offers
-                .filter(offer => (offer.details.itemType === filter || filter === ALL))
-                .map(offer => renderListItem(offer, onBuy, onCancel, clanId))
-            }
-    </div>
+        offers
+            .filter(offer => (offer.details.itemType === filter || filter === ALL))
+            .map(offer => renderListItem(offer, onBuy, onCancel, clanId))
 );
 
 const renderListItem = (offer, onBuy, onCancel, clanId) => (
