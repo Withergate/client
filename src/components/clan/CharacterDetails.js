@@ -7,7 +7,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import { Row, Col, Image } from 'react-bootstrap';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, SMALL } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, LARGE } from '../../constants/constants';
 import CharacterHeader from './CharacterHeader';
 
 const CharacterDetails = ({character}) => (
@@ -15,12 +15,12 @@ const CharacterDetails = ({character}) => (
         <Row>
             <Col md={3} sm={12}>
                 <Row>
-                    <Col>
-                        <CharacterHeader character={character} size={SMALL} />
-                    </Col>
+                    <Col><Image rounded width="90px" src={character.imageUrl} /></Col>
                 </Row>
-                <Row>
-                    <Col><Image rounded width="60px" src={character.imageUrl} /></Col>
+                <Row className="mt-2">
+                    <Col>
+                        <CharacterHeader character={character} size={LARGE} skipName />
+                    </Col>
                 </Row>
             </Col>
             <Col md={4} sm={12}>

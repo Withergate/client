@@ -17,10 +17,10 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                 <CharacterHeader character={offer.character} size={LARGE} />
             </Card.Title>
             <Row>
-                <Col md={2}>
+                <Col md={2} className="mb-2">
                     <Image rounded width="120px" src={offer.character.imageUrl} />
                 </Col>
-                <Col md={4}>
+                <Col md={4} className="mb-2">
                     <AttributeBar name="basic.combat" value={offer.character.combat} iconType={COMBAT} />
                     <AttributeBar name="basic.scavenge" value={offer.character.scavenge} iconType={SCAVENGE} />
                     <AttributeBar name="basic.craftsmanship" value={offer.character.craftsmanship} iconType={CRAFTSMANSHIP} />
@@ -32,15 +32,15 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                             max={offer.character.maxHitpoints}
                             variant="success" />
                 </Col>
-                <Col md={2}>
+                <Col md={2} className="mb-2">
                     {
                         offer.character.traits.length > 0 ?
                             offer.character.traits.map(trait => <TraitItem trait={trait} key={trait.id} />)
                         : <Translate id="basic.noTraits" />
                     }
                 </Col>
-                <Col md={2}>
-                    <GameIcon type={CAPS} size={LARGE} value={offer.price} />
+                <Col md={2} className="mb-2">
+                    <GameIcon type={CAPS} size={LARGE} value={offer.price} noPadding />
                 </Col>
                 <Col md={2}>
                     { selectedCharacter !== undefined ?
