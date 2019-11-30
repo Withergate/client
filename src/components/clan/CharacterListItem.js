@@ -25,7 +25,7 @@ class CharacterListItem extends Component {
                 <Row>
                     <Col md={2} xs={5}>
                         <Row>
-                            <Col><Image rounded width="120px" src={character.imageUrl} /></Col>
+                            <Col><Image rounded className="w-100" src={character.imageUrl} /></Col>
                         </Row>
                         <Row className="mt-1">
                             <Col>

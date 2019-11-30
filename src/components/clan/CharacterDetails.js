@@ -15,7 +15,7 @@ const CharacterDetails = ({character}) => (
         <Row>
             <Col md={2} xs={4} className="mb-2">
                 <Row className="mb-2">
-                    <Col><Image rounded width="90px" src={character.imageUrl} /></Col>
+                    <Col><Image rounded className="w-100" src={character.imageUrl} /></Col>
                 </Row>
                 <Row>
                     <Col>

@@ -17,7 +17,7 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
             </Card.Title>
             <Row>
                 <Col md={2} xs={5} className="mb-2">
-                    <Image rounded width="120px" src={offer.character.imageUrl} />
+                    <Image rounded className="w-100" src={offer.character.imageUrl} />
                 </Col>
                 <Col md={4} xs={7} className="mb-2">
                     <AttributeBar name="basic.combat" value={offer.character.combat} iconType={COMBAT} />

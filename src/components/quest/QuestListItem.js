@@ -17,7 +17,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
             </Card.Title>
             <Row>
                 <Col md={4} className="mb-2">
-                    <Image rounded src={quest.details.imageUrl} height="120px" />
+                    <Image rounded src={quest.details.imageUrl} className="w-100" />
                 </Col>
                 <Col md={8}>
                     <Row>

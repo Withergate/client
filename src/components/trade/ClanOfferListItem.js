@@ -50,7 +50,7 @@ class ClanOfferListItem extends React.Component {
                 </Card.Title>
                 <Row>
                     <Col md={4} className="mb-2">
-                        <Image rounded src={this.props.offer.details.imageUrl} width="120px" />
+                        <Image rounded src={this.props.offer.details.imageUrl} className="w-100" />
                     </Col>
                     <Col md={8}>
                         <p>{getTranslatedText(this.props.offer.details.description)} </p>

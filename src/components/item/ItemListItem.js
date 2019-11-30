@@ -16,7 +16,7 @@ const ItemListItem = ({item, selectedCharacter, equipItem}) => (
             </Card.Title>
             <Row>
                 <Col md={2} className="mb-2">
-                    <Image src={item.details.imageUrl} rounded width="120px" />
+                    <Image src={item.details.imageUrl} rounded className="w-100" />
                 </Col>
                 <Col md={10}>
                     <p>

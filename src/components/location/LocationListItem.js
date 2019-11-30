@@ -20,7 +20,7 @@ const LocationListItem = ({location, selectedCharacter, onVisit}) => (
             </Card.Title>
             <Row>
                 <Col md={4} className="mb-2">
-                    <Image rounded width="240px" src={location.imageUrl} />
+                    <Image rounded className="w-100" src={location.imageUrl} />
                 </Col>
                 <Col md={8}>
                     <Row>

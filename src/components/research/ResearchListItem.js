@@ -14,7 +14,7 @@ const ResearchListItem = ({research, selectedCharacter, doResearch, actionable})
             </Card.Title>
             <Row>
                 <Col md={4} className="mb-2">
-                    <Image rounded src={research.details.imageUrl} width="240px" />
+                    <Image rounded src={research.details.imageUrl} className="w-100" />
                 </Col>
                 <Col md={8}>
                     <Row>

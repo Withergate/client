@@ -18,7 +18,7 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
             </Card.Title>
             <Row>
                 <Col md={4} className="mb-2">
-                    <Image rounded src={offer.details.imageUrl} height="120px" />
+                    <Image rounded src={offer.details.imageUrl} className="w-100" />
                 </Col>
                 <Col md={8}>
                     <p>{getTranslatedText(offer.details.description)}</p>
