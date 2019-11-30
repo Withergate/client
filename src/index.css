@@ -66,3 +66,10 @@ body {
   bottom: auto;
   position: unset;
 }
+
+.tooltip-multiline {
+  max-width: 300px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  display: block;
+}
