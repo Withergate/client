@@ -67,6 +67,9 @@ body {
   position: unset;
 }
 
+/*
+* Tooltips
+*/
 .tooltip-multiline {
   max-width: 300px;
   word-break: keep-all;
