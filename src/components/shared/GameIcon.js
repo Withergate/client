@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -51,6 +51,7 @@ const getIconSource = (type) => {
         case SKILLPOINT: return skillpointIcon;
         case ENCOUNTER: return encounterIcon;
         case LOGOUT: return logoutIcon;
+        case ITEM: return itemIcon;
         default: return "";
     }
 }
@@ -77,6 +78,7 @@ const getTranslationKey = (type) => {
         case SKILLPOINT: return "labels.skillpoint";
         case ENCOUNTER: return "labels.encounterChance";
         case LOGOUT: return "header.logout";
+        case ITEM: return "basic.item";
         default: return "";
     }
 }

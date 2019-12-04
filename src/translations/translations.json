@@ -61,7 +61,8 @@
         "injury": ["Injury", "Zranění"],
         "healing": ["Healing", "Léčba"],
         "death": ["Death", "Smrt"],
-        "research": ["Research", "Výzkum"]
+        "research": ["Research", "Výzkum"],
+        "item": ["Item", "Předmět"]
     },
     "labels": {
         "actions": ["Actions", "Akce"],
