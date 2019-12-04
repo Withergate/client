@@ -9,6 +9,7 @@ import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE } from '../../constants/constants';
 import { getRarityTextColor } from '../item/itemUtils';
 import ItemDetails from '../item/ItemDetails';
+import TooltipWrapper from '../shared/TooltipWrapper';
 
 const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
@@ -24,7 +25,7 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
                     <p>{getTranslatedText(offer.details.description)}</p>
                     <ItemDetails details={offer.details} />
 
-                    <p className="mt-2"><b><Translate id="labels.seller" />: </b>{offer.seller.name}</p>
+                    <p className="mt-2"><b><Translate id="labels.seller" />: </b>{offer.seller ? offer.seller.name : "NPC"}</p>
 
                     <ul className="list-inline">
                         <li className="list-inline-item">
@@ -38,7 +39,7 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
             </Row>
         </Card.Body>
         <Card.Footer>
-            { clanId === offer.seller.id &&
+            { offer.seller && clanId === offer.seller.id &&
                 <Button 
                     variant="outline-success"
                     className="button-classic mr-2" 
@@ -46,13 +47,14 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
                     <Translate id="labels.cancel" />
                 </Button> 
             }
-
-            <Button 
-                variant="outline-success"
-                className="button-classic"
-                onClick={() => onBuy(offer.id)}>
-                <Translate id="labels.buy" />
-            </Button>
+            <TooltipWrapper textKey="labels.buyTooltip">
+                <Button 
+                    variant="outline-success"
+                    className="button-classic"
+                    onClick={() => onBuy(offer.id)}>
+                    <Translate id="labels.buy" />
+                </Button>
+            </TooltipWrapper>
             
         </Card.Footer>
     </Card>

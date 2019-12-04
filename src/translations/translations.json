@@ -84,6 +84,8 @@
         "scout": ["Scout", "Výzvědy"],
         "construct": ["Construct", "Stavět"],
         "buy": ["Buy", "Koupit"],
+        "buyTooltip": ["All trade actions will trigger during turn evaluation. Your caps will be deducted immediately but the item and caps for the seller will be transfered at the end of the turn.",
+        "Veškeré obchody se vyhodnocují během přepočtu kola. Zátky za nákup se ti odečtou okamžitě, ale předmět a zátky pro prodávající klan se připíší až na konci kola."],
         "sell": ["Sell", "Prodat"],
         "trade": ["Trade", "Obchod"],
         "rest": ["Rest", "Odpočívat"],
