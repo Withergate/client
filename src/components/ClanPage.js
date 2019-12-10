@@ -77,7 +77,7 @@ class ClanPage extends Component {
                                     <Tab.Content>
                                         <Tab.Pane eventKey="overview">
                                             <ClanSummary clan={this.props.clan} />
-                                            <DefaultActionPanel clan={this.props.clan} changeDefaultAction={this.props.changeDefaultAction} />
+                                            <DefaultActionPanel />
                                             <GameMechanicsOverview />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">

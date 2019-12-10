@@ -74,8 +74,8 @@ export const handleDisaster = (characterId, solution) => {
     JSON.stringify({characterId: characterId, solution: solution}));
 };
 
-export const changeDefaultAction = (defaultAction) => {
-    return apiPut(API_URL.concat('clan/defaultAction'), JSON.stringify({defaultAction: defaultAction}))
+export const changeDefaultAction = (defaultAction, preferDisaster) => {
+    return apiPut(API_URL.concat('clan/defaultAction'), JSON.stringify({defaultAction: defaultAction, preferDisaster: preferDisaster}))
 };
 
 export const activateTrait = (characterId, traitName) => {
