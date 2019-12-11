@@ -276,14 +276,15 @@
     "base": {
         "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
         "restTooltip": ["Character will rest and recover lost health.", "Postava bude odpočívat a doplní si zraněné životy."],
-        "trainingDescription": ["You say you wanna learn something? Sit down and listen - practice makes perfect! Characters with available skill points can get a new trait here. The number of available traits depends on the level of your Training Grounds. Once the trait is selected, your character will rest until the end of the turn so you will not be able to use him/her for any actions this turn.",
-        "Říkáš, že se chceš něco naučit? Tak sedni a poslouchej - cvičení dělá mistra! Tvé postavy se zde mohou naučit novou schopnost. Velikost nabídky je ovlivněna úrovní tvého Cvičiště. Jakmile si vybereš schopnost, tvá postava ji získá a bude do konce kola odpočívat, takže ji toto kolo již nevyužiješ na žádné akce."],
+        "trainingDescription": ["You say you wanna learn something? Sit down and listen - practice makes perfect! Characters with available skill points can get a new trait here. The number of available traits depends on the level of your Training Grounds. Once the trait is selected, your character will rest until the end of the turn so you will not be able to use him/her for any actions this turn. Alternatively, you can pay caps to some trainer from Wasteland and learn the skill without the need for resting.",
+        "Říkáš, že se chceš něco naučit? Tak sedni a poslouchej - cvičení dělá mistra! Tvé postavy se zde mohou naučit novou schopnost. Velikost nabídky je ovlivněna úrovní tvého Cvičiště. Jakmile si vybereš schopnost, tvá postava ji získá a bude do konce kola odpočívat, takže ji toto kolo již nevyužiješ na žádné akce. Nebo můžeš zaplatit pár zátek trenérovi z Pustiny a naučit se schopnost bez nutnosti odpočívat."],
         "noSkillpoints": ["No skillpoints", "Žádné dovednostní body"],
         "train": ["Train", "Trénuj"],
+        "trainNow": ["Now", "Hned"],
         "trainTooltip": ["Character will gain a new trait and rest. All the standard benefits of resting will be applied.", "Postava se naučí novou schopnost a půjde odpočívat. Veškeré další bonusy spojené s odpočinkem se započítají."]
     },
     "tutorial": {
-        "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 and and 6 pm UTC (7:00 and 19:00 CET).",
+        "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (7:00 and 19:00 CET).",
         "Withergate je tahová hra. Tvoje akce se nevyhodnocují ihned, ale musíš počkat až do konce kola. Jakmile kolo skončí, akce všech hráčů se provedou současně. Aktuální kolo můžeš vidět v pravém horním sloupci. K vyhodnocení dochází dvakrát denně v 6:00 a 18:00 UTC (tedy 7:00 a 19:00 CET)."],
         "news": ["This is the notification page. Once you perform some game actions and the turn is evaluated, you will see the outcome of your actions here. Apart from notification text, some messages also contain income in the top right corner of details under the main section.",
         "Toto je stránka notifikací. Až podnikneš nějaké herní akce a vyhodnotí se kolo, uvidíš výsledek svého úsilí zde. Kromě textu zprávy ještě některé události obsahují příjem/ztrátu v pravém horním rohu a nebo detaily pod hlavním textem."],
@@ -292,7 +293,10 @@
         "actions": ["This is probably the most important section. All your game actions will be done here. After you select a character, you will be able to assign an action to him. This action will be performed at the end of the turn. Remember that each character can perform only one action per turn.",
         "Toto je asi nejdůležitější sekce. Veškeré herní akce budou vybírány tady. Jakmile si vybereš postavu, budeš jí moci přiřadit akci z bohaté nabídky. Výsledek bude vyhodnocen na konci kola. Pamatuj, že každá postava může vykonat pouze jednu akci za kolo."],
         "fame": ["The goal of the game is to gain as much fame as possible for your clan by performing game actions. The clan with highest level of fame at the end of the last turn will win the era.",
-        "Cílem hry je získat co nejvíce slávy pro tvůj klan pomocí herních akcí. Ten, kdo dosáhne největší hodnoty slávy na konci posledního kola, se stane vítězem věku."]
+        "Cílem hry je získat co nejvíce slávy pro tvůj klan pomocí herních akcí. Ten, kdo dosáhne největší hodnoty slávy na konci posledního kola, se stane vítězem věku."],
+        "defaultHeader": ["Default actions", "Výchozí akce"],
+        "default": ["It may happen that you won't be able to take a turn. Don't worry, you will not lose your actions. You can specify a default action from a limited selection for your characters in the Clan section. Your characters will always perform this selected action if you don't assign them any activity. But remember that it is always more profitable to take your turn then relying on default actions.",
+        "Občas se může stát, že nestihneš odehrát své kolo. Neboj, o své akce nepřijdeš. V sekci Klan můžeš nastavit výchozí akci, kterou tvé postavy vykonají v případě, že jim žádnou jinou aktivitu nepřiřadíš. Pamatuj však, že je vždy výhodnější odehrát kolo než se spoléhat na výchozí akce."]
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],

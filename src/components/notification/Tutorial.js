@@ -54,6 +54,16 @@ const Tutorial = () => (
                 <p><Translate id="tutorial.fame" /></p>
             </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item>
+            <Carousel.Caption>
+                <Image
+                    className="d-block w-100 mt-4 mb-4"
+                    src="https://storage.googleapis.com/withergate-images/tutorial/default.png" 
+                />
+                <h3><Translate id="tutorial.defaultHeader" /></h3>
+                <p><Translate id="tutorial.default" /></p>
+            </Carousel.Caption>
+        </Carousel.Item>
     </Carousel>
 );
 

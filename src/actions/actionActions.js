@@ -252,11 +252,11 @@ const handleDisasterAction = (characterId, solution) => {
 };
 export { handleDisasterAction as handleDisaster };
 
-const activateTraitAction = (characterId, traitName) => {
+const activateTraitAction = (characterId, traitName, immediate) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: activateTrait(characterId, traitName)
+            payload: activateTrait(characterId, traitName, immediate)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

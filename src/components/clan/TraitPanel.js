@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 
 import { activateTrait } from '../../actions/actionActions';
 import { ActionButton } from '../shared/ActionButton';
 import TraitItem from './TraitItem';
+import { GameIcon } from '../shared/GameIcon';
+import { CAPS, SMALL } from '../../constants/constants';
 
 class TraitPanel extends React.Component {
     render() {
@@ -29,9 +31,22 @@ class TraitPanel extends React.Component {
                                         <TraitItem trait={trait} />
                                         <ActionButton
                                             character={this.props.selectedCharacter}
-                                            action={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier)}
+                                            action={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, false)}
                                             buttonText="base.train"
                                             tooltip="base.trainTooltip" />
+                                        <Button
+                                            className="button-large ml-2"
+                                            variant="outline-success"
+                                            onClick={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, true)}>
+                                            <Row>
+                                                <Col md={6} xs={6}>
+                                                    <Translate id="base.trainNow" />
+                                                </Col>
+                                                <Col md={6} xs={6}>
+                                                    <GameIcon type={CAPS} size={SMALL} value={this.props.trainingPrice} noPadding />
+                                                </Col>
+                                            </Row>
+                                        </Button>
                                     </Row>  
                                 )
                                 : <small className="text-muted"><Translate id="base.noSkillpoints" /></small>
@@ -46,14 +61,16 @@ class TraitPanel extends React.Component {
 
 TraitPanel.propTypes = {
     selectedCharacter: PropTypes.object,
-    clan: PropTypes.object.isRequired
+    clan: PropTypes.object.isRequired,
+    trainingPrice: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
     const selectedCharacter = state.clan.selectedCharacter;
     const clan = state.clan.clan;
+    const trainingPrice = state.game.properties.trainingPrice;
 
-    return { selectedCharacter, clan };
+    return { selectedCharacter, clan, trainingPrice };
 };
 
 const mapDispatchToProps = dispatch => (

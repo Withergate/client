@@ -78,9 +78,9 @@ export const changeDefaultAction = (defaultAction, preferDisaster) => {
     return apiPut(API_URL.concat('clan/defaultAction'), JSON.stringify({defaultAction: defaultAction, preferDisaster: preferDisaster}))
 };
 
-export const activateTrait = (characterId, traitName) => {
+export const activateTrait = (characterId, traitName, immediate) => {
     return apiPost(API_URL.concat('characters/trait'), 
-    JSON.stringify({characterId: characterId, traitName: traitName}));
+    JSON.stringify({characterId: characterId, traitName: traitName, immediate: immediate}));
 };
 
 export const refreshTavern = () => {
