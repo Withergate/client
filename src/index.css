@@ -57,7 +57,9 @@ body {
  * Carousel - tutorial
  */
 .carousel {
-  background-color: var(--secondary);
+  background-color: var(--dark);
+  border-radius: 16px 16px 16px 16px;
+  overflow: hidden;
 }
 
 .carousel-item {

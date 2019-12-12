@@ -22,7 +22,7 @@ const LoginPage = () => (
             !window._env_.START_DATE ?
             <>
                 <a href={TOKEN_URL}>
-                    <Button className="m-4" variant="dark"><Translate id="login.button" /></Button>
+                    <Button className="m-4 button-classic" variant="dark"><Translate id="login.button" /></Button>
                 </a>
                 <p className="text-muted">
                     <small className="text-muted">

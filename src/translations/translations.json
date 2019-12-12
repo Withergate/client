@@ -105,7 +105,7 @@
         "noBuildings": ["You don't have any buildings at the moment. You can go to the Actions section to start a building construction.",
         "Momentálně nemáš žádné budovy. V sekci Akce můžeš začít se stavbou."],
         "noQuests": ["You don't have any quests at the moment. Increaes your clan's information level to get new quests.",
-        "Momentálně nemáš žádné úkoly. Zvýšením úrovně informací svého klanu může nové úkoly získat."],
+        "Momentálně nemáš žádné úkoly. Zvýšením úrovně informací svého klanu můžeš nové úkoly získat."],
         "noCompletedQuests": ["You have not completed any quests yet.",
         "Zatím nemáš žádné dokončené úkoly."], 
         "buildingConstruction": ["Character will increase the progress of the building by his/her craftsmanship. The same amount of junk needs to be paid for this action.",
@@ -160,7 +160,9 @@
         "lockedResearch": ["${count} research projects are yet to be discovered. Increase your information level to uncover them.",
         "${count} výzkumných projektů čeká na objevení. Zvyš úroveň informací svého klanu pro jejich odkrytí."],
         "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně sníženy následkem zranění."],
-        "skillpoint": ["Skill point available. Assign new trait to this character in the Actions->Base.", "Dovednostní bod je k dispozici. Přiřaď postavě novou schopnost v sekci Akce->Kemp."]
+        "skillpoint": ["Skill point available. Assign new trait to this character in the Actions->Base.", "Dovednostní bod je k dispozici. Přiřaď postavě novou schopnost v sekci Akce->Kemp."],
+        "marketplaceInfo": ["All trade actions will be evaluated at the end of the turn. Once you purchase something at the markeplace, the offer will disappear but both the item and the caps will be awarded after the turn evaluation.",
+        "Veškerý obchod se vyhodnocuje na konci kola. Jakmile zakoupíš nějaký předmět na trhu, nabídka zmizí, ale jak předmět, tak zátky budu pripsány až po vyhodnocení tahu."]
     },
     "defaultAction": {
         "actionDescription": ["This action will be taken by all characters that has no other action is assigned.", "Tuto akci vykonají všechny postavy, které nemají přiřazenou jinou akci."],

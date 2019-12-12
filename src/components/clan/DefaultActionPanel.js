@@ -79,6 +79,7 @@ class DefaultActionPanel extends React.Component {
             </Card.Body>
             <Card.Footer>
                 <Button
+                    className="button-classic"
                     variant="dark"
                     checked={this.preferDisaster}
                     onClick={() => this.handleSubmit()} >
