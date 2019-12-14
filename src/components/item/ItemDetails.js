@@ -10,13 +10,13 @@ const ItemDetails = ({details}) => (
             details.itemType === WEAPON &&
                 <>
                     <b><Translate id="basic.type" />: </b><Translate id={details.weaponType} /><br />
-                    <b><Translate id="basic.combat" />: </b>{details.bonus}
+                    <b><Translate id="basic.combat" />: </b>{details.combat}
                 </>
         }
         {
             details.itemType === OUTFIT &&
                 <>
-                    <b><Translate id="basic.armor" />: </b>{details.bonus}
+                    <b><Translate id="basic.armor" />: </b>{details.combat}
                 </>
         }
         {
