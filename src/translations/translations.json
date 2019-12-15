@@ -248,7 +248,9 @@
         "COMBAT": ["Tackling this quest will result in a combat. The quest will be completed once all enemies are defeated.", "Plnění tohoto úkolu vyústí v souboj. Úkol bude splněn, jakmile budou poraženi všichni nepřátelé."],
         "INTELLECT": ["Tackling this quest will result in an intellect roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na intelekt. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
         "CRAFTSMANSHIP": ["Tackling this quest will result in a craftsmanship roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolu vyústí v hod na zručnost. Úkol bude splněn, jakmile dojde k úspěšnému přehození daného počtu hodů."],
-        "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jakmile bude přehozen určitý počet hodů."]
+        "SCAVENGE": ["Tackling this quest will result in a scavenge roll. The quest will be completed once certain amount of rolls are successful.", "Plnění tohoto úkolů vyústí v hod na hledání. Úkol bude splněn, jakmile bude přehozen určitý počet hodů."],
+        "HEALTHY_CHARACTER": ["Only healthy characters can tackle this quest.", "Pouze nezraněné postavy mohou řešit tento úkol."],
+        "FEMALE_CHARACTER": ["Only female characters can tackle this quest.", "Pouze postavy ženského pohlaví mohou řešit tento úkol."]
     },
     "disaster": {
         "tooltip": ["Character will try to increase progress of the disaster resolution.", "Postava se pokusí zvýšit postup odvracení pohromy."],
