@@ -62,7 +62,8 @@
         "healing": ["Healing", "Léčba"],
         "death": ["Death", "Smrt"],
         "research": ["Research", "Výzkum"],
-        "item": ["Item", "Předmět"]
+        "item": ["Item", "Předmět"],
+        "statistics": ["Statistics", "Statistiky"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -301,6 +302,14 @@
         "defaultHeader": ["Default actions", "Výchozí akce"],
         "default": ["It may happen that you won't be able to take a turn. Don't worry, you will not lose your actions. You can specify a default action from a limited selection for your characters in the Clan section. Your characters will always perform this selected action if you don't assign them any activity. But remember that it is always more profitable to take your turn then relying on default actions.",
         "Občas se může stát, že nestihneš odehrát své kolo. Neboj, o své akce nepřijdeš. V sekci Klan můžeš nastavit výchozí akci, kterou tvé postavy vykonají v případě, že jim žádnou jinou aktivitu nepřiřadíš. Pamatuj však, že je vždy výhodnější odehrát kolo než se spoléhat na výchozí akce."]
+    },
+    "statistics": {
+        "noData": ["Statistics will be available after first three turns. Not enough data at the moment.", "Statistiky budou k dispozici po třetím kole. Zatím není k dispozici dostatek dat."],
+        "buildings": ["Sum of all building levels", "Součet úrovní budov"],
+        "research": ["Completed research", "Dokončené výzkumy"],
+        "fameTitle": ["Fame over time", "Vývoj slávy v čase"],
+        "resourcesTitle": ["Resources over time", "Vývoj surovin v čase"],
+        "assetsTitle": ["Assets over time", "Vývoj prostředků v čase"]
     },
     "MELEE": ["Melee", "Kontaktní"],
     "RANGED": ["Ranged", "Střelná"],

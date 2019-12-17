@@ -27,7 +27,7 @@ class TraitPanel extends React.Component {
                         { this.props.selectedCharacter !== undefined ?
                             this.props.selectedCharacter.skillPoints > 0 ?
                                 this.props.selectedCharacter.traits.filter(trait => !trait.active).map(trait =>
-                                    <Row className="mb-2 ml-1">
+                                    <Row className="mb-2 ml-1" key={trait.id}>
                                         <TraitItem trait={trait} />
                                         <ActionButton
                                             character={this.props.selectedCharacter}

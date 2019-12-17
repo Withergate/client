@@ -31,6 +31,7 @@ import {
 import DefaultActionPanel from './clan/DefaultActionPanel';
 import GameMechanicsOverview from './clan/GameMechanicsOverview';
 import ResearchList from './research/ResearchList';
+import ClanStatisticsPanel from './clan/ClanStatisticsPanel';
 
 class ClanPage extends Component {
 
@@ -70,6 +71,9 @@ class ClanPage extends Component {
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="quests"className="tab-link" ><Translate id="basic.questsCompleted" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="statistics"className="tab-link" ><Translate id="basic.statistics" /></Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -119,6 +123,9 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="quests">
                                             <QuestListCompleted 
                                                 quests={this.props.clan.quests.filter(quest => quest.completed)} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="statistics">
+                                            <ClanStatisticsPanel />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>

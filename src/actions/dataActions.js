@@ -11,7 +11,8 @@ import {
     fetchTavernOffers,
     fetchDisaster,
     fetchGameProperties,
-    fetchArenaStats
+    fetchArenaStats,
+    fetchClanStatistics
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -80,6 +81,11 @@ export const FETCH_ARENA_STATS = 'FETCH_ARENA_STATS';
 export const FETCH_ARENA_STATS_PENDING = 'FETCH_ARENA_STATS_PENDING';
 export const FETCH_ARENA_STATS_FULFILLED = 'FETCH_ARENA_STATS_FULFILLED';
 export const FETCH_ARENA_STATS_REJECTED = 'FETCH_ARENA_STATS_REJECTED';
+
+export const FETCH_CLAN_STATISTICS = 'FETCH_CLAN_STATISTICS';
+export const FETCH_CLAN_STATISTICS_PENDING = 'FETCH_CLAN_STATISTICS_PENDING';
+export const FETCH_CLAN_STATISTICS_FULFILLED = 'FETCH_CLAN_STATISTICS_FULFILLED';
+export const FETCH_CLAN_STATISTICS_REJECTED = 'FETCH_CLAN_STATISTICS_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -182,3 +188,9 @@ const fetchArenaStatsAction = () => ({
     payload: fetchArenaStats()
 });
 export { fetchArenaStatsAction as fetchArenaStats };
+
+const fetchClanStatisticsAction = () => ({
+    type: FETCH_CLAN_STATISTICS,
+    payload: fetchClanStatistics()
+});
+export { fetchClanStatisticsAction as fetchClanStatistics };

@@ -71,3 +71,7 @@ export const fetchDisaster = () => {
 export const fetchArenaStats = () => {
     return apiGet(API_URL.concat('arena/stats'));
 };
+
+export const fetchClanStatistics = () => {
+    return apiGet(API_URL.concat('clan/statistics'));
+};

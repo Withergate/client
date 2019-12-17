@@ -10,6 +10,9 @@ import {
     FETCH_TAVERN_OFFERS_PENDING,
     FETCH_TAVERN_OFFERS_FULFILLED,
     FETCH_TAVERN_OFFERS_REJECTED,
+    FETCH_CLAN_STATISTICS_PENDING,
+    FETCH_CLAN_STATISTICS_FULFILLED,
+    FETCH_CLAN_STATISTICS_REJECTED,
 } from '../actions/dataActions';
 
 import {
@@ -33,6 +36,13 @@ const initialState = {
         error: ''
     },
     clanCreation: {
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    statistics: {
+        data: [],
         fetching: false,
         fetched: false,
         failed: false,
@@ -164,6 +174,39 @@ export const ClanReducer = (state = initialState, action) => {
             return {
                 ...state,
                 clanCreation: {
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload,
+                }
+            };
+        case FETCH_CLAN_STATISTICS_PENDING:
+            return {
+                ...state,
+                statistics: {
+                    data: [],
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                    error: ''
+                },    
+            };
+        case FETCH_CLAN_STATISTICS_FULFILLED:
+            return {
+                ...state,
+                statistics: {
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: '',
+                }
+            };
+        case FETCH_CLAN_STATISTICS_REJECTED:
+            return {
+                ...state,
+                statistics: {
+                    data: [],
                     fetching: false,
                     fetched: false,
                     failed: true,
