@@ -52,7 +52,7 @@ class NotificationPanel extends Component {
                             <Row className="mb-3">
                                 <Col md={1}>
                                     <FormLabel>
-                                        <Translate id="labels.message" />
+                                        <Translate id="admin.message" />
                                     </FormLabel>
                                 </Col>
                                 <Col md={11}>
@@ -68,7 +68,7 @@ class NotificationPanel extends Component {
                             <Row>
                                 <Col md={1}>
                                     <FormLabel>
-                                        <Translate id="labels.state" />
+                                        <Translate id="admin.state" />
                                     </FormLabel>
                                 </Col>
                                 <Col md={11}>
@@ -77,8 +77,8 @@ class NotificationPanel extends Component {
                                         name = "active"
                                         defaultValue={this.state.active}
                                         onChange={e => this.handleActiveChange(e)}>
-                                        <ToggleButton variant="outline-warning" value={true}><Translate id="labels.active" /></ToggleButton>
-                                        <ToggleButton variant="outline-warning" value={false}><Translate id="labels.hidden" /></ToggleButton>
+                                        <ToggleButton variant="outline-warning" value={true}><Translate id="admin.active" /></ToggleButton>
+                                        <ToggleButton variant="outline-warning" value={false}><Translate id="admin.hidden" /></ToggleButton>
                                     </ToggleButtonGroup>
                                 </Col>
                             </Row>

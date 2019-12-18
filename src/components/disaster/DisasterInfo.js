@@ -10,26 +10,26 @@ import { FAME, LARGE } from '../../constants/constants';
 const renderPenaltyText = (penalty, i, progress, partialThreshold, failureThreshold) => {
     if (i === 2) {
         if (progress >= failureThreshold) {
-            return <s><Translate id={penalty.penaltyType} /> (&lt; { failureThreshold }%)</s>
+            return <s><Translate id={"disaster." + penalty.penaltyType} /> (&lt; { failureThreshold }%)</s>
         } else {
-            return <><Translate id={penalty.penaltyType} /> (&lt; { failureThreshold }%)</>
+            return <><Translate id={"disaster." + penalty.penaltyType} /> (&lt; { failureThreshold }%)</>
         }
     }
     if (i === 1) {
         if (progress >= partialThreshold) {
-            return <s><Translate id={penalty.penaltyType} /> (&lt; { partialThreshold }%)</s>
+            return <s><Translate id={"disaster." + penalty.penaltyType} /> (&lt; { partialThreshold }%)</s>
         } else {
-            return <><Translate id={penalty.penaltyType} /> (&lt; { partialThreshold }%)</>
+            return <><Translate id={"disaster." + penalty.penaltyType} /> (&lt; { partialThreshold }%)</>
         }
     }
     if (i === 0) {
         if (progress >= 100) {
-            return <s><Translate id={penalty.penaltyType} /> (&lt; 100%)</s>
+            return <s><Translate id={"disaster." + penalty.penaltyType} /> (&lt; 100%)</s>
         } else {
-            return <><Translate id={penalty.penaltyType} /> (&lt; 100%)</>
+            return <><Translate id={"disaster." + penalty.penaltyType} /> (&lt; 100%)</>
         }
     }
-    return <Translate id={penalty.penaltyType} />
+    return <Translate id={"disaster." + penalty.penaltyType} />
 }
 
 const DisasterInfo = (props) => (
@@ -50,7 +50,7 @@ const DisasterInfo = (props) => (
                     </Row>
                     <Row>
                         <Col md={12}>
-                            <p><b><Translate id="labels.disasterConsequences" /></b></p>
+                            <p><b><Translate id="disaster.disasterConsequences" /></b></p>
                             <ul>
                                 {
                                     props.disaster.details.penalties.map((penalty, i) =>
@@ -76,7 +76,7 @@ const DisasterInfo = (props) => (
                     </Row>
                     <Row>
                         <Col>
-                            <p><Translate id="labels.disasterTurn" data={{ turn: props.disaster.turn }}/></p>
+                            <p><Translate id="disaster.disasterTurn" data={{ turn: props.disaster.turn }}/></p>
                             
                             <ProgressBar min={0}
                                 max={100}

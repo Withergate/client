@@ -23,7 +23,7 @@ class DisasterPanel extends React.Component {
             <div>
                 {
                     this.props.fetched && !this.props.disaster &&
-                    <Translate id="labels.noDisaster" />
+                    <Translate id="disaster.noDisaster" />
                 }
                 { this.props.fetched && this.props.disaster &&
                     <div>
@@ -36,8 +36,8 @@ class DisasterPanel extends React.Component {
 
                         { this.props.progress < 100 && 
                             <div>
-                                <h5><Translate id="labels.disasterAction" /></h5>
-                                <p><Translate id="labels.disasterActionText" /></p>
+                                <h5><Translate id="disaster.disasterAction" /></h5>
+                                <p><Translate id="disaster.disasterActionText" /></p>
                                 {
                                     this.props.disaster.details.solutions.map(solution =>
                                         <DisasterSolution

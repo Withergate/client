@@ -9,7 +9,7 @@ const ItemDetails = ({details}) => (
         {
             details.itemType === WEAPON &&
                 <>
-                    <b><Translate id="basic.type" />: </b><Translate id={details.weaponType} /><br />
+                    <b><Translate id="basic.type" />: </b><Translate id={"items." + details.weaponType} /><br />
                     <b><Translate id="basic.combat" />: </b>{details.combat}
                 </>
         }
@@ -28,7 +28,7 @@ const ItemDetails = ({details}) => (
         {
             details.itemType === CONSUMABLE &&
                 <>
-                    <b><Translate id="basic.type" />: </b><Translate id={details.effectType} /><br />
+                    <b><Translate id="basic.type" />: </b><Translate id={"items." + details.effectType} /><br />
                     <b><Translate id="basic.bonus" />: </b>{details.bonus}
                 </>
         }

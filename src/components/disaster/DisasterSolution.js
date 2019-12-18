@@ -19,7 +19,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                     <Row>
                         <Col>
                             <p>{getTranslatedText(solution.description)}</p>
-                            <p><small><Translate id={"disaster." + solution.solutionType} /></small></p>
+                            <p><small><Translate id={"solutions." + solution.solutionType} /></small></p>
                         </Col>
                     </Row>
                     <Row>
@@ -54,7 +54,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                     </Row>
                     <Row>
                         <Col>
-                            <b><Translate id="labels.disasterSolutionReward" />: </b>{solution.bonus}%
+                            <b><Translate id="disaster.disasterSolutionReward" />: </b>{solution.bonus}%
                         </Col>
                     </Row>
                 </Col>

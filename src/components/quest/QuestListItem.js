@@ -24,12 +24,12 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                         {getTranslatedText(quest.details.description)}
                     </Row>
                     { quest.details.condition && 
-                        <Row>
+                        <Row className="mt-2">
                             <small><Translate id={"quest." + quest.details.condition} /></small>
                         </Row>
                     }
-                    <Row>
-                        <small><Translate id={"quest." + quest.details.type} /></small>
+                    <Row className="mt-2">
+                        <small><Translate id={"solutions." + quest.details.type} /></small>
                     </Row>
                     <Row className="mt-2">
                         <b><Translate id="basic.reward" />: </b>

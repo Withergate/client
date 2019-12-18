@@ -35,42 +35,42 @@ class AdminPage extends Component {
                     <div className="m-4">
                         <Card className="mb-4">
                             <Card.Body>
-                                <Translate id="labels.endTurnDescription" />
+                                <Translate id="admin.endTurnDescription" />
                             </Card.Body>
                             <Card.Footer>
                                 <Button
                                     className="button-large"
                                     variant="danger"
                                     onClick={() => this.setState({ endTurnModal: true })} >
-                                    <Translate id="labels.endTurn" />
+                                    <Translate id="admin.endTurn" />
                                 </Button> 
                             </Card.Footer>
                         </Card>
 
                         <Card className="mb-4">
                             <Card.Body>
-                                <Translate id="labels.restartGameDescription" />
+                                <Translate id="admin.restartGameDescription" />
                             </Card.Body>
                             <Card.Footer>
                                 <Button
                                     className="button-large"
                                     variant="danger"
                                     onClick={() => this.setState({ restartGameModal: true })} >
-                                    <Translate id="labels.restartGame" />
+                                    <Translate id="admin.restartGame" />
                                 </Button>
                             </Card.Footer>
                         </Card>
 
                         <ConfirmationDialog
                             show={this.state.endTurnModal}
-                            text="labels.endTurnConfirmation"
-                            heading="labels.endTurn"
+                            text="admin.endTurnConfirmation"
+                            heading="admin.endTurn"
                             onClose={() => this.setState({ endTurnModal: false })}
                             onConfirm={() => this.props.endTurn()} />
                         <ConfirmationDialog
                             show={this.state.restartGameModal}
-                            text="labels.restartGameConfirmation"
-                            heading="labels.restartGame"
+                            text="admin.restartGameConfirmation"
+                            heading="admin.restartGame"
                             onClose={() => this.setState({ restartGameModal: false })}
                             onConfirm={() => this.props.restartGame()} />
 

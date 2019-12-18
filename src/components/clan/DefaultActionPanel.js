@@ -51,8 +51,8 @@ class DefaultActionPanel extends React.Component {
                         <Translate>
                             {({ translate }) =>
                                 <Form.Control as="select" value={this.state.defaultAction} onChange={e => this.handleActionChange(e)}>
-                                    <option value ={EXPLORE_NEIGHBORHOOD}>{translate(EXPLORE_NEIGHBORHOOD)}</option>
-                                    <option value={REST}>{translate(REST)}</option>
+                                    <option value ={EXPLORE_NEIGHBORHOOD}>{translate("defaultAction.explore")}</option>
+                                    <option value={REST}>{translate("defaultAction.rest")}</option>
                                 </Form.Control>
                             }
                         </Translate>
