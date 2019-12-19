@@ -172,8 +172,8 @@
         "Při nedostatku jídla bude postava hladovět a ztratí ${health} životy. Kromě toho se jí nedoplní žádné životy odpočinkem a tvůj klan přijde o ${fame} slávy."],
         "construction": ["Fame can be also increased by building construction. For each level of your newly constructed building, you will gain ${fame} fame.",
         "Sláva se dá získat i stavbou budov. Za každou úroveň nově postavené budovy tvůj klan získá ${fame} slávy."],
-        "research": ["Every research you finish will grant you ${fame} fame. Some research projects need higher information level to become available to your clan.",
-        "Každý výzkum, který dokončíš, ti přinese ${fame} slávy. Některé výzkumné projekty se ti zpřístupní až s vyšší úrovní informací tvého klanu."]
+        "research": ["Every research you finish will grant you certain amount of fame. Some research projects need higher information level to become available to your clan.",
+        "Každý výzkum, který dokončíš, ti přinese určité množství slávy. Některé výzkumné projekty se ti zpřístupní až s vyšší úrovní informací tvého klanu."]
     },
     "login": {
         "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",

@@ -5,6 +5,8 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, ProgressBar, Card, Image } from 'react-bootstrap';
 import { ActionButton } from '../shared/ActionButton';
+import { GameIcon } from '../shared/GameIcon';
+import { FAME, LARGE } from '../../constants/constants';
 
 const ResearchListItem = ({research, selectedCharacter, doResearch, actionable}) => (
     <Card className="mb-4">
@@ -25,6 +27,14 @@ const ResearchListItem = ({research, selectedCharacter, doResearch, actionable})
                             <p>
                                 <small>{getTranslatedText(research.details.info)}</small>
                             </p>
+                        </Col>
+                    </Row>
+                    <Row className="mt-2">
+                        <Col>
+                            <ul className="list-inline">
+                                <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                                <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={research.details.fame} /></li>
+                            </ul>
                         </Col>
                     </Row>
                     { actionable &&

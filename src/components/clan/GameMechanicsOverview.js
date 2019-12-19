@@ -23,7 +23,7 @@ const GameMechanicsOverview = ({properties}) => (
                             <Translate id="mechanics.construction" data={{ fame: properties.buildingFame }}/>
                         </li>
                         <li>
-                            <Translate id="mechanics.research" data={{ fame: properties.researchFame }}/>
+                            <Translate id="mechanics.research" />
                         </li>
                     </ul>      
                 </Col>
