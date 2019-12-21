@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { LARGE, CAPS, JUNK, FOOD } from '../../constants/constants';
+import { LARGE, CAPS, JUNK, FOOD, ITEM } from '../../constants/constants';
 import { ActionButton } from '../shared/ActionButton';
 
 const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
@@ -20,6 +20,11 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                         <Col>
                             <p>{getTranslatedText(solution.description)}</p>
                             <p><small><Translate id={"solutions." + solution.solutionType} /></small></p>
+                            { solution.condition && 
+                                <p className="mt-2">
+                                    <small><Translate id={"conditions." + solution.condition} /></small>
+                                </p>
+                            }
                         </Col>
                     </Row>
                     <Row>
@@ -29,7 +34,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                                     <b><Translate id="basic.price" />:</b>
                                 </li>
                                 {
-                                    solution.foodCost === 0 && solution.junkCost === 0 && solution.capsCost === 0 &&
+                                    solution.foodCost === 0 && solution.junkCost === 0 && solution.capsCost === 0 && !solution.itemCost &&
                                     <li className="list-inline-item">
                                         <Translate id="labels.free" />
                                     </li>
@@ -47,6 +52,11 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                                 { solution.capsCost !== 0 &&
                                     <li className="list-inline-item">
                                         <GameIcon type={CAPS} size={LARGE} value={solution.capsCost} />
+                                    </li>
+                                }
+                                { solution.itemCost &&
+                                    <li className="list-inline-item">
+                                        <GameIcon type={ITEM} size={LARGE} />
                                     </li>
                                 }
                             </ul>

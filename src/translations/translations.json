@@ -238,9 +238,7 @@
         "tooltip": ["Character will icrease the progress of this research by the value of his/her intellect.", "Postup v tomto výzkumu se zvýší o hodnotu intelektu dané postavy."]
     },
     "quest": {
-        "tooltip": ["Character will try to increase progress os this quest.", "Postava se pokusí zvýšit postup tohoto úkolu."],
-        "HEALTHY_CHARACTER": ["Only healthy characters can tackle this quest.", "Pouze nezraněné postavy mohou řešit tento úkol."],
-        "FEMALE_CHARACTER": ["Only female characters can tackle this quest.", "Pouze postavy ženského pohlaví mohou řešit tento úkol."]
+        "tooltip": ["Character will try to increase progress os this quest.", "Postava se pokusí zvýšit postup tohoto úkolu."]
     },
     "disaster": {
         "disasterAction": ["What are we going to do?", "Co podnikneme?"],
@@ -257,7 +255,9 @@
         "FAME_LOSS": ["Loss of fame", "Ztráta slávy"],
         "ITEM_LOSS": ["Item loss", "Ztráta předmětu"],
         "CHARACTER_INJURY": ["Characters injury", "Zranění postav"],
-        "BUILDING_DESTRUCTION": ["Building destruction", "Poškození budov"]
+        "BUILDING_DESTRUCTION": ["Building destruction", "Poškození budov"],
+        "INFORMATION_LOSS": ["Information loss", "Ztráta informací"],
+        "RESEARCH_LOSS": ["Research loss", "Ztráta rozpracovaných výzkumů"]
     },
     "solutions": {
         "AUTOMATIC": ["This action will always be successful.", "Tato akce je vždy úspěšná."],
@@ -266,6 +266,11 @@
         "INTELLECT": ["Taking this action will result in an intellect roll.", "Tato akce vyústí v hod na intelekt."],
         "CRAFTSMANSHIP": ["Taking this action will result in a craftsmanship roll.", "Tato akce vyústí v hod na zručnost."],
         "SCAVENGE": ["Taking this action will result in a scavenge roll.", "Tato vyústí v hod na hledání."]
+    },
+    "conditions": {
+        "HEALTHY_CHARACTER": ["Only healthy characters can tackle take this action.", "Pouze nezraněné postavy mohou vykonat tuto akci."],
+        "FEMALE_CHARACTER": ["Only female characters can tackle take this action.", "Pouze postavy ženského pohlaví mohou vykonat tuto akci."],
+        "ITEM_EQUIPPED": ["Character must carry at least one item to take this actions.", "Postava musí nést alespoň jeden předmět, aby mohla vykonat tuto akci."]
     },
     "actions": {
         "LOCATION": {

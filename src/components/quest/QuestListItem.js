@@ -25,7 +25,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     </Row>
                     { quest.details.condition && 
                         <Row className="mt-2">
-                            <small><Translate id={"quest." + quest.details.condition} /></small>
+                            <small><Translate id={"conditions." + quest.details.condition} /></small>
                         </Row>
                     }
                     <Row className="mt-2">
