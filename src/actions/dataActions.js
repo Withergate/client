@@ -12,7 +12,8 @@ import {
     fetchDisaster,
     fetchGameProperties,
     fetchArenaStats,
-    fetchClanStatistics
+    fetchClanStatistics,
+    fetchFactions
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -86,6 +87,11 @@ export const FETCH_CLAN_STATISTICS = 'FETCH_CLAN_STATISTICS';
 export const FETCH_CLAN_STATISTICS_PENDING = 'FETCH_CLAN_STATISTICS_PENDING';
 export const FETCH_CLAN_STATISTICS_FULFILLED = 'FETCH_CLAN_STATISTICS_FULFILLED';
 export const FETCH_CLAN_STATISTICS_REJECTED = 'FETCH_CLAN_STATISTICS_REJECTED';
+
+export const FETCH_FACTIONS = 'FETCH_FACTIONS';
+export const FETCH_FACTIONS_PENDING = 'FETCH_FACTIONS_PENDING';
+export const FETCH_FACTIONS_FULFILLED = 'FETCH_FACTIONS_FULFILLED';
+export const FETCH_FACTIONS_REJECTED = 'FETCH_FACTIONS_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -194,3 +200,9 @@ const fetchClanStatisticsAction = () => ({
     payload: fetchClanStatistics()
 });
 export { fetchClanStatisticsAction as fetchClanStatistics };
+
+const fetchFactionsAction = () => ({
+    type: FETCH_FACTIONS,
+    payload: fetchFactions()
+});
+export { fetchFactionsAction as fetchFactions };

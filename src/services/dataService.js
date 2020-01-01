@@ -75,3 +75,7 @@ export const fetchArenaStats = () => {
 export const fetchClanStatistics = () => {
     return apiGet(API_URL.concat('clan/statistics'));
 };
+
+export const fetchFactions = () => {
+    return apiGet(API_URL.concat('factions'));
+};

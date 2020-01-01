@@ -27,6 +27,7 @@ import DisasterPanel from './disaster/DisasterPanel';
 import BasePanel from './location/BasePanel';
 import ResearchList from './research/ResearchList';
 import TraitPanel from './clan/TraitPanel';
+import FactionsSelectorPanel from './faction/FactionSelectorPanel';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -83,6 +84,9 @@ class ActionPage extends Component {
                                         <Nav.Item>
                                             <Nav.Link eventKey="base" className="tab-link"><Translate id="basic.base" /></Nav.Link>
                                         </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="faction" className="tab-link"><Translate id="basic.faction" /></Nav.Link>
+                                        </Nav.Item>
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
@@ -134,6 +138,11 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="base">
                                             <BasePanel />
                                             <TraitPanel />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="faction">
+                                            { !this.props.clan.faction &&
+                                                <FactionsSelectorPanel />
+                                            }
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>

@@ -13,7 +13,10 @@ import {
     FETCH_DISASTER_REJECTED,
     FETCH_ARENA_STATS_PENDING,
     FETCH_ARENA_STATS_FULFILLED,
-    FETCH_ARENA_STATS_REJECTED
+    FETCH_ARENA_STATS_REJECTED,
+    FETCH_FACTIONS_PENDING,
+    FETCH_FACTIONS_FULFILLED,
+    FETCH_FACTIONS_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -61,7 +64,14 @@ const initialState = {
         fetched: false,
         failed: false,
         error: ''
-    }
+    },
+    factions: {
+        data: [],
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
 };
 
 // REDUCER
@@ -255,6 +265,40 @@ export const DataReducer = (state = initialState, action) => {
                 ...state,
                 arenaStats: {
                     ...state.arenaStats,
+                    data: [],
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                },
+            };
+        case FETCH_FACTIONS_PENDING:
+            return {
+                ...state,
+                factions: {
+                    ...state.factions,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
+            };
+        case FETCH_FACTIONS_FULFILLED:
+            return {
+                ...state,
+                factions: {
+                    ...state.factions,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_FACTIONS_REJECTED:
+            return {
+                ...state,
+                factions: {
+                    ...state.factions,
                     data: [],
                     fetching: false,
                     fetched: false,
