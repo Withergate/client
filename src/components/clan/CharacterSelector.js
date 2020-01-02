@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
+import { orderBy } from "lodash";
 
 import CharacterDetails from './CharacterDetails';
 import { Row, Col, Button } from 'react-bootstrap';
 import CharacterHeader from './CharacterHeader';
 import { SMALL } from '../../constants/constants';
+
+const sort = (list) => {
+    return orderBy(list, ["name"], ["asc"]);
+}
 
 const getTextColor = (character) => {
     switch(character.state) {
@@ -24,7 +29,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                     { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
                 </Button>   
                 <div className="dropdown-menu">
-                    { characters.map(character => 
+                    { sort(characters).map(character => 
                         <Button
                             className="w-100"
                             variant="light"

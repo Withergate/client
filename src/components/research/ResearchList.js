@@ -2,10 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { orderBy } from "lodash";
 
 import { doResearch } from '../../actions/actionActions';
 import ResearchListItem from './ResearchListItem';
 import { Translate } from 'react-localize-redux';
+
+const sort = (list) => {
+    return orderBy(list, ["id"], ["desc"]);
+}
 
 const filterResearch = (actionable, clan) => {
     if (actionable) {
@@ -19,7 +24,7 @@ const renderList = (research, selectedCharacter, doResearch, actionable) => (
     <div>
         { 
             research.length ? 
-            research.map(r => renderListItem(r, selectedCharacter, doResearch, actionable))
+            sort(research).map(r => renderListItem(r, selectedCharacter, doResearch, actionable))
             : <Translate id="labels.noResearch" />
         }
     </div>

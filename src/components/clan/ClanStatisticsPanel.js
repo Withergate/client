@@ -46,7 +46,7 @@ class ClanStatisticsPanel extends React.Component {
                                 <YAxis />
                                 <Tooltip content={renderFoodJunk}/>
                                 <Line type="monotone" dataKey="food" stroke="#82ca9d" />
-                                <Line type="monotone" dataKey="junk" stroke="#8884d8" />
+                                <Line type="monotone" dataKey="junk" stroke="#784212" />
                             </LineChart>
                             </ResponsiveContainer>  
 

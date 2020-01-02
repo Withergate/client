@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
-import { ProgressBar, Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 
 import junk from '../../images/junk.png';
 import food from '../../images/food.png';
@@ -9,6 +9,7 @@ import caps from '../../images/caps.png';
 import fame from '../../images/fame.png';
 import information from '../../images/information.png';
 import characters from '../../images/person.png';
+import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const ClanSummary = ({clan}) => (
     <Card>
@@ -38,7 +39,9 @@ const ClanSummary = ({clan}) => (
                     <img height="20" src={information} alt="information" /> <b><Translate id="basic.informationLevel" /></b>: {clan.informationLevel}
                 </Col>
                 <Col md={8}>
-                    <ProgressBar className="mt-2" min={0} max={clan.nextInformationLevel} now={clan.information} label={`${clan.information}/${clan.nextInformationLevel}`}/>
+                    <AnnotatedProgressBar
+                        value={clan.information}
+                        max={clan.nextInformationLevel} />
                 </Col>
             </Row>
         </Card.Body>

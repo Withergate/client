@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressBar, Row, Col, Card, Image } from 'react-bootstrap';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import { GameIcon } from '../shared/GameIcon';
 import { JUNK, LARGE } from '../../constants/constants';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { ActionButton } from '../shared/ActionButton';
+import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const BuildingListItem = ({building, selectedCharacter, constructBuilding, actionable}) => (
     <Card className="mb-4" key={building.id}>
@@ -35,11 +36,9 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                             </li>
                         </ul>
                     }
-                    <ProgressBar
-                        min={0}
-                        max={building.nextLevel}
-                        now={building.progress}
-                        label={`${building.progress}/${building.nextLevel}`} />
+                    <AnnotatedProgressBar
+                        value={building.progress}
+                        max={building.nextLevel} />
                 </Col>
             </Row>
         </Card.Body>

@@ -16,7 +16,7 @@ import BuildingListItem from './BuildingListItem';
 import BuildingSort from './BuildingSort';
 
 const sort = (list, sort) => {
-    return orderBy(list, [sort.key], [sort.direction]);
+    return orderBy(list, [sort.key, "id"], [sort.direction]);
 }
 
 const hasBuildings = (actionable, buildings) => {

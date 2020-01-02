@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, ProgressBar, Card, Image } from 'react-bootstrap';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 import { ActionButton } from '../shared/ActionButton';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE } from '../../constants/constants';
+import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const ResearchListItem = ({research, selectedCharacter, doResearch, actionable}) => (
     <Card className="mb-4">
@@ -40,11 +41,9 @@ const ResearchListItem = ({research, selectedCharacter, doResearch, actionable})
                     { actionable &&
                         <Row className="mt-2">
                             <Col>
-                                <ProgressBar 
-                                    min={0}
-                                    max={research.details.cost}
-                                    now={research.progress}
-                                    label={`${research.progress}/${research.details.cost}`} />
+                                <AnnotatedProgressBar
+                                    value={research.progress}
+                                    max={research.details.cost} />
                             </Col>
                         </Row>
                     }
