@@ -16,7 +16,8 @@ import {
     changeDefaultAction,
     handleDisaster,
     activateTrait,
-    refreshTavern
+    refreshTavern,
+    handleFactionAction
 } from '../services/actionService';
 
 import {
@@ -277,3 +278,16 @@ const refreshTavernAction = () => {
     };
 };
 export { refreshTavernAction as refreshTavern };
+
+const handleFactionActionAction = (characterId, type, faction) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: handleFactionAction(characterId, type, faction)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { handleFactionActionAction as handleFactionAction };

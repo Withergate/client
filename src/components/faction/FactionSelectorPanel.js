@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchFactions } from '../../actions/dataActions';
+import { handleFactionAction } from '../../actions/actionActions';
 import { dismissError } from '../../actions/uiActions';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import FactionListItem from './FactionListItem';
+import { Translate } from 'react-localize-redux';
 
 class FactionSelectorPanel extends React.Component {
     componentDidMount() {
@@ -23,13 +25,16 @@ class FactionSelectorPanel extends React.Component {
                 {
                     this.props.fetched &&
                     <div>
+                        <div className="mb-4">
+                            <Translate id="factions.joinDescription" data={{ fame: this.props.properties.factionEntryFame }} />
+                        </div>
                         {
                             this.props.factions.map(faction => 
                                 <FactionListItem
                                     key={faction.identifier}
                                     faction={faction}
                                     selectedCharacter={this.props.selectedCharacter}
-                                    joinFaction={() => console.log("Not implemented")} />
+                                    joinFaction={() => this.props.handleFactionAction(this.props.selectedCharacter.id, "JOIN", faction.identifier)} />
                             )
                         }
                     </div>
@@ -48,23 +53,26 @@ class FactionSelectorPanel extends React.Component {
 FactionSelectorPanel.propTypes = {
     clan: PropTypes.object.isRequired,
     factions: PropTypes.array.isRequired,
-    selectedCharacter: PropTypes.object
+    selectedCharacter: PropTypes.object,
+    properties: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
     const { clan } = state.clan.clan;
     const factions = state.data.factions.data;
+    const properties = state.game.properties;
 
     const { fetched, fetching, failed, error } = state.data.factions;
 
-    return { fetching, fetched, failed, error, factions, clan, selectedCharacter };
+    return { fetching, fetched, failed, error, factions, clan, selectedCharacter, properties };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchFactions,
-        dismissError
+        dismissError,
+        handleFactionAction
     }, dispatch)
 );
 

@@ -28,6 +28,7 @@ import BasePanel from './location/BasePanel';
 import ResearchList from './research/ResearchList';
 import TraitPanel from './clan/TraitPanel';
 import FactionsSelectorPanel from './faction/FactionSelectorPanel';
+import FactionPanel from './faction/FactionPanel';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -140,8 +141,9 @@ class ActionPage extends Component {
                                             <TraitPanel />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="faction">
-                                            { !this.props.clan.faction &&
-                                                <FactionsSelectorPanel />
+                                            { this.props.clan.faction ?
+                                                <FactionPanel />
+                                                : <FactionsSelectorPanel />
                                             }
                                         </Tab.Pane>
                                     </Tab.Content>

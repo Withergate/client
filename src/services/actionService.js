@@ -86,3 +86,8 @@ export const activateTrait = (characterId, traitName, immediate) => {
 export const refreshTavern = () => {
     return apiPost(API_URL.concat('clan/tavernOffers/refresh'), null);
 };
+
+export const handleFactionAction = (characterId, type, faction) => {
+    return apiPost(API_URL.concat('factions/action'), 
+    JSON.stringify({characterId: characterId, type: type, faction: faction}));
+};

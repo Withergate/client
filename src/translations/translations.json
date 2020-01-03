@@ -288,7 +288,8 @@
         "QUEST": ["On a quest", "Plní úkol"],
         "TAVERN": ["Drinking in the tavern", "Pije v taverně"],
         "RESTING": ["Resting", "Odpočívá"],
-        "RESEARCH": ["Researching", "Zkoumá"]
+        "RESEARCH": ["Researching", "Zkoumá"],
+        "FACTION": ["Handling faction business", "Pracuje pro frakci"]
     },
     "base": {
         "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],
@@ -302,7 +303,8 @@
     },
     "factions": {
         "join": ["Join", "Přidej se"],
-        "joinTooltip": ["Your clan will send a character to this faction and join it at the end of this turn.", "Tvůj klan pošle postavu do této frakce a přidá se k ní na konci kola."]
+        "joinTooltip": ["Your clan will send a character to this faction and join it at the end of this turn.", "Tvůj klan pošle postavu do této frakce a přidá se k ní na konci kola."],
+        "joinDescription": ["Your clan needs at least ${fame} fame to join a faction.", "Tvůj klan potřebuje alespoň ${fame} slávy, aby se mohl přidat do Frakce."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (7:00 and 19:00 CET).",
