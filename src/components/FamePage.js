@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
-import { Table } from 'react-bootstrap';
+import { Table, Image } from 'react-bootstrap';
 
 import { Error } from './shared/Error';
 import { Paginator } from './shared/Paginator';
@@ -45,6 +45,7 @@ class FamePage extends Component {
                                     <th><Translate id="basic.clan" /></th>
                                     <th><Translate id="basic.fame" /></th>
                                     <th><Translate id="labels.numCharacters" /></th>
+                                    <th><Translate id="basic.faction" /></th>
                                     <th><Translate id="labels.lastActivity" /></th>
                                 </tr>
                             </thead>
@@ -54,6 +55,7 @@ class FamePage extends Component {
                                         <td>{clan.name}</td>
                                         <td>{clan.fame}</td>
                                         <td>{clan.numCharacters}</td>
+                                        <td>{clan.faction && <Image src={clan.faction.iconUrl} width="24px" />}</td>
                                         <td>{getFormattedTime(clan.lastActivity)}</td>
                                     </tr>
                                     )
