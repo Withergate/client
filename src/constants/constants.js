@@ -44,6 +44,7 @@ export const HEALTH = 'HEALTH';
 export const EXPERIENCE_STAT = 'EXPERIENCE_STAT';
 export const SKILLPOINT = 'SKILLPOINT';
 export const ITEM = 'ITEM';
+export const FACTION_POINTS = 'FACTION_POINTS';
 
 // Icon size
 export const SMALL = 'SMALL';

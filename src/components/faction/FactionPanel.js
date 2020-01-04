@@ -8,6 +8,7 @@ import { dismissError } from '../../actions/uiActions';
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import FactionDescription from './FactionDescription';
+import { Card } from 'react-bootstrap';
 
 class FactionPanel extends React.Component {
 
@@ -16,7 +17,9 @@ class FactionPanel extends React.Component {
             <div>
                 {
                     this.props.fetched &&
-                        <FactionDescription faction={this.props.clan.faction} />
+                        <Card className="mb-4">
+                            <FactionDescription faction={this.props.clan.faction} />
+                        </Card>
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />

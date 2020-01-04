@@ -5,7 +5,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import { Card, Row, Col, Image } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { JUNK, LARGE, FOOD, CAPS, FAME, INJURY, HEALING, EXPERIENCE, INFORMATION, DEATH, ITEM } from '../../constants/constants';
+import { JUNK, LARGE, FOOD, CAPS, FAME, INJURY, HEALING, EXPERIENCE, INFORMATION, DEATH, ITEM, FACTION_POINTS } from '../../constants/constants';
 
 const renderDetail = detail => (
     <li key={detail.id}><small>{getTranslatedText(detail.text)}</small></li>
@@ -27,6 +27,7 @@ const NotificationListItem = ({notification}) => (
                             { notification.healing !== 0 && <li className="list-inline-item"><GameIcon type={HEALING} value={notification.healing} size={LARGE} noPadding={true} /></li> }
                             { notification.experience !== 0 && <li className="list-inline-item"><GameIcon type={EXPERIENCE} value={notification.experience} size={LARGE} noPadding={true} /></li> }
                             { notification.information !== 0 && <li className="list-inline-item"><GameIcon type={INFORMATION} value={notification.information} size={LARGE} noPadding={true} /></li> }
+                            { notification.factionPoints !== 0 && <li className="list-inline-item"><GameIcon type={FACTION_POINTS} value={notification.factionPoints} size={LARGE} noPadding={true} /></li> }
                             { notification.death && <li className="list-inline-item"><GameIcon type={DEATH} size={LARGE} noPadding={true} /></li> }
                             { notification.item && <li className="list-inline-item"><GameIcon type={ITEM} size={LARGE} noPadding={true} /></li> }
                         </ul>
