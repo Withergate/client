@@ -11,6 +11,7 @@ import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import FactionListItem from './FactionListItem';
 import { Translate } from 'react-localize-redux';
+import { FACTION_JOIN } from '../../constants/constants';
 
 class FactionSelectorPanel extends React.Component {
     componentDidMount() {
@@ -34,7 +35,7 @@ class FactionSelectorPanel extends React.Component {
                                     key={faction.identifier}
                                     faction={faction}
                                     selectedCharacter={this.props.selectedCharacter}
-                                    joinFaction={() => this.props.handleFactionAction(this.props.selectedCharacter.id, "JOIN", faction.identifier)} />
+                                    joinFaction={() => this.props.handleFactionAction(this.props.selectedCharacter.id, FACTION_JOIN, faction.identifier, null)} />
                             )
                         }
                     </div>

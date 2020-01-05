@@ -87,7 +87,7 @@ export const refreshTavern = () => {
     return apiPost(API_URL.concat('clan/tavernOffers/refresh'), null);
 };
 
-export const handleFactionAction = (characterId, type, faction) => {
+export const handleFactionAction = (characterId, type, faction, factionAid) => {
     return apiPost(API_URL.concat('factions/action'), 
-    JSON.stringify({characterId: characterId, type: type, faction: faction}));
+    JSON.stringify({characterId: characterId, type: type, faction: faction, factionAid: factionAid}));
 };

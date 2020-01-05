@@ -53,5 +53,9 @@ export const LARGE = 'LARGE';
 // Game constants
 export const MAX_ATTRIBUTE = 6;
 
+// Factions
+export const FACTION_JOIN = 'JOIN';
+export const FACTION_SUPPORT = 'SUPPORT';
+
 // API
 export const NOT_FOUND = 404;

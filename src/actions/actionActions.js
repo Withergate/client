@@ -279,11 +279,11 @@ const refreshTavernAction = () => {
 };
 export { refreshTavernAction as refreshTavern };
 
-const handleFactionActionAction = (characterId, type, faction) => {
+const handleFactionActionAction = (characterId, type, faction, factionAid) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: handleFactionAction(characterId, type, faction)
+            payload: handleFactionAction(characterId, type, faction, factionAid)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

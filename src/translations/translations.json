@@ -306,7 +306,9 @@
         "clans": ["Number of clans", "Počet klanů"],
         "join": ["Join", "Přidej se"],
         "joinTooltip": ["Your clan will send a character to this faction and join it at the end of this turn.", "Tvůj klan pošle postavu do této frakce a přidá se k ní na konci kola."],
-        "joinDescription": ["Your clan needs at least ${fame} fame to join a faction.", "Tvůj klan potřebuje alespoň ${fame} slávy, aby se mohl přidat do Frakce."]
+        "joinDescription": ["Your clan needs at least ${fame} fame to join a faction.", "Tvůj klan potřebuje alespoň ${fame} slávy, aby se mohl přidat do Frakce."],
+        "SUPPORT": ["Support your faction with resources.", "Podpoř svou frakci surovinami."],
+        "SACRIFICE": ["Show how dedicated you are to your faction with blood sacrifice.", "Ukaž vlastní krví, jak oddaný jsi své frakci."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (7:00 and 19:00 CET).",

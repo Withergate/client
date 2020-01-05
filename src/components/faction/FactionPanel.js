@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { dismissError } from '../../actions/uiActions';
+import { handleFactionAction } from '../../actions/actionActions';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import FactionDescription from './FactionDescription';
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
+import FactionAid from './FactionAid';
 
 class FactionPanel extends React.Component {
 
@@ -17,9 +19,23 @@ class FactionPanel extends React.Component {
             <div>
                 {
                     this.props.fetched &&
-                        <Card className="mb-4">
-                            <FactionDescription faction={this.props.clan.faction} />
-                        </Card>
+                        <div>
+                            <Card className="mb-4">
+                                <FactionDescription faction={this.props.clan.faction} />
+                            </Card>
+                            <Row className="mt-4">
+                                <Col md={6}>
+                                    { 
+                                        this.props.clan.faction.factionAids.map(aid => 
+                                        <FactionAid
+                                            key={aid.id}
+                                            aid={aid}
+                                            selectedCharacter={this.props.selectedCharacter}
+                                            factionAction={this.props.handleFactionAction} />)
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
@@ -48,7 +64,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        dismissError
+        dismissError,
+        handleFactionAction
     }, dispatch)
 );
 
