@@ -17,7 +17,7 @@ const NotificationListItem = ({notification}) => (
             <Row>
                 <Col>
                     { notification.header && <b>{notification.header}</b> }
-                    <small className="float-right">
+                    <small className="float-right icon-row">
                         <ul className="list-inline">
                             { notification.foodIncome !== 0 && <li className="list-inline-item"><GameIcon type={FOOD} value={notification.foodIncome} size={LARGE} noPadding={true} /></li> }
                             { notification.junkIncome !== 0 && <li className="list-inline-item"><GameIcon type={JUNK} value={notification.junkIncome} size={LARGE} noPadding={true} /></li> }

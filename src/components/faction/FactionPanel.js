@@ -33,14 +33,18 @@ class FactionPanel extends React.Component {
                             </Card>
                             <Row className="mt-4">
                                 <Col md={6}>
-                                    { 
-                                        this.props.clan.faction.factionAids.map(aid => 
-                                        <FactionAid
-                                            key={aid.id}
-                                            aid={aid}
-                                            selectedCharacter={this.props.selectedCharacter}
-                                            factionAction={this.props.handleFactionAction} />)
-                                    }
+                                    <Card>
+                                        <Card.Body>
+                                        { 
+                                            this.props.clan.faction.factionAids.map(aid => 
+                                            <FactionAid
+                                                key={aid.id}
+                                                aid={aid}
+                                                selectedCharacter={this.props.selectedCharacter}
+                                                factionAction={this.props.handleFactionAction} />)
+                                        }
+                                        </Card.Body>
+                                    </Card>
                                 </Col>
                                 <Col md={6}>
                                     <FactionsOverview overview={this.props.overview} />

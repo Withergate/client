@@ -27,6 +27,13 @@ body {
   left: 0;
 }
 
+.icon-row {
+  height: 40px;
+}
+
+/*
+ * Buttons
+ */
 .button-classic {
   width: 100px;
   height: 40px;
