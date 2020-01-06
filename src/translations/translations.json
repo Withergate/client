@@ -307,6 +307,11 @@
         "join": ["Join", "Přidej se"],
         "joinTooltip": ["Your clan will send a character to this faction and join it at the end of this turn.", "Tvůj klan pošle postavu do této frakce a přidá se k ní na konci kola."],
         "joinDescription": ["Your clan needs at least ${fame} fame to join a faction.", "Tvůj klan potřebuje alespoň ${fame} slávy, aby se mohl přidat do Frakce."],
+        "clanPoints": ["Your faction points", "Tvé body frakce"],
+        "expectedFame": ["Expected fame", "Předpokládaná sláva"],
+        "clanOverview": ["Your clan", "Tvůj klan"],
+        "factionsOverview": ["Factions overview", "Přehled frakcí"],
+        "leaderboard": ["The most influential clans from your faction", "Nejvlivnější klany z Tvé frakce"],
         "SUPPORT": ["Support your faction with resources.", "Podpoř svou frakci surovinami."],
         "SACRIFICE": ["Show how dedicated you are to your faction with blood sacrifice.", "Ukaž vlastní krví, jak oddaný jsi své frakci."]
     },

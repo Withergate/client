@@ -27,12 +27,8 @@ const FactionDescription = ({faction}) => (
                 <Image rounded src={faction.imageUrl} className="w-100" />
             </Col>
             <Col md={9}>
-                <Row>
-                    {getTranslatedText(faction.description)}
-                </Row>
-                <Row className="mt-2">
-                    <b><Translate id="factions.clans" /></b>: {faction.numClans}
-                </Row>
+                <p>{getTranslatedText(faction.description)}</p>
+                <b><Translate id="factions.clans" /></b>: {faction.numClans}
             </Col>
         </Row>
     </Card.Body>

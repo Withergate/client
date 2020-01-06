@@ -79,3 +79,7 @@ export const fetchClanStatistics = () => {
 export const fetchFactions = () => {
     return apiGet(API_URL.concat('factions'));
 };
+
+export const fetchFactionsOverview = () => {
+    return apiGet(API_URL.concat('factions/overview'));
+};

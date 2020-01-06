@@ -5,14 +5,22 @@ import { bindActionCreators } from 'redux';
 
 import { dismissError } from '../../actions/uiActions';
 import { handleFactionAction } from '../../actions/actionActions';
+import { fetchFactionsOverview } from '../../actions/dataActions';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import FactionDescription from './FactionDescription';
 import { Card, Row, Col } from 'react-bootstrap';
 import FactionAid from './FactionAid';
+import FactionsOverview from './FactionsOverview';
+import FactionsLeaderboard from './FactionsLeaderboard';
 
 class FactionPanel extends React.Component {
+    componentDidMount() {
+        if (!this.props.fetched) {
+            this.props.fetchFactionsOverview();
+        }
+    }
 
     render() {
         return ( 
@@ -33,6 +41,10 @@ class FactionPanel extends React.Component {
                                             selectedCharacter={this.props.selectedCharacter}
                                             factionAction={this.props.handleFactionAction} />)
                                     }
+                                </Col>
+                                <Col md={6}>
+                                    <FactionsOverview overview={this.props.overview} />
+                                    <FactionsLeaderboard clans={this.props.overview.clans} />
                                 </Col>
                             </Row>
                         </div>
@@ -55,16 +67,17 @@ FactionPanel.propTypes = {
 
 const mapStateToProps = state => {
     const { clan, selectedCharacter } = state.clan;
-    const factions = state.data.factions.data;
+    const overview = state.data.factionsOverview.data;
 
-    const { fetched, fetching, failed, error } = state.clan;
+    const { fetched, fetching, failed, error } = state.data.factionsOverview;
 
-    return { fetching, fetched, failed, error, factions, clan, selectedCharacter };
+    return { fetching, fetched, failed, error, overview, clan, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         dismissError,
+        fetchFactionsOverview,
         handleFactionAction
     }, dispatch)
 );

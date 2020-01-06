@@ -26,10 +26,7 @@ class FactionSelectorPanel extends React.Component {
                 {
                     this.props.fetched &&
                     <div>
-                        <div className="mb-4">
-                            <Translate id="factions.joinDescription" data={{ fame: this.props.properties.factionEntryFame }} />
-                        </div>
-                        {
+                        { this.props.clan.fame >= this.props.properties.factionEntryFame ?
                             this.props.factions.map(faction => 
                                 <FactionListItem
                                     key={faction.identifier}
@@ -37,6 +34,7 @@ class FactionSelectorPanel extends React.Component {
                                     selectedCharacter={this.props.selectedCharacter}
                                     joinFaction={() => this.props.handleFactionAction(this.props.selectedCharacter.id, FACTION_JOIN, faction.identifier, null)} />
                             )
+                            : <Translate id="factions.joinDescription" data={{ fame: this.props.properties.factionEntryFame }} />
                         }
                     </div>
                 }
@@ -60,7 +58,7 @@ FactionSelectorPanel.propTypes = {
 
 const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
-    const { clan } = state.clan.clan;
+    const clan = state.clan.clan;
     const factions = state.data.factions.data;
     const properties = state.game.properties;
 
