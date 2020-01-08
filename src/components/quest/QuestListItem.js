@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { Row, Col, ProgressBar, Card, Image } from 'react-bootstrap';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, FAME } from '../../constants/constants';
 import { ActionButton } from '../shared/ActionButton';
+import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
     <Card className="mb-4">
@@ -20,31 +21,26 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     <Image rounded src={quest.details.imageUrl} className="w-100" />
                 </Col>
                 <Col md={8}>
-                    <Row>
-                        {getTranslatedText(quest.details.description)}
-                    </Row>
+                    <p>{getTranslatedText(quest.details.description)}</p>
                     { quest.details.condition && 
-                        <Row className="mt-2">
+                        <p>
                             <small><Translate id={"conditions." + quest.details.condition} /></small>
-                        </Row>
+                        </p>
                     }
-                    <Row className="mt-2">
+                    <p>
                         <small><Translate id={"solutions." + quest.details.type} /></small>
-                    </Row>
-                    <Row className="mt-2">
-                        <b><Translate id="basic.reward" />: </b>
-                        <GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} />
-                        <GameIcon type={FAME} size={LARGE} value={quest.details.fameReward} />
-                    </Row>
-                    <Row className="mt-2">
-                        <b><Translate id="basic.progress" />: </b>
-                        <Col>
-                            <ProgressBar min={0}
-                                max={quest.details.completion}
-                                now={quest.progress}
-                                label={`${quest.progress}/${quest.details.completion}`} />
-                        </Col>
-                    </Row>
+                    </p>
+                    <p>
+                        <ul className="list-inline">
+                            <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                            <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} /></li>
+                            <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={quest.details.fameReward} /></li>
+                        </ul>
+                    </p>
+                    
+                    <AnnotatedProgressBar
+                        value={quest.progress}
+                        max={quest.details.completion} />
                 </Col>
             </Row>
         </Card.Body>

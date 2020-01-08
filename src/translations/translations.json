@@ -159,7 +159,7 @@
         "hidden": ["Hidden", "Skrytá"]
     },
     "defaultAction": {
-        "actionDescription": ["This action will be taken by all characters that has no other action is assigned.", "Tuto akci vykonají všechny postavy, které nemají přiřazenou jinou akci."],
+        "actionDescription": ["This action will be taken by all characters that has no other action assigned.", "Tuto akci vykonají všechny postavy, které nemají přiřazenou jinou akci."],
         "disasterDescription": ["Characters might prefer averting disaster instead. This applies when your clan already knows about upcomming disaster and it has not yet been averted. Your characters will always pick the most basic solution.",
         "Postavy mohou preferovat odvracení pohromy jako svou výchozí akci. Tato akce se uplatní v případě, že tvůj klan již ví o přicházející pohromě a ta ještě není zcela odvrácena. Postavy vždy zvolí základní formu řešení."],
         "preferDisasterYes": ["Avert disaster", "Odvracet pohromu"],

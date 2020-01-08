@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TooltipWrapper from '../shared/TooltipWrapper';
-import { ProgressBar } from 'react-bootstrap';
+import { ProgressBar, Row, Col } from 'react-bootstrap';
+import { Translate } from 'react-localize-redux';
 
 const AnnotatedProgressBar = ({value, max}) => (
-    <div className="mt-1 mb-1">
+    <Row>
+        <Col md={3} xs={5}><b><Translate id="basic.progress" />: </b>{max ? value + " / " + max : value}</Col>
+        <Col md={9} xs={7}>
         <TooltipWrapper textKey={"basic.progress"} value={max ? value + "/" + max : value}>
             <ProgressBar
+                className="pt-4"
                 min={0}
                 now={value}
                 max={max} />
         </TooltipWrapper>
-    </div>
+        </Col>
+    </Row>
 );
 
 AnnotatedProgressBar.propTypes = {
