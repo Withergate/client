@@ -36,7 +36,12 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                             key={character.id}
                             onClick={() => onSelect(character.id)}>
                                 <div className={getTextColor(character)}>
-                                    <CharacterHeader character={character} size={SMALL} />
+                                    {
+                                        selectedCharacter !== undefined && selectedCharacter.id === character.id ?
+                                        <b><CharacterHeader character={character} size={SMALL} /></b>
+                                        : <CharacterHeader character={character} size={SMALL} />
+                                    }
+                                    
                                 </div>
                         </Button>)
                     }
