@@ -4,7 +4,7 @@ import { Translate } from "react-localize-redux";
 
 import { Row, Col } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { LARGE, CAPS, JUNK, FOOD, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT } from '../../constants/constants';
+import { LARGE, CAPS, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT } from '../../constants/constants';
 import { ActionButton } from '../shared/ActionButton';
 
 const FactionAid = ({aid, selectedCharacter, factionAction}) => (
@@ -22,18 +22,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             <li className="list-inline-item">
                                 <b><Translate id="basic.price" />:</b>
                             </li>
-
-                            { aid.foodCost !== 0 &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={FOOD} size={LARGE} value={aid.foodCost} />
-                                </li>
-                            }
-                            { aid.junkCost !== 0 &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={JUNK} size={LARGE} value={aid.junkCost} />
-                                </li>
-                            }
-                            { aid.capsCost !== 0 &&
+                            { aid.cost !== 0 &&
                                 <li className="list-inline-item">
                                     <GameIcon type={CAPS} size={LARGE} value={aid.capsCost} />
                                 </li>

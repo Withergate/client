@@ -312,7 +312,7 @@
         "clanOverview": ["Your clan", "Tvůj klan"],
         "factionsOverview": ["Factions overview", "Přehled frakcí"],
         "leaderboard": ["The most influential clans from your faction", "Nejvlivnější klany z Tvé frakce"],
-        "SUPPORT": ["Support your faction with resources.", "Podpoř svou frakci surovinami."],
+        "RESOURCES": ["Support your faction with resources. Your faction will send a small amount of resources to your weaker allies for the donated caps.", "Podpoř svou frakci surovinami. Několik tvých slabších spojenců z frakce obdrží malé množství surovin."],
         "SACRIFICE": ["Show how dedicated you are to your faction with blood sacrifice.", "Ukaž vlastní krví, jak oddaný jsi své frakci."]
     },
     "tutorial": {
