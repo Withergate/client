@@ -38,7 +38,7 @@ class FactionPanel extends React.Component {
                                         { 
                                             this.props.clan.faction.factionAids.map(aid => 
                                             <FactionAid
-                                                key={aid.id}
+                                                key={aid.identifier}
                                                 aid={aid}
                                                 selectedCharacter={this.props.selectedCharacter}
                                                 factionAction={this.props.handleFactionAction} />)

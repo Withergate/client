@@ -26,6 +26,9 @@ class FactionSelectorPanel extends React.Component {
                 {
                     this.props.fetched &&
                     <div>
+                        <p><Translate id="factions.intro1" /></p>
+                        <p><Translate id="factions.intro2" /></p>
+                        <p><Translate id="factions.intro3" /></p>
                         { this.props.clan.fame >= this.props.properties.factionEntryFame ?
                             this.props.factions.map(faction => 
                                 <FactionListItem
@@ -34,7 +37,7 @@ class FactionSelectorPanel extends React.Component {
                                     selectedCharacter={this.props.selectedCharacter}
                                     joinFaction={() => this.props.handleFactionAction(this.props.selectedCharacter.id, FACTION_JOIN, faction.identifier, null)} />
                             )
-                            : <Translate id="factions.joinDescription" data={{ fame: this.props.properties.factionEntryFame }} />
+                            : <small><Translate id="factions.joinDescription" data={{ fame: this.props.properties.factionEntryFame }} /></small>
                         }
                     </div>
                 }

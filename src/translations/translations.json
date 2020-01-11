@@ -303,6 +303,12 @@
         "trainTooltip": ["Character will gain a new trait and rest. All the standard benefits of resting will be applied.", "Postava se naučí novou schopnost a půjde odpočívat. Veškeré další bonusy spojené s odpočinkem se započítají."]
     },
     "factions": {
+        "intro1": ["There have always been disputes between various groups in Withergate - self-proclaimed lawmen, mad prophets of yet another end of the world, moralists and criminals. Clerics shout at each other in the streets and lone travelers are being assaulted by slavers and headhunters. Quarrels often result in bloody fights.",
+        "Ve Withergate se mezi sebou odjakživa přou různé větší i menší skupiny. Samozvaní strážci pořádku, šílení zvěstovatelé dalšího konce světa, novorytířské řády a další moralisté, pachatelé dobra, kriminální živly. V ulicích se překřikují klerici, architekti nových pořádků a intelektuálové, po nocích osamocené chodce přepadávají otrokáři a lovci hlav. Hádky často vyústí v krvavé pouliční bitvy."],
+        "intro2": ["The newly established City hall with the support of Atomists, officially called Malleus maleficarum,is trying to rule the city. They claim it was Atom that saved the people from extinction and we should be thankful for what we have left.",
+        "V poslední době nad tím vším má stabilní převahu městská radnice, která se opírá o atomisty - oficiálně se tato církev nazývá Malleus maleficarum a uctívá boha Atoma jako nejvyššího strážce pořádku a spravedlnosti. To prý Atom lidstvo zachránil před úplným zničením a díky němu jsme si zachovali těch několik vynálezů, které nám umožňují přežít."],
+        "intro3": ["But not everybody is happy with the current affairs. Some factions are openly stepping against this new order and are looking for support amongst the clans from Wasteland. Will they be successful? Should we pick a side or stand aside and watch?",
+        "Proti stávajícím pořádkům ale některé frakce začínají otevřeně brojit a hledají stoupence i mezi klany z Pustiny. Měli bychom si vybrat stranu a přidat se k tomuto boji, nebo budeme stát stranou a čekat, jak to dopadne?"],
         "clans": ["Number of clans", "Počet klanů"],
         "join": ["Join", "Přidej se"],
         "joinTooltip": ["Your clan will send a character to this faction and join it at the end of this turn.", "Tvůj klan pošle postavu do této frakce a přidá se k ní na konci kola."],
@@ -312,8 +318,8 @@
         "clanOverview": ["Your clan", "Tvůj klan"],
         "factionsOverview": ["Factions overview", "Přehled frakcí"],
         "leaderboard": ["The most influential clans from your faction", "Nejvlivnější klany z Tvé frakce"],
-        "RESOURCES": ["Support your faction with resources. Your faction will send a small amount of resources to your weaker allies for the donated caps.", "Podpoř svou frakci surovinami. Několik tvých slabších spojenců z frakce obdrží malé množství surovin."],
-        "SACRIFICE": ["Show how dedicated you are to your faction with blood sacrifice.", "Ukaž vlastní krví, jak oddaný jsi své frakci."]
+        "RESOURCE_SUPPORT": ["Your faction will send a small amount of resources to your weaker allies for the donated caps.", "Několik tvých slabších spojenců z frakce obdrží malé množství surovin."],
+        "FACTION_SUPPORT": ["Support your faction. This action has no side effects.", "Podpoř svou frakci. Tato akce nemá žádné vedlejší efekty."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (7:00 and 19:00 CET).",
