@@ -112,13 +112,6 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="marketplace">
                                             <ResourceTradePanel />
                                             <Row className="mt-4">
-                                                <Card className="m-3" border="warning">
-                                                    <Card.Body>
-                                                        <Translate id="labels.marketplaceInfo" />
-                                                    </Card.Body>
-                                                </Card>
-                                            </Row>
-                                            <Row className="mt-4">
                                                 <Col md={6} className="mb-4">
                                                     <ClanOfferList />
                                                 </Col>

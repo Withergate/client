@@ -70,7 +70,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     </p>
                     {
                         quest.details.followUp &&
-                        <p><b><Translate id="labels.questFollowUp" /></b></p>
+                        <p><small><Translate id="labels.questFollowUp" /></small></p>
                     }
                     
                     <AnnotatedProgressBar

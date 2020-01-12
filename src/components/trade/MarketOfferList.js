@@ -17,6 +17,7 @@ import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 
 import { ALL } from '../../constants/constants';
+import { InfoIcon } from '../shared/InfoIcon';
 
 class MarketOfferList extends React.Component {
     componentDidMount() {
@@ -30,7 +31,10 @@ class MarketOfferList extends React.Component {
             <div>
                 { this.props.fetched &&
                     <div>
-                        <h5><Translate id="basic.marketplace" /></h5>
+                        <ul className="list-inline">
+                            <li className="list-inline-item"><h5><Translate id="basic.marketplace" /></h5></li>
+                            <li className="list-inline-item"><h5><InfoIcon textKey="labels.marketplaceInfo" /></h5></li>
+                        </ul>                        
                         <ItemFilter filter={this.props.filter} onChange={this.props.changeMarketOfferFilter} />
                         <Paginator
                             number={this.props.offers.number}

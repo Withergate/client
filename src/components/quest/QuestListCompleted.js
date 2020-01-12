@@ -15,7 +15,7 @@ const renderListItem = (quest) => (
         <Card.Body>
             <Row>
                 <Col md={2}>
-                    <Image rounded src={quest.details.imageUrl} height="80px" alt="" />
+                    <Image rounded src={quest.details.imageUrl} className="w-100" alt="" />
                 </Col>
                 <Col md={10}>
                     <b>{getTranslatedText(quest.details.name)}</b>

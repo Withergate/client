@@ -6,12 +6,18 @@ import { Table, Card, Image } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { LARGE, FAME, FACTION_POINTS } from '../../constants/constants';
 import { getTranslatedText } from '../../translations/translationUtils';
+import { InfoIcon } from '../shared/InfoIcon';
 
 const FactionsOverview = ({overview}) => (
     <div>
         <Card className="mb-4">
             <Card.Body>
-                <Card.Title><Translate id="factions.clanOverview" /></Card.Title>
+                <Card.Title>
+                    <ul className="list-inline">
+                        <li className="list-inline-item"><Translate id="factions.clanOverview" /></li>
+                        <li className="list-inline-item"><InfoIcon textKey="factions.clanInfo" /></li>
+                    </ul>
+                </Card.Title>
                 <ul className="list-inline">
                     <li className="list-inline-item">
                         <Translate id="factions.clanPoints" />:
@@ -32,7 +38,12 @@ const FactionsOverview = ({overview}) => (
         </Card>
         <Card className="mb-4">
             <Card.Body>
-                <Card.Title><Translate id="factions.factionsOverview" /></Card.Title>
+                <Card.Title>
+                    <ul className="list-inline">
+                        <li className="list-inline-item"><Translate id="factions.factionsOverview" /></li>
+                        <li className="list-inline-item"><InfoIcon textKey="factions.factionsInfo" /></li>
+                    </ul>
+                </Card.Title>
                 <Table striped borderless hover>
                     <thead>
                         <tr>
