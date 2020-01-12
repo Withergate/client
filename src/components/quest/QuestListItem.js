@@ -6,7 +6,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, FAME } from '../../constants/constants';
+import { CAPS, LARGE, FAME, FACTION_POINTS, FOOD, JUNK, INJURY, ITEM } from '../../constants/constants';
 import { ActionButton } from '../shared/ActionButton';
 import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
@@ -32,11 +32,46 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     </p>
                     <p>
                         <ul className="list-inline">
-                            <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
-                            <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} /></li>
-                            <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={quest.details.fameReward} /></li>
+                            <li className="list-inline-item"><b><Translate id="basic.price" />: </b></li>
+                            {
+                                quest.details.foodCost > 0 &&
+                                <li className="list-inline-item"><GameIcon type={FOOD} size={LARGE} value={quest.details.foodCost} /></li>
+                            }
+                            {
+                                quest.details.junkCost > 0 &&
+                                <li className="list-inline-item"><GameIcon type={JUNK} size={LARGE} value={quest.details.junkCost} /></li>
+                            }
+                            {
+                                quest.details.healthCost &&
+                                <li className="list-inline-item"><GameIcon type={INJURY} size={LARGE} /></li>
+                            }
+                            {
+                                quest.details.itemCost &&
+                                <li className="list-inline-item"><GameIcon type={ITEM} size={LARGE} /></li>
+                            }
                         </ul>
                     </p>
+                    <p>
+                        <ul className="list-inline">
+                            <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                            {
+                                quest.details.capsReward > 0 &&
+                                <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} /></li>
+                            }
+                            {
+                                quest.details.fameReward > 0 &&
+                                <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={quest.details.fameReward} /></li>
+                            }
+                            {
+                                quest.details.factionReward > 0 &&
+                                <li className="list-inline-item"><GameIcon type={FACTION_POINTS} size={LARGE} value={quest.details.factionReward} /></li>
+                            }
+                        </ul>
+                    </p>
+                    {
+                        quest.details.followUp &&
+                        <p><b><Translate id="labels.questFollowUp" /></b></p>
+                    }
                     
                     <AnnotatedProgressBar
                         value={quest.progress}

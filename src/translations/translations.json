@@ -144,7 +144,8 @@
         "injuryInfo": ["Stats of this character decreased temporarily due to the injury.", "Vlastnosti této postavy byly dočasně sníženy následkem zranění."],
         "skillpoint": ["Skill point available. Assign new trait to this character in the Actions->Base.", "Dovednostní bod je k dispozici. Přiřaď postavě novou schopnost v sekci Akce->Kemp."],
         "marketplaceInfo": ["All trade actions will be evaluated at the end of the turn. Once you purchase something at the markeplace, the offer will disappear but both the item and the caps will be awarded after the turn evaluation.",
-        "Veškerý obchod se vyhodnocuje na konci kola. Jakmile zakoupíš nějaký předmět na trhu, nabídka zmizí, ale jak předmět, tak zátky budu pripsány až po vyhodnocení tahu."]
+        "Veškerý obchod se vyhodnocuje na konci kola. Jakmile zakoupíš nějaký předmět na trhu, nabídka zmizí, ale jak předmět, tak zátky budu pripsány až po vyhodnocení tahu."],
+        "questFollowUp": ["Completeing this quest will unlock a follow up quest.", "Dokončením tohoto úkolu se ti odemkne další pokračování."]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],
@@ -267,7 +268,9 @@
         "COMBAT_ROLL": ["Taking this action will result in a combat roll.", "Tato akce vyústí v hod na bojeschopnost."],
         "INTELLECT": ["Taking this action will result in an intellect roll.", "Tato akce vyústí v hod na intelekt."],
         "CRAFTSMANSHIP": ["Taking this action will result in a craftsmanship roll.", "Tato akce vyústí v hod na zručnost."],
-        "SCAVENGE": ["Taking this action will result in a scavenge roll.", "Tato vyústí v hod na hledání."]
+        "SCAVENGE": ["Taking this action will result in a scavenge roll.", "Tato vyústí v hod na hledání."],
+        "INTELLECT_LOW": ["Taking this action will result in an intellect roll. However, the result must be as low as possible!", "Tato akce vyústí v hod na intelekt. Úspěšné budou ale pouze pokusy s co nejnižším výsledkem!"],
+        "CRAFTSMANSHIP_LOW": ["Taking this action will result in a craftsmanship roll. However, the result must be as low as possible!", "Tato akce vyústí v hod na zručnost. Úspěšné budou ale pouze pokusy s co nejnižším výsledkem!"]
     },
     "conditions": {
         "HEALTHY_CHARACTER": ["Only healthy characters can tackle take this action.", "Pouze nezraněné postavy mohou vykonat tuto akci."],
