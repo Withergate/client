@@ -65,7 +65,7 @@
         "item": ["Item", "Předmět"],
         "statistics": ["Statistics", "Statistiky"],
         "faction": ["Faction", "Frakce"],
-        "factionPoints": ["Vliv", "vliv"]
+        "factionPoints": ["Influence", "Vliv"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
