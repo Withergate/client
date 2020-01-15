@@ -10,6 +10,7 @@ import { Error } from './shared/Error';
 import spinner from '../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
 import NotificationPanel from './admin/NotificationPanel';
+import TurnPanel from './admin/TurnPanel';
 
 class AdminPage extends Component {
     constructor(...args) {
@@ -75,6 +76,7 @@ class AdminPage extends Component {
                             onConfirm={() => this.props.restartGame()} />
 
                         <NotificationPanel />
+                        <TurnPanel />
                     </div>
                 }
                 {

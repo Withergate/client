@@ -19,7 +19,11 @@ const getTurnText = (turnId, maxTurns) => {
     }
 }
 
-const getTimeToNextTurn = (turnTimes) => {
+const getTimeToNextTurn = (turn, turnTimes) => {
+    if (turn.startDate && Date.parse(turn.startDate) > Date.now()) {
+        return turn.startDate;
+    }
+
     const date = new Date();
     const utcHours = date.getUTCHours();
 
@@ -77,7 +81,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                         <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>
                         <li className="list-inline-item"><GameIcon type={FAME} size={SMALL} value={clan.fame} /></li>
                         <li className="list-inline-item">
-                            <TooltipWrapper textKey="header.timeRemaining" value={getTimeToNextTurn(turnTimes)} >
+                            <TooltipWrapper textKey="header.timeRemaining" value={getTimeToNextTurn(turn, turnTimes)} >
                                 <small className="p-2">
                                     <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
                                 </small>

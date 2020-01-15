@@ -83,3 +83,9 @@ export const fetchFactions = () => {
 export const fetchFactionsOverview = () => {
     return apiGet(API_URL.concat('factions/overview'));
 };
+
+export const setTurnStart = (date) => {
+    return apiPut(
+        API_URL.concat('turn/update'), 
+        JSON.stringify({startDate: date}));
+};

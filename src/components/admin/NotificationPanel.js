@@ -44,7 +44,7 @@ class NotificationPanel extends Component {
             <div>
                 {
                     this.props.fetched && 
-                    <Card>
+                    <Card className="mb-4">
                         <Form
                             className="p-4"
                             id="form"

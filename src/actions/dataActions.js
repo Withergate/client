@@ -14,7 +14,8 @@ import {
     fetchArenaStats,
     fetchClanStatistics,
     fetchFactions,
-    fetchFactionsOverview
+    fetchFactionsOverview,
+    setTurnStart
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -98,6 +99,11 @@ export const FETCH_FACTIONS_OVERVIEW = 'FETCH_FACTIONS_OVERVIEW';
 export const FETCH_FACTIONS_OVERVIEW_PENDING = 'FETCH_FACTIONS_OVERVIEW_PENDING';
 export const FETCH_FACTIONS_OVERVIEW_FULFILLED = 'FETCH_FACTIONS_OVERVIEW_FULFILLED';
 export const FETCH_FACTIONS_OVERVIEW_REJECTED = 'FETCH_FACTIONS_OVERVIEW_REJECTED';
+
+export const UPDATE_TURN_START = 'UPDATE_TURN_START';
+export const UPDATE_TURN_START_PENDING = 'UPDATE_TURN_START_PENDING';
+export const UPDATE_TURN_START_FULFILLED = 'UPDATE_TURN_START_FULFILLED';
+export const UPDATE_TURN_START_REJECTED = 'UPDATE_TURN_START_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -218,3 +224,16 @@ const fetchFactionsOverivewAction = () => ({
     payload: fetchFactionsOverview()
 });
 export { fetchFactionsOverivewAction as fetchFactionsOverview };
+
+const setTurnStartAction = (date) => {
+    return (dispatch) => {
+        return dispatch({
+            type: UPDATE_TURN_START,
+            payload: setTurnStart(date)
+        }).then(() => dispatch({
+            type: FETCH_TURN,
+            payload: fetchTurn()
+        }));
+    }
+};
+export { setTurnStartAction as setTurnStart };
