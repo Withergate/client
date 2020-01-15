@@ -145,7 +145,9 @@
         "skillpoint": ["Skill point available. Assign new trait to this character in the Actions->Base.", "Dovednostní bod je k dispozici. Přiřaď postavě novou schopnost v sekci Akce->Kemp."],
         "marketplaceInfo": ["All trade actions will be evaluated at the end of the turn. Once you purchase something at the markeplace, the offer will disappear but both the item and the caps will be awarded after the turn evaluation.",
         "Veškerý obchod se vyhodnocuje na konci kola. Jakmile zakoupíš nějaký předmět na trhu, nabídka zmizí, ale jak předmět, tak zátky budu pripsány až po vyhodnocení tahu."],
-        "questFollowUp": ["Completeing this quest will unlock a follow up quest.", "Dokončením tohoto úkolu se ti odemkne další pokračování."]
+        "questFollowUp": ["Completeing this quest will unlock a follow up quest.", "Dokončením tohoto úkolu se ti odemkne další pokračování."],
+        "openDetails": ["Details", "Detaily"],
+        "closeDetails": ["Hide", "Skrýt"]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],
