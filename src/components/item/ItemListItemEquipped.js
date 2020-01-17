@@ -6,15 +6,14 @@ import ItemDetails from './ItemDetails';
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Button, Card, Image } from 'react-bootstrap';
 import { getRarityTextColor } from './itemUtils';
-import { CONSUMABLE } from '../../constants/constants';
 
-const ItemListItem = ({item, selectedCharacter, equipItem}) => (
+const ItemListItemEquipped = ({character, item, unequipItem}) => (
     <Card className="mb-4">
         <Card.Body>
             <Card.Title className={getRarityTextColor(item.details.rarity)}>
                 {getTranslatedText(item.details.name)}
             </Card.Title>
-            <Row>
+            <Row className="mb-2">
                 <Col md={4} className="mb-2">
                     <Image src={item.details.imageUrl} rounded className="w-100" />
                 </Col>
@@ -25,25 +24,25 @@ const ItemListItem = ({item, selectedCharacter, equipItem}) => (
                     <ItemDetails details={item.details} />
                 </Col>
             </Row>
+            <Row>
+                <Col><b><Translate id="labels.equippedBy" data={{ character: character.name }} /></b></Col>
+            </Row>
         </Card.Body>
         <Card.Footer>
-            { selectedCharacter !== undefined ? 
-                <Button 
-                    variant="outline-success"
-                    className="button-classic" 
-                    onClick={() => equipItem(item.id, selectedCharacter.id)}>
-                    <Translate id={item.details.itemType === CONSUMABLE ? "labels.use" : "labels.equip"} />
-                </Button> 
-                : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
-            }
+            <Button 
+                variant="outline-success"
+                className="button-classic" 
+                onClick={() => unequipItem(item.id, character.id)}>
+                <Translate id="labels.unequip" />
+            </Button> 
         </Card.Footer>
     </Card>
 );
 
-ItemListItem.propTypes = {
+ItemListItemEquipped.propTypes = {
+    character: PropTypes.object.isRequired,
     item: PropTypes.object.isRequired,
-    selectedCharacter: PropTypes.object,
-    equipItem: PropTypes.func.isRequired
+    unequipItem: PropTypes.func.isRequired
 };
 
-export default ItemListItem;
+export default ItemListItemEquipped;

@@ -147,7 +147,10 @@
         "Veškerý obchod se vyhodnocuje na konci kola. Jakmile zakoupíš nějaký předmět na trhu, nabídka zmizí, ale jak předmět, tak zátky budu pripsány až po vyhodnocení tahu."],
         "questFollowUp": ["Completeing this quest will unlock a follow up quest.", "Dokončením tohoto úkolu se ti odemkne další pokračování."],
         "openDetails": ["Details", "Detaily"],
-        "closeDetails": ["Hide", "Skrýt"]
+        "closeDetails": ["Hide", "Skrýt"],
+        "itemStorage": ["Item storage", "Předměty ve skladu"],
+        "equippedItems": ["Equipped items", "Nasazené předměty"],
+        "equippedBy": ["Item equipped by ${character}.", "Předmět má momentálně postava ${character}."]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],

@@ -32,6 +32,7 @@ import DefaultActionPanel from './clan/DefaultActionPanel';
 import GameMechanicsOverview from './clan/GameMechanicsOverview';
 import ResearchList from './research/ResearchList';
 import ClanStatisticsPanel from './clan/ClanStatisticsPanel';
+import ItemListEquipped from './item/ItemListEquipped';
 
 class ClanPage extends Component {
 
@@ -101,7 +102,7 @@ class ClanPage extends Component {
                                                         selectedCharacter={this.props.selectedCharacter}
                                                         onSelect={this.props.selectCharacter} />
                                                 </Col>
-                                                <Col md={12}>
+                                                <Col md={6} xs={12}>
                                                     <ItemList
                                                         items={this.props.clan.items}
                                                         equipItem={this.props.equipItem}
@@ -109,6 +110,12 @@ class ClanPage extends Component {
                                                         selectedCharacter={this.props.selectedCharacter}
                                                         filter={this.props.filter.items }
                                                         changeFilter={this.props.changeItemFilter} />
+                                                </Col>
+                                                <Col md={6} xs={12}>
+                                                    <ItemListEquipped
+                                                        characters={this.props.clan.characters}
+                                                        unequipItem={this.props.unequipItem}
+                                                        selectedCharacter={this.props.selectedCharacter} />
                                                 </Col>
                                             </Row>
                                         </Tab.Pane>

@@ -14,6 +14,7 @@ const renderItem = (item, selectedCharacter, equipItem) => (
 
 const ItemList = (props) => (
     <div>
+        <h5><Translate id="labels.itemStorage" /></h5>
         <ItemFilter filter={props.filter} onChange={props.changeFilter} />
         {
             props.items.length === 0 && <Translate id="labels.noItems" />
