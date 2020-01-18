@@ -12,7 +12,7 @@ import { Row, Col, Card, Table } from 'react-bootstrap';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 
 class ArenaPanel extends React.Component {
     componentDidMount() {

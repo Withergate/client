@@ -6,7 +6,7 @@ import { GameIcon } from '../shared/GameIcon';
 import { JUNK, LARGE } from '../../constants/constants';
 
 import { getTranslatedText } from '../../translations/translationUtils';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const BuildingListItem = ({building, selectedCharacter, constructBuilding, actionable}) => (

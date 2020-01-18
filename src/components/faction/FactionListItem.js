@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { Row, Card } from 'react-bootstrap';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import FactionDescription from './FactionDescription';
 
 

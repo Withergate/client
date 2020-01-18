@@ -4,7 +4,7 @@ import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card, Image } from 'react-bootstrap';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE } from '../../constants/constants';
 import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';

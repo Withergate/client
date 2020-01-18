@@ -6,7 +6,7 @@ import { Translate } from "react-localize-redux";
 import { Row, Col, Card } from 'react-bootstrap';
 
 import { restWithCharacter } from '../../actions/actionActions';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 
 class BasePanel extends React.Component {
 

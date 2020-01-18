@@ -125,7 +125,7 @@ class CharacterListItem extends Component {
                             {
                                 character.traits.filter(trait => trait.active)
                                 .map(trait => 
-                                    <li className="list-inline-item">
+                                    <li className="list-inline-item" key={trait.id}>
                                         <TraitItem trait={trait} />
                                     </li>)
                             }

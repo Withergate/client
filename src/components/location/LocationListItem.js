@@ -7,7 +7,7 @@ import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
 import { FOOD, LARGE, JUNK, INFORMATION, ITEM_CHANCE, ENCOUNTER } from '../../constants/constants';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 
 const LocationListItem = ({location, selectedCharacter, onVisit}) => (
     <Card className="mb-4">

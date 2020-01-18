@@ -7,7 +7,7 @@ import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, FAME, FACTION_POINTS, FOOD, JUNK, INJURY, ITEM } from '../../constants/constants';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
 
 const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (

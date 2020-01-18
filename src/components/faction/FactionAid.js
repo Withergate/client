@@ -6,7 +6,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { LARGE, CAPS, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT, ITEM } from '../../constants/constants';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 
 const FactionAid = ({aid, selectedCharacter, factionAction}) => (
     <div className="mb-4">

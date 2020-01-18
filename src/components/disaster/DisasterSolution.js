@@ -6,7 +6,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
 import { LARGE, CAPS, JUNK, FOOD, ITEM } from '../../constants/constants';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 
 const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
     <Card className="mb-4">

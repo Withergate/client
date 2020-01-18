@@ -6,7 +6,7 @@ import { Translate } from "react-localize-redux";
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import CharacterHeader from '../clan/CharacterHeader';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (

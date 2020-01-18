@@ -45,14 +45,14 @@ class ActionPage extends Component {
                 }
                 {
                     this.props.turn.turnId > this.props.maxTurns &&
-                    <Card className="m-4" bg="warning">
+                    <Card className="m-3" bg="warning">
                         <Card.Body>
                             <Translate id="labels.endGame" />
                         </Card.Body>
                     </Card>
                 }
                 {
-                    this.props.fetched && this.props.turn.turnId <= this.props.maxTurns &&
+                    this.props.fetched &&
                     <div className="m-3">
                         <Tab.Container id="tab-navigation" defaultActiveKey={this.props.selectedTab} onSelect={key => this.props.selectActionTab(key)}>
                             <Row>

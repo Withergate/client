@@ -65,29 +65,30 @@ class NotificationListItem extends React.Component {
                             getTranslatedText(notification.text) &&
                             getTranslatedText(notification.text).split("\n").map((text, index) => <p key={notification.id + "i" + index}>{text}</p>)
                         }
-                        {
-                            notification.details.length > 0 &&
-                            <div className="mt-2">
-                                <Button
-                                    variant="outline-dark" size="sm"
-                                    className="button-small mb-2"
-                                    onClick={() => this.handleCollapseChange(!this.state.open)}>
-                                    {
-                                        this.state.open ?
-                                        <Translate id="labels.closeDetails" />
-                                        : <Translate id="labels.openDetails" />
-                                    }
-                                </Button>
-                                <Collapse in={this.state.open}>
-                                    <ul>
-                                        {notification.details.map(detail => renderDetail(detail))}
-                                    </ul>
-                                </Collapse>
-                            </div>
-                        }
+
                     </Col>
                 </Row>
             </Card.Body>
+            {
+                notification.details.length > 0 &&
+                    <Card.Footer>
+                        <Button
+                            variant="outline-dark" size="sm"
+                            className="button-small mb-2"
+                            onClick={() => this.handleCollapseChange(!this.state.open)}>
+                                {
+                                    this.state.open ?
+                                        <Translate id="labels.closeDetails" />
+                                        : <Translate id="labels.openDetails" />
+                                }
+                        </Button>
+                        <Collapse in={this.state.open}>
+                            <ul>
+                                {notification.details.map(detail => renderDetail(detail))}
+                            </ul>
+                        </Collapse>
+                    </Card.Footer>
+            }
         </Card>
     )}
 }

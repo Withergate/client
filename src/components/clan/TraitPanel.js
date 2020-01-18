@@ -6,7 +6,7 @@ import { Translate } from "react-localize-redux";
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
 import { activateTrait } from '../../actions/actionActions';
-import { ActionButton } from '../shared/ActionButton';
+import ActionButton from '../shared/ActionButton';
 import TraitItem from './TraitItem';
 import { GameIcon } from '../shared/GameIcon';
 import { CAPS, SMALL } from '../../constants/constants';
