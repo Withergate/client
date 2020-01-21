@@ -15,7 +15,16 @@ const initialState = {
     notifications: [],
     global: {
         active: false,
-        message: '',
+        message: {
+            en: {
+                lang: 'en',
+                text: ''
+            },
+            cs: {
+                lang: 'cs',
+                text: ''
+            }
+        },
         fetching: false,
         fetched: false,
         failed: false,

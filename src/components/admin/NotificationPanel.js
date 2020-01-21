@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import { Button, Card, Form, InputGroup, FormControl, Row, Col, ToggleButtonGroup, ToggleButton, FormLabel } from 'react-bootstrap';
 import { updateGlobalNotification, fetchGlobalNotification} from '../../actions/dataActions';
 
-import spinner from '../../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
 
 class NotificationPanel extends Component {
@@ -18,13 +17,15 @@ class NotificationPanel extends Component {
         };
     }
 
-    componentDidMount() {
-        this.props.fetchGlobalNotification();
-    }
-
-    handleMessageChange(event) {
+    handleMessageChange(event, lang) {
         this.setState({ 
-            message: event.target.value
+            message: {
+                ...this.state.message,
+                [lang]: {
+                    lang: lang,
+                    text: event.target.value
+                }
+            }
         });
     }
 
@@ -41,77 +42,84 @@ class NotificationPanel extends Component {
 
     render() {
         return (
-            <div>
-                {
-                    this.props.fetched && 
-                    <Card className="mb-4">
-                        <Form
-                            className="p-4"
-                            id="form"
-                            onSubmit={e => this.handleSubmit(e)}>
-                            <Row className="mb-3">
-                                <Col md={1}>
-                                    <FormLabel>
-                                        <Translate id="admin.message" />
-                                    </FormLabel>
-                                </Col>
-                                <Col md={11}>
-                                    <InputGroup>
-                                        <FormControl
-                                            name="message"
-                                            type="text"
-                                            value={this.state.message}
-                                            onChange={e => this.handleMessageChange(e)} />
-                                    </InputGroup>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col md={1}>
-                                    <FormLabel>
-                                        <Translate id="admin.state" />
-                                    </FormLabel>
-                                </Col>
-                                <Col md={11}>
-                                    <ToggleButtonGroup
-                                        type="radio"
-                                        name = "active"
-                                        defaultValue={this.state.active}
-                                        onChange={e => this.handleActiveChange(e)}>
-                                        <ToggleButton variant="outline-warning" value={true}><Translate id="admin.active" /></ToggleButton>
-                                        <ToggleButton variant="outline-warning" value={false}><Translate id="admin.hidden" /></ToggleButton>
-                                    </ToggleButtonGroup>
-                                </Col>
-                            </Row>
-                        </Form>
-                        <Card.Footer>
-                            <Button
-                                form="form"
-                                variant="warning"
-                                className="button-large"
-                                type="submit">
-                                <Translate id="labels.confirm" />
-                            </Button>
-                        </Card.Footer>
-                    </Card>
-                }
-                {
-                    this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
-                }
-            </div>
+            <Card className="mb-4">
+                <Form
+                    className="p-4"
+                    id="form"
+                    onSubmit={e => this.handleSubmit(e)}>
+                    <Row className="mb-3">
+                        <Col md={1}>
+                            <FormLabel>
+                                EN
+                            </FormLabel>
+                        </Col>
+                        <Col md={11}>
+                            <InputGroup>
+                                <FormControl
+                                    name="message"
+                                    type="text"
+                                    value={this.state.message.en.text}
+                                    onChange={e => this.handleMessageChange(e, 'en')} />
+                            </InputGroup>
+                        </Col>
+                    </Row>
+                    <Row className="mb-3">
+                        <Col md={1}>
+                            <FormLabel>
+                                CZ
+                            </FormLabel>
+                        </Col>
+                        <Col md={11}>
+                            <InputGroup>
+                                <FormControl
+                                    name="message"
+                                    type="text"
+                                    value={this.state.message.cs.text}
+                                    onChange={e => this.handleMessageChange(e, 'cs')} />
+                            </InputGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={1}>
+                            <FormLabel>
+                                <Translate id="admin.state" />
+                            </FormLabel>
+                        </Col>
+                        <Col md={11}>
+                            <ToggleButtonGroup
+                                type="radio"
+                                name = "active"
+                                defaultValue={this.state.active}
+                                onChange={e => this.handleActiveChange(e)}>
+                                <ToggleButton variant="outline-warning" value={true}><Translate id="admin.active" /></ToggleButton>
+                                <ToggleButton variant="outline-warning" value={false}><Translate id="admin.hidden" /></ToggleButton>
+                            </ToggleButtonGroup>
+                        </Col>
+                    </Row>
+                </Form>
+                <Card.Footer>
+                    <Button
+                        form="form"
+                        variant="warning"
+                        className="button-large"
+                        type="submit">
+                        <Translate id="labels.confirm" />
+                    </Button>
+                </Card.Footer>
+            </Card>
         );
     }
 }
 
 NotificationPanel.propTypes = {
-    fetched: PropTypes.bool.isRequired,
-    fetching: PropTypes.bool.isRequired,
-    message: PropTypes.string.isRequired
+    message: PropTypes.object.isRequired,
+    active: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, message, active } = state.notifications.global;
+    const { message, active } = state.notifications.global;
 
-    return { fetching, fetched, message, active };
+    return { message, active };
 };
 
 const mapDispatchToProps = dispatch => (

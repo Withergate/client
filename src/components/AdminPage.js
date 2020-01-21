@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card } from 'react-bootstrap';
 import { restartGame, endTurn } from '../actions/authActions';
+import { fetchGlobalNotification } from '../actions/dataActions';
 import ConfirmationDialog from '../components/shared/ConfirmationDialog';
 
 import { Error } from './shared/Error';
@@ -20,6 +21,10 @@ class AdminPage extends Component {
             endTurnModal: false,
             restartGameModal: false
         };
+    }
+
+    componentDidMount() {
+        this.props.fetchGlobalNotification();
     }
 
     render() {
@@ -98,14 +103,18 @@ AdminPage.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const { fetching, fetched, failed, error, principal } = state.auth;
+    const { principal } = state.auth;
 
+    const fetching = state.auth.fetching || state.notifications.global.fetching;
+    const fetched = state.auth.fetched && state.notifications.global.fetched;
+    const failed = state.auth.failed || state.notifications.global.failed;
+    const error = state.auth.error || state.notifications.global.error;
 
     return { fetching, fetched, failed, error, principal };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ restartGame, endTurn }, dispatch)
+    bindActionCreators({ restartGame, endTurn, fetchGlobalNotification }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);
