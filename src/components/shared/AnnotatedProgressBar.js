@@ -7,8 +7,8 @@ import { Translate } from 'react-localize-redux';
 
 const AnnotatedProgressBar = ({value, max}) => (
     <Row>
-        <Col md={3} xs={5}><b><Translate id="basic.progress" />: </b>{max ? value + " / " + max : value}</Col>
-        <Col md={9} xs={7} className="pt-1">
+        <Col md={4} xs={5}><b><Translate id="basic.progress" />: </b>{max ? value + " / " + max : value}</Col>
+        <Col md={8} xs={7} className="pt-1">
             <TooltipWrapper textKey={"basic.progress"} value={max ? value + "/" + max : value}>
                 <ProgressBar
                     min={0}

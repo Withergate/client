@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
+import { orderBy } from "lodash";
 
 import { goOnQuest } from '../../actions/actionActions';
 
 import QuestListItem from './QuestListItem';
 
+const sort = (list) => {
+    return orderBy(list, ["id"], ["asc"]);
+}
+
 const renderList = (quests, selectedCharacter, goOnQuest) => (
     <div>
-        {quests.map(quest => renderListItem(quest, selectedCharacter, goOnQuest))}
+        {sort(quests).map(quest => renderListItem(quest, selectedCharacter, goOnQuest))}
     </div>
 );
 

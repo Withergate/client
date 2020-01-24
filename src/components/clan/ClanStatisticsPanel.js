@@ -15,6 +15,7 @@ import { Row, Image, Card, Col } from 'react-bootstrap';
 import fameIcon from '../../images/fame.png';
 import junkIcon from '../../images/junk.png';
 import foodIcon from '../../images/food.png';
+import capsIcon from '../../images/caps.png';
 
 class ClanStatisticsPanel extends React.Component {
     componentDidMount() {
@@ -47,6 +48,7 @@ class ClanStatisticsPanel extends React.Component {
                                 <Tooltip content={renderFoodJunk}/>
                                 <Line type="monotone" dataKey="food" stroke="#82ca9d" />
                                 <Line type="monotone" dataKey="junk" stroke="#784212" />
+                                <Line type="monotone" dataKey="caps" stroke="#fcba03" />
                             </LineChart>
                             </ResponsiveContainer>  
 
@@ -93,6 +95,12 @@ const renderFoodJunk = (payload) => {
                 <Col>
                     <Image src={junkIcon} width="24px" className="mr-2" />
                     {payload && payload.payload[1] && payload.payload[1].payload.junk}
+                </Col>
+            </Row>
+            <Row className="mt-2">
+                <Col>
+                    <Image src={capsIcon} width="24px" className="mr-2" />
+                    {payload && payload.payload[2] && payload.payload[2].payload.caps}
                 </Col>
             </Row>
         </Card.Body>

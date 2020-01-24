@@ -79,6 +79,12 @@ class AboutPage extends Component {
                                 <a href="https://www.facebook.com/flying.sausages/" target="_blank" rel="noopener noreferrer">Facebook</a>
                             </td>
                         </tr>
+                        <tr>
+                            <td>Standa Doják</td>
+                            <td>
+                                <a href="https://www.standajonak.cz/" target="_blank" rel="noopener noreferrer">Web</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </Table>
 
