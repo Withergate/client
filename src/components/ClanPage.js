@@ -33,6 +33,7 @@ import GameMechanicsOverview from './clan/GameMechanicsOverview';
 import ResearchList from './research/ResearchList';
 import ClanStatisticsPanel from './clan/ClanStatisticsPanel';
 import ItemListEquipped from './item/ItemListEquipped';
+import ClanDefensePanel from './clan/ClanDefensePanel';
 
 class ClanPage extends Component {
 
@@ -82,6 +83,7 @@ class ClanPage extends Component {
                                     <Tab.Content>
                                         <Tab.Pane eventKey="overview">
                                             <ClanSummary clan={this.props.clan} />
+                                            <ClanDefensePanel defender={this.props.clan.defender} />
                                             <DefaultActionPanel />
                                             <GameMechanicsOverview />
                                         </Tab.Pane>

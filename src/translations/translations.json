@@ -123,7 +123,7 @@
         "noOffers": ["There are currently no items available at the marketplace.", "Na tržišti momentálně nejsou žádné předměty."],
         "cancel": ["Cancel", "Zrušit"],
         "offerTooltip": ["This will list the item on the marketplace for the specified price.", "Tímto nabídneš předmět na trhu za zvolenou cenu."],
-        "defaultAction": ["Choose the default action for your characters if no action is set.", "Zvol si výchozí akci pro své postavy, pokud žádná akce není přiřazena."],
+        "defaultAction": ["Default actions", "Výchozí akce"],
         "marketPrice": ["When you offer items for the market price, they will be automatically purchased by computer at the end of the turn unless someone else decides to buy them.",
         "Pokud své předměty nabídneš za tržní cenu, tak budou na konci kola automaticky koupeny počítačem, pokud je nekoupí jiný hráč."],
         "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."],
@@ -150,7 +150,10 @@
         "closeDetails": ["Hide", "Skrýt"],
         "itemStorage": ["Item storage", "Předměty ve skladu"],
         "equippedItems": ["Equipped items", "Nasazené předměty"],
-        "equippedBy": ["Item equipped by ${character}.", "Předmět má momentálně postava ${character}."]
+        "equippedBy": ["Item equipped by ${character}.", "Předmět má momentálně postava ${character}."],
+        "clanDefense": ["Defense", "Obrana"],
+        "clanDefenseInfo": ["This panel shows your current clan defense. When somebody attacks your clan, your clan will be automatically defended by one of your clan's dogs. His strength is affected by the level of your building Dog kennels.",
+        "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],

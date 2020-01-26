@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -18,6 +18,7 @@ import healingIcon from '../../images/healing.png';
 import experienceIcon from '../../images/experience.png';
 import deathIcon from '../../images/death.png';
 import combatIcon from '../../images/combat.png';
+import armorIcon from '../../images/armor.png';
 import scavengeIcon from '../../images/scavenge.png';
 import craftsmanshipIcon from '../../images/craftsmanship.png';
 import intellectIcon from '../../images/intellect.png';
@@ -44,6 +45,7 @@ const getIconSource = (type) => {
         case EXPERIENCE: return experienceIcon;
         case DEATH: return deathIcon;
         case COMBAT: return combatIcon;
+        case ARMOR: return armorIcon;
         case SCAVENGE: return scavengeIcon;
         case CRAFTSMANSHIP: return craftsmanshipIcon;
         case INTELLECT: return intellectIcon;
@@ -72,6 +74,7 @@ const getTranslationKey = (type) => {
         case EXPERIENCE: return "basic.experience";
         case DEATH: return "basic.death";
         case COMBAT: return "basic.combat";
+        case ARMOR: return "basic.armor";
         case SCAVENGE: return "basic.scavenge";
         case CRAFTSMANSHIP: return "basic.craftsmanship";
         case INTELLECT: return "basic.intellect";

@@ -41,11 +41,9 @@ class DefaultActionPanel extends React.Component {
     render() {
         return <Card className="mt-4">
             <Card.Body>
-                <Row>
-                    <Col>
-                        <Translate id="labels.defaultAction" />
-                    </Col>
-                </Row>
+                <Card.Title>
+                    <Translate id="labels.defaultAction" />
+                </Card.Title>
                 <Row className="mt-2">
                     <Col md={4}>
                         <Translate>
