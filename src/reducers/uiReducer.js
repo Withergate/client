@@ -7,13 +7,15 @@ import {
     CHANGE_BUILDING_SORT_DIRECTION,
     CHANGE_ITEM_FILTER,
     CHANGE_CLAN_OFFER_FILTER,
-    CHANGE_MARKET_OFFER_FILTER
+    CHANGE_MARKET_OFFER_FILTER,
+    DISPLAY_INTEL
 } from '../actions/uiActions';
 import { ALL } from '../constants/constants';
 
 const initialState = {
     clanTab: 'overview',
     actionTab: 'locations',
+    displayIntel: false,
     sort: {
         characters: {
             key: 'name',
@@ -110,6 +112,11 @@ export const UiReducer = (state = initialState, action) => {
                     ...state.filter,
                     marketOffers: action.payload
                 }
+            };
+        case DISPLAY_INTEL:
+            return {
+                ...state,
+                displayIntel: action.payload
             };
         default:
             return state;

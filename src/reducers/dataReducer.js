@@ -86,7 +86,7 @@ const initialState = {
         error: ''
     },
     intel: {
-        data: undefined,
+        data: {},
         fetching: false,
         fetched: false,
         failed: false,

@@ -9,6 +9,7 @@ export const CHANGE_BUILDING_SORT_DIRECTION = 'CHANGE_BUILDING_SORT_DIRECTION';
 export const CHANGE_ITEM_FILTER = 'CHANGE_ITEM_FILTER';
 export const CHANGE_CLAN_OFFER_FILTER = 'CHANGE_CLAN_OFFER_FILTER';
 export const CHANGE_MARKET_OFFER_FILTER = 'CHANGE_MARKET_OFFER_FILTER';
+export const DISPLAY_INTEL = 'DISPLAY_INTEL';
 
 const selectClanTabAction = (tab) => ({
     type: SELECT_CLAN_TAB,
@@ -74,3 +75,9 @@ const changeMarketOfferFilterAction = (filter) => ({
     payload: filter
 });
 export { changeMarketOfferFilterAction as changeMarketOfferFilter };
+
+const displayIntelAction = (displayed) => ({
+    type: DISPLAY_INTEL,
+    payload: displayed
+});
+export { displayIntelAction as displayIntel };

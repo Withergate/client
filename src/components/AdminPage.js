@@ -97,7 +97,7 @@ AdminPage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.string,
     restartGame: PropTypes.func.isRequired,
     endTurn: PropTypes.func.isRequired
 };

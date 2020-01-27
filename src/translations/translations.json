@@ -130,7 +130,6 @@
         "endGame": ["The game has ended. Wait for the administrator to start a new game.", "Hra již skončila. Počkej, až administrátor začne novou hru."],
         "end": ["End", "Konec"],
         "free": ["Free", "Zdarma"],
-        "numCharacters": ["Number of characters", "Počet postav"],
         "lastActivity": ["Last activity (UTC)", "Poslední aktivita (UTC)"],
         "minutesAgo": ["${minutes} minutes ago", "Před ${minutes} minutami"],
         "visitCost": ["Cost to visit", "Cena za navštívení"],
@@ -155,6 +154,15 @@
         "clanDefense": ["Defense", "Obrana"],
         "clanDefenseInfo": ["This panel shows your current clan defense. When somebody attacks your clan, your clan will be automatically defended by one of your clan's dogs. His strength is affected by the level of your building Dog kennels.",
         "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."]
+    },
+    "intel": {
+        "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",
+            "Podařilo se nám shromáždit následující statistiky o tomto klanu. Zvýšením úrovně informací se dozvíme více."],
+        "defense": ["Defense combat", "Obranná síla"],
+        "characters": ["Number of characters", "Počet postav"],
+        "buildings": ["Sum of building levels", "Součet úrovní budov"],
+        "research": ["Completed research", "Dokončené výzkumy"],
+        "disaster": ["Disaster progress", "Odvrácení pohromy"]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],

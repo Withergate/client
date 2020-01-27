@@ -12,8 +12,10 @@ import intel from '../images/intel.png';
 import { GameIcon } from './shared/GameIcon';
 
 import { fetchClans, fetchClanIntel } from '../actions/dataActions';
+import { displayIntel } from '../actions/uiActions';
 import { dismissError } from '../actions/uiActions';
 import { FAME, LARGE } from '../constants/constants';
+import ClanIntelDialog from './intel/ClanIntelDialog';
 
 // get formatted date time
 const getFormattedTime = (datetime) => {
@@ -26,6 +28,11 @@ class FamePage extends Component {
         if (!this.props.fetched) {
             this.props.fetchClans(this.props.clans.number);
         }
+    }
+
+    displayIntel(clanId) {
+        this.props.displayIntel(true);
+        this.props.fetchClanIntel(clanId);
     }
 
     render() {
@@ -65,7 +72,7 @@ class FamePage extends Component {
                                                     src={intel}
                                                     width="24px"
                                                     style={{cursor:'pointer'}}
-                                                    onClick={() => this.props.fetchClanIntel(clan.id)}
+                                                    onClick={() => this.displayIntel(clan.id)}
                                                 />
                                             }
                                         </td>
@@ -74,6 +81,8 @@ class FamePage extends Component {
                                 }
                             </tbody>
                         </Table>
+
+                        <ClanIntelDialog />
                     </div>
                     
                 }
@@ -106,7 +115,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClans, dismissError, fetchClanIntel }, dispatch)
+    bindActionCreators({ fetchClans, dismissError, fetchClanIntel, displayIntel }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(FamePage);
