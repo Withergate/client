@@ -15,13 +15,19 @@ import {
     fetchClanStatistics,
     fetchFactions,
     fetchFactionsOverview,
-    setTurnStart
+    setTurnStart,
+    fetchClanIntel
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
 export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
 export const FETCH_CLAN_FULFILLED = 'FETCH_CLAN_FULFILLED';
 export const FETCH_CLAN_REJECTED = 'FETCH_CLAN_REJECTED';
+
+export const FETCH_CLAN_INTEL = 'FETCH_CLAN_INTEL';
+export const FETCH_CLAN_INTEL_PENDING = 'FETCH_CLAN_INTEL_PENDING';
+export const FETCH_CLAN_INTEL_FULFILLED = 'FETCH_CLAN_INTEL_FULFILLED';
+export const FETCH_CLAN_INTEL_REJECTED = 'FETCH_CLAN_INTEL_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -237,3 +243,9 @@ const setTurnStartAction = (date) => {
     }
 };
 export { setTurnStartAction as setTurnStart };
+
+const fetchClanIntelAction = (clanId) => ({
+    type: FETCH_CLAN_INTEL,
+    payload: fetchClanIntel(clanId)
+});
+export { fetchClanIntelAction as fetchClanIntel };

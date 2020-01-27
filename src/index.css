@@ -87,3 +87,10 @@ body {
   overflow-wrap: break-word;
   display: block;
 }
+
+/*
+* Misc
+*/
+.centered {
+  text-align: center;
+}

@@ -65,7 +65,8 @@
         "item": ["Item", "Předmět"],
         "statistics": ["Statistics", "Statistiky"],
         "faction": ["Faction", "Frakce"],
-        "factionPoints": ["Influence", "Vliv"]
+        "factionPoints": ["Influence", "Vliv"],
+        "intel": ["Intel", "Intel"]
     },
     "labels": {
         "save": ["Save", "Uložit"],

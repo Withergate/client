@@ -19,7 +19,10 @@ import {
     FETCH_FACTIONS_REJECTED,
     FETCH_FACTIONS_OVERVIEW_PENDING,
     FETCH_FACTIONS_OVERVIEW_FULFILLED,
-    FETCH_FACTIONS_OVERVIEW_REJECTED
+    FETCH_FACTIONS_OVERVIEW_REJECTED,
+    FETCH_CLAN_INTEL_PENDING,
+    FETCH_CLAN_INTEL_FULFILLED,
+    FETCH_CLAN_INTEL_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -76,6 +79,13 @@ const initialState = {
         error: ''
     },
     factionsOverview: {
+        data: undefined,
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    intel: {
         data: undefined,
         fetching: false,
         fetched: false,
@@ -343,6 +353,40 @@ export const DataReducer = (state = initialState, action) => {
                 ...state,
                 factionsOverivew: {
                     ...state.factionsOverview,
+                    data: undefined,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                },
+            };
+        case FETCH_CLAN_INTEL_PENDING:
+            return {
+                ...state,
+                intel: {
+                    ...state.intel,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
+            };
+        case FETCH_CLAN_INTEL_FULFILLED:
+            return {
+                ...state,
+                intel: {
+                    ...state.intel,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_CLAN_INTEL_REJECTED:
+            return {
+                ...state,
+                intel: {
+                    ...state.inte,
                     data: undefined,
                     fetching: false,
                     fetched: false,

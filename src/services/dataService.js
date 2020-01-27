@@ -89,3 +89,7 @@ export const setTurnStart = (date) => {
         API_URL.concat('turn/update'), 
         JSON.stringify({startDate: date}));
 };
+
+export const fetchClanIntel = (clanId) => {
+    return apiGet(API_URL.concat('clan/').concat(clanId));
+};

@@ -8,9 +8,12 @@ import { Table, Image } from 'react-bootstrap';
 import { Error } from './shared/Error';
 import { Paginator } from './shared/Paginator';
 import spinner from '../images/spinner.gif';
+import intel from '../images/intel.png';
+import { GameIcon } from './shared/GameIcon';
 
-import { fetchClans } from '../actions/dataActions';
+import { fetchClans, fetchClanIntel } from '../actions/dataActions';
 import { dismissError } from '../actions/uiActions';
+import { FAME, LARGE } from '../constants/constants';
 
 // get formatted date time
 const getFormattedTime = (datetime) => {
@@ -39,24 +42,33 @@ class FamePage extends Component {
                             onPrevious={this.props.fetchClans}>
                             <Translate id="labels.page" /> {this.props.clans.number + 1}
                         </Paginator>
-                        <Table className="mt-4" striped bordered hover>
+                        <Table className="mt-4" striped borderless hover responsive>
                             <thead>
                                 <tr>
                                     <th><Translate id="basic.clan" /></th>
-                                    <th><Translate id="basic.fame" /></th>
-                                    <th><Translate id="labels.numCharacters" /></th>
-                                    <th><Translate id="basic.faction" /></th>
+                                    <th className="centered"><GameIcon type={FAME} size={LARGE} /></th>
+                                    <th className="centered"><Translate id="basic.faction" /></th>
                                     <th><Translate id="labels.lastActivity" /></th>
+                                    <th className="centered"><Translate id="basic.intel" /></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 { this.props.clans.content.map(clan =>
                                     <tr key={clan.id} className={clan.id === this.props.clanId ? "text-success" : ""}>
                                         <td>{clan.name}</td>
-                                        <td>{clan.fame}</td>
-                                        <td>{clan.numCharacters}</td>
-                                        <td>{clan.faction && <Image src={clan.faction.iconUrl} width="24px" />}</td>
+                                        <td className="centered">{clan.fame}</td>
+                                        <td className="centered">{clan.faction && <Image src={clan.faction.iconUrl} width="24px" />}</td>
                                         <td>{getFormattedTime(clan.lastActivity)}</td>
+                                        <td className="centered">
+                                            { this.props.clanId !== clan.id &&
+                                                <Image 
+                                                    src={intel}
+                                                    width="24px"
+                                                    style={{cursor:'pointer'}}
+                                                    onClick={() => this.props.fetchClanIntel(clan.id)}
+                                                />
+                                            }
+                                        </td>
                                     </tr>
                                     )
                                 }
@@ -94,7 +106,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClans, dismissError }, dispatch)
+    bindActionCreators({ fetchClans, dismissError, fetchClanIntel }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(FamePage);
