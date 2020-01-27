@@ -99,10 +99,7 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="items">
                                             <Row>
                                                 <Col md={12}>
-                                                    <CharacterSelector 
-                                                        characters={this.props.clan.characters}
-                                                        selectedCharacter={this.props.selectedCharacter}
-                                                        onSelect={this.props.selectCharacter} />
+                                                    <CharacterSelector />
                                                 </Col>
                                                 <Col md={6} xs={12}>
                                                     <ItemList

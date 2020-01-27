@@ -162,7 +162,14 @@
         "characters": ["Number of characters", "Počet postav"],
         "buildings": ["Sum of building levels", "Součet úrovní budov"],
         "research": ["Completed research", "Dokončené výzkumy"],
-        "disaster": ["Disaster progress", "Odvrácení pohromy"]
+        "disaster": ["Disaster progress", "Odvrácení pohromy"],
+        "attack": ["Attack", "Útok"],
+        "attackText": ["Select a character to attack this clan. The combat strength of your target is affected by his/her buildings. The reward for successful attack is based on your and your target's fame. Attacking weaker players grants less resources and fame.", 
+        "Vyber si postavu a zaútoč na tento klan. Síla tvého cíle je ovlivěna postavenými budovami. Zisk z útoku závisí na tvé slávě a slávě tvého protivníka. Útoky na slabší klany mají menší výnos."],
+        "attackTooltip": ["Your character will attack the target clan. If you win against the clan's defender, you will steal some resoures and gain fame and influence.",
+        "Tvá postava zaútočí na vybraný klan. Pokud uspěješ v souboji s obráncem druhého klanu, tak získáš suroviny, slávu a body vlivu."],
+        "attackDisabled": ["Your clan must be in a different faction than your target. Clans without faction cannot attack or be attacked.",
+        "Tvůj klan musí být v jiné frakci než tvůj cíl. Klany bez frakce se bojů neúčastní."]
     },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],

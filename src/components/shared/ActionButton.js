@@ -16,7 +16,7 @@ const ActionButton = (props) => (
     <TooltipWrapper textKey={props.tooltip}>
         <Button
             variant="success"
-            className="button-classic ml-2" 
+            className={props.noPadding ? "button-classic" : "button-classic ml-2"} 
             onClick={props.action}
             disabled={disableButton(props.condition, props.character, props.turn, props.maxTurns)}>
             <Translate id={props.buttonText} />
@@ -31,7 +31,8 @@ ActionButton.propTypes = {
     tooltip: PropTypes.string.isRequired,
     maxTurns: PropTypes.number.isRequired,
     turn: PropTypes.object.isRequired,
-    condition: PropTypes.bool
+    condition: PropTypes.bool,
+    noPadding: PropTypes.bool
 };
 
 const mapStateToProps = state => {

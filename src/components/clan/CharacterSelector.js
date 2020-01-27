@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
 import { orderBy } from "lodash";
 
@@ -7,6 +9,8 @@ import CharacterDetails from './CharacterDetails';
 import { Row, Col, Button } from 'react-bootstrap';
 import CharacterHeader from './CharacterHeader';
 import { SMALL } from '../../constants/constants';
+
+import { selectCharacter } from '../../actions/uiActions';
 
 const sort = (list) => {
     return orderBy(list, ["name"], ["asc"]);
@@ -21,7 +25,7 @@ const getTextColor = (character) => {
     }
 };
 
-const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
+const CharacterSelector = ({ characters, selectedCharacter, selectCharacter}) => (
     <div className="mb-3 dropdown">
         <Row>
             <Col md={4}>
@@ -34,7 +38,7 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
                             className="w-100"
                             variant="light"
                             key={character.id}
-                            onClick={() => onSelect(character.id)}>
+                            onClick={() => selectCharacter(character.id)}>
                                 <div className={getTextColor(character)}>
                                     {
                                         selectedCharacter !== undefined && selectedCharacter.id === character.id ?
@@ -61,12 +65,18 @@ const CharacterSelector = ({ characters, selectedCharacter, onSelect}) => (
 
 CharacterSelector.propTypes = {
     characters: PropTypes.array.isRequired,
-    selectedCharacter: PropTypes.object,
-    onSelect: PropTypes.func.isRequired
+    selectedCharacter: PropTypes.object
 };
 
-CharacterSelector.defaultProps = {
-    orientation: "horizontal"
+const mapStateToProps = state => {
+    const characters = state.clan.clan.characters;
+    const selectedCharacter = state.clan.selectedCharacter;
+
+    return { characters, selectedCharacter };
 };
 
-export default CharacterSelector;
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ selectCharacter }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterSelector);

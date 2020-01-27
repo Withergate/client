@@ -19,7 +19,6 @@ import ClanOfferList from './trade/ClanOfferList';
 import { fetchClan } from '../actions/dataActions';
 import {
     selectActionTab,
-    selectCharacter,
     dismissError
 } from '../actions/uiActions';
 import MarketOfferList from './trade/MarketOfferList';
@@ -91,10 +90,7 @@ class ActionPage extends Component {
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
-                                    <CharacterSelector 
-                                        characters={this.props.clan.characters}
-                                        selectedCharacter={this.props.selectedCharacter}
-                                        onSelect={this.props.selectCharacter} />
+                                    <CharacterSelector />
                                     <Tab.Content>
                                         <Tab.Pane eventKey="locations">
                                             <LocationList />
@@ -158,7 +154,6 @@ ActionPage.propTypes = {
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
-    selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
     turn: PropTypes.object.isRequired,
     maxTurns: PropTypes.number.isRequired
@@ -166,7 +161,7 @@ ActionPage.propTypes = {
 
 const mapStateToProps = state => {
     const offers = state.data.offers;
-    const { selectedCharacter, clan } = state.clan;
+    const { clan } = state.clan;
 
     const fetching = state.clan.fetching || state.action.fetching;
     const fetched = state.clan.fetched && state.action.fetched;
@@ -179,13 +174,12 @@ const mapStateToProps = state => {
     const turn = state.turn.turn;
     const maxTurns = state.game.properties.maxTurns;
 
-    return { fetching, fetched, failed, error, offers, selectedCharacter, clan, selectedTab, turn, maxTurns };
+    return { fetching, fetched, failed, error, offers, clan, selectedTab, turn, maxTurns };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchClan,
-        selectCharacter,
         selectActionTab,
         dismissError
     }, dispatch)
