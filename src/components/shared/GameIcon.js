@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -28,6 +28,7 @@ import healthIcon from '../../images/health.png';
 import experienceStatIcon from '../../images/experienceStat.png';
 import skillpointIcon from '../../images/skillpoint.png';
 import factionIcon from '../../images/faction.png';
+import rollIcon from '../../images/roll.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -56,6 +57,7 @@ const getIconSource = (type) => {
         case LOGOUT: return logoutIcon;
         case ITEM: return itemIcon;
         case FACTION_POINTS: return factionIcon;
+        case ROLL: return rollIcon;
         default: return "";
     }
 }
@@ -85,6 +87,7 @@ const getTranslationKey = (type) => {
         case LOGOUT: return "header.logout";
         case ITEM: return "basic.item";
         case FACTION_POINTS: return "basic.factionPoints";
+        case ROLL: return "basic.roll";
         default: return "";
     }
 }

@@ -5,12 +5,45 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import { Card, Row, Col, Image, Collapse, Button } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { JUNK, LARGE, FOOD, CAPS, FAME, INJURY, HEALING, EXPERIENCE, INFORMATION, DEATH, ITEM, FACTION_POINTS } from '../../constants/constants';
+import { JUNK, LARGE, FOOD, CAPS, FAME, INJURY, HEALING, EXPERIENCE, INFORMATION, DEATH, ITEM, FACTION_POINTS, COMBAT, SMALL, HEALTH, ROLL, ARMOR } from '../../constants/constants';
 import { Translate } from 'react-localize-redux';
 
 const renderDetail = detail => (
-    <li key={detail.id}><small>{getTranslatedText(detail.text)}</small></li>
+    <li key={detail.id}>
+        <small>
+            {getTranslatedText(detail.text)}
+            { detail.combatRound && renderCombatRound(detail.combatRound) }
+        </small>
+    </li>
 );
+
+const renderCombatRound = combatRound => {
+    return <Row className="mb-2">
+        <Col md={3} xs={12}>
+            <ul className="list-inline">
+                <li className="list-inline-item"><b>{ combatRound.name1 }</b></li>
+                <li className="list-inline-item"><GameIcon type={COMBAT} size={SMALL} value={combatRound.combat1} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health1} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={ROLL} size={SMALL} value={combatRound.roll1} noPadding /></li>
+            </ul>
+        </Col>
+        <Col md={3} xs={12}>
+            <ul className="list-inline">
+                <li className="list-inline-item"><b>{ combatRound.name2 }</b></li>
+                <li className="list-inline-item"><GameIcon type={COMBAT} size={SMALL} value={combatRound.combat2} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health2} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={ROLL} size={SMALL} value={combatRound.roll2} noPadding /></li>
+            </ul>
+        </Col>
+        <Col md={3} xs={12}>
+            <ul className="list-inline">
+                <li className="list-inline-item"><b>{ combatRound.loser }</b></li>
+                <li className="list-inline-item"><GameIcon type={ARMOR} size={SMALL} value={combatRound.armor} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={INJURY} size={SMALL} value={combatRound.injury} noPadding /></li>
+            </ul>
+        </Col>
+    </Row>
+}
 
 class NotificationListItem extends React.Component {
     constructor(props) {
