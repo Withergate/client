@@ -17,7 +17,8 @@ import {
     handleDisaster,
     activateTrait,
     refreshTavern,
-    handleFactionAction
+    handleFactionAction,
+    handleClanCombat
 } from '../services/actionService';
 
 import {
@@ -291,3 +292,16 @@ const handleFactionActionAction = (characterId, type, faction, factionAid) => {
     };
 };
 export { handleFactionActionAction as handleFactionAction };
+
+const handleClanCombatAction = (characterId, targetId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: handleClanCombat(characterId, targetId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { handleClanCombatAction as handleClanCombat };

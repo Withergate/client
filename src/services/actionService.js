@@ -91,3 +91,8 @@ export const handleFactionAction = (characterId, type, faction, factionAid) => {
     return apiPost(API_URL.concat('factions/action'), 
     JSON.stringify({characterId: characterId, type: type, faction: faction, factionAid: factionAid}));
 };
+
+export const handleClanCombat = (characterId, targetId) => {
+    return apiPost(API_URL.concat('factions/action/combat'), 
+    JSON.stringify({characterId: characterId, targetId: targetId}));
+};

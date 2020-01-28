@@ -319,7 +319,8 @@
         "TAVERN": ["Drinking in the tavern", "Pije v taverně"],
         "RESTING": ["Resting", "Odpočívá"],
         "RESEARCH": ["Researching", "Zkoumá"],
-        "FACTION": ["Handling faction business", "Pracuje pro frakci"]
+        "FACTION": ["Handling faction business", "Pracuje pro frakci"],
+        "CLAN_COMBAT": ["Attacking another clan", "Útočí na cizí klan"]
     },
     "base": {
         "restDescription": ["Everyone needs some rest from time to time. This will allow the character to heal.", "Každý potřebuje občas odpočívat. Tato akce umožní léčit ztracené životy."],

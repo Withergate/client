@@ -6,6 +6,7 @@ import { Translate } from 'react-localize-redux';
 import { Modal, Button, Row, Col, ListGroup } from 'react-bootstrap';
 
 import { displayIntel } from '../../actions/uiActions';
+import { handleClanCombat } from '../../actions/actionActions';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, SMALL, CAPS, FOOD, JUNK } from '../../constants/constants';
 import CharacterSelector from '../clan/CharacterSelector';
@@ -16,7 +17,7 @@ const isAttackEnabled = (clan, intel) => {
     if (!clan.faction) {
         return false;
     }
-    if (clan.faction.idenfifier !== intel.faction) {
+    if (clan.faction.idenfifier === intel.faction) {
         return false;
     }
 
@@ -84,7 +85,7 @@ const ClanIntelDialog = (props) => (
                                     { props.selectedCharacter !== undefined ? 
                                         <ActionButton 
                                             character={props.selectedCharacter}
-                                            action={() => console.log("Attack")}
+                                            action={() => props.handleClanCombat(props.selectedCharacter.id, props.intel.clanId)}
                                             buttonText="intel.attack"
                                             tooltip="intel.attackTooltip"
                                             noPadding
@@ -127,7 +128,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ displayIntel }, dispatch)
+    bindActionCreators({ displayIntel, handleClanCombat }, dispatch)
 );
   
 export default connect(mapStateToProps, mapDispatchToProps)(ClanIntelDialog);
