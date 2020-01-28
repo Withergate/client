@@ -9,7 +9,9 @@
       "administration": ["Administration", "Administrace"],
       "turn": ["Turn", "Kolo"],
       "logout": ["Logout", "Odhlášení"],
-      "timeRemaining": ["Time until next turn", "Čas do dalšího kola"]
+      "timeRemaining": ["Time until next turn", "Čas do dalšího kola"],
+      "charactersWarning": ["You have characters with unassigned actions for this turn. Let's get to work!", 
+      "Některé tvé postavy nemají přiřazené akce pro toto kolo. Dej se do práce!"]
     },
     "basic": {
         "base": ["Base", "Kemp"],

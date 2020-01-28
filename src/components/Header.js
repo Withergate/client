@@ -7,8 +7,9 @@ import LanguageToggle from './LanguageToggle';
 import logo from '../images/logo.png';
 import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { AUTH_URL } from '../services/constants/endpoints';
+import warningIcon from '../images/warning.png';
 import TooltipWrapper from './shared/TooltipWrapper';
 
 const getTurnText = (turnId, maxTurns) => {
@@ -49,6 +50,17 @@ const getTimeToNextTurn = (turn, turnTimes) => {
     return hours + ":" + minutes;
 }
 
+const renderWarning = (clan) => {
+    for (const character of clan.characters) {
+        if (character.state === 'READY') {
+            return <TooltipWrapper textKey="header.charactersWarning">
+                <Image src={warningIcon} width="20px" />
+            </TooltipWrapper>
+        }
+    }
+    return undefined;
+}
+
 const logout = () => {
     // delete token
     localStorage.removeItem('token');
@@ -87,6 +99,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                                 </small>
                             </TooltipWrapper>
                         </li>
+                        <li className="list-inline-item">{renderWarning(clan)}</li>
                     </ul>
                 </div>
             }
