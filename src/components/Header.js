@@ -99,7 +99,9 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                                 </small>
                             </TooltipWrapper>
                         </li>
-                        <li className="list-inline-item">{renderWarning(clan)}</li>
+                        { turn.turnId <= maxTurns && 
+                            <li className="list-inline-item">{renderWarning(clan)}</li> 
+                        }
                     </ul>
                 </div>
             }
