@@ -5,12 +5,13 @@ import { bindActionCreators } from 'redux';
 import { Translate } from 'react-localize-redux';
 import { Modal, Button, Row, Col, ListGroup } from 'react-bootstrap';
 
-import { displayIntel } from '../../actions/uiActions';
+import { displayIntel, dismissError } from '../../actions/uiActions';
 import { handleClanCombat } from '../../actions/actionActions';
 import { GameIcon } from '../shared/GameIcon';
-import { FAME, SMALL, CAPS, FOOD, JUNK } from '../../constants/constants';
+import { FAME, SMALL, CAPS, FOOD, JUNK, LARGE, FACTION_POINTS } from '../../constants/constants';
 import CharacterSelector from '../clan/CharacterSelector';
 import ActionButton from '../shared/ActionButton';
+import { Error } from '../shared/Error';
 
 // clan must be in a different faction than the other clan
 const isAttackEnabled = (clan, intel) => {
@@ -32,6 +33,8 @@ const ClanIntelDialog = (props) => (
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            { props.failed && props.error && <Error message={props.error} dismiss={props.dismissError} />
+            }
             <Row>
                 <Col md={8} xs={12} className="mb-2">
                     <p><Translate id="intel.description" /></p>
@@ -56,9 +59,6 @@ const ClanIntelDialog = (props) => (
                             <b><Translate id="intel.characters" />:</b> { props.intel.characters ? props.intel.characters : '?' }
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b><Translate id="intel.defense" />:</b> { props.intel.defense ? props.intel.defense : '?' }
-                        </ListGroup.Item>
-                        <ListGroup.Item>
                             <b><Translate id="intel.buildings" />:</b> { props.intel.buildings ? props.intel.buildings : '?' }
                         </ListGroup.Item>
                         <ListGroup.Item>
@@ -77,6 +77,20 @@ const ClanIntelDialog = (props) => (
                         <div>
                             <h5><Translate id="intel.attack" /></h5>
                             <p><Translate id="intel.attackText" /></p>
+                            <p>
+                                { props.intel.defense ?
+                                    <b className="text-primary"><Translate id="intel.defense" data={{ defense: props.intel.defense }} /></b>
+                                    : <b className="text-danger"><Translate id="intel.defenseUnknown" /></b>
+                                }
+                            </p>
+                            <ul className="list-inline">
+                                <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                                <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={props.intel.fameReward} /></li>
+                                <li className="list-inline-item"><GameIcon type={FACTION_POINTS} size={LARGE} value={props.intel.factionReward} /></li>
+                                <li className="list-inline-item"><GameIcon type={CAPS} value='?' size={LARGE} /></li>
+                                <li className="list-inline-item"><GameIcon type={FOOD} value='?' size={LARGE} /></li>
+                                <li className="list-inline-item"><GameIcon type={JUNK} value='?' size={LARGE} /></li>
+                            </ul>
                             <Row>
                                 <Col md={10} xs={12}>
                                     <CharacterSelector />
@@ -85,7 +99,9 @@ const ClanIntelDialog = (props) => (
                                     { props.selectedCharacter !== undefined ? 
                                         <ActionButton 
                                             character={props.selectedCharacter}
-                                            action={() => props.handleClanCombat(props.selectedCharacter.id, props.intel.clanId)}
+                                            action={() => {
+                                                props.handleClanCombat(props.selectedCharacter.id, props.intel.clanId)
+                                            }}
                                             buttonText="intel.attack"
                                             tooltip="intel.attackTooltip"
                                             noPadding
@@ -119,7 +135,10 @@ ClanIntelDialog.propTypes = {
 
 const mapStateToProps = state => {
     const clan = state.clan.clan;
-    const { fetching, fetched, failed, error } = state.data.intel;
+    const fetched = state.action.fetched && state.data.intel.fetched;
+    const fetching = state.action.fetching || state.data.intel.fetching;
+    const failed = state.action.failed || state.data.intel.failed;
+    const error = state.action.error || state.data.intel.error;
     const intel = state.data.intel.data;
     const show = state.ui.displayIntel;
     const selectedCharacter = state.clan.selectedCharacter;
@@ -128,7 +147,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ displayIntel, handleClanCombat }, dispatch)
+    bindActionCreators({ displayIntel, handleClanCombat, dismissError }, dispatch)
 );
   
 export default connect(mapStateToProps, mapDispatchToProps)(ClanIntelDialog);

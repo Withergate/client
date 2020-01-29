@@ -161,7 +161,8 @@
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",
             "Podařilo se nám shromáždit následující statistiky o tomto klanu. Zvýšením úrovně informací se dozvíme více."],
-        "defense": ["Defense combat", "Obranná síla"],
+        "defense": ["This clan has defense value ${defense}.", "Obranná síla tohoto klanu je ${defense}."],
+        "defenseUnknown": ["You have no information about this clan's defense capabilities.", "Nemáš dostatek informací o síle obrany tohoto klanu."],
         "characters": ["Number of characters", "Počet postav"],
         "buildings": ["Sum of building levels", "Součet úrovní budov"],
         "research": ["Completed research", "Dokončené výzkumy"],
