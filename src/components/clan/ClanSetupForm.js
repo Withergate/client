@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, Form, InputGroup, FormControl, FormLabel, Row, Col } from 'react-bootstrap';
+import { Button, Form, InputGroup, FormControl, FormLabel, Row, Col, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import { Error } from '../shared/Error';
 
@@ -36,30 +36,37 @@ class ClanSetupForm extends Component {
                     this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {   !this.props.fetching &&
-                    <Form className="p-4" onSubmit={this.handleSubmit}>
-                        <p>
-                            <Translate id="clanSetup.text" />
-                        </p>
-                        <InputGroup className="form-group">
-                            <Row>
-                                <Col md={5}>
-                                    <FormLabel>
-                                        <Translate id="clanSetup.name" />
-                                    </FormLabel>
-                                </Col>
-                                <Col md={7}>
-                                    <FormControl 
-                                        name="clan-name"
-                                        type="text"
-                                        value={this.state.value}
-                                        onChange={this.handleChange} />
-                                </Col>
-                            </Row>
-                        </InputGroup>
-                        <Button className="btn btn-dark" type="submit">
-                            <Translate id="clanSetup.button" />
-                        </Button>
-                    </Form>
+                    <Row className="p-4">
+                        <Col md={2} xs={12}>
+                            <Image src="https://storage.googleapis.com/withergate-images/misc/clan.png" className="w-100" />
+                        </Col>
+                        <Col md={10} xs={12}>
+                            <Form onSubmit={this.handleSubmit}>
+                                <p>
+                                    <Translate id="clanSetup.text" />
+                                </p>
+                                <InputGroup className="form-group">
+                                    <Row>
+                                        <Col md={5}>
+                                            <FormLabel>
+                                                <Translate id="clanSetup.name" />
+                                            </FormLabel>
+                                        </Col>
+                                        <Col md={7}>
+                                            <FormControl 
+                                                name="clan-name"
+                                                type="text"
+                                                value={this.state.value}
+                                                onChange={this.handleChange} />
+                                        </Col>
+                                    </Row>
+                                </InputGroup>
+                                <Button  className="button-large" variant="dark" type="submit">
+                                    <Translate id="clanSetup.button" />
+                                </Button>
+                            </Form>
+                        </Col>
+                    </Row>
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />

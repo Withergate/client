@@ -13,7 +13,7 @@ const renderItem = (item, selectedCharacter, equipItem) => (
 );
 
 const ItemList = (props) => (
-    <div>
+    <div className="mb-2">
         <h5><Translate id="labels.itemStorage" /></h5>
         <ItemFilter filter={props.filter} onChange={props.changeFilter} />
         {
