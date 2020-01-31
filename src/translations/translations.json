@@ -175,6 +175,9 @@
         "attackDisabled": ["Your clan must be in a different faction than your target. Clans without faction cannot attack or be attacked.",
         "Tvůj klan musí být v jiné frakci než tvůj cíl. Klany bez frakce se bojů neúčastní."]
     },
+    "footer": {
+        "patreon": ["Become a patron!", "Staň se patronem!"]
+    },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],
         "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],

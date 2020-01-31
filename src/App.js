@@ -86,7 +86,7 @@ class App extends Component {
                                 loggedIn={loggedIn}
                                 dismissError={dismissError}
                             />
-                            <Footer version={version} />
+                            <Footer version={version} fetched={fetched} />
                         </div>
                     </BrowserRouter>
                 </LocalizeProvider>
