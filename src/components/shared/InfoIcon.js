@@ -9,7 +9,7 @@ import TooltipWrapper from './TooltipWrapper';
 const InfoIcon = (props) => (
     <div className="mr-1 ml-1" >
         <TooltipWrapper textKey={props.textKey}>
-            <Image height="25px" src={infoIcon}/>
+            <Image height="20px" src={infoIcon}/>
         </TooltipWrapper>     
     </div>
 );

@@ -77,6 +77,7 @@ const ClanIntelDialog = (props) => (
                         <div>
                             <h5><Translate id="intel.attack" /></h5>
                             <p><Translate id="intel.attackText" /></p>
+                            <p className="text-danger"><Translate id="intel.attackLimit" /></p>
                             <p>
                                 { props.intel.defense ?
                                     <b className="text-primary"><Translate id="intel.defense" data={{ defense: props.intel.defense }} /></b>

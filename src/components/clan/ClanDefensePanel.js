@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
-import { Card, Row, Col } from 'react-bootstrap';
-import { COMBAT, HEALTH, ARMOR } from '../../constants/constants';
-import AttributeBar from './AttributeBar';
+import { Card, ListGroup } from 'react-bootstrap';
+import { COMBAT, HEALTH, ARMOR, LARGE } from '../../constants/constants';
+import { GameIcon } from '../shared/GameIcon';
 
 const ClanDefensePanel = ({defender}) => (
     <Card className="mt-4">
@@ -11,17 +11,14 @@ const ClanDefensePanel = ({defender}) => (
             <Card.Title>
             <Translate id="labels.clanDefense" />
             </Card.Title>
-            <Row>
-                <Col>
-                    <Translate id="labels.clanDefenseInfo" />
-                </Col>
-                <Col>
-                    <AttributeBar name="basic.combat" value={defender.combat} iconType={COMBAT} max={12} />
-                    <AttributeBar name="basic.armor" value={defender.outfit.details.combat} iconType={ARMOR} max={3} />
-                    <AttributeBar name="basic.health" value={defender.hitpoints} iconType={HEALTH} max={35} variant="success" />
-                </Col>
-            </Row>
-            
+            <p><Translate id="labels.clanDefenseInfo1" /></p>
+            <p><Translate id="labels.clanDefenseInfo2" /></p>
+
+            <ListGroup horizontal>
+                <ListGroup.Item><GameIcon type={COMBAT} size={LARGE} value={defender.combat} /></ListGroup.Item>
+                <ListGroup.Item><GameIcon type={ARMOR} size={LARGE} value={defender.outfit.details.combat} /></ListGroup.Item>
+                <ListGroup.Item><GameIcon type={HEALTH} size={LARGE} value={defender.hitpoints} /></ListGroup.Item>
+            </ListGroup>
         </Card.Body>
     </Card>
 );

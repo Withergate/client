@@ -71,11 +71,22 @@ body {
   overflow: hidden;
 }
 
-.carousel-item {
-  height: 600px;
-  text-align: center;
-  bottom: auto;
-  position: unset;
+@media only screen and (max-width: 600px) {
+  .carousel-item {
+    height: 550px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .carousel-item {
+    height: 650px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
 }
 
 /*

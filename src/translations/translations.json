@@ -155,8 +155,10 @@
         "equippedItems": ["Equipped items", "Nasazené předměty"],
         "equippedBy": ["Item equipped by ${character}.", "Předmět má momentálně postava ${character}."],
         "clanDefense": ["Defense", "Obrana"],
-        "clanDefenseInfo": ["This panel shows your current clan defense. When somebody attacks your clan, your clan will be automatically defended by one of your clan's dogs. His strength is affected by the level of your building Dog kennels.",
-        "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."]
+        "clanDefenseInfo1": ["This panel shows your current clan defense. When somebody attacks your clan, your clan will be automatically defended by one of your clan's dogs. His strength is affected by the level of your building Dog kennels.",
+        "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."],
+        "clanDefenseInfo2": ["You will always face an incomming attack with a fresh defender regardless of the outcome of previous attacks. If your defender dies during a combat, you will immediately get a new one.",
+        "Každému útoku budeš čelit s čerstvým obráncem. Pokud tvůj obránce zemře, dostaneš okamžitě nového."]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",
@@ -170,6 +172,7 @@
         "attack": ["Attack", "Útok"],
         "attackText": ["Select a character to attack this clan. The combat strength of your target is affected by his/her buildings. The reward for successful attack is based on your and your target's fame. Attacking weaker players grants less resources and fame.", 
         "Vyber si postavu a zaútoč na tento klan. Síla tvého cíle je ovlivěna postavenými budovami. Zisk z útoku závisí na tvé slávě a slávě tvého protivníka. Útoky na slabší klany mají menší výnos."],
+        "attackLimit": ["You can perform only one attack per turn.", "Můžeš provést pouze jeden útok za kolo."],
         "attackTooltip": ["Your character will attack the target clan. If you win against the clan's defender, you will steal some resoures and gain fame and influence.",
         "Tvá postava zaútočí na vybraný klan. Pokud uspěješ v souboji s obráncem druhého klanu, tak získáš suroviny, slávu a body vlivu."],
         "attackDisabled": ["Your clan must be in a different faction than your target. Clans without faction cannot attack or be attacked.",
