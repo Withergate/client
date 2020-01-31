@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Main from './components/Main';
 
 import { fetchPrincipal } from './actions/authActions';
+import { fetchProfile } from './actions/profileActions';
 import { dismissError } from './actions/uiActions';
 import { fetchTurn, fetchVersion, fetchGameProperties } from './actions/dataActions';
 import { createClan } from './actions/actionActions';
@@ -27,6 +28,7 @@ class App extends Component {
         initializeReactGA();
 
         this.props.fetchPrincipal();
+        this.props.fetchProfile();
         this.props.fetchTurn();
         this.props.fetchVersion();
         this.props.fetchGameProperties();
@@ -40,7 +42,8 @@ class App extends Component {
             error,
             loggedIn,
             turn, 
-            exists, 
+            clanExists,
+            profileExists,
             createClan, 
             selectCharacter, 
             selectedCharacter, 
@@ -70,7 +73,8 @@ class App extends Component {
                                 clan={clan}
                                 loggedIn={loggedIn} />
                             <Main 
-                                exists={exists}
+                                clanExists={clanExists}
+                                profileExists={profileExists}
                                 createClan={createClan}
                                 clan={clan}
                                 selectedCharacter={selectedCharacter}
@@ -99,7 +103,8 @@ App.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool.isRequired,
-    exists: PropTypes.bool.isRequired,
+    clanExists: PropTypes.bool.isRequired,
+    profileExists: PropTypes.bool.isRequired,
     createClan: PropTypes.func.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
@@ -112,22 +117,29 @@ App.propTypes = {
 const mapStateToProps = state => {
     const { loggedIn, principal } = state.auth;
     const { turn } = state.turn;
-    const { exists, clan, selectedCharacter } = state.clan;
+    const { clan, selectedCharacter } = state.clan;
+    const clanExists = state.clan.exists;
+    const profileExists = state.profile.exists;
     const { version } = state.app;
     const { maxTurns, turnTimes } = state.game.properties;
 
-    const fetching = state.auth.fetching || state.turn.fetching || state.clan.fetching || state.game.fetching;
-    const fetched = state.auth.fetched && state.turn.fetched && state.clan.fetched && state.game.fetched;
-    const failed = state.auth.failed || state.turn.failed || state.clan.failed || state.game.failed;
-    const error = state.turn.error || state.clan.error || state.game.error;
+    const fetching = state.auth.fetching || state.turn.fetching 
+        || state.clan.fetching || state.game.fetching || state.profile.profile.fetching;
+    const fetched = state.auth.fetched && state.turn.fetched 
+        && state.clan.fetched && state.game.fetched && state.profile.profile.fetched;
+    const failed = state.auth.failed || state.turn.failed 
+        || state.clan.failed || state.game.failed || state.profile.profile.failed;
+    const error = state.turn.error || state.clan.error || state.game.error || state.profile.profile.error;
 
-    return { fetching, fetched, failed, loggedIn, turn, maxTurns, turnTimes, exists, clan, selectedCharacter, version, principal, error };
+    return { fetching, fetched, failed, loggedIn, turn, maxTurns, turnTimes, clanExists, 
+        clan, selectedCharacter, version, principal, error, profileExists };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators(
         { 
-            fetchPrincipal, 
+            fetchPrincipal,
+            fetchProfile,
             fetchTurn,
             fetchGameProperties,
             createClan, 

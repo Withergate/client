@@ -1,5 +1,5 @@
 import { 
-    createClan, 
+    createClan,
     equipItem, 
     unequipItem,
     constructBuilding,

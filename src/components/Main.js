@@ -16,6 +16,7 @@ import ClanSetupForm from './clan/ClanSetupForm';
 import AdminPage from './AdminPage';
 import LoginPage from './LoginPage';
 import AboutPage from './AboutPage.js';
+import ProfileSetupForm from './profile/ProfileSetupForm.js';
 
 class Main extends Component {
     constructor(props) {
@@ -45,18 +46,20 @@ class Main extends Component {
                     this.props.loggedIn ?
                         this.props.fetched &&
                             <div>
-                            { this.props.exists ? 
-                                <Switch>
-                                    <Route exact path='/' component={HomePage}/>
-                                    <Route path='/clan' component={ClanPage}/>
-                                    <Route path='/action' component={ActionPage}/>
-                                    <Route path='/fame' component={FamePage}/>
-                                    <Route path='/about' component={AboutPage}/>
-                                    <Route path='/admin' component={AdminPage}/>
-                                </Switch>
-
-                                : !this.props.fetching && <ClanSetupForm createClan={this.props.createClan}/>
-                            }
+                                { this.props.profileExists ? 
+                                    <div>
+                                        { !this.props.clanExists && !this.props.fetching && <ClanSetupForm createClan={this.props.createClan}/> }
+                                        <Switch>
+                                            { this.props.clanExists && <Route exact path='/' component={HomePage}/> }
+                                            { this.props.clanExists && <Route path='/clan' component={ClanPage}/> }
+                                            { this.props.clanExists && <Route path='/action' component={ActionPage}/> }
+                                            { this.props.clanExists && <Route path='/fame' component={FamePage}/> }
+                                            <Route path='/about' component={AboutPage}/>
+                                            <Route path='/admin' component={AdminPage}/>
+                                        </Switch>
+                                    </div>
+                                    : <ProfileSetupForm />
+                                }
                             </div>
                     : !this.props.fetching && <LoginPage />
                 }
@@ -66,7 +69,8 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-    exists: PropTypes.bool.isRequired,
+    clanExists: PropTypes.bool.isRequired,
+    profileExists: PropTypes.bool.isRequired,
     createClan: PropTypes.func.isRequired,
     initialize: PropTypes.func.isRequired,
     loggedIn: PropTypes.bool.isRequired,

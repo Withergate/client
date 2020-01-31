@@ -8,6 +8,7 @@ import { GameReducer } from './gameReducer';
 import { ActionReducer } from './actionReducer';
 import { NotificationReducer } from './notificationReducer';
 import { UiReducer } from './uiReducer';
+import { ProfileReducer } from './profileReducer';
 
 export default combineReducers({
     app: AppReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     data: DataReducer,
     action: ActionReducer,
     ui: UiReducer,
-    game: GameReducer
+    game: GameReducer,
+    profile: ProfileReducer
 });

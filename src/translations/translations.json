@@ -222,9 +222,15 @@
         "Nová hra ještě nezačala. Pro nejlepší herní zážitek doporučujeme začít hrát na začátku herního věku. Příští věk začne k datu ${date}. Budeme se na Tebe těšit se spoustou nového herního obsahu."]
     },
     "clanSetup": {
-        "text": ["Welcome to Withergate! It seems that you are a new wastelander. This is a dangerous place to roam alone so let`s begin with setting up a clan.",
-        "Vítej ve Withergate! Vypadá to, že jsi tu nový. Toto je nebezpečné místo na to, abys tu chodil sám. Začněme tím, že si založíš nový klan."],
+        "text": ["This is a dangerous place to roam alone so let`s begin with setting up a clan.",
+        "Toto je nebezpečné místo na to, abys tu chodil sám. Začněme tím, že si založíš nový klan."],
         "name": ["Clan name", "Název klanu"],
+        "button": ["Confirm", "Založit"]
+    },
+    "profileSetup": {
+        "text": ["Welcome to Withergate! It seems that you are a new wastelander. Before we begin, we will need a name for your player account. Choose wisely, since this name will represent you in all game eras.",
+        "Vítej ve Withergate! Vypadá to, že jsi tu nový. Než začneš hrát, bude potřeba, aby sis založil/a herní profil. Stačí nám i přezdívka. Toto jméno Tě bude provázet po zbytek herních věků, tak vybírej moudře."],
+        "name": ["Player name", "Jméno hráče"],
         "button": ["Confirm", "Založit"]
     },
     "about": {
