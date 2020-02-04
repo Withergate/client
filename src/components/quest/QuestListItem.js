@@ -47,7 +47,9 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                             }
                             {
                                 quest.details.itemCost &&
-                                <li className="list-inline-item"><GameIcon type={ITEM} size={LARGE} /></li>
+                                <li className="list-inline-item">
+                                    <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + quest.details.itemCost} /></small>} />
+                                </li>
                             }
                         </ul>
                     </p>

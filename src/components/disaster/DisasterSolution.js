@@ -56,7 +56,7 @@ const DisasterSolution = ({solution, selectedCharacter, disasterAction}) => (
                                 }
                                 { solution.itemCost &&
                                     <li className="list-inline-item">
-                                        <GameIcon type={ITEM} size={LARGE} />
+                                        <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + solution.itemCost} /></small>} />
                                     </li>
                                 }
                             </ul>

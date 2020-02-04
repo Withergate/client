@@ -45,6 +45,9 @@ class ProfileSetupForm extends Component {
                                 <p>
                                     <Translate id="profileSetup.text" />
                                 </p>
+                                <p className="text-danger">
+                                    <Translate id="profileSetup.warning" />
+                                </p>
                                 <InputGroup className="form-group">
                                     <Row>
                                         <Col md={5}>

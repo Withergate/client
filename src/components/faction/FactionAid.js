@@ -36,7 +36,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             }
                             { aid.itemCost &&
                                 <li className="list-inline-item">
-                                    <GameIcon type={ITEM} size={LARGE} />
+                                    <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + aid.itemCost} /></small>} /> 
                                 </li>
                             }
                         </ul>

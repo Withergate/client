@@ -234,9 +234,10 @@
         "button": ["Confirm", "Založit"]
     },
     "profileSetup": {
-        "text": ["Welcome to Withergate! It seems that you are a new wastelander. Before we begin, we will need a name for your player account. Choose wisely, since this name will represent you in all game eras.",
-        "Vítej ve Withergate! Vypadá to, že jsi tu nový. Než začneš hrát, bude potřeba, aby sis založil/a herní profil. Stačí nám i přezdívka. Toto jméno Tě bude provázet po zbytek herních věků, tak vybírej moudře."],
+        "text": ["Welcome to Withergate! It seems that you are a new wastelander. Before we begin, we will need a name for your player account.",
+        "Vítej ve Withergate! Vypadá to, že jsi tu nový. Než začneš hrát, bude potřeba, aby sis založil/a herní profil. Stačí nám i přezdívka."],
         "name": ["Player name", "Jméno hráče"],
+        "warning": ["Choose wisely, since this name will represent you in all game eras.", "Toto jméno Tě bude provázet po zbytek herních věků, tak vybírej moudře."],
         "button": ["Continue", "Pokračovat"]
     },
     "about": {
@@ -316,8 +317,7 @@
     },
     "conditions": {
         "HEALTHY_CHARACTER": ["Only healthy characters can tackle take this action.", "Pouze nezraněné postavy mohou vykonat tuto akci."],
-        "FEMALE_CHARACTER": ["Only female characters can tackle take this action.", "Pouze postavy ženského pohlaví mohou vykonat tuto akci."],
-        "ITEM_EQUIPPED": ["Character must carry at least one item to take this actions.", "Postava musí nést alespoň jeden předmět, aby mohla vykonat tuto akci."]
+        "FEMALE_CHARACTER": ["Only female characters can tackle take this action.", "Pouze postavy ženského pohlaví mohou vykonat tuto akci."]
     },
     "actions": {
         "LOCATION": {
@@ -403,6 +403,12 @@
         "BUFF_COMBAT": ["Combat buff", "Zvyšuje bojovou sílu"],
         "BUFF_SCAVENGE": ["Scavenge buff", "Zvyšuje hledání"],
         "BUFF_CRAFTSMANSHIP": ["Craftsmanship buff", "Zvyšuje zručnost"],
-        "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"]
+        "BUFF_INTELLECT": ["Intellect buff", "Zvyšuje intelekt"],
+        "cost": {
+            "ANY": ["Any item", "Jakýkoli předmět"],
+            "WEAPON": ["Weapon only", "Pouze zbraň"],
+            "OUTFIT": ["Outfit only", "Pouze zbroj"],
+            "GEAR": ["Gear only", "Pouze výstroj"]
+        }
     }
   }
