@@ -1,3 +1,5 @@
+import { UNAUTHORIZED } from "../constants/constants";
+
 export function apiGet(url) {
     return new Promise((resolve, reject) => {
         fetch(url, {
@@ -14,6 +16,7 @@ export function apiGet(url) {
                     resolve(undefined)
                 }
             } else {
+                checkTokenValidity(response);
                 reject('Error fetching data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
@@ -31,6 +34,7 @@ export function apiGetText(url) {
             if (response.ok) {
                 resolve(response.text());
             } else {
+                checkTokenValidity(response);
                 reject('Error fetching data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
@@ -49,6 +53,7 @@ export function apiPost(url, data) {
             if (response.ok) {
                 resolve(response.status);
             } else {
+                checkTokenValidity(response);
                 response.json().then(function(error) {
                     reject(error.message);
                 });
@@ -69,6 +74,7 @@ export function apiPut(url, data) {
             if (response.ok) {
                 resolve(response.status);
             } else {
+                checkTokenValidity(response);
                 reject('Error sending data to server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
@@ -86,6 +92,7 @@ export function apiDelete(url) {
             if (response.ok) {
                 resolve(response.status);
             } else {
+                checkTokenValidity(response);
                 reject('Error deleteting data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
@@ -110,4 +117,13 @@ export function getHeaders() {
     };
   
     return config;
+}
+
+export function checkTokenValidity(response) {
+    if (response.status === UNAUTHORIZED && localStorage.getItem('token') !== null) {
+        // remove token
+        localStorage.removeItem('token');
+        // refresh
+        window.location.reload(true);
+    }
 }

@@ -24,7 +24,7 @@ class LanguageToggle extends Component {
     remapLanguageCode(code) {
         localStorage.setItem('lang', languagesToLocalizeCodeMap[code]);
         this.props.setActiveLanguage(languagesToLocalizeCodeMap[code]);
-        window.location.reload(true)
+        window.location.reload(true);
     };
 
     remapActiveLanguageCode(code) {

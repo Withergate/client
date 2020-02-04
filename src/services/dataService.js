@@ -1,4 +1,4 @@
-import { apiGet, apiGetText, apiPut, getHeaders } from './apiFetch';
+import { apiGet, apiGetText, apiPut, getHeaders, checkTokenValidity } from './apiFetch';
 import { API_URL } from './constants/endpoints';
 import { NOT_FOUND } from '../constants/constants';
 
@@ -15,7 +15,8 @@ export const fetchClan = () => {
             if(response.status === NOT_FOUND) {
                 reject(NOT_FOUND);
             }
-            reject('Error fetching data from server.');
+            checkTokenValidity(response);
+            reject('Error fetching data from server.'.concat(' Url: ').concat(response.url).concat(' Status: ').concat(response.status));
         }).catch(error => {
             return reject(error.message);
         });
