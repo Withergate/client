@@ -1,5 +1,6 @@
 export const SELECT_CLAN_TAB = 'SELECT_CLAN_TAB';
 export const SELECT_ACTION_TAB = 'SELECT_ACTION_TAB';
+export const SELECT_LADDER_TAB = 'SELECT_LADDER_TAB';
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 export const DISMISS_ERROR = 'DISMISS_ERROR';
 export const CHANGE_CHARACTER_SORT_KEY = 'CHANGE_CHARACTER_SORT_KEY';
@@ -22,6 +23,12 @@ const selectActionTabAction = (tab) => ({
     payload: tab
 });
 export { selectActionTabAction as selectActionTab };
+
+const selectLadderTabAction = (tab) => ({
+    type: SELECT_LADDER_TAB,
+    payload: tab
+});
+export { selectLadderTabAction as selectLadderTab };
 
 const selectCharacterAction = (characterId) => ({
     type: SELECT_CHARACTER,

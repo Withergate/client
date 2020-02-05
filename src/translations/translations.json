@@ -181,6 +181,11 @@
     "footer": {
         "patreon": ["Become a patron!", "Staň se patronem!"]
     },
+    "ladder": {
+        "clans": ["Clans", "Klany"],
+        "players": ["Players", "Hráči"],
+        "preparing": ["We are preparing this section for next release.", "Tuto sekci pro vás připravujeme na příští release."]
+    },
     "admin": {
         "endTurn": ["End turn", "Ukončit kolo"],
         "endTurnConfirmation": ["Are you sure you want to end the turn?", "Jsi si jistý, že chceš ukončit kolo?"],
