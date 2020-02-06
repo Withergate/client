@@ -4,6 +4,7 @@
       "clan": ["Clan", "Klan"],
       "actions": ["Actions", "Akce"],
       "fame": ["Fame", "Sláva"],
+      "profile": ["Profile", "Profil"],
       "about": ["About", "O hře"],
       "forum": ["Forum", "Fórum"],
       "administration": ["Administration", "Administrace"],
@@ -69,7 +70,9 @@
         "faction": ["Faction", "Frakce"],
         "factionPoints": ["Influence", "Vliv"],
         "intel": ["Intel", "Intel"],
-        "roll": ["Dice roll", "Hod kostkou"]
+        "roll": ["Dice roll", "Hod kostkou"],
+        "profile": ["Profile", "Profil"],
+        "historical": ["Historical results", "Historické výsledky"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -159,6 +162,13 @@
         "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."],
         "clanDefenseInfo2": ["You will always face an incomming attack with a fresh defender regardless of the outcome of previous attacks. If your defender dies during a combat, you will immediately get a new one.",
         "Každému útoku budeš čelit s čerstvým obráncem. Pokud tvůj obránce zemře, dostaneš okamžitě nového."]
+    },
+    "profile": {
+        "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",
+        "Spravuj svůj účet. Tvé přihlašovací údaje se dají nastavit na autorizačním serveru. Nastavení můžeš změnit přes tento odkaz."],
+        "manageAccountButton": ["Manage", "Spravovat"],
+        "logout": ["Logout", "Odhlášení"],
+        "history": ["No historical results to show.", "Žádné historické výsledky momentálně nejsou k dispozici."]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, LOGOUT,
+    HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER,
     HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL
  } from '../../constants/constants';
 
@@ -23,7 +23,6 @@ import scavengeIcon from '../../images/scavenge.png';
 import craftsmanshipIcon from '../../images/craftsmanship.png';
 import intellectIcon from '../../images/intellect.png';
 import encounterIcon from '../../images/encounter.png';
-import logoutIcon from '../../images/logout.png';
 import healthIcon from '../../images/health.png';
 import experienceStatIcon from '../../images/experienceStat.png';
 import skillpointIcon from '../../images/skillpoint.png';
@@ -54,7 +53,6 @@ const getIconSource = (type) => {
         case EXPERIENCE_STAT: return experienceStatIcon;
         case SKILLPOINT: return skillpointIcon;
         case ENCOUNTER: return encounterIcon;
-        case LOGOUT: return logoutIcon;
         case ITEM: return itemIcon;
         case FACTION_POINTS: return factionIcon;
         case ROLL: return rollIcon;
@@ -84,7 +82,6 @@ const getTranslationKey = (type) => {
         case EXPERIENCE_STAT: return "basic.experience";
         case SKILLPOINT: return "labels.skillpoint";
         case ENCOUNTER: return "labels.encounterChance";
-        case LOGOUT: return "header.logout";
         case ITEM: return "basic.item";
         case FACTION_POINTS: return "basic.factionPoints";
         case ROLL: return "basic.roll";

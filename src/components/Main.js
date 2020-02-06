@@ -17,6 +17,7 @@ import AdminPage from './AdminPage';
 import LoginPage from './LoginPage';
 import AboutPage from './AboutPage.js';
 import ProfileSetupForm from './profile/ProfileSetupForm.js';
+import ProfilePage from './ProfilePage.js';
 
 class Main extends Component {
     constructor(props) {
@@ -54,6 +55,7 @@ class Main extends Component {
                                             { this.props.clanExists && <Route path='/clan' component={ClanPage}/> }
                                             { this.props.clanExists && <Route path='/action' component={ActionPage}/> }
                                             { this.props.clanExists && <Route path='/fame' component={FamePage}/> }
+                                            { this.props.clanExists && <Route path='/profile' component={ProfilePage}/> }
                                             <Route path='/about' component={AboutPage}/>
                                             <Route path='/admin' component={AdminPage}/>
                                         </Switch>

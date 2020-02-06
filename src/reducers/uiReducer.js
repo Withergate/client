@@ -9,7 +9,8 @@ import {
     CHANGE_CLAN_OFFER_FILTER,
     CHANGE_MARKET_OFFER_FILTER,
     DISPLAY_INTEL,
-    SELECT_LADDER_TAB
+    SELECT_LADDER_TAB,
+    SELECT_PROFILE_TAB
 } from '../actions/uiActions';
 import { ALL } from '../constants/constants';
 
@@ -17,6 +18,7 @@ const initialState = {
     clanTab: 'overview',
     actionTab: 'locations',
     ladderTab: 'clans',
+    profileTab: 'profile',
     displayIntel: false,
     sort: {
         characters: {
@@ -51,6 +53,11 @@ export const UiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ladderTab: action.payload
+            };
+        case SELECT_PROFILE_TAB:
+            return {
+                ...state,
+                profileTab: action.payload
             };
         case CHANGE_CHARACTER_SORT_KEY:
             return {

@@ -7,8 +7,7 @@ import LanguageToggle from './LanguageToggle';
 import logo from '../images/logo.png';
 import { GameIcon } from './shared/GameIcon';
 import { CAPS, SMALL, JUNK, FOOD, FAME } from '../constants/constants';
-import { Button, Image } from 'react-bootstrap';
-import { AUTH_URL } from '../services/constants/endpoints';
+import { Image } from 'react-bootstrap';
 import warningIcon from '../images/warning.png';
 import TooltipWrapper from './shared/TooltipWrapper';
 
@@ -61,14 +60,6 @@ const renderWarning = (clan) => {
     return undefined;
 }
 
-const logout = () => {
-    // delete token
-    localStorage.removeItem('token');
-
-    // redirect to auth logout
-    window.location = AUTH_URL + "logout"
-}
-
 const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/"><img height="25" src={logo} alt="WITHERGATE" /></a>
@@ -81,6 +72,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/clan'><Translate id="header.clan" /></Link></li> }
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/action'><Translate id="header.actions" /></Link></li> }
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/fame'><Translate id="header.fame" /></Link></li> }
+                { loggedIn && <li className="nav-item"><Link className="nav-link" to='/profile'><Translate id="header.profile" /></Link></li> }
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/about'><Translate id="header.about" /></Link></li> }
                 <li className="nav-item"><a className="nav-link" href='http://withergate.proboards.com/' rel="noopener noreferrer" target='_blank'><Translate id="header.forum" /></a></li>
                 { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link text-danger" to='/admin'><Translate id="header.administration" /></Link></li>}
@@ -106,13 +98,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                 </div>
             }
             <div className="ml-md-3 ml-sm-0">
-                <LanguageToggle />
-                {
-                    loggedIn &&
-                    <Button onClick={logout} variant="dark" size="sm" className="mt-1">
-                        <GameIcon type="LOGOUT" size={SMALL} />
-                    </Button>
-                }   
+                <LanguageToggle /> 
             </div>
         </div>
     </nav>
