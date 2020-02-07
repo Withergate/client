@@ -49,13 +49,12 @@ class Main extends Component {
                             <div>
                                 { this.props.profileExists ? 
                                     <div>
-                                        { !this.props.clanExists && !this.props.fetching && <ClanSetupForm createClan={this.props.createClan}/> }
                                         <Switch>
-                                            { this.props.clanExists && <Route exact path='/' component={HomePage}/> }
-                                            { this.props.clanExists && <Route path='/clan' component={ClanPage}/> }
-                                            { this.props.clanExists && <Route path='/action' component={ActionPage}/> }
-                                            { this.props.clanExists && <Route path='/fame' component={FamePage}/> }
-                                            { this.props.clanExists && <Route path='/profile' component={ProfilePage}/> }
+                                            <Route exact path='/' component={this.props.clanExists ? HomePage : ClanSetupForm}/> }
+                                            <Route path='/clan' component={this.props.clanExists ? ClanPage : ClanSetupForm}/> }
+                                            <Route path='/action' component={this.props.clanExists ? ActionPage : ClanSetupForm}/> }
+                                            <Route path='/fame' component={this.props.clanExists ? FamePage : ClanSetupForm}/> }
+                                            <Route path='/profile' component={ProfilePage}/> }
                                             <Route path='/about' component={AboutPage}/>
                                             <Route path='/admin' component={AdminPage}/>
                                         </Switch>
@@ -73,7 +72,6 @@ class Main extends Component {
 Main.propTypes = {
     clanExists: PropTypes.bool.isRequired,
     profileExists: PropTypes.bool.isRequired,
-    createClan: PropTypes.func.isRequired,
     initialize: PropTypes.func.isRequired,
     loggedIn: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,

@@ -8,6 +8,7 @@ import { Row, Col, Tab, Nav } from 'react-bootstrap';
 import { Translate } from 'react-localize-redux';
 import ProfilePanel from './profile/ProfilePanel';
 import AccountPanel from './profile/AccountPanel';
+import NewsletterPanel from './profile/NewsletterPanel';
 
 class ProfilePage extends Component {
     render() {
@@ -28,12 +29,17 @@ class ProfilePage extends Component {
                         <Col md={10} sm={8}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="profile">
-                                    <Row>
-                                        <Col className="mb-2" md={6} xs={12}>
+                                    <Row className="mb-4">
+                                        <Col className="mb-2">
                                             <ProfilePanel profile={this.props.profile} />
                                         </Col>
+                                    </Row>
+                                    <Row>
                                         <Col md={6} xs={12}>
                                             <AccountPanel />
+                                        </Col>
+                                        <Col md={6} xs={12}>
+                                        <NewsletterPanel />
                                         </Col>
                                     </Row>
                                 </Tab.Pane>

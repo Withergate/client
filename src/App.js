@@ -14,7 +14,6 @@ import { fetchPrincipal } from './actions/authActions';
 import { fetchProfile } from './actions/profileActions';
 import { dismissError } from './actions/uiActions';
 import { fetchTurn, fetchVersion, fetchGameProperties } from './actions/dataActions';
-import { createClan } from './actions/actionActions';
 import { selectCharacter } from './actions/uiActions';
 import { Alert } from 'react-bootstrap';
 
@@ -44,7 +43,6 @@ class App extends Component {
             turn, 
             clanExists,
             profileExists,
-            createClan, 
             selectCharacter, 
             selectedCharacter, 
             clan, 
@@ -75,7 +73,6 @@ class App extends Component {
                             <Main 
                                 clanExists={clanExists}
                                 profileExists={profileExists}
-                                createClan={createClan}
                                 clan={clan}
                                 selectedCharacter={selectedCharacter}
                                 selectCharacter={selectCharacter} 
@@ -105,7 +102,6 @@ App.propTypes = {
     failed: PropTypes.bool.isRequired,
     clanExists: PropTypes.bool.isRequired,
     profileExists: PropTypes.bool.isRequired,
-    createClan: PropTypes.func.isRequired,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     selectCharacter: PropTypes.func.isRequired,
@@ -142,7 +138,6 @@ const mapDispatchToProps = dispatch => (
             fetchProfile,
             fetchTurn,
             fetchGameProperties,
-            createClan, 
             selectCharacter, 
             fetchVersion,
             dismissError
