@@ -12,6 +12,10 @@ const ProfilePanel = ({profile}) => (
             <li className="list-inline-item"><b><Translate id="profile.score" />: </b></li>
             <li className="list-inline-item">{profile.ranking}</li>
         </ul>
+        <ul className="list-inline">
+            <li className="list-inline-item"><b><Translate id="profile.numGames" />: </b></li>
+            <li className="list-inline-item">{profile.numGames}</li>
+        </ul>
     </Card>
 );
 

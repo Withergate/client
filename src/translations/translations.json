@@ -171,8 +171,9 @@
         "history": ["No historical results to show.", "Žádné historické výsledky momentálně nejsou k dispozici."],
         "score": ["Score", "Skóre"],
         "newsletter": ["Do you want to be updated about Withergate news? Never miss the beginning of a new game with our newsletter! We promise to send maximally two e-mails per month.",
-        "Chceš zůstat v obraze? Zajímá Tě, co se děje ve Witherate? S naším newsletterem již nikdy nezmeškáš začátek nové hry! Slibujeme, že budeme rozesílat maximálně dva e-maily měsíčně."],
-        "subscribe": ["Subscribe", "Odebírat"]
+        "Chceš zůstat v obraze? Zajímá Tě, co se děje ve Withergate? S naším newsletterem již nikdy nezmeškáš začátek nové hry! Slibujeme, že budeme rozesílat maximálně dva e-maily měsíčně."],
+        "subscribe": ["Subscribe", "Odebírat"],
+        "numGames": ["Games played", "Odehraných her"]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",
