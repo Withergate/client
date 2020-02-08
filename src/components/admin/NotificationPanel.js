@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, Card, Form, InputGroup, FormControl, Row, Col, ToggleButtonGroup, ToggleButton, FormLabel } from 'react-bootstrap';
+import { Button, Card, Form, InputGroup, FormControl, Row, Col, ToggleButtonGroup, ToggleButton, FormLabel, Image } from 'react-bootstrap';
 import { updateGlobalNotification, fetchGlobalNotification} from '../../actions/dataActions';
 
 import { Translate } from 'react-localize-redux';
+import enIcon from '../../images/lang/english.png';
+import czIcon from '../../images/lang/czech.png';
 
 class NotificationPanel extends Component {
     constructor(...args) {
@@ -50,7 +52,7 @@ class NotificationPanel extends Component {
                     <Row className="mb-3">
                         <Col md={1}>
                             <FormLabel>
-                                EN
+                                <Image src={enIcon} width="24px" />
                             </FormLabel>
                         </Col>
                         <Col md={11}>
@@ -66,7 +68,7 @@ class NotificationPanel extends Component {
                     <Row className="mb-3">
                         <Col md={1}>
                             <FormLabel>
-                                CZ
+                                <Image src={czIcon} width="24x" />
                             </FormLabel>
                         </Col>
                         <Col md={11}>

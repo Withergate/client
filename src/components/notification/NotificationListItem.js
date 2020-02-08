@@ -23,16 +23,16 @@ const renderCombatRound = combatRound => {
             <ul className="list-inline">
                 <li className="list-inline-item"><b>{ combatRound.name1 }</b></li>
                 <li className="list-inline-item"><GameIcon type={COMBAT} size={SMALL} value={combatRound.combat1} noPadding /></li>
-                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health1} noPadding /></li>
                 <li className="list-inline-item"><GameIcon type={ROLL} size={SMALL} value={combatRound.roll1} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health1} noPadding /></li>
             </ul>
         </Col>
         <Col md={3} xs={12}>
             <ul className="list-inline">
                 <li className="list-inline-item"><b>{ combatRound.name2 }</b></li>
                 <li className="list-inline-item"><GameIcon type={COMBAT} size={SMALL} value={combatRound.combat2} noPadding /></li>
-                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health2} noPadding /></li>
                 <li className="list-inline-item"><GameIcon type={ROLL} size={SMALL} value={combatRound.roll2} noPadding /></li>
+                <li className="list-inline-item"><GameIcon type={HEALTH} size={SMALL} value={combatRound.health2} noPadding /></li>
             </ul>
         </Col>
         <Col md={3} xs={12}>

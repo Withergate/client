@@ -43,7 +43,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                             }
                             {
                                 quest.details.healthCost &&
-                                <li className="list-inline-item"><GameIcon type={INJURY} size={LARGE} /></li>
+                                <li className="list-inline-item"><GameIcon type={INJURY} size={LARGE} value="1-6" /></li>
                             }
                             {
                                 quest.details.itemCost &&

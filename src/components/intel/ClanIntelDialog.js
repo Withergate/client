@@ -15,7 +15,7 @@ import { Error } from '../shared/Error';
 
 // clan must be in a different faction than the other clan
 const isAttackEnabled = (clan, intel) => {
-    if (!clan.faction) {
+    if (!clan.faction || !intel.faction) {
         return false;
     }
     if (clan.faction.idenfifier === intel.faction) {
@@ -72,10 +72,10 @@ const ClanIntelDialog = (props) => (
             </Row>
             <Row className="mt-4">
                 <Col>
+                    <h5><Translate id="intel.attack" /></h5>
                     {
                         isAttackEnabled(props.clan, props.intel) ?
                         <div>
-                            <h5><Translate id="intel.attack" /></h5>
                             <p><Translate id="intel.attackText" /></p>
                             <p className="text-danger"><Translate id="intel.attackLimit" /></p>
                             <p>

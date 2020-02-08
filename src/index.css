@@ -105,3 +105,12 @@ body {
 .centered {
   text-align: center;
 }
+
+/*
+* Footer
+*/
+.footer {
+  position: relative;
+  bottom: 20px;
+  right: 0px;
+}

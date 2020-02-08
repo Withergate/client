@@ -14,6 +14,8 @@ import { Card, Row, Col } from 'react-bootstrap';
 import FactionAid from './FactionAid';
 import FactionsOverview from './FactionsOverview';
 import FactionsLeaderboard from './FactionsLeaderboard';
+import { Translate } from 'react-localize-redux';
+import { Link } from 'react-router-dom';
 
 class FactionPanel extends React.Component {
     componentDidMount() {
@@ -45,6 +47,10 @@ class FactionPanel extends React.Component {
                                         }
                                         </Card.Body>
                                     </Card>
+                                    <p className="mt-4 text-danger">
+                                        <Translate id="factions.attackLink"
+                                            data={{ link: <Link to='/fame'><Translate id="header.fame" /></Link> }} />
+                                    </p>
                                 </Col>
                                 <Col md={6}>
                                     <FactionsOverview overview={this.props.overview} />

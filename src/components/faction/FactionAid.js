@@ -31,7 +31,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             }
                             { aid.healthCost &&
                                 <li className="list-inline-item">
-                                    <GameIcon type={INJURY} size={LARGE} />
+                                    <GameIcon type={INJURY} size={LARGE} value="1-6" />
                                 </li>
                             }
                             { aid.itemCost &&

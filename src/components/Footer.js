@@ -8,11 +8,13 @@ import { Badge } from 'react-bootstrap';
 
 const Footer = ({version, fetched}) => (
      fetched && 
-     <div className="w-80 m-4 mt-4">
-        <a className="float-left" href="https://www.patreon.com/bePatron?u=19133190" data-patreon-widget-type="become-patron-button">
-            <Badge pill variant="warning"><Translate id="footer.patreon" /></Badge>
-        </a>
-        <small className="float-right text-muted">api: {version} / client: {clientVersion}</small>
+     <div className="footer w-80 m-4 mt-4 float-right text-muted">
+        <ul className="list-inline">
+            <li className="list-inline-item"><small>api: {version} / client: {clientVersion}</small></li>
+            <a className="ml-2" href="https://www.patreon.com/bePatron?u=19133190" data-patreon-widget-type="become-patron-button">
+                <Badge pill variant="warning"><Translate id="footer.patreon" /></Badge>
+            </a>
+        </ul>
     </div>
 );
 
