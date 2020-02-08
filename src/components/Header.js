@@ -79,7 +79,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
             </ul>
             { loggedIn &&
                 <div>
-                    <ul className="mt-1 mb-1 p-2 mr-auto list-inline rounded bg-light">
+                    <ul className="mt-1 mb-1 p-2 mr-auto list-inline rounded bg-light resource-panel">
                         <li className="list-inline-item"><GameIcon type={CAPS} size={SMALL} value={clan.caps} /></li>
                         <li className="list-inline-item"><GameIcon type={JUNK} size={SMALL} value={clan.junk} /></li>
                         <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>

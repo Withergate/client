@@ -6,12 +6,12 @@ import { getTranslatedText } from '../../translations/translationUtils';
 
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Image, Card } from 'react-bootstrap';
 import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, LARGE } from '../../constants/constants';
 import CharacterHeader from './CharacterHeader';
 
 const CharacterDetails = ({character}) => (
-    <small>
+    <Card className="p-2"><small>
         <Row>
             <Col md={2} xs={4} className="mb-2">
                 <Row className="mb-2">
@@ -61,7 +61,7 @@ const CharacterDetails = ({character}) => (
                 }
             </Col>
         </Row>
-    </small>
+    </small></Card>
 );
 
 CharacterDetails.propTypes = {

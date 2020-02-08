@@ -31,7 +31,7 @@ const ClanSummary = ({clan}) => (
                     <img height="20" src={fame} alt="fame" /> <b><Translate id="basic.fame" /></b>: {clan.fame}
                 </Col>
                 <Col md={4}>
-                    <img height="20" src={characters} alt="" /> <b><Translate id="basic.characters" /></b>: {clan.characters.length}/{clan.populationLimit}
+                    <img height="20" src={characters} alt="" /> <b><Translate id="basic.characters" /></b>: {clan.characters.length} /  {clan.populationLimit}
                 </Col>
             </Row>
             <Row className="mt-3">

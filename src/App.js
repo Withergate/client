@@ -23,6 +23,12 @@ function initializeReactGA() {
 }
 
 class App extends Component {
+    componentWillReceiveProps() {
+        if (this.props.profile && this.props.profile.theme === 'dark') {
+            /// require('./styles/dark.css');
+        }
+    }
+
     componentDidMount() {
         initializeReactGA();
 
@@ -105,7 +111,8 @@ App.propTypes = {
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     selectCharacter: PropTypes.func.isRequired,
-    principal: PropTypes.object
+    principal: PropTypes.object,
+    profile: PropTypes.object
 };
 
 // CONFIGURE REACT REDUX
@@ -116,6 +123,7 @@ const mapStateToProps = state => {
     const { clan, selectedCharacter } = state.clan;
     const clanExists = state.clan.exists;
     const profileExists = state.profile.exists;
+    const profile = state.profile.profile.data;
     const { version } = state.app;
     const { maxTurns, turnTimes } = state.game.properties;
 
@@ -128,7 +136,7 @@ const mapStateToProps = state => {
     const error = state.turn.error || state.clan.error || state.game.error || state.profile.profile.error;
 
     return { fetching, fetched, failed, loggedIn, turn, maxTurns, turnTimes, clanExists, 
-        clan, selectedCharacter, version, principal, error, profileExists };
+        clan, selectedCharacter, version, principal, error, profileExists, profile };
 };
 
 const mapDispatchToProps = dispatch => (
