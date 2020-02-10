@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { changeTheme } from '../../actions/profileActions';
 import { Form, Card, InputGroup } from 'react-bootstrap';
 import { Translate } from 'react-localize-redux';
-import { LIGHT, DARK, SILVER, LARGE } from '../../constants/constants';
+import { LIGHT, DARK, SILVER, SMALL } from '../../constants/constants';
 import { GameIcon } from '../shared/GameIcon';
 
 class ThemePicker extends Component {
@@ -16,7 +16,7 @@ class ThemePicker extends Component {
                 <p><Translate id="profile.changeTheme" /></p>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="theme"><GameIcon type={SILVER} size={LARGE} /></InputGroup.Text>
+                            <InputGroup.Text id="theme"><GameIcon type={SILVER} size={SMALL} /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <Form.Control 
                             as="select"

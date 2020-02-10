@@ -33,7 +33,7 @@ class ProfilePage extends Component {
                         <Col md={10} sm={8}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="profile">
-                                    <Row className="mb-4">
+                                    <Row className="mb-3">
                                         <Col className="mb-2">
                                             <ProfilePanel profile={this.props.profile} />
                                         </Col>
@@ -46,7 +46,7 @@ class ProfilePage extends Component {
                                             }
                                         </Col>
                                         <Col md={6} xs={12}>
-                                        <NewsletterPanel />
+                                            <NewsletterPanel />
                                         </Col>
                                     </Row>
                                 </Tab.Pane>

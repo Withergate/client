@@ -7,6 +7,7 @@ import { Row, Col, Tab, Nav } from 'react-bootstrap';
 
 import { selectLadderTab } from '../actions/uiActions';
 import FameLadder from './ladder/FameLadder';
+import ProfileLadder from './ladder/ProfileLadder';
 
 class FamePage extends Component {
 
@@ -31,7 +32,7 @@ class FamePage extends Component {
                                     <FameLadder />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="players">
-                                    <Translate id="ladder.preparing" />
+                                    <ProfileLadder />
                                 </Tab.Pane>
                             </Tab.Content>
                         </Col>

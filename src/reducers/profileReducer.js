@@ -2,6 +2,9 @@ import {
     FETCH_PROFILE_PENDING,
     FETCH_PROFILE_FULFILLED,
     FETCH_PROFILE_REJECTED,
+    FETCH_PROFILES_PENDING,
+    FETCH_PROFILES_FULFILLED,
+    FETCH_PROFILES_REJECTED,
     CREATE_PROFILE_PENDING,
     CREATE_PROFILE_FULFILLED,
     CREATE_PROFILE_REJECTED
@@ -17,6 +20,15 @@ import { NOT_FOUND } from '../constants/constants';
 const initialState = {
     profile: {
         data: undefined,
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    profiles: {
+        data: {
+            number: 0
+        },
         fetching: false,
         fetched: false,
         failed: false,
@@ -40,6 +52,11 @@ export const ProfileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {
                     ...state.profile,
+                    error: '',
+                    failed: false
+                },
+                profiles: {
+                    ...state.profiles,
                     error: '',
                     failed: false
                 },
@@ -100,6 +117,40 @@ export const ProfileReducer = (state = initialState, action) => {
                     
                 };
             }
+        case FETCH_PROFILES_PENDING:
+            return {
+                ...state,
+                profiles: {
+                    ...state.profiles,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
+            };
+        case FETCH_PROFILES_FULFILLED:
+            return {
+                ...state,
+                profiles: {
+                    ...state.profiles,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_PROFILES_REJECTED:
+            return {
+                ...state,
+                profiles: {
+                    data: [],
+                    number: 0,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                }
+            };
         case CREATE_PROFILE_PENDING:
             return {
                 ...state,

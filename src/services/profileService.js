@@ -1,4 +1,4 @@
-import { apiPost, getHeaders, checkTokenValidity, apiPut } from './apiFetch';
+import { apiPost, getHeaders, checkTokenValidity, apiPut, apiGet } from './apiFetch';
 import { API_URL } from './constants/endpoints';
 import { NOT_FOUND } from '../constants/constants';
 
@@ -21,6 +21,10 @@ export const fetchProfile = () => {
             return reject(error.message);
         });
     });
+};
+
+export const fetchProfiles = (number) => {
+    return apiGet(API_URL.concat('profiles?sort=ranking,desc').concat('&page=').concat(number).concat('&size=').concat(10));
 };
 
 export const createProfile = (name) => {

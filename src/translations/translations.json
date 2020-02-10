@@ -161,7 +161,7 @@
         "equippedBy": ["Item equipped by ${character}.", "Předmět má momentálně postava ${character}."],
         "clanDefense": ["Defense", "Obrana"],
         "clanDefenseInfo1": ["This panel shows your current clan defense. When somebody attacks your clan, your clan will be automatically defended by one of your clan's dogs. His strength is affected by the level of your building Dog kennels.",
-        "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí boudy."],
+        "Tento panel ukazuje tvoji aktuální obrannou sílu klanu. Když na tebe někdo zaútočí, tvůj klan bude automaticky bráněn jedním z tvých klanových psů. Jejich síla je ovlivněna úrovní tvé budovy Psí kotce."],
         "clanDefenseInfo2": ["You will always face an incomming attack with a fresh defender regardless of the outcome of previous attacks. If your defender dies during a combat, you will immediately get a new one.",
         "Každému útoku budeš čelit s čerstvým obráncem. Pokud tvůj obránce zemře, dostaneš okamžitě nového."]
     },

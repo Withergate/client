@@ -35,7 +35,7 @@ class ProfileSetupForm extends Component {
                 {
                     this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
                 }
-                {   !this.props.fetched &&
+                {   !this.props.fetching &&
                     <Row className="p-4">
                         <Col md={2} xs={12}>
                             <Image src="https://storage.googleapis.com/withergate-images/misc/profile.png" className="w-100" />

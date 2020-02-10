@@ -44,7 +44,7 @@ class MarketOfferList extends React.Component {
                             onPrevious={this.props.fetchMarketOffers}>
                             <Translate id="labels.page" /> {this.props.offers.number + 1}
                         </Paginator>
-                        <div className="mt-2">
+                        <div className="mt-3">
                             { this.props.offers.content.length ? 
                                 renderList(this.props.offers.content, this.props.tradeItem, this.props.deleteOffer, this.props.filter, this.props.clanId)
                                 : <Translate id="labels.noOffers" />
