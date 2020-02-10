@@ -1,4 +1,4 @@
-import { apiPost, getHeaders, checkTokenValidity } from './apiFetch';
+import { apiPost, getHeaders, checkTokenValidity, apiPut } from './apiFetch';
 import { API_URL } from './constants/endpoints';
 import { NOT_FOUND } from '../constants/constants';
 
@@ -25,4 +25,8 @@ export const fetchProfile = () => {
 
 export const createProfile = (name) => {
     return apiPost(API_URL.concat('profile'), JSON.stringify({name: name}));
+};
+
+export const changeTheme = (theme) => {
+    return apiPut(API_URL.concat('profile/theme'), JSON.stringify({theme: theme}));
 };

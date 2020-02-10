@@ -14,7 +14,7 @@ const logout = () => {
 }
 
 const AccountPanel = () => (
-    <Card className="p-3" border="primary">
+    <Card className="p-3 mb-4" border="primary">
         <p><Translate id="profile.manageAccount" /></p>
         <Row>
             <Col>

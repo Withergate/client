@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL, SILVER, GOLD
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -28,6 +28,8 @@ import experienceStatIcon from '../../images/experienceStat.png';
 import skillpointIcon from '../../images/skillpoint.png';
 import factionIcon from '../../images/faction.png';
 import rollIcon from '../../images/roll.png';
+import premiumSilverIcon from '../../images/premium-silver.png';
+import premiumGoldIcon from '../../images/premium-gold.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -56,6 +58,8 @@ const getIconSource = (type) => {
         case ITEM: return itemIcon;
         case FACTION_POINTS: return factionIcon;
         case ROLL: return rollIcon;
+        case SILVER: return premiumSilverIcon;
+        case GOLD: return premiumGoldIcon;
         default: return "";
     }
 }
@@ -85,6 +89,8 @@ const getTranslationKey = (type) => {
         case ITEM: return "basic.item";
         case FACTION_POINTS: return "basic.factionPoints";
         case ROLL: return "basic.roll";
+        case SILVER: return "basic.premiumSilver";
+        case GOLD: return "basic.premiumGold";
         default: return "";
     }
 }

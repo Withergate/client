@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { selectProfileTab } from '../actions/uiActions';
+import { changeTheme } from '../actions/profileActions';
 import { Row, Col, Tab, Nav } from 'react-bootstrap';
 import { Translate } from 'react-localize-redux';
 import ProfilePanel from './profile/ProfilePanel';
 import AccountPanel from './profile/AccountPanel';
 import NewsletterPanel from './profile/NewsletterPanel';
+import { SILVER } from '../constants/constants';
+import { checkPremium } from './profile/premiumUtils';
+import ThemePicker from './profile/ThemePicker';
 
 class ProfilePage extends Component {
     render() {
@@ -37,6 +41,9 @@ class ProfilePage extends Component {
                                     <Row>
                                         <Col md={6} xs={12}>
                                             <AccountPanel />
+                                            { checkPremium(this.props.profile.premiumType, SILVER) &&
+                                                <ThemePicker />
+                                            }
                                         </Col>
                                         <Col md={6} xs={12}>
                                         <NewsletterPanel />
@@ -68,7 +75,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ selectProfileTab }, dispatch)
+    bindActionCreators({ selectProfileTab, changeTheme }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

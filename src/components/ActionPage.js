@@ -152,7 +152,7 @@ class ActionPage extends Component {
 ActionPage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
-    failed: PropTypes.bool,
+    failed: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
     clan: PropTypes.object.isRequired,
     turn: PropTypes.object.isRequired,

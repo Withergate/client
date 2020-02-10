@@ -63,6 +63,10 @@ export const FACTION_SUPPORT = 'SUPPORT';
 export const UNAUTHORIZED = 401;
 export const NOT_FOUND = 404;
 
-// THEMES
+// Themes
 export const LIGHT = 'light';
 export const DARK = 'dark';
+
+// Premium
+export const SILVER = 'SILVER';
+export const GOLD = 'GOLD';

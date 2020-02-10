@@ -1,4 +1,4 @@
-import { fetchProfile, createProfile } from '../services/profileService';
+import { fetchProfile, createProfile, changeTheme } from '../services/profileService';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING';
@@ -9,6 +9,8 @@ export const CREATE_PROFILE = 'CREATE_PROFILE';
 export const CREATE_PROFILE_PENDING = 'CREATE_PROFILE_PENDING';
 export const CREATE_PROFILE_FULFILLED = 'CREATE_PROFILE_FULFILLED';
 export const CREATE_PROFILE_REJECTED = 'CREATE_PROFILE_REJECTED';
+
+export const CHANGE_THEME = 'CHANGE_THEME';
 
 const fetchProfileAction = () => ({
     type: FETCH_PROFILE,
@@ -28,3 +30,16 @@ const createProfileAction = (name) => {
     };
 };
 export { createProfileAction as createProfile };
+
+const changeThemeAction = (theme) => {
+    return (dispatch) => {
+        return dispatch({
+            type: CHANGE_THEME,
+            payload: changeTheme(theme)
+        }).then(() => dispatch({
+            type: FETCH_PROFILE,
+            payload: fetchProfile()
+        }));
+    };
+};
+export { changeThemeAction as changeTheme };
