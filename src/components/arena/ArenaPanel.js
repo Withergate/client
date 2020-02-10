@@ -47,9 +47,9 @@ class ArenaPanel extends React.Component {
                 </Card>
 
                 {
-                    this.props.fetched &&
+                    this.props.fetched && this.props.stats.length > 0 &&
                 
-                    <Table className="mt-4" striped bordered hover>
+                    <Table className="mt-4" striped borderless hover>
                         <thead>
                             <tr>
                                 <th><Translate id="basic.character" /></th>

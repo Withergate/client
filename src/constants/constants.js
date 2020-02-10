@@ -62,3 +62,7 @@ export const FACTION_SUPPORT = 'SUPPORT';
 // API
 export const UNAUTHORIZED = 401;
 export const NOT_FOUND = 404;
+
+// THEMES
+export const LIGHT = 'light';
+export const DARK = 'dark';

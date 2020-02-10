@@ -11,13 +11,12 @@ body {
 #root {
   position: absolute;
   margin: auto;
-  top: 0; 
+  top: 0;
   right: 0;
   left: 0;
   max-width: 1200px;
   min-width: 400px;
   min-height: 100%;
-  background-color: white;
 }
 
 .spinner {
@@ -46,16 +45,6 @@ body {
 .button-large {
   width: 140px;
   height: 40px;
-}
-
-.tab-link {
-  color: var(--dark);
-  background-color: white !important;
-}
-
-.tab-link.active {
-  color:white;
-  background-color: var(--dark) !important;
 }
 
 .action-link {
@@ -111,6 +100,11 @@ body {
 */
 .footer {
   position: relative;
+  height: 100%;
   bottom: 20px;
-  right: 0px;
+}
+
+.footer-content {
+  position: absolute;
+  right: 20px;
 }

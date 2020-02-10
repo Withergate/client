@@ -1,0 +1,15 @@
+.light {
+    background-color: white;
+    color: #212529;
+    min-height: 100vh;
+  }
+
+  .light .tab-link {
+    color: var(--dark);
+    background-color: transparent;
+  }
+  
+  .light .tab-link.active {
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+  }

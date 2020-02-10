@@ -48,7 +48,7 @@ class Main extends Component {
                         this.props.fetched &&
                             <div>
                                 { this.props.profileExists ? 
-                                    <div>
+                                    <div className="main pb-2">
                                         <Switch>
                                             <Route exact path='/' component={this.props.clanExists ? HomePage : ClanSetupForm}/> }
                                             <Route path='/clan' component={this.props.clanExists ? ClanPage : ClanSetupForm}/> }
