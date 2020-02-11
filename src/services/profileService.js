@@ -27,6 +27,10 @@ export const fetchProfiles = (number) => {
     return apiGet(API_URL.concat('profiles?sort=ranking,desc').concat('&page=').concat(number).concat('&size=').concat(10));
 };
 
+export const fetchHistoricalResults = (number) => {
+    return apiGet(API_URL.concat('profile/results?sort=gameEnded,desc').concat('&page=').concat(number).concat('&size=').concat(10));
+};
+
 export const createProfile = (name) => {
     return apiPost(API_URL.concat('profile'), JSON.stringify({name: name}));
 };

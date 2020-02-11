@@ -1,4 +1,4 @@
-import { fetchProfile, createProfile, changeTheme, fetchProfiles } from '../services/profileService';
+import { fetchProfile, createProfile, changeTheme, fetchProfiles, fetchHistoricalResults } from '../services/profileService';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING';
@@ -9,6 +9,11 @@ export const FETCH_PROFILES = 'FETCH_PROFILES';
 export const FETCH_PROFILES_PENDING = 'FETCH_PROFILES_PENDING';
 export const FETCH_PROFILES_FULFILLED = 'FETCH_PROFILES_FULFILLED';
 export const FETCH_PROFILES_REJECTED = 'FETCH_PROFILES_REJECTED';
+
+export const FETCH_PROFILE_RESULTS = 'FETCH_PROFILE_RESULTS';
+export const FETCH_PROFILE_RESULTS_PENDING = 'FETCH_PROFILE_RESULTS_PENDING';
+export const FETCH_PROFILE_RESULTS_FULFILLED = 'FETCH_PROFILE_RESULTS_FULFILLED';
+export const FETCH_PROFILE_RESULTS_REJECTED = 'FETCH_PROFILE_RESULTS_REJECTED';
 
 export const CREATE_PROFILE = 'CREATE_PROFILE';
 export const CREATE_PROFILE_PENDING = 'CREATE_PROFILE_PENDING';
@@ -28,6 +33,12 @@ const fetchProfilesAction = (number) => ({
     payload: fetchProfiles(number)
 });
 export { fetchProfilesAction as fetchProfiles };
+
+const fetchProfileResultsAction = (number) => ({
+    type: FETCH_PROFILE_RESULTS,
+    payload: fetchHistoricalResults(number)
+});
+export { fetchProfileResultsAction as fetchProfileResults };
 
 const createProfileAction = (name) => {
     return (dispatch) => {

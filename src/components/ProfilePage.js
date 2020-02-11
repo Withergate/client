@@ -13,6 +13,7 @@ import NewsletterPanel from './profile/NewsletterPanel';
 import { SILVER } from '../constants/constants';
 import { checkPremium } from './profile/premiumUtils';
 import ThemePicker from './profile/ThemePicker';
+import ProfileResultsLadder from './ladder/ProfileResultsLadder';
 
 class ProfilePage extends Component {
     render() {
@@ -51,7 +52,7 @@ class ProfilePage extends Component {
                                     </Row>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="historical">
-                                    <Translate id="profile.history" />
+                                    <ProfileResultsLadder />
                                 </Tab.Pane>     
                             </Tab.Content>
                         </Col>

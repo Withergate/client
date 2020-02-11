@@ -5,6 +5,9 @@ import {
     FETCH_PROFILES_PENDING,
     FETCH_PROFILES_FULFILLED,
     FETCH_PROFILES_REJECTED,
+    FETCH_PROFILE_RESULTS_PENDING,
+    FETCH_PROFILE_RESULTS_FULFILLED,
+    FETCH_PROFILE_RESULTS_REJECTED,
     CREATE_PROFILE_PENDING,
     CREATE_PROFILE_FULFILLED,
     CREATE_PROFILE_REJECTED
@@ -26,6 +29,15 @@ const initialState = {
         error: ''
     },
     profiles: {
+        data: {
+            number: 0
+        },
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    results: {
         data: {
             number: 0
         },
@@ -57,6 +69,11 @@ export const ProfileReducer = (state = initialState, action) => {
                 },
                 profiles: {
                     ...state.profiles,
+                    error: '',
+                    failed: false
+                },
+                results: {
+                    ...state.results,
                     error: '',
                     failed: false
                 },
@@ -143,7 +160,41 @@ export const ProfileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profiles: {
-                    data: [],
+                    content: {},
+                    number: 0,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                }
+            };
+        case FETCH_PROFILE_RESULTS_PENDING:
+            return {
+                ...state,
+                results: {
+                    ...state.results,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
+            };
+        case FETCH_PROFILE_RESULTS_FULFILLED:
+            return {
+                ...state,
+                results: {
+                    ...state.results,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_PROFILE_RESULTS_REJECTED:
+            return {
+                ...state,
+                results: {
+                    content: [],
                     number: 0,
                     fetching: false,
                     fetched: false,
