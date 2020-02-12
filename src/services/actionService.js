@@ -96,3 +96,8 @@ export const handleClanCombat = (characterId, targetId) => {
     return apiPost(API_URL.concat('factions/action/combat'), 
     JSON.stringify({characterId: characterId, targetId: targetId}));
 };
+
+export const cancelAction = (characterId) => {
+    return apiPost(API_URL.concat('character/action/cancel'), 
+    JSON.stringify({characterId: characterId}));
+};

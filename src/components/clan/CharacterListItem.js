@@ -10,12 +10,12 @@ import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import ItemTooltip from '../item/ItemTooltip';
 import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LARGE } from '../../constants/constants';
-import ActionButton from './ActionButton';
+import ActionButton from './CharacterActionButton';
 import CharacterHeader from './CharacterHeader';
 
 class CharacterListItem extends Component {
     render() {
-        const {character, unequipItem, selectCharacter} = this.props;
+        const {character, unequipItem, selectCharacter, cancelAction, profile} = this.props;
     
         return <Card className="mb-4">
             <Card.Body>
@@ -32,7 +32,9 @@ class CharacterListItem extends Component {
                                 <ActionButton
                                     pendingAction={character.action}
                                     character={character}
-                                    selectCharacter={selectCharacter} />
+                                    selectCharacter={selectCharacter}
+                                    cancelAction={cancelAction}
+                                    profile={profile} />
                             </Col>
                         </Row>
                     </Col>
@@ -142,7 +144,9 @@ class CharacterListItem extends Component {
 CharacterListItem.propTypes = {
     character: PropTypes.object.isRequired,
     unequipItem: PropTypes.func.isRequired,
-    selectCharacter: PropTypes.func.isRequired
+    cancelAction: PropTypes.func.isRequired,
+    selectCharacter: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired
 };
 
 export default CharacterListItem;

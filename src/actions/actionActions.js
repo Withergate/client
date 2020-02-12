@@ -18,7 +18,8 @@ import {
     activateTrait,
     refreshTavern,
     handleFactionAction,
-    handleClanCombat
+    handleClanCombat,
+    cancelAction
 } from '../services/actionService';
 
 import {
@@ -305,3 +306,16 @@ const handleClanCombatAction = (characterId, targetId) => {
     };
 };
 export { handleClanCombatAction as handleClanCombat };
+
+const cancelActionAction = (characterId) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: cancelAction(characterId)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { cancelActionAction as cancelAction };

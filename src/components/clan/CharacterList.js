@@ -10,12 +10,14 @@ const sort = (list, sort) => {
     return orderBy(list, [sort.key], [sort.direction]);
 }
 
-const renderListItem = (character, unequipItem, selectCharacter) => (
+const renderListItem = (character, unequipItem, selectCharacter, cancelAction, profile) => (
     <div key={character.id}>
         <CharacterListItem
             character={character}
             unequipItem={unequipItem}
-            selectCharacter={selectCharacter} />
+            selectCharacter={selectCharacter}
+            cancelAction={cancelAction} 
+            profile={profile} />
     </div>
 )
 
@@ -56,7 +58,7 @@ const CharacterList = (props) => (
         </Form.Group>
         {
             sort(props.characters, props.sort)
-                .map(character => renderListItem(character, props.unequipItem, props.selectCharacter, props.history))
+                .map(character => renderListItem(character, props.unequipItem, props.selectCharacter, props.cancelAction, props.profile))
         }
     </div>
 );
@@ -64,9 +66,11 @@ const CharacterList = (props) => (
 CharacterList.propTypes = {
     characters: PropTypes.array.isRequired,
     unequipItem: PropTypes.func.isRequired,
+    cancelAction: PropTypes.func.isRequired,
     sort: PropTypes.object.isRequired,
     sortKeyAction: PropTypes.func.isRequired,
-    sortDirectionAction: PropTypes.func.isRequired
+    sortDirectionAction: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired
 };
 
 export default CharacterList;

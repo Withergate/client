@@ -17,7 +17,8 @@ import spinner from '../images/spinner.gif';
 import { 
     equipItem,
     unequipItem,
-    changeDefaultAction
+    changeDefaultAction,
+    cancelAction
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
 import { 
@@ -91,10 +92,12 @@ class ClanPage extends Component {
                                             <CharacterList 
                                                 characters={this.props.clan.characters}
                                                 unequipItem={this.props.unequipItem}
+                                                cancelAction={this.props.cancelAction}
                                                 selectCharacter={this.props.selectCharacter}
                                                 sort={this.props.sort.characters}
                                                 sortKeyAction={this.props.changeCharacterSortKey}
-                                                sortDirectionAction={this.props.changeCharacterSortDirection} />
+                                                sortDirectionAction={this.props.changeCharacterSortDirection}
+                                                profile={this.props.profile} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <Row>
@@ -162,6 +165,7 @@ ClanPage.propTypes = {
 
 const mapStateToProps = state => {
     const { clan, selectedCharacter } = state.clan;
+    const profile = state.profile.profile.data;
 
     const fetching = state.clan.fetching || state.action.fetching;
     const fetched = state.clan.fetched && state.action.fetched;
@@ -171,7 +175,7 @@ const mapStateToProps = state => {
     const selectedTab = state.ui.clanTab;
     const { sort, filter } = state.ui;
 
-    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab, sort, filter };
+    return { fetching, fetched, failed, error, clan, selectedCharacter, selectedTab, sort, filter, profile };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -185,7 +189,8 @@ const mapDispatchToProps = dispatch => (
         changeCharacterSortKey,
         changeCharacterSortDirection,
         changeItemFilter,
-        changeDefaultAction
+        changeDefaultAction,
+        cancelAction
     }, dispatch)
 );
 
