@@ -11,6 +11,8 @@ import spinner from '../../images/spinner.gif';
 
 import { fetchProfiles } from '../../actions/profileActions';
 import { dismissError } from '../../actions/uiActions';
+import { GameIcon } from '../shared/GameIcon';
+import { SMALL } from '../../constants/constants';
 
 class ProfileLadder extends Component {
 
@@ -41,15 +43,23 @@ class ProfileLadder extends Component {
                                     <th><Translate id="profile.score" /></th>
                                     <th><Translate id="profile.numGames" /></th>
                                     <th><Translate id="labels.lastActivity" /></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 { this.props.profiles.content.map(profile =>
                                     <tr key={profile.id} className={profile.id === this.props.clanId ? "text-success" : ""}>
-                                        <td>{profile.name}</td>
+                                        <td>
+                                            {profile.name}
+                                        </td>
                                         <td>{profile.ranking}</td>
                                         <td>{profile.numGames}</td>
-                                        <td>{profile.lastActivity.replace('T', ' ')}</td>
+                                        <td>{profile.lastActivity.replace('T', ' ').substring(0, 16)}</td>
+                                        <td>
+                                            { profile.premiumType &&
+                                                <GameIcon type={profile.premiumType} size={SMALL} noPadding />
+                                            }
+                                        </td>
                                     </tr>
                                     )
                                 }

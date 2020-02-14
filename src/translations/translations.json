@@ -73,8 +73,8 @@
         "roll": ["Dice roll", "Hod kostkou"],
         "profile": ["Profile", "Profil"],
         "historical": ["Historical results", "Historické výsledky"],
-        "premiumSilver": ["Premium (Silver)", "Premium (Silver)"],
-        "premiumGold": ["Premium (Silver)", "Premium (Gold)"]
+        "SILVER": ["Premium (Silver)", "Premium (Silver)"],
+        "GOLD": ["Premium (Silver)", "Premium (Gold)"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -178,7 +178,9 @@
         "numGames": ["Games played", "Odehraných her"],
         "changeTheme": ["Change app theme.", "Změnit aplikační theme."],
         "place": ["Place", "Místo"],
-        "gameEnded": ["Game end date", "Konec hry"]
+        "gameEnded": ["Game end date", "Konec hry"],
+        "accountType": ["Account type", "Typ účtu"],
+        "basic": ["Basic", "Základní"]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",

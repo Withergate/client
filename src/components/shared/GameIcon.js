@@ -89,8 +89,8 @@ const getTranslationKey = (type) => {
         case ITEM: return "basic.item";
         case FACTION_POINTS: return "basic.factionPoints";
         case ROLL: return "basic.roll";
-        case SILVER: return "basic.premiumSilver";
-        case GOLD: return "basic.premiumGold";
+        case SILVER: return "basic.SILVER";
+        case GOLD: return "basic.GOLD";
         default: return "";
     }
 }
