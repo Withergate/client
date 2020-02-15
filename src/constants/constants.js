@@ -47,6 +47,9 @@ export const ITEM = 'ITEM';
 export const FACTION_POINTS = 'FACTION_POINTS';
 export const ARMOR = 'ARMOR';
 export const ROLL = 'ROLL';
+export const ACH_COMMON = 'ACH_COMMON';
+export const ACH_RARE = 'ACH_RARE';
+export const ACH_EPIC = 'ACH_EPIC';
 
 // Icon size
 export const SMALL = 'SMALL';

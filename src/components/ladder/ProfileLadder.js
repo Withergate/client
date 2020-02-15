@@ -13,6 +13,7 @@ import { fetchProfiles } from '../../actions/profileActions';
 import { dismissError } from '../../actions/uiActions';
 import { GameIcon } from '../shared/GameIcon';
 import { SMALL } from '../../constants/constants';
+import AchievementStats from '../profile/AchievementStats';
 
 class ProfileLadder extends Component {
 
@@ -41,6 +42,7 @@ class ProfileLadder extends Component {
                                 <tr>
                                     <th><Translate id="basic.name" /></th>
                                     <th><Translate id="profile.score" /></th>
+                                    <th><Translate id="profile.achievements" /></th>
                                     <th><Translate id="profile.numGames" /></th>
                                     <th><Translate id="labels.lastActivity" /></th>
                                     <th></th>
@@ -53,6 +55,7 @@ class ProfileLadder extends Component {
                                             {profile.name}
                                         </td>
                                         <td>{profile.ranking}</td>
+                                        <td><AchievementStats stats={profile.achievementStats} /></td>
                                         <td>{profile.numGames}</td>
                                         <td>{profile.lastActivity.replace('T', ' ').substring(0, 16)}</td>
                                         <td>

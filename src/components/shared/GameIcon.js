@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
     HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL, SILVER, GOLD
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL, SILVER, GOLD, ACH_COMMON, ACH_RARE, ACH_EPIC
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -30,6 +30,9 @@ import factionIcon from '../../images/faction.png';
 import rollIcon from '../../images/roll.png';
 import premiumSilverIcon from '../../images/premium-silver.png';
 import premiumGoldIcon from '../../images/premium-gold.png';
+import achCommonIcon from '../../images/achievement-common.png';
+import achRareIcon from '../../images/achievement-rare.png';
+import achEpicIcon from '../../images/achievement-epic.png';
 
 import TooltipWrapper from './TooltipWrapper';
 
@@ -60,6 +63,9 @@ const getIconSource = (type) => {
         case ROLL: return rollIcon;
         case SILVER: return premiumSilverIcon;
         case GOLD: return premiumGoldIcon;
+        case ACH_COMMON: return achCommonIcon;
+        case ACH_RARE: return achRareIcon;
+        case ACH_EPIC: return achEpicIcon;
         default: return "";
     }
 }
@@ -91,6 +97,9 @@ const getTranslationKey = (type) => {
         case ROLL: return "basic.roll";
         case SILVER: return "basic.SILVER";
         case GOLD: return "basic.GOLD";
+        case ACH_COMMON: return "profile.achievementCommon";
+        case ACH_RARE: return "profile.achievementRare";
+        case ACH_EPIC: return "profile.achievementEpic";
         default: return "";
     }
 }
