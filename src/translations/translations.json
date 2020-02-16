@@ -184,7 +184,9 @@
         "achievements": ["Achievements", "Odznaky"],
         "achievementCommon": ["Common achievement", "Běžný odznak"],
         "achievementRare": ["Rare achievement", "Vzácný odznak"],
-        "achievementEpic": ["Epic achievement", "Epický odznak"]
+        "achievementEpic": ["Epic achievement", "Epický odznak"],
+        "achievementsUnlocked": ["Unlocked achievements", "Získáne odznaky"],
+        "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",

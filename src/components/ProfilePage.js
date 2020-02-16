@@ -14,6 +14,7 @@ import { SILVER } from '../constants/constants';
 import { checkPremium } from './profile/premiumUtils';
 import ThemePicker from './profile/ThemePicker';
 import ProfileResultsLadder from './ladder/ProfileResultsLadder';
+import AchievementsPanel from './profile/AchievementsPanel';
 
 class ProfilePage extends Component {
     render() {
@@ -28,6 +29,9 @@ class ProfilePage extends Component {
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="historical" className="tab-link"><Translate id="basic.historical" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="achievements" className="tab-link"><Translate id="profile.achievements" /></Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Col>
@@ -53,7 +57,10 @@ class ProfilePage extends Component {
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="historical">
                                     <ProfileResultsLadder />
-                                </Tab.Pane>     
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="achievements">
+                                    <AchievementsPanel achievements={this.props.profile.achievements} />
+                                </Tab.Pane> 
                             </Tab.Content>
                         </Col>
                     </Row>
