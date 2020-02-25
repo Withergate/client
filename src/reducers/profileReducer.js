@@ -8,6 +8,9 @@ import {
     FETCH_PROFILE_RESULTS_PENDING,
     FETCH_PROFILE_RESULTS_FULFILLED,
     FETCH_PROFILE_RESULTS_REJECTED,
+    FETCH_ACHIEVEMENTS_PENDING,
+    FETCH_ACHIEVEMENTS_FULFILLED,
+    FETCH_ACHIEVEMENTS_REJECTED,
     CREATE_PROFILE_PENDING,
     CREATE_PROFILE_FULFILLED,
     CREATE_PROFILE_REJECTED
@@ -47,6 +50,13 @@ const initialState = {
         error: ''
     },
     profileCreation: {
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    achievements: {
+        data: [],
         fetching: false,
         fetched: false,
         failed: false,
@@ -230,6 +240,39 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetched: false,
                     failed: true,
                     error: action.payload,
+                }
+            };
+        case FETCH_ACHIEVEMENTS_PENDING:
+            return {
+                ...state,
+                achievements: {
+                    ...state.achievements,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
+            };
+        case FETCH_ACHIEVEMENTS_FULFILLED:
+            return {
+                ...state,
+                achievements: {
+                    ...state.achievements,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_ACHIEVEMENTS_REJECTED:
+            return {
+                ...state,
+                achievements: {
+                    data: [],
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
                 }
             };
         default:

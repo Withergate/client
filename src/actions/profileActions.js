@@ -1,4 +1,4 @@
-import { fetchProfile, createProfile, changeTheme, fetchProfiles, fetchHistoricalResults } from '../services/profileService';
+import { fetchProfile, createProfile, changeTheme, fetchProfiles, fetchHistoricalResults, fetchAvailableAchievements } from '../services/profileService';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING';
@@ -21,6 +21,11 @@ export const CREATE_PROFILE_FULFILLED = 'CREATE_PROFILE_FULFILLED';
 export const CREATE_PROFILE_REJECTED = 'CREATE_PROFILE_REJECTED';
 
 export const CHANGE_THEME = 'CHANGE_THEME';
+
+export const FETCH_ACHIEVEMENTS = 'FETCH_ACHIEVEMENTS';
+export const FETCH_ACHIEVEMENTS_PENDING = 'FETCH_ACHIEVEMENTS_PENDING';
+export const FETCH_ACHIEVEMENTS_FULFILLED = 'FETCH_ACHIEVEMENTS_FULFILLED';
+export const FETCH_ACHIEVEMENTS_REJECTED = 'FETCH_ACHIEVEMENTS_REJECTED';
 
 const fetchProfileAction = () => ({
     type: FETCH_PROFILE,
@@ -65,3 +70,9 @@ const changeThemeAction = (theme) => {
     };
 };
 export { changeThemeAction as changeTheme };
+
+const fetchAchievementsAction = () => ({
+    type: FETCH_ACHIEVEMENTS,
+    payload: fetchAvailableAchievements()
+});
+export { fetchAchievementsAction as fetchAchievements };

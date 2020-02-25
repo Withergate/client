@@ -186,6 +186,7 @@
         "achievementRare": ["Rare achievement", "Vzácný odznak"],
         "achievementEpic": ["Epic achievement", "Epický odznak"],
         "achievementsUnlocked": ["Unlocked achievements", "Získáne odznaky"],
+        "achievementsAvailable": ["Available achievements", "Dostupné odznaky"],
         "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."]
     },
     "intel": {

@@ -38,3 +38,7 @@ export const createProfile = (name) => {
 export const changeTheme = (theme) => {
     return apiPut(API_URL.concat('profile/theme'), JSON.stringify({theme: theme}));
 };
+
+export const fetchAvailableAchievements = () => {
+    return apiGet(API_URL.concat('profile/achievements/available'));
+};

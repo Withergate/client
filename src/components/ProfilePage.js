@@ -15,6 +15,7 @@ import { checkPremium } from './profile/premiumUtils';
 import ThemePicker from './profile/ThemePicker';
 import ProfileResultsLadder from './ladder/ProfileResultsLadder';
 import AchievementsPanel from './profile/AchievementsPanel';
+import AvailableAchievementsPanel from './profile/AvailableAchievementsPanel';
 
 class ProfilePage extends Component {
     render() {
@@ -60,6 +61,9 @@ class ProfilePage extends Component {
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="achievements">
                                     <AchievementsPanel achievements={this.props.profile.achievements} />
+                                    { checkPremium(this.props.profile.premiumType, SILVER) &&
+                                        <AvailableAchievementsPanel />
+                                    }
                                 </Tab.Pane> 
                             </Tab.Content>
                         </Col>

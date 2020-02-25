@@ -95,6 +95,15 @@ body {
   text-align: center;
 }
 
+.image-faded {
+  opacity: 0.5;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+}
+
 /*
 * Footer
 */

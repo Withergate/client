@@ -12,7 +12,7 @@ const sort = (list) => {
 }
 
 const AchievementsPanel = ({achievements}) => (
-    <Card className="p-3" border="none">
+    <Card className="p-3 mb-4" border="none">
         <h5><Translate id="profile.achievementsUnlocked" /></h5>
         <Row>
             { achievements.length < 1 && <Col><Translate id="profile.noAchievements" /></Col> }
