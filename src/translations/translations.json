@@ -165,7 +165,8 @@
         "clanDefenseInfo2": ["You will always face an incomming attack with a fresh defender regardless of the outcome of previous attacks. If your defender dies during a combat, you will immediately get a new one.",
         "Každému útoku budeš čelit s čerstvým obráncem. Pokud tvůj obránce zemře, dostaneš okamžitě nového."],
         "rename": ["Rename", "Přejmenovat"],
-        "defenderNameConstraints": ["Defender name must be between 5 and 16 characters long.", "Jméno musí být dlouhé 5-16 znaků."]
+        "defenderNameConstraints": ["Defender name must be between 5 and 16 characters long.", "Jméno musí být dlouhé 5-16 znaků."],
+        "new": ["New", "Nové"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",

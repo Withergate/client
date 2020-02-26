@@ -97,11 +97,17 @@ body {
 
 .image-faded {
   opacity: 0.5;
-}
+} 
 
 .inline {
   display: flex;
   flex-direction: row;
+}
+
+.corner-align {
+  position: absolute;
+  top: 5px;
+  left: 10px;
 }
 
 /*
