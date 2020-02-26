@@ -12,7 +12,7 @@ import { GameIcon } from '../shared/GameIcon';
 class ThemePicker extends Component {
     render() {
         return (
-            <Card className="p-3">
+            <Card className="p-3 mb-4">
                 <p><Translate id="profile.changeTheme" /></p>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>

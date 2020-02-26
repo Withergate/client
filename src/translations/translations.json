@@ -187,7 +187,8 @@
         "achievementEpic": ["Epic achievement", "Epický odznak"],
         "achievementsUnlocked": ["Unlocked achievements", "Získáne odznaky"],
         "achievementsAvailable": ["Available achievements", "Dostupné odznaky"],
-        "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."]
+        "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."],
+        "epicAchivementsDisplay": ["Epic achievements are not visible in this list. You will need to discover them on your own.", "Epické odznaky jsou skryté. Budeš je muset objevit sám."]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",
@@ -291,6 +292,7 @@
         "photosText": ["I would like to thank the following people for allowing me to use their beautiful photos as a game content:",
         "Rád bych poděkoval následujícím lidem za poskytnutí fotografií pro herní obsah:"],
         "links": ["Links", "Odkazy"],
+        "iconsText": ["Credits to all icon authors from the following list: ", "Díky všem autorům ikonek z následující stránky: "],
         "patronText": ["Special thanks to all Patreon supporters: ", "Speciální díky všem, kteří nás podporují na Patreonu: "]
     },
     "arena": {

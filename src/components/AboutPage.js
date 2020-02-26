@@ -88,6 +88,8 @@ class AboutPage extends Component {
                     </tbody>
                 </Table>
 
+                <p><Translate id="about.iconsText" /><a href="https://game-icons.net/about.html#authors" target="_blank" rel="noopener noreferrer">Game Icons</a></p>
+
                 <p><Translate id="about.patronText" />{ window._env_.PATRONS }</p>
             </div>
         );
