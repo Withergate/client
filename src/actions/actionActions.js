@@ -19,7 +19,8 @@ import {
     refreshTavern,
     handleFactionAction,
     handleClanCombat,
-    cancelAction
+    cancelAction,
+    renameDefender
 } from '../services/actionService';
 
 import {
@@ -319,3 +320,16 @@ const cancelActionAction = (characterId) => {
     };
 };
 export { cancelActionAction as cancelAction };
+
+const renameDefenderAction = (name) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: renameDefender(name)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { renameDefenderAction as renameDefender };

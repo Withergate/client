@@ -61,7 +61,7 @@ class ClanSetupForm extends Component {
                                         </Col>
                                     </Row>
                                 </InputGroup>
-                                <Button  className="button-large" variant="dark" type="submit">
+                                <Button className="button-large" variant="dark" type="submit">
                                     <Translate id="clanSetup.button" />
                                 </Button>
                             </Form>

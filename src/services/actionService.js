@@ -101,3 +101,8 @@ export const cancelAction = (characterId) => {
     return apiPost(API_URL.concat('character/action/cancel'), 
     JSON.stringify({characterId: characterId}));
 };
+
+export const renameDefender = (name) => {
+    return apiPut(API_URL.concat('clan/defender'), 
+    JSON.stringify({name: name}));
+};
