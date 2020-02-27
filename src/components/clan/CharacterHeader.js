@@ -5,18 +5,16 @@ import { INJURY_INFO, SKILLPOINT } from '../../constants/constants';
 import { GameIcon } from '../shared/GameIcon';
 
 const CharacterHeader = ({character, size, skipName}) => (
-    <ul className="list-inline">
+    <div className="inline">
         { character.hitpoints < (character.maxHitpoints * 2 / 3.0) && 
-            <li className="list-inline-item">
-                <GameIcon type={INJURY_INFO} size={size} noPadding />
-            </li> 
+            <GameIcon type={INJURY_INFO} size={size} noPadding />
         }
         {
             character.skillPoints > 0 && 
-                <li className="list-inline-item"><GameIcon type={SKILLPOINT} size={size} noPadding /></li>
+                <GameIcon type={SKILLPOINT} size={size} noPadding />
         }
-        { !skipName && <li className="list-inline-item">{character.name}</li> }
-    </ul>
+        { !skipName && <span>{character.name}</span> }
+    </div>
 );
 
 CharacterHeader.propTypes = {

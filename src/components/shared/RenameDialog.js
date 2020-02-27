@@ -31,7 +31,7 @@ class RenameDialog extends React.Component {
                 <Modal.Body>
                     <Form.Group controlId="formRename">
                         <Form.Label><Translate id="basic.name" /></Form.Label>
-                        <Form.Control type="text" placeholder="..." name="nameText" />
+                        <Form.Control type="text" placeholder={this.props.placeholder} name="nameText" />
                         <Form.Text className="text-muted">
                             <Translate id={this.props.text} />
                         </Form.Text>
@@ -58,7 +58,8 @@ RenameDialog.propTypes = {
     heading: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     onConfirm: PropTypes.func.isRequired,
-    premiumType: PropTypes.string
+    premiumType: PropTypes.string,
+    placeholder: PropTypes.string.isRequired
 };
   
 export default RenameDialog;

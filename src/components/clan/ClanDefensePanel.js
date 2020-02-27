@@ -49,7 +49,8 @@ class ClanDefensePanel extends Component {
                     heading="labels.rename"
                     premiumType={SILVER}
                     onClose={() => this.setState({ renameModal: false })}
-                    onConfirm={this.props.renameDefender} />
+                    onConfirm={this.props.renameDefender}
+                    placeholder={this.props.defender.name} />
             </Card.Body>
         </Card>
         )

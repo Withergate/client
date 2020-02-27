@@ -17,16 +17,13 @@ import spinner from '../images/spinner.gif';
 import { 
     equipItem,
     unequipItem,
-    changeDefaultAction,
-    cancelAction
+    changeDefaultAction
 } from '../actions/actionActions';
 import { fetchClan } from '../actions/dataActions';
 import { 
     selectClanTab,
     selectCharacter,
     dismissError,
-    changeCharacterSortKey,
-    changeCharacterSortDirection,
     changeItemFilter
 } from '../actions/uiActions';
 import DefaultActionPanel from './clan/DefaultActionPanel';
@@ -89,15 +86,7 @@ class ClanPage extends Component {
                                             <GameMechanicsOverview />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">
-                                            <CharacterList 
-                                                characters={this.props.clan.characters}
-                                                unequipItem={this.props.unequipItem}
-                                                cancelAction={this.props.cancelAction}
-                                                selectCharacter={this.props.selectCharacter}
-                                                sort={this.props.sort.characters}
-                                                sortKeyAction={this.props.changeCharacterSortKey}
-                                                sortDirectionAction={this.props.changeCharacterSortDirection}
-                                                profile={this.props.profile} />
+                                            <CharacterList />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="items">
                                             <Row>
@@ -186,11 +175,8 @@ const mapDispatchToProps = dispatch => (
         selectCharacter,
         selectClanTab,
         dismissError,
-        changeCharacterSortKey,
-        changeCharacterSortDirection,
         changeItemFilter,
-        changeDefaultAction,
-        cancelAction
+        changeDefaultAction
     }, dispatch)
 );
 

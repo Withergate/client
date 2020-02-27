@@ -9,18 +9,35 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import ItemTooltip from '../item/ItemTooltip';
-import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LARGE } from '../../constants/constants';
+import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LARGE, GOLD } from '../../constants/constants';
 import ActionButton from './CharacterActionButton';
 import CharacterHeader from './CharacterHeader';
 
+import editIcon from '../../images/edit.png';
+import { checkPremium } from '../profile/premiumUtils';
+import RenameDialog from '../shared/RenameDialog';
+
 class CharacterListItem extends Component {
+    constructor(...args) {
+        super(...args);
+    
+        this.state = { 
+            renameModal: false
+        };
+    }
+
     render() {
-        const {character, unequipItem, selectCharacter, cancelAction, profile} = this.props;
+        const {character, unequipItem, selectCharacter, cancelAction, profile, renameCharacter} = this.props;
     
         return <Card className="mb-4">
             <Card.Body>
                 <Card.Title>
-                    <CharacterHeader character={character} size={LARGE} />
+                    <div className="inline">
+                        <CharacterHeader character={character} size={LARGE} />
+                        { checkPremium(profile.premiumType, GOLD) &&
+                            <Image src={editIcon} className="ml-1" width="24px" onClick={() => this.setState({ renameModal: true })}/> 
+                        }
+                    </div>
                 </Card.Title>
                 <Row>
                     <Col md={2} xs={5}>
@@ -136,6 +153,15 @@ class CharacterListItem extends Component {
                         }
                     </Col>
                 </Row>
+
+                <RenameDialog
+                    show={this.state.renameModal}
+                    text="labels.characterNameConstraints"
+                    heading="labels.rename"
+                    premiumType={GOLD}
+                    onClose={() => this.setState({ renameModal: false })}
+                    onConfirm={(name) => renameCharacter(character.id, name)}
+                    placeholder={character.name} />
             </Card.Body>
         </Card>
     }
@@ -145,6 +171,7 @@ CharacterListItem.propTypes = {
     character: PropTypes.object.isRequired,
     unequipItem: PropTypes.func.isRequired,
     cancelAction: PropTypes.func.isRequired,
+    renameCharacter: PropTypes.func.isRequired,
     selectCharacter: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired
 };

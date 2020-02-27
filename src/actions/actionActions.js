@@ -20,7 +20,8 @@ import {
     handleFactionAction,
     handleClanCombat,
     cancelAction,
-    renameDefender
+    renameDefender,
+    renameCharacter
 } from '../services/actionService';
 
 import {
@@ -333,3 +334,16 @@ const renameDefenderAction = (name) => {
     };
 };
 export { renameDefenderAction as renameDefender };
+
+const renameCharacterAction = (characterId, name) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: renameCharacter(characterId, name)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { renameCharacterAction as renameCharacter };

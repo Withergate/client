@@ -166,6 +166,7 @@
         "Každému útoku budeš čelit s čerstvým obráncem. Pokud tvůj obránce zemře, dostaneš okamžitě nového."],
         "rename": ["Rename", "Přejmenovat"],
         "defenderNameConstraints": ["Defender name must be between 5 and 16 characters long.", "Jméno musí být dlouhé 5-16 znaků."],
+        "characterNameConstraints": ["Character name must be between 6 and 30 characters long and it must be unique across all clan characters.", "Jméno musí být dlouhé 6-30 znaků a unikátní napříč všemi postavami ve Tvém klanu."],
         "new": ["New", "Nové"]
     },
     "profile": {
