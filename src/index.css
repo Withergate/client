@@ -30,6 +30,12 @@ body {
   height: 40px;
 }
 
+.login-strip {
+  background-image: url("https://storage.googleapis.com/withergate-images/login-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 /*
  * Buttons
  */
@@ -54,15 +60,26 @@ body {
 /*
  * Carousel - tutorial
  */
-.carousel {
+.tutorial.carousel {
   background-color: var(--dark);
   border-radius: 16px 16px 16px 16px;
   overflow: hidden;
 }
 
+.preview.carousel {
+  background-color: var(--secondary);
+}
+
 @media only screen and (max-width: 600px) {
-  .carousel-item {
+  .tutorial .carousel-item {
     height: 550px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
+
+  .preview .carousel-item {
+    height: 300px;
     text-align: center;
     bottom: auto;
     position: unset;
@@ -70,8 +87,15 @@ body {
 }
 
 @media only screen and (min-width: 601px) {
-  .carousel-item {
+  .tutorial .carousel-item {
     height: 650px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
+
+  .preview .carousel-item {
+    height: 400px;
     text-align: center;
     bottom: auto;
     position: unset;

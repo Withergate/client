@@ -2,8 +2,8 @@ import React from 'react';
 import { Translate } from "react-localize-redux";
 import { Carousel, Image } from 'react-bootstrap';
 
-const Tutorial = () => (
-    <Carousel className="mt-4 tutorial" interval={null} slide={false}>
+const Preview = () => (
+    <Carousel className="preview" interval={null} slide={false}>
         <Carousel.Item>
             <Carousel.Caption>
                 <Image
@@ -11,7 +11,6 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/turns.png"
                 />
                 <h3><Translate id="header.turn" /></h3>
-                <p><Translate id="tutorial.turns" /></p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -21,7 +20,6 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/news.png"
                 />
                 <h3><Translate id="header.news" /></h3>
-                <p><Translate id="tutorial.news" /></p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -31,7 +29,6 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/clan.png"
                 />
                 <h3><Translate id="header.clan" /></h3>
-                <p><Translate id="tutorial.clan" /></p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -41,7 +38,6 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/actions.png"
                 />
                 <h3><Translate id="header.actions" /></h3>
-                <p><Translate id="tutorial.actions" /></p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -51,7 +47,6 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/fame.png" 
                 />
                 <h3><Translate id="header.fame" /></h3>
-                <p><Translate id="tutorial.fame" /></p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -61,10 +56,9 @@ const Tutorial = () => (
                     src="https://storage.googleapis.com/withergate-images/tutorial/default.png" 
                 />
                 <h3><Translate id="tutorial.defaultHeader" /></h3>
-                <p><Translate id="tutorial.default" /></p>
             </Carousel.Caption>
         </Carousel.Item>
     </Carousel>
 );
 
-export default Tutorial;
+export default Preview;
