@@ -94,3 +94,7 @@ export const setTurnStart = (date) => {
 export const fetchClanIntel = (clanId) => {
     return apiGet(API_URL.concat('clan/').concat(clanId));
 };
+
+export const fetchGameInfo = (d) => {
+    return apiGet(API_URL.concat('game/info'));
+};

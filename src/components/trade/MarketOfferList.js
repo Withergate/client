@@ -65,7 +65,7 @@ class MarketOfferList extends React.Component {
 
 const renderList = (offers, onBuy, onCancel, filter, clanId) => (
         offers
-            .filter(offer => (offer.details.itemType === filter || filter === ALL))
+            .filter(offer => (offer.item.details.itemType === filter || filter === ALL))
             .map(offer => renderListItem(offer, onBuy, onCancel, clanId))
 );
 

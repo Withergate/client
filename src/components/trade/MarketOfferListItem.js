@@ -14,16 +14,16 @@ import TooltipWrapper from '../shared/TooltipWrapper';
 const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title className={getRarityTextColor(offer.details.rarity)}>
-                {getTranslatedText(offer.details.name)}
+            <Card.Title className={getRarityTextColor(offer.item.details.rarity)}>
+                {getTranslatedText(offer.item.details.name)}
             </Card.Title>
             <Row>
                 <Col md={4} className="mb-2">
-                    <Image rounded src={offer.details.imageUrl} className="w-100" />
+                    <Image rounded src={offer.item.details.imageUrl} className="w-100" />
                 </Col>
                 <Col md={8}>
-                    <p>{getTranslatedText(offer.details.description)}</p>
-                    <ItemDetails details={offer.details} />
+                    <p>{getTranslatedText(offer.item.details.description)}</p>
+                    <ItemDetails details={offer.item.details} />
 
                     <p className="mt-2"><b><Translate id="labels.seller" />: </b>{offer.seller ? offer.seller.name : "NPC"}</p>
 

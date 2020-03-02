@@ -121,6 +121,10 @@ export const DataReducer = (state = initialState, action) => {
                 arenaStats: {
                     ...state.arenaStats,
                     failed: false
+                },
+                info: {
+                    ...state.info,
+                    failed: false
                 }
             };
         case FETCH_LOCATIONS_PENDING:

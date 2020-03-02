@@ -266,7 +266,13 @@
         "start": ["New game has not yet begun. In order to have the best experience, we recommend starting the the game at the beginning of an era. Next era will start on ${date}. We will be ready for you with exciting new features and a lot of new game content!",
         "Nová hra ještě nezačala. Pro nejlepší herní zážitek doporučujeme začít hrát na začátku herního věku. Příští věk začne k datu ${date}. Budeme se na Tebe těšit se spoustou nového herního obsahu."],
         "motto": ["Easy to play, difficult to master...", "Easy to play, difficult to master"],
-        "story": ["Story", "Příběh"]
+        "story": ["Story", "Příběh"],
+        "gameInfo": ["Current game", "Aktuální hra"],
+        "noGameInfo": ["No data available for current game.", "Nejsou k dispozici žádná data k aktuální hře."],
+        "currentTurn": ["Current turn", "Aktuální kolo"],
+        "turnDate": ["Turn evaluation scheduled for ${date}.", "Kolo bude vyhodnoceno dne ${date}."],
+        "clanNum": ["Clans in current game", "Klanů v současné hře"],
+        "profileNum": ["Registered players", "Registered players"]
     },
     "clanSetup": {
         "text": ["This is a dangerous place to roam alone so let`s begin with setting up a clan.",

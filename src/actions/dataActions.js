@@ -16,7 +16,8 @@ import {
     fetchFactions,
     fetchFactionsOverview,
     setTurnStart,
-    fetchClanIntel
+    fetchClanIntel,
+    fetchGameInfo
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -110,6 +111,11 @@ export const UPDATE_TURN_START = 'UPDATE_TURN_START';
 export const UPDATE_TURN_START_PENDING = 'UPDATE_TURN_START_PENDING';
 export const UPDATE_TURN_START_FULFILLED = 'UPDATE_TURN_START_FULFILLED';
 export const UPDATE_TURN_START_REJECTED = 'UPDATE_TURN_START_REJECTED';
+
+export const FETCH_GAME_INFO = 'FETCH_GAME_INFO';
+export const FETCH_GAME_INFO_PENDING = 'FETCH_GAME_INFO_PENDING';
+export const FETCH_GAME_INFO_FULFILLED = 'FETCH_GAME_INFO_FULFILLED';
+export const FETCH_GAME_INFO_REJECTED = 'FETCH_GAME_INFO_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -249,3 +255,9 @@ const fetchClanIntelAction = (clanId) => ({
     payload: fetchClanIntel(clanId)
 });
 export { fetchClanIntelAction as fetchClanIntel };
+
+const fetchGameInfoAction = () => ({
+    type: FETCH_GAME_INFO,
+    payload: fetchGameInfo()
+});
+export { fetchGameInfoAction as fetchGameInfo };

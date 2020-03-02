@@ -7,6 +7,7 @@ import { Button, Card, Row, Col, Collapse, Image } from 'react-bootstrap';
 import CzechIcon from '../images/lang/czech.png';
 import PatreonIcon from '../images/patreon.png';
 import Preview from '../components/login/Preview';
+import GameInfoPanel from './login/GameInfoPanel';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -62,13 +63,18 @@ class LoginPage extends React.Component {
                             <Preview />
                         </Col>
                         <Col md={4} className="mb-4">
+                            <GameInfoPanel />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={8} className="mb-4">
                             <div className="">
                                 <p className="text-muted">
                                     <Translate id="login.info" />
                                 </p>
                                 <Button
                                     variant="outline-dark" size="sm"
-                                    className="button-small mb-2"
+                                    className="button-small mb-4"
                                     onClick={() => this.handleCollapseChange(!this.state.open)}>
                                         {
                                             this.state.open ?
@@ -88,11 +94,6 @@ class LoginPage extends React.Component {
                                     </div>
                                 </Collapse>
                             </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={8} className="mb-4">
-                            <Card className="p-4">Game stats</Card>
                         </Col>
                         <Col md={4} className="mb-4">
                             <div className="p-2">
