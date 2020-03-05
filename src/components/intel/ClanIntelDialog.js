@@ -12,6 +12,7 @@ import { FAME, SMALL, CAPS, FOOD, JUNK, LARGE, FACTION_POINTS } from '../../cons
 import CharacterSelector from '../clan/CharacterSelector';
 import ActionButton from '../shared/ActionButton';
 import { Error } from '../shared/Error';
+import DefenderDetail from '../clan/DefenderDetail';
 
 // clan must be in a different faction than the other clan
 const isAttackEnabled = (clan, intel) => {
@@ -78,20 +79,27 @@ const ClanIntelDialog = (props) => (
                         <div>
                             <p><Translate id="intel.attackText" /></p>
                             <p className="text-danger"><Translate id="intel.attackLimit" /></p>
-                            <p>
-                                { props.intel.defense ?
-                                    <b className="text-primary"><Translate id="intel.defense" data={{ defense: props.intel.defense }} /></b>
-                                    : <b className="text-danger"><Translate id="intel.defenseUnknown" /></b>
-                                }
-                            </p>
-                            <ul className="list-inline">
-                                <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
-                                <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={props.intel.fameReward} /></li>
-                                <li className="list-inline-item"><GameIcon type={FACTION_POINTS} size={LARGE} value={props.intel.factionReward} /></li>
-                                <li className="list-inline-item"><GameIcon type={CAPS} value='?' size={LARGE} /></li>
-                                <li className="list-inline-item"><GameIcon type={FOOD} value='?' size={LARGE} /></li>
-                                <li className="list-inline-item"><GameIcon type={JUNK} value='?' size={LARGE} /></li>
-                            </ul>
+                            <Row className="mb-4">
+                                <Col md={8} xs={12} className="mb-4">
+                                    { props.intel.defender ?
+                                        <div>
+                                            <b><Translate id="intel.defender" />: </b>{props.intel.defender.name}
+                                            <DefenderDetail defender={props.intel.defender} />
+                                        </div>
+                                        : <b className="text-danger"><Translate id="intel.defenseUnknown" /></b>
+                                    }
+                                </Col>
+                                <Col md={4} xs={12}>
+                                    <ul className="list-inline">
+                                        <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                                        <li className="list-inline-item"><GameIcon type={FAME} size={LARGE} value={props.intel.fameReward} /></li>
+                                        <li className="list-inline-item"><GameIcon type={FACTION_POINTS} size={LARGE} value={props.intel.factionReward} /></li>
+                                        <li className="list-inline-item"><GameIcon type={CAPS} value='?' size={LARGE} /></li>
+                                        <li className="list-inline-item"><GameIcon type={FOOD} value='?' size={LARGE} /></li>
+                                        <li className="list-inline-item"><GameIcon type={JUNK} value='?' size={LARGE} /></li>
+                                    </ul>
+                                </Col>
+                            </Row>
                             <Row>
                                 <Col md={10} xs={12}>
                                     <CharacterSelector />

@@ -10,7 +10,7 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { fetchAchievements } from '../../actions/profileActions';
 import spinner from '../../images/spinner.gif';
 import { GameIcon } from '../shared/GameIcon';
-import { SILVER, LARGE, EPIC } from '../../constants/constants';
+import { SILVER, LARGE } from '../../constants/constants';
 
 class AvailableAchievementsPanel extends React.Component {
     componentDidMount() {
@@ -30,7 +30,6 @@ class AvailableAchievementsPanel extends React.Component {
                             { this.props.achievements.length < 1 && <Col><Translate id="profile.noAchievements" /></Col> }
                             {
                                 this.props.achievements.map(achievement =>
-                                    achievement.rarity !== EPIC &&
                                     <Col md={2} xs={4} key={achievement.identifier} data-tip data-for={achievement.identifier} >
                                         <Image src={achievement.imageUrl} width="80px" className="image-faded" />
                                         <ReactTooltip id={achievement.identifier} effect="solid" className="tooltip-multiline">

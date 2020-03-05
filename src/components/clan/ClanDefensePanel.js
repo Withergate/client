@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
-import { Card, ListGroup, Image } from 'react-bootstrap';
-import { COMBAT, HEALTH, ARMOR, LARGE, SILVER } from '../../constants/constants';
-import { GameIcon } from '../shared/GameIcon';
+import { Card, Image } from 'react-bootstrap';
+import { SILVER } from '../../constants/constants';
 import editIcon from '../../images/edit.png';
 import { checkPremium } from '../profile/premiumUtils';
 import { renameDefender } from '../../actions/actionActions';
 import RenameDialog from '../shared/RenameDialog';
+import DefenderDetail from './DefenderDetail';
 
 class ClanDefensePanel extends Component {
     constructor(...args) {
@@ -37,11 +37,7 @@ class ClanDefensePanel extends Component {
                     }
                 </p>
 
-                <ListGroup horizontal>
-                    <ListGroup.Item><GameIcon type={COMBAT} size={LARGE} value={this.props.defender.combat} /></ListGroup.Item>
-                    <ListGroup.Item><GameIcon type={ARMOR} size={LARGE} value={this.props.defender.outfit.details.combat} /></ListGroup.Item>
-                    <ListGroup.Item><GameIcon type={HEALTH} size={LARGE} value={this.props.defender.hitpoints} /></ListGroup.Item>
-                </ListGroup>
+                <DefenderDetail defender={this.props.defender} />
 
                 <RenameDialog
                     show={this.state.renameModal}
