@@ -4,36 +4,32 @@ import { Image, Row, Col } from 'react-bootstrap';
 
 const Preview = () => (
     <div className="preview">
-        <Row>
+            <Row className="mb-2">
             <Col md={6} xs={12}>
-                <Image
-                    className="w-100 mb-2"
-                    src="https://storage.googleapis.com/withergate-images/tutorial/clan.png"
-                />
-                <h5><Translate id="header.turn" /></h5>
+                <Translate>
+                    {({ translate }) => <Image src={translate("login.images.preview1")} className="w-100 mb-2" /> }
+                </Translate>
+                <h5>Zaúkoluj postavy...</h5>
             </Col>
             <Col md={6} xs={12}>
-                <Image
-                    className="w-100 mb-2"
-                    src="https://storage.googleapis.com/withergate-images/tutorial/actions.png"
-                />
-                <h5><Translate id="header.turn" /></h5>
+                <Translate>
+                    {({ translate }) => <Image src={translate("login.images.preview1")} className="w-100 mb-2" /> }
+                </Translate>
+                <h5>Rozšiř svůj klan</h5>
             </Col>
         </Row>
         <Row>
             <Col md={6} xs={12}>
-                <Image
-                    className="w-100 mb-2"
-                    src="https://storage.googleapis.com/withergate-images/tutorial/fame.png"
-                />
-                <h5><Translate id="header.turn" /></h5>
+                <Translate>
+                    {({ translate }) => <Image src={translate("login.images.preview1")} className="w-100 mb-2" /> }
+                </Translate>
+                <h5>Interaguj s ostatními</h5>
             </Col>
             <Col md={6} xs={12}>
-                <Image
-                    className="w-100 mb-2"
-                    src="https://storage.googleapis.com/withergate-images/tutorial/turns.png"
-                />
-                <h5><Translate id="header.turn" /></h5>
+                <Translate>
+                    {({ translate }) => <Image src={translate("login.images.preview1")} className="w-100 mb-2" /> }
+                </Translate>
+                <h5>Blabla, další text</h5>
             </Col>
         </Row>
     </div>

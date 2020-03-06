@@ -1,7 +1,7 @@
 import React from 'react';
 import { Translate } from "react-localize-redux";
 
-import { TOKEN_URL} from '../services/constants/endpoints';
+import { TOKEN_URL, AUTH_URL} from '../services/constants/endpoints';
 import { Button, Card, Row, Col, Collapse, Image } from 'react-bootstrap';
 
 import CzechIcon from '../images/lang/czech.png';
@@ -33,22 +33,19 @@ class LoginPage extends React.Component {
                     <Row>
                         <Col md={8} className="mb-4">
                             <div className="login-strip p-4 h-100">
-                                <h1>Withergate</h1>
-                                <h5><Translate id="login.motto" /></h5>
                             </div>
                         </Col>
                         <Col md={4} className="mb-4">
                             {
                                 !window._env_.START_DATE ?
                                 <Card className="p-3">
+                                    <Image src="https://storage.googleapis.com/withergate-images/login.jpg" className="w-100" />
                                     <a href={TOKEN_URL}>
-                                        <Button className="w-100 mb-2" variant="success"><Translate id="login.button" /></Button>
+                                        <Button className="w-100 mb-2" variant="dark"><Translate id="login.button" /></Button>
                                     </a>
-                                    <p className="text-muted">
-                                        <small className="text-muted">
-                                            <Translate id="login.redirect" />
-                                        </small>  
-                                    </p>
+                                    <a href={AUTH_URL + "/register"}>
+                                        <Translate id="login.register" />
+                                    </a>
                                 </Card>
                                 : <Card className="p-2" bg="warning">
                                     <Card.Body>
@@ -96,15 +93,18 @@ class LoginPage extends React.Component {
                             </div>
                         </Col>
                         <Col md={4} className="mb-4">
-                            <div className="p-2">
+                            <div className="p-2 right-align">
                                 <p>
-                                    <Image src={CzechIcon} width="25px" className="mr-2" /> <a href="https://www.facebook.com/withergate" target="_blank" rel="noopener noreferrer">Facebook</a>
+                                    <a href="https://www.facebook.com/withergate" target="_blank" rel="noopener noreferrer">Facebook</a>
+                                    <Image src={CzechIcon} width="25px" className="ml-2" />
                                 </p>
                                 <p>
-                                    <Image src={CzechIcon} width="25px" className="mr-2" /> <a href="https://witherpedia.fandom.com/cs/wiki/" target="_blank" rel="noopener noreferrer">Wiki</a>
+                                    <a href="https://witherpedia.fandom.com/cs/wiki/" target="_blank" rel="noopener noreferrer">Wiki</a>
+                                    <Image src={CzechIcon} width="25px" className="ml-2" />
                                 </p>
                                 <p>
-                                    <Image src={PatreonIcon} width="25px" className="mr-2" /> <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">Patreon</a>
+                                    <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">Patreon</a>
+                                    <Image src={PatreonIcon} width="25px" className="ml-2" />
                                 </p>
                             </div>
                         </Col>

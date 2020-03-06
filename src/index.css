@@ -30,10 +30,22 @@ body {
   height: 40px;
 }
 
-.login-strip {
-  background-image: url("https://storage.googleapis.com/withergate-images/login-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+@media only screen and (max-width: 600px) {
+  .login-strip {
+    background-image: url("https://storage.googleapis.com/withergate-images/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 120px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .login-strip {
+    background-image: url("https://storage.googleapis.com/withergate-images/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 250px;
+  }
 }
 
 /*
@@ -103,6 +115,10 @@ body {
 */
 .centered {
   text-align: center;
+}
+
+.right-align {
+  text-align: right;
 }
 
 .image-faded {
