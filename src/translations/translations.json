@@ -461,5 +461,20 @@
             "OUTFIT": ["Outfit only", "Pouze zbroj"],
             "GEAR": ["Gear only", "Pouze výstroj"]
         }
+    },
+    "endgame": {
+        "header": ["Game over!", "Konec hry!"],
+        "text": ["Game has ended. Take a look at the results and get ready for the next era!", 
+            "Hra již skončila. Prohlédněte si statistiky a připravte se na další věk!"],
+        "winner": ["Best clan", "Nejlepší klan"],
+        "clanHeader": ["Your clan", "Tvůj klan"],
+        "clanText": ["Let's take a look at your clan's statistics.", "Pojďme se podívat, jak si vedl tvůj klan."],
+        "starvations": ["Starving characters", "Hladovějící postavy"],
+        "failedDisasters": ["Failed disasters", "Neodvrácené pohromy"],
+        "craftedItems": ["Crafted items", "Vyrovené předměty"],
+        "incomingAttacks": ["Attacks on other clans (total / successful)", "Útoky na ostatní klany (celkem / úspěšné)"],
+        "outcomingAttacks": ["Attacks from other clans (total / successful)", "Útoky od ostatních klanů (celkem / úspěšné)"],
+        "encounters": ["Random encounters (total / successful)", "Náhodné události (celkem / úspěšné)"]
+
     }
   }

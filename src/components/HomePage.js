@@ -14,6 +14,7 @@ import {
 } from '../actions/dataActions';
 import { GlobalNotification } from './notification/GlobalNotification';
 import DisasterMiniPanel from './disaster/DisasterMiniPanel';
+import EndGameInfoPanel from './clan/EndGameInfoPanel';
 
 class HomePage extends Component {
 
@@ -37,11 +38,18 @@ class HomePage extends Component {
                 }
                 {
                     this.props.fetched && 
-                        <NotificationList 
-                            notifications={this.props.notifications} 
-                            currentTurn={this.props.turn.turnId}
-                            turnDisplayed={this.props.turnDisplayed}
-                            displayTurnNotifications={this.props.displayTurnNotifications} />
+                        <div>
+                            {
+                                (this.props.turn.turnId > this.props.maxTurns) &&
+                                <EndGameInfoPanel />
+                            }
+                            <NotificationList 
+                                notifications={this.props.notifications} 
+                                currentTurn={this.props.turn.turnId}
+                                turnDisplayed={this.props.turnDisplayed}
+                                displayTurnNotifications={this.props.displayTurnNotifications} />
+                        </div>
+                        
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
@@ -57,18 +65,21 @@ HomePage.propTypes = {
     failed: PropTypes.bool,
     error: PropTypes.string.isRequired,
     notifications: PropTypes.array.isRequired,
-    turnDisplayed: PropTypes.number.isRequired
+    turnDisplayed: PropTypes.number.isRequired,
+    turn: PropTypes.object.isRequired,
+    maxTurns: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
     const { error, notifications, global } = state.notifications;
     const { turnDisplayed, turn } = state.turn;
+    const { maxTurns } = state.game.properties;
 
     const fetching = state.turn.fetching || state.notifications.fetching;
     const fetched = state.turn.fetched && state.notifications.fetched;
     const failed = state.turn.failed || state.notifications.failed;
 
-    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn, global };
+    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn, global, maxTurns };
 };
 
 const mapDispatchToProps = dispatch => (
