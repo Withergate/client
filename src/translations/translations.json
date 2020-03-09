@@ -272,8 +272,19 @@
         "clanNum": ["Clans in current game", "Klanů v současné hře"],
         "profileNum": ["Registered players", "Registrovaných hráčů"],
         "register": ["Register", "Registrace"],
-        "images": {
-            "preview1": ["https://storage.googleapis.com/withergate-images/tutorial/turns.png", "https://storage.googleapis.com/withergate-images/tutorial/news.png"]
+        "preview": {
+            "text1": ["Send the members of your clan searching the wasteland for food, information or other valuable resources. Beware of dangerous encounters!",
+            "Posílej členy svého klanu na průzkum okolí, aby ve zničeném světě nalezli dostatek jídla, informací nebo dalších drahocenných surovin. Pozor na nebezpečné události!"],
+            "image1": ["https://storage.googleapis.com/withergate-images/preview/preview1-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview1-cs.jpg"],
+            "text2": ["Utilize the unique skills of your characters so they can efficiently construct new buildings, craft useful items, do specific research, or avert disasters and complete various quests. ",
+            "Využij jedinečných schopností každé postavy tak, aby efektivně stavěly nové budovy, vyráběly užitečné předměty, věnovaly se výzkumu, nebo odvracely pohromy a plnili různé úkoly!"],
+            "image2": ["https://storage.googleapis.com/withergate-images/preview/preview2-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview2-cs.jpg"],
+            "text3": ["Acquire information about your rivals. When they will least expect it, strike!",
+            "Získej informace o svých soupeřích. A až to budou nejméně čekat, zaútoč na ně!"],
+            "image3": ["https://storage.googleapis.com/withergate-images/preview/preview3-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview3-cs.jpg"],
+            "text4": ["Gain fame for your clan and beat others in a competitive ladder!",
+            "Zajisti slávu svému klanu a soupeř s ostatními!"],
+            "image4": ["https://storage.googleapis.com/withergate-images/preview/preview4-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview4-cs.jpg"]
         }
     },
     "clanSetup": {
