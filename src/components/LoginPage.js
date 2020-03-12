@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
             <main>
                 <div className="p-4">
                     <Row>
-                        <Col md={8} className="mb-4">
+                        <Col md={8} className="mb-md-4">
                             <div className="login-strip p-4 h-100">
                             </div>
                         </Col>

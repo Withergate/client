@@ -74,7 +74,7 @@
         "profile": ["Profile", "Profil"],
         "historical": ["Historical results", "Historické výsledky"],
         "SILVER": ["Premium (Silver)", "Premium (Silver)"],
-        "GOLD": ["Premium (Silver)", "Premium (Gold)"]
+        "GOLD": ["Premium (Gold)", "Premium (Gold)"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -432,7 +432,8 @@
         "aidTooltip": ["Character will support your faction and your clan will gain influence.", "Postava podpoří tvou frakci a tvůj klan získá vliv."],
         "RESOURCE_SUPPORT": ["Your faction will send a small amount of resources to your weaker allies for the donated caps.", "Několik tvých slabších spojenců z frakce obdrží malé množství surovin."],
         "FACTION_SUPPORT": ["Support your faction. This action has no side effects.", "Podpoř svou frakci. Tato akce nemá žádné vedlejší efekty."],
-        "attackLink": ["You can attack players from other factions from the ${link} page.", "Můžeš útočit na hráče z ostatních frakcí ze stránky ${link}."]
+        "attackLink": ["You can attack players from other factions from the ${link} page.", "Můžeš útočit na hráče z ostatních frakcí ze stránky ${link}."],
+        "joinWarning": ["Once you join a faction, you can be attacked by other players.", "Jakmile vstoupíš do frakce, tak se budeš moci stát terčem útoků hráčů z dalších frakcí."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (7:00 and 19:00 CET).",
@@ -478,6 +479,7 @@
         "text": ["Game has ended. Take a look at the results and get ready for the next era!", 
             "Hra již skončila. Prohlédněte si statistiky a připravte se na další věk!"],
         "winner": ["Best clan", "Nejlepší klan"],
+        "faction": ["Best faction", "Nejlepí frakce"],
         "clanHeader": ["Your clan", "Tvůj klan"],
         "clanText": ["Let's take a look at your clan's statistics.", "Pojďme se podívat, jak si vedl tvůj klan."],
         "starvations": ["Starving characters", "Hladovějící postavy"],

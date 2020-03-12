@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Card, Row, Col, Image } from 'react-bootstrap';
 
+import { getTranslatedText } from '../../translations/translationUtils';
 import { fetchGameInfo } from '../../actions/dataActions';
 import spinner from '../../images/spinner.gif';
 
@@ -21,8 +22,19 @@ class EndGameInfoPanel extends React.Component {
                         <h5><Translate id="endgame.header" /></h5>
                         <Row className="mb-4">
                             <Col md={6} xs={12} className="mb-4"><Translate id="endgame.text" /></Col>
-                            <Col
-                                ><b><Translate id="endgame.winner" />: </b>{this.props.info.topClans[0].name}
+                            <Col>
+                                <Row>
+                                    <Col xs={8}>
+                                        <b><Translate id="endgame.winner" />:</b>
+                                    </Col>
+                                    <Col>{this.props.info.topClans[0].name}</Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={8}>
+                                        <b><Translate id="endgame.faction" />:</b>
+                                    </Col>
+                                    <Col>{getTranslatedText(this.props.info.faction.name)}</Col>
+                                </Row>
                             </Col>
                         </Row>
                         <h5><Translate id="endgame.clanHeader" /></h5>

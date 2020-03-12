@@ -14,13 +14,12 @@ const CharacterActionButton = ({pendingAction, character, selectCharacter, cance
             </Row>
             <Row className="mt-2">
                 {
-                    checkPremium(profile.premiumType, GOLD) &&
+                    checkPremium(profile.premiumType, GOLD) && pendingAction.cancellable &&
                     <Col>
                         <Button
                             className="w-100"
                             size="sm"
                             variant="outline-danger"
-                            disabled={!pendingAction.cancellable}
                             onClick={() => cancelAction(character.id)}>
                             <Translate id="labels.cancel" />
                         </Button>
