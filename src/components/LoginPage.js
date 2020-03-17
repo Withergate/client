@@ -1,7 +1,7 @@
 import React from 'react';
 import { Translate } from "react-localize-redux";
 
-import { TOKEN_URL, AUTH_URL} from '../services/constants/endpoints';
+import { TOKEN_URL } from '../services/constants/endpoints';
 import { Button, Card, Row, Col, Collapse, Image } from 'react-bootstrap';
 
 import CzechIcon from '../images/lang/czech.png';
@@ -32,7 +32,11 @@ class LoginPage extends React.Component {
                 <div className="p-4">
                     <Row>
                         <Col md={8} className="mb-md-4">
-                            <div className="login-strip p-4 h-100">
+                            <div className="login-strip">
+                                <Image src="https://storage.googleapis.com/withergate-images/logo.png" className="w-50" />
+                                <div className="pl-4">
+                                    <h5><Translate id="login.motto" /></h5>
+                                </div>
                             </div>
                         </Col>
                         <Col md={4} className="mb-4">
@@ -41,10 +45,7 @@ class LoginPage extends React.Component {
                                 <Card className="p-3">
                                     <Image src="https://storage.googleapis.com/withergate-images/login.jpg" className="w-100" />
                                     <a href={TOKEN_URL}>
-                                        <Button className="w-100 mb-2" variant="dark"><Translate id="login.button" /></Button>
-                                    </a>
-                                    <a href={AUTH_URL + "/register"}>
-                                        <Translate id="login.register" />
+                                        <Button className="w-100 mb-2" variant="success"><Translate id="login.button" /></Button>
                                     </a>
                                 </Card>
                                 : <Card className="p-2" bg="warning">

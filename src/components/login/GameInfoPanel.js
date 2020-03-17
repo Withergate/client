@@ -26,7 +26,11 @@ class GameInfoPanel extends React.Component {
                                 <b><Translate id="login.currentTurn" /></b>
                             </Col>
                             <Col>
-                                {this.props.info.currentTurn.turnId} / {this.props.info.maxTurns}
+                                { this.props.info.currentTurn.turnId <= this.props.info.maxTurns ?
+                                    <span>{this.props.info.currentTurn.turnId} / {this.props.info.maxTurns}</span>
+                                    : <Translate id="labels.end" />
+                                }
+                                
                             </Col>
                         </Row>
                         <Row>

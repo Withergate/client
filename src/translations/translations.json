@@ -189,7 +189,7 @@
         "achievementCommon": ["Common achievement", "Běžný odznak"],
         "achievementRare": ["Rare achievement", "Vzácný odznak"],
         "achievementEpic": ["Epic achievement", "Epický odznak"],
-        "achievementsUnlocked": ["Unlocked achievements", "Získáne odznaky"],
+        "achievementsUnlocked": ["Unlocked achievements", "Získané odznaky"],
         "achievementsAvailable": ["Available achievements", "Dostupné odznaky"],
         "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."],
         "epicAchivementsDisplay": ["Epic achievements are not visible in this list. You will need to discover them on your own.", "Epické odznaky jsou skryté. Budeš je muset objevit sám."]
@@ -263,7 +263,7 @@
         "button": ["Enter", "Vstoupit"],
         "start": ["New game has not yet begun. In order to have the best experience, we recommend starting the the game at the beginning of an era. Next era will start on ${date}. We will be ready for you with exciting new features and a lot of new game content!",
         "Nová hra ještě nezačala. Pro nejlepší herní zážitek doporučujeme začít hrát na začátku herního věku. Příští věk začne k datu ${date}. Budeme se na Tebe těšit se spoustou nového herního obsahu."],
-        "motto": ["Easy to play, difficult to master...", "Easy to play, difficult to master"],
+        "motto": ["Become a leader of a post-apocalyptic clan!", "Staň se vůdcem post-apokalyptistického klanu!"],
         "story": ["Story", "Příběh"],
         "gameInfo": ["Overview", "Přehled"],
         "noGameInfo": ["No data available for current game.", "Nejsou k dispozici žádná data k aktuální hře."],
