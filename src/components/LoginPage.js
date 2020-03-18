@@ -2,7 +2,7 @@ import React from 'react';
 import { Translate } from "react-localize-redux";
 
 import { TOKEN_URL } from '../services/constants/endpoints';
-import { Button, Card, Row, Col, Collapse, Image } from 'react-bootstrap';
+import { Button, Card, Row, Col, Collapse, Image, Badge } from 'react-bootstrap';
 
 import CzechIcon from '../images/lang/czech.png';
 import PatreonIcon from '../images/patreon.png';
@@ -33,9 +33,14 @@ class LoginPage extends React.Component {
                     <Row>
                         <Col md={8} className="mb-md-4">
                             <div className="login-strip">
-                                <Image src="https://storage.googleapis.com/withergate-images/logo.png" className="w-50" />
-                                <div className="pl-4">
-                                    <h5><Translate id="login.motto" /></h5>
+                                <Image src="https://storage.googleapis.com/withergate-images/logo.png" className="logo mb-4" />
+                                <span className="float-right right-align">
+                                    <h5><Badge variant="warning"><Translate id="login.fastGame" /></Badge></h5>
+                                    <h5><Badge variant="success"><Translate id="login.freeGame" /></Badge></h5>
+                                </span>
+                                <div className="pl-2">
+                                    <p><Translate id="login.motto1" /></p>
+                                    <p><b><Translate id="login.motto2" /></b></p>
                                 </div>
                             </div>
                         </Col>

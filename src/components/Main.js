@@ -44,29 +44,38 @@ class Main extends Component {
                     this.props.loggedIn && this.props.failed && this.props.error && <Error message={String(this.props.error)} dismiss={this.props.dismissError} />
                 }
                 {
-                    this.props.loggedIn ?
-                        this.props.fetched &&
-                            <div>
-                                { this.props.profileExists ? 
-                                    <div className="main pb-2">
-                                        <Switch>
-                                            <Route exact path='/' component={this.props.clanExists ? HomePage : ClanSetupForm}/> }
-                                            <Route path='/clan' component={this.props.clanExists ? ClanPage : ClanSetupForm}/> }
-                                            <Route path='/action' component={this.props.clanExists ? ActionPage : ClanSetupForm}/> }
-                                            <Route path='/fame' component={this.props.clanExists ? FamePage : ClanSetupForm}/> }
-                                            <Route path='/profile' component={ProfilePage}/> }
-                                            <Route path='/about' component={AboutPage}/>
-                                            <Route path='/admin' component={AdminPage}/>
-                                        </Switch>
-                                    </div>
-                                    : <ProfileSetupForm />
-                                }
-                            </div>
-                    : !this.props.fetching && <LoginPage />
+
+                    <div className="main pb-2">
+                        <Switch>
+                            <Route exact path='/' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, HomePage)}/>
+                            <Route path='/clan' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, ClanPage)}/>
+                            <Route path='/action' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, ActionPage)}/>
+                            <Route path='/fame' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, FamePage)}/>
+                            <Route path='/profile' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, true, ProfilePage)}/>
+                            <Route path='/about' component={AboutPage}/>
+                            <Route path='/admin' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, true, AdminPage)}/>
+                        </Switch>
+                    </div>
                 }
             </main>
         );
     }
+}
+
+const getComponent = (loggedIn, fetched, profileExists, clanExists, component) => {
+    if (!loggedIn) {
+        return LoginPage
+    }
+    if (!fetched) {
+        return null
+    }
+    if (!profileExists) {
+        return ProfileSetupForm
+    }
+    if (!clanExists) {
+        return ClanSetupForm
+    }
+    return component;
 }
 
 Main.propTypes = {

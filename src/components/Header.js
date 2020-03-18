@@ -73,7 +73,7 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/action'><Translate id="header.actions" /></Link></li> }
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/fame'><Translate id="header.fame" /></Link></li> }
                 { loggedIn && <li className="nav-item"><Link className="nav-link" to='/profile'><Translate id="header.profile" /></Link></li> }
-                { loggedIn && <li className="nav-item"><Link className="nav-link" to='/about'><Translate id="header.about" /></Link></li> }
+                <li className="nav-item"><Link className="nav-link" to='/about'><Translate id="header.about" /></Link></li>
                 <li className="nav-item"><a className="nav-link" href='http://withergate.proboards.com/' rel="noopener noreferrer" target='_blank'><Translate id="header.forum" /></a></li>
                 { principal && principal.role === 'ADMIN' && <li className="nav-item"><Link className="nav-link text-danger" to='/admin'><Translate id="header.administration" /></Link></li>}
             </ul>
