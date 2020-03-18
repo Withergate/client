@@ -70,6 +70,14 @@ class GameInfoPanel extends React.Component {
                                 </Table>
                             </Col>
                         </Row>
+                        {
+                            window._env_.NEXT_START_DATE &&
+                            <Card className="p-2" bg="warning">
+                                <Card.Body>
+                                    <Translate id="login.nextStart" data={{ date: window._env_.NEXT_START_DATE }}/>
+                                </Card.Body>
+                            </Card>
+                        }
                     </Card.Body>
                 }
                 {
