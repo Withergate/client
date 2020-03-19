@@ -88,12 +88,13 @@ class LoginPage extends React.Component {
                                 
                                 <Collapse in={this.state.open}>
                                     <div>
-                                        <p>
-                                            <Translate id="login.intro1" />
-                                        </p>
-                                        <p>
-                                            <Translate id="login.intro2" />
-                                        </p>          
+                                        <p><Translate id="login.lore.part1" /></p>
+                                        <p><Translate id="login.lore.part2" /></p>  
+                                        <p><Translate id="login.lore.part3" /></p>  
+                                        <p><Translate id="login.lore.part4" /></p>
+                                        <p><Translate id="login.lore.part5" /></p>
+                                        <p><Translate id="login.lore.part6" /></p>
+                                        <p><b><Translate id="login.lore.part7" /></b></p>
                                     </div>
                                 </Collapse>
                             </div>

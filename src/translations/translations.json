@@ -254,10 +254,6 @@
         "Každý výzkum, který dokončíš, ti přinese určité množství slávy. Některé výzkumné projekty se ti zpřístupní až s vyšší úrovní informací tvého klanu."]
     },
     "login": {
-        "intro1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",
-        "Ahoj, vandráku! Vítej v alternativním, post-apokalyptickém světě. Země zůstala zdevastována jak konvenčními, tak nukleárními zbraněmi. Těch pár šťastlivců, co přežilo, je nyní rozděleno do malých skupin, které spolu soupeří o zbývající zdroje v pustině a ruinách velkých měst."],
-        "intro2": ["This is a story about such struggle. You will find yourself leading a small clan near the ruins of former metropolis - now called Withergate. It is a dangerous place to live in but your only chance for survival. Are you up for it?",
-        "Toto je příběh o jedné takové skupině. Máš možnost stát se vůdcem malého klanu přeživších v blízkosti bývalé metropole - nyní známé pod názvem Withergate. Je to nebezpečné místo, ale zároveň jediná šance na přežití. Jdeš do toho?"],
         "info": ["Withergate is a turn-based browser game. Players control clans consisting of several characters. Interacting with the game is done via assigning actions to these characters. Twice a day, at 6 am and 6 pm UTC time (7 am and 7 pm CET), these actions are evaluated and your characters become ready again.",
         "Withergate je textová tahová strategie ovládaná přes prohlížeč. Hráči kontrolují klan s několika postavami. Herní interakce probíhá pomocí přiřazování akcí k jednolivým hrdinů. Všechny akce jsou vyhodnocovány dvakrát denně v 6:00 a 18:00 UTC (tedy 7:00 a 19:00 CET, tedy Středoevropského času)."],
         "button": ["Enter", "Vstoupit"],
@@ -290,6 +286,21 @@
             "text4": ["Gain fame for your clan and beat others in a competitive ladder!",
             "Zajisti slávu svému klanu a soupeř s ostatními!"],
             "image4": ["https://storage.googleapis.com/withergate-images/preview/preview4-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview4-cs.jpg"]
+        },
+        "lore": {
+            "part1": ["Hi, wastelander! Welcome to an alternative, post-apocalyptic version of Earth. Our world has been devastated by a series of both conventional and nuclear wars. Those lucky enough to survive the chaos are left with little to nothing. Society split into small groups that fight each other over the remaining resources found in the wasteland and city ruins.",
+            "Vítej, vandráku, v alternativním post-apokalyptickém světě. Země zůstala zdevastována jak konvenčními, tak nukleárními zbraněmi. Těch pár šťastlivců, co přežilo, je nyní rozděleno do malých skupin, které spolu soupeří o zbývající zdroje v pustině a ruinách velkých měst."],
+            "part2": ["This is a story about such a struggle. You will find yourself leading a small clan near the ruins of a former metropolis - now called Withergate. All around the city lies only the endless Wasteland. Endless, you say? Well, somewhere behind it are said to be fertile lands, but this is probably just a rumor.",
+            "Toto je příběh o jedné takové skupině. Máš možnost stát se vůdcem malého klanu přeživších v blízkosti bývalé metropole - nyní známé pod názvem Withergate. Všude okolo se táhne pouze nekonečná Pustina. Opravdu nekonečná? Někde za ní jsou prý úrodné země, ale tomu snad ve skutečnosti již nikdo ani nevěří."],
+            "part3": ["There have always been disputes between various groups in Withergate - self-proclaimed lawmen, mad prophets of yet another end of the world, moralists and criminals. Clerics shout at each other in the streets and lone travelers are being assaulted by slavers and headhunters. Quarrels often result in bloody fights.",
+            "Ve Withergate se mezi sebou odjakživa přou různé větší i menší skupiny. Samozvaní strážci pořádku, šílení zvěstovatelé dalšího konce světa, novorytířské řády a další moralisté, pachatelé dobra, kriminální živly. V ulicích se překřikují klerici, architekti nových pořádků a intelektuálové, po nocích osamocené chodce přepadávají otrokáři a lovci hlav. Hádky často vyústí v krvavé pouliční bitvy. "],
+            "part4": ["The newly established City hall with the support of Atomists - the church, officially called Malleus maleficarum, is trying to rule the city. They claim it was their god, Atom, who saved the people from extinction, and we should thank him for what we have left.",
+            "V poslední době nad tím vším získává stabilní převahu městská radnice, která se opírá o atomisty - oficiálně se tato církev nazývá Malleus maleficarum a uctívá boha Atoma jako nejvyššího strážce pořádku a spravedlnosti. To prý Atom lidstvo zachránil před úplným zničením a díky němu jsme si zachovali těch několik vynálezů, které nám umožňují přežít. "],
+            "part5": ["But not everybody is happy with the current affairs. Some factions are openly stepping against this new order and are looking for support amongst the clans from the Wasteland.",
+            "Proti stávajícím pořádkům ale někteří začínají otevřeně brojit a hledají své stoupence i mezi vandráky z Pustiny. Pustiňané jsou totiž ideální pašeráci kontrabandů do města a díky klanům mohou nové frakce oslabit Atomův vliv a převzít vládu nad městem."],
+            "part6": ["Withergate is a dangerous place to live in but your only chance for survival. You can either go begging into the streets and hide from the stronger ones in the sewers... or assembly a clan and bravely face utter destruction. Your reward will be just a little food and junk at the beginning. But who knows - perhaps later you will gain real power to speak into the fate of the whole Wasteland.",
+            "Withergate je nebezpečné místo, ale zároveň jediná šance na přežití. Můžeš jít žebrat do ulic a skrývat se před silnějšími v kanálech… nebo dáš dohromady klan a budeš statečně čelit zkáze. Odměnou ti zpočátku bude jen trochu jídla a šrotu k dalšímu zpracování, ale kdoví, třeba později získáš opravdovou moc a promluvíš do osudu celé Pustiny."],
+            "part7": ["Are you up for it?", "Tak co? Jdeš do toho?"]
         }
     },
     "clanSetup": {
@@ -323,7 +334,9 @@
         "Rád bych poděkoval následujícím lidem za poskytnutí fotografií pro herní obsah:"],
         "links": ["Links", "Odkazy"],
         "iconsText": ["Credits to all icon authors from the following list: ", "Díky všem autorům ikonek z následující stránky: "],
-        "patronText": ["Special thanks to all Patreon supporters: ", "Speciální díky všem, kteří nás podporují na Patreonu: "]
+        "patronText": ["Special thanks to all Patreon supporters: ", "Speciální díky všem, kteří nás podporují na Patreonu: "],
+        "premiumLink": ["You can support the game buy purchasing a ${link} account.", "Hru můžete podpořit zakoupením ${link} účtu."],
+        "premium": ["premium", "premium"]
     },
     "arena": {
         "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",
@@ -478,6 +491,21 @@
             "OUTFIT": ["Outfit only", "Pouze zbroj"],
             "GEAR": ["Gear only", "Pouze výstroj"]
         }
+    },
+    "premium": {
+        "header": ["Premium accounts", "Premium účtu"],
+        "text": ["Premium accoutns are a way to reward players for contributing to the game - either financially or by content creation. There are no in-game benefits with these accounts that will help players with winning the game. Withergate will always be free to play and both premium and non-premium users will have the same chances for winning. However, by supporting to game, you can get access to various flavor features that might enhance your gaming experience.",
+        "Premium účty jsou způsob, jak vyjádřit poděkování hráčům, kteří hru nějakým způsobem podporují - ať již finančně či vytvářením herního obsahu. Premium hráči nemají žádné herní výhody, které by jim pomohli zvítězit ve hře. Withergate je, a vždy bude, zcela zdarma a jak premium uživatelé, tak běžní hráči mají rovné šance na vítězství. Co ty to výhody ale přinášení, jsou různé neherní výhody, které jim hru mohou trošku zpříjemnit."],
+        "silver": ["Premium tiers", "Typy účtů"],
+        "silverText": ["Silver accounts can be purchased from Patreon or obtained by contributing to the game development, content and testing.",
+        "Silver účet může být zakoupen na Patreonu, případně získán jako odměna za vývoj, testování a tvorbu herního obsahu."],
+        "goldText": ["Gold account can be purchased from Patreon or by extraordinary game contributions.", "Gold účet může být zakoupen na Patreonu a nebo získám za mimořádně velké příspěvky do hry."],
+        "silver1": ["Switching game to dark mode", "Přepnutí hry do dark mode"],
+        "silver2": ["Visible list of available achievements", "Viditelný list chybějících Odznaků"],
+        "silver3": ["Option to rename clan defender", "Možnost pojmenování klanového obránce"],
+        "gold1": ["Option to cancel actions", "Možnost rušení akcí"],
+        "gold2": ["Option to rename characters", "Možnost přejmenování postav"],
+        "goldSilver": ["Everything from Silver tier", "Vše z výhod Silver účtu"]
     },
     "endgame": {
         "header": ["Game over!", "Konec hry!"],

@@ -18,6 +18,7 @@ import LoginPage from './LoginPage';
 import AboutPage from './AboutPage.js';
 import ProfileSetupForm from './profile/ProfileSetupForm.js';
 import ProfilePage from './ProfilePage.js';
+import PremiumPage from './PremiumPage';
 
 class Main extends Component {
     constructor(props) {
@@ -53,6 +54,7 @@ class Main extends Component {
                             <Route path='/fame' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, FamePage)}/>
                             <Route path='/profile' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, true, ProfilePage)}/>
                             <Route path='/about' component={AboutPage}/>
+                            <Route path='/premium' component={PremiumPage}/>
                             <Route path='/admin' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, true, AdminPage)}/>
                         </Switch>
                     </div>

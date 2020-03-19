@@ -3,10 +3,10 @@ import { Translate } from "react-localize-redux";
 import { Table, Image } from 'react-bootstrap';
 
 import CzechIcon from '../images/lang/czech.png';
-import PatreonIcon from '../images/patreon.png';
 import CardanoIcon from '../images/cardano.png';
 import BitcoinIcon from '../images/bitcoin.png';
 import GithubIcon from '../images/github.png';
+import { Link } from 'react-router-dom';
 
 class AboutPage extends Component {
     render() {
@@ -24,9 +24,13 @@ class AboutPage extends Component {
                 <h3><Translate id="about.contributionHeader" /></h3>
                 <p><Translate id="about.contributionText" /></p>
 
-                <p><Image src={PatreonIcon} width="25px" className="mr-2" /> <b>Patreon: </b><a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">link</a></p>
                 <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>{ window._env_.BITCOIN }</p>
                 <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>{ window._env_.CARDANO }</p>
+
+                <p className="mt-4 text-success">
+                    <Translate id="about.premiumLink"
+                        data={{ link: <Link to='/premium'><Translate id="about.premium" /></Link> }} />
+                </p>
                 
                 <h3><Translate id="about.developmentHeader" /></h3>
                 <p><Translate id="about.developmentText" /></p>
