@@ -493,13 +493,13 @@
         }
     },
     "premium": {
-        "header": ["Premium accounts", "Premium účtu"],
-        "text": ["Premium accoutns are a way to reward players for contributing to the game - either financially or by content creation. There are no in-game benefits with these accounts that will help players with winning the game. Withergate will always be free to play and both premium and non-premium users will have the same chances for winning. However, by supporting to game, you can get access to various flavor features that might enhance your gaming experience.",
-        "Premium účty jsou způsob, jak vyjádřit poděkování hráčům, kteří hru nějakým způsobem podporují - ať již finančně či vytvářením herního obsahu. Premium hráči nemají žádné herní výhody, které by jim pomohli zvítězit ve hře. Withergate je, a vždy bude, zcela zdarma a jak premium uživatelé, tak běžní hráči mají rovné šance na vítězství. Co ty to výhody ale přinášení, jsou různé neherní výhody, které jim hru mohou trošku zpříjemnit."],
+        "header": ["Premium accounts", "Premium účty"],
+        "text": ["Premium accounts are a way to reward players for contributing to the game - either financially or by content creation. There are no in-game benefits with these accounts that will help players with winning the game. Withergate will always be free to play and both premium and non-premium users will have the same chances for winning. However, by supporting to game, you can get access to various flavor features that might enhance your gaming experience.",
+        "Premium účty jsou způsob, jak vyjádřit poděkování hráčům, kteří hru nějakým způsobem podporují - ať již finančně či vytvářením herního obsahu. Premium hráči nemají žádné herní výhody, které by jim pomohly zvítězit ve hře. Withergate je, a vždy bude, zcela zdarma. Jak premium uživatelé, tak běžní hráči mají rovné šance na vítězství. Co tyto výhody ale přinášejí jsou různé neherní výhody, které jim hru mohou trošku zpříjemnit."],
         "silver": ["Premium tiers", "Typy účtů"],
         "silverText": ["Silver accounts can be purchased from Patreon or obtained by contributing to the game development, content and testing.",
         "Silver účet může být zakoupen na Patreonu, případně získán jako odměna za vývoj, testování a tvorbu herního obsahu."],
-        "goldText": ["Gold account can be purchased from Patreon or by extraordinary game contributions.", "Gold účet může být zakoupen na Patreonu a nebo získám za mimořádně velké příspěvky do hry."],
+        "goldText": ["Gold accounts can be purchased from Patreon or awarded for extraordinary game contributions.", "Gold účet může být zakoupen na Patreonu a nebo získám za mimořádně velké příspěvky do hry."],
         "silver1": ["Switching game to dark mode", "Přepnutí hry do dark mode"],
         "silver2": ["Visible list of available achievements", "Viditelný list chybějících Odznaků"],
         "silver3": ["Option to rename clan defender", "Možnost pojmenování klanového obránce"],

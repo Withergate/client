@@ -52,7 +52,7 @@ const getTimeToNextTurn = (turn, turnTimes) => {
 const renderWarning = (clan) => {
     for (const character of clan.characters) {
         if (character.state === 'READY') {
-            return <TooltipWrapper textKey="header.charactersWarning">
+            return <TooltipWrapper textKey="header.charactersWarning" place="bottom">
                 <Image src={warningIcon} width="20px" />
             </TooltipWrapper>
         }
@@ -80,12 +80,12 @@ const Header = ({turn, maxTurns, turnTimes, principal, clan, loggedIn}) => (
             { loggedIn &&
                 <div>
                     <ul className="mt-1 mb-1 p-2 mr-auto list-inline rounded bg-light resource-panel">
-                        <li className="list-inline-item"><GameIcon type={CAPS} size={SMALL} value={clan.caps} /></li>
-                        <li className="list-inline-item"><GameIcon type={JUNK} size={SMALL} value={clan.junk} /></li>
-                        <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} /></li>
-                        <li className="list-inline-item"><GameIcon type={FAME} size={SMALL} value={clan.fame} /></li>
+                        <li className="list-inline-item"><GameIcon type={CAPS} size={SMALL} value={clan.caps} place="bottom" /></li>
+                        <li className="list-inline-item"><GameIcon type={JUNK} size={SMALL} value={clan.junk} place="bottom" /></li>
+                        <li className="list-inline-item"><GameIcon type={FOOD} size={SMALL} value={clan.food} place="bottom" /></li>
+                        <li className="list-inline-item"><GameIcon type={FAME} size={SMALL} value={clan.fame} place="bottom" /></li>
                         <li className="list-inline-item">
-                            <TooltipWrapper textKey="header.timeRemaining" value={getTimeToNextTurn(turn, turnTimes)} >
+                            <TooltipWrapper textKey="header.timeRemaining" value={getTimeToNextTurn(turn, turnTimes)} place="bottom" >
                                 <small className="p-2">
                                     <b><Translate id="header.turn" /></b>: { getTurnText(turn.turnId, maxTurns)}
                                 </small>

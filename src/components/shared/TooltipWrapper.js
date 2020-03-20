@@ -12,7 +12,7 @@ const TooltipWrapper = (props) => (
         <div data-tip data-for={generateId(props.textKey, props.value)}>
             { props.children }
         </div>
-        <ReactTooltip id={generateId(props.textKey, props.value)} effect="solid" className="tooltip-multiline">
+        <ReactTooltip id={generateId(props.textKey, props.value)} effect="solid" className="tooltip-multiline" place={props.place}>
             <Translate id={props.textKey} />
             { props.value && <span>: {props.value}</span> }
         </ReactTooltip>
@@ -21,7 +21,8 @@ const TooltipWrapper = (props) => (
 
 TooltipWrapper.propTypes = {
     textKey: PropTypes.string.isRequired,
-    value: PropTypes.any
+    value: PropTypes.any,
+    place: PropTypes.string
 };
 
 export default TooltipWrapper;

@@ -114,7 +114,7 @@ const renderValue = (size, value) => {
 
 const GameIcon = (props) => (
     <div className={props.noPadding ? "" : "mr-1 ml-1"}>
-        <TooltipWrapper textKey={getTranslationKey(props.type)}>
+        <TooltipWrapper textKey={getTranslationKey(props.type)} place={props.place}>
             <Image height={props.size === LARGE ? "25px" : "20px"} src={getIconSource(props.type)} className="mr-1"/>
             { props.value !== undefined && renderValue(props.size, props.value) }  
         </TooltipWrapper>
@@ -127,7 +127,8 @@ GameIcon.propTypes = {
     type: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     value: PropTypes.any,
-    noPadding: PropTypes.bool
+    noPadding: PropTypes.bool,
+    place: PropTypes.string
 };
 
 export { GameIcon };
