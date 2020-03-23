@@ -21,7 +21,8 @@ import {
     handleClanCombat,
     cancelAction,
     renameDefender,
-    renameCharacter
+    renameCharacter,
+    forgetTrait
 } from '../services/actionService';
 
 import {
@@ -269,6 +270,19 @@ const activateTraitAction = (characterId, traitName, immediate) => {
     };
 };
 export { activateTraitAction as activateTrait };
+
+const forgetTraitAction = (characterId, traitName) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: forgetTrait(characterId, traitName)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { forgetTraitAction as forgetTrait };
 
 const refreshTavernAction = () => {
     return (dispatch) => {

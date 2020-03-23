@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Translate } from "react-localize-redux";
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
-import { activateTrait } from '../../actions/actionActions';
+import { activateTrait, forgetTrait } from '../../actions/actionActions';
 import ActionButton from '../shared/ActionButton';
 import TraitItem from './TraitItem';
 import { GameIcon } from '../shared/GameIcon';
@@ -28,25 +28,36 @@ class TraitPanel extends React.Component {
                             this.props.selectedCharacter.skillPoints > 0 ?
                                 this.props.selectedCharacter.traits.filter(trait => !trait.active).map(trait =>
                                     <Row className="mb-2 ml-1" key={trait.id}>
-                                        <TraitItem trait={trait} />
-                                        <ActionButton
-                                            character={this.props.selectedCharacter}
-                                            action={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, false)}
-                                            buttonText="base.train"
-                                            tooltip="base.trainTooltip" />
-                                        <Button
-                                            className="button-large ml-2"
-                                            variant="outline-success"
-                                            onClick={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, true)}>
+                                        <Col md={1} xs={4}>
+                                            <TraitItem trait={trait} />
+                                        </Col>
+                                        <Col md={8} xs={8}>
                                             <Row>
-                                                <Col md={6} xs={6}>
-                                                    <Translate id="base.trainNow" />
-                                                </Col>
-                                                <Col md={6} xs={6}>
-                                                    <GameIcon type={CAPS} size={SMALL} value={this.props.trainingPrice} noPadding />
-                                                </Col>
+                                                <ActionButton
+                                                    character={this.props.selectedCharacter}
+                                                    action={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, false)}
+                                                    buttonText="base.train"
+                                                    tooltip="base.trainTooltip" />
+                                                <Button
+                                                    className="ml-2 mb-2"
+                                                    variant="outline-success"
+                                                    onClick={() => this.props.activateTrait(this.props.selectedCharacter.id, trait.details.identifier, true)}>
+                                                    <div className="inline">
+                                                        <Translate id="base.trainNow" />
+                                                        <GameIcon type={CAPS} size={SMALL} value={this.props.trainingPrice} />
+                                                    </div>
+                                                </Button>
+                                                <Button
+                                                    className="ml-2 mb-2"
+                                                    variant="outline-warning"
+                                                    onClick={() => this.props.forgetTrait(this.props.selectedCharacter.id, trait.details.identifier)}>
+                                                    <div className="inline">
+                                                        <Translate id="base.forget" />
+                                                        <GameIcon type={CAPS} size={SMALL} value={this.props.traitForgetPrice} />
+                                                    </div>
+                                                </Button>
                                             </Row>
-                                        </Button>
+                                        </Col>
                                     </Row>  
                                 )
                                 : <small className="text-muted"><Translate id="base.noSkillpoints" /></small>
@@ -62,20 +73,23 @@ class TraitPanel extends React.Component {
 TraitPanel.propTypes = {
     selectedCharacter: PropTypes.object,
     clan: PropTypes.object.isRequired,
-    trainingPrice: PropTypes.number.isRequired
+    trainingPrice: PropTypes.number.isRequired,
+    traitForgetPrice: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => {
     const selectedCharacter = state.clan.selectedCharacter;
     const clan = state.clan.clan;
     const trainingPrice = state.game.properties.trainingPrice;
+    const traitForgetPrice = state.game.properties.traitForgetPrice;
 
-    return { selectedCharacter, clan, trainingPrice };
+    return { selectedCharacter, clan, trainingPrice, traitForgetPrice };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        activateTrait
+        activateTrait,
+        forgetTrait
     }, dispatch)
 );
 

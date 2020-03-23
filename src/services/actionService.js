@@ -83,6 +83,11 @@ export const activateTrait = (characterId, traitName, immediate) => {
     JSON.stringify({characterId: characterId, traitName: traitName, immediate: immediate}));
 };
 
+export const forgetTrait = (characterId, traitName) => {
+    return apiPost(API_URL.concat('characters/trait/forget'), 
+    JSON.stringify({characterId: characterId, traitName: traitName}));
+};
+
 export const refreshTavern = () => {
     return apiPost(API_URL.concat('clan/tavernOffers/refresh'), null);
 };

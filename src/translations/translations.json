@@ -425,6 +425,7 @@
         "noSkillpoints": ["No skillpoints", "Žádné dovednostní body"],
         "train": ["Train", "Trénuj"],
         "trainNow": ["Now", "Hned"],
+        "forget": ["Forget", "Zapomeň"],
         "trainTooltip": ["Character will gain a new trait and rest. All the standard benefits of resting will be applied.", "Postava se naučí novou schopnost a půjde odpočívat. Veškeré další bonusy spojené s odpočinkem se započítají."]
     },
     "factions": {
