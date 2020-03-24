@@ -45,7 +45,7 @@ class Main extends Component {
                     this.props.loggedIn && this.props.failed && this.props.error && <Error message={String(this.props.error)} dismiss={this.props.dismissError} />
                 }
                 {
-
+                    !this.props.fetching &&
                     <div className="main pb-2">
                         <Switch>
                             <Route exact path='/' component={getComponent(this.props.loggedIn, this.props.fetched, this.props.profileExists, this.props.clanExists, HomePage)}/>

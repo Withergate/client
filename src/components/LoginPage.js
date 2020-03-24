@@ -6,6 +6,7 @@ import { Button, Card, Row, Col, Collapse, Image, Badge } from 'react-bootstrap'
 
 import CzechIcon from '../images/lang/czech.png';
 import PatreonIcon from '../images/patreon.png';
+import KofiIcon from '../images/kofi.png';
 import Preview from '../components/login/Preview';
 import GameInfoPanel from './login/GameInfoPanel';
 
@@ -112,6 +113,10 @@ class LoginPage extends React.Component {
                                 <p>
                                     <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">Patreon</a>
                                     <Image src={PatreonIcon} width="25px" className="ml-2" />
+                                </p>
+                                <p>
+                                    <a href="https://ko-fi.com/withergate" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+                                    <Image src={KofiIcon} width="25px" className="ml-2" />
                                 </p>
                             </div>
                         </Col>

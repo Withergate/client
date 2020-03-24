@@ -5,6 +5,8 @@ import { Table, Image } from 'react-bootstrap';
 import CzechIcon from '../images/lang/czech.png';
 import CardanoIcon from '../images/cardano.png';
 import BitcoinIcon from '../images/bitcoin.png';
+import KofiIcon from '../images/kofi.png';
+import PatreonIcon from '../images/patreon.png';
 import GithubIcon from '../images/github.png';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +28,8 @@ class AboutPage extends Component {
 
                 <p><Image src={BitcoinIcon} width="25px" className="mr-2" /> <b>Bitcoin: </b>{ window._env_.BITCOIN }</p>
                 <p><Image src={CardanoIcon} width="25px" className="mr-2" /> <b>Cardano: </b>{ window._env_.CARDANO }</p>
+                <p><Image src={PatreonIcon} width="25px" className="mr-2" /> <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">Patreon</a></p>
+                <p><Image src={KofiIcon} width="25px" className="mr-2" /> <a href="https://ko-fi.com/withergate" target="_blank" rel="noopener noreferrer">Ko-Fi</a></p>
 
                 <p className="mt-4 text-success">
                     <Translate id="about.premiumLink"

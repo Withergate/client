@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Translate } from "react-localize-redux";
 import { GameIcon } from './shared/GameIcon';
 import { SILVER, LARGE, GOLD } from '../constants/constants';
-import { Image, Row, Col } from 'react-bootstrap';
-
-import PatreonIcon from '../images/patreon.png';
+import { Row, Col, Badge } from 'react-bootstrap';
 
 class PremiumPage extends Component {
     render() {
@@ -33,10 +31,11 @@ class PremiumPage extends Component {
                         </ul>
                     </Col>
                 </Row>
-                <p>
-                    <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">Patreon</a>
-                    <Image src={PatreonIcon} width="25px" className="ml-2" />
-                </p>
+                <div className="centered">
+                    <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">
+                        <h1><Badge variant="warning">Patreon</Badge></h1>
+                    </a>
+                </div>
             </div>
         );
     }
