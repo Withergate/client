@@ -116,3 +116,7 @@ export const renameCharacter = (characterId, name) => {
     return apiPut(API_URL.concat('characters/').concat(characterId), 
     JSON.stringify({name: name}));
 };
+
+export const processLoan = () => {
+    return apiPost(API_URL.concat('clan/loan'));
+};

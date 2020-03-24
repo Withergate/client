@@ -167,7 +167,16 @@
         "rename": ["Rename", "Přejmenovat"],
         "defenderNameConstraints": ["Defender name must be between 5 and 16 characters long.", "Jméno musí být dlouhé 5-16 znaků."],
         "characterNameConstraints": ["Character name must be between 6 and 30 characters long and it must be unique across all clan characters.", "Jméno musí být dlouhé 6-30 znaků a unikátní napříč všemi postavami ve Tvém klanu."],
-        "new": ["New", "Nové"]
+        "new": ["New", "Nové"],
+        "loan": ["Loan", "Půjčka"],
+        "loanText": ["The city council of Withergate sometimes offers little loans. We cannot expect much, since most of the clans from Wasteland have very bad reputation, but maybe they will lend us at least a small amount. They will surely laugh at our poverty but if we desperately need cash, it is worth a try.", 
+        "Ve Withergate se dá u městské rady vyžebrat drobná půjčka. Vzhledem k tomu, jak špatnou mají místní klany pověst se nedáčekat, že bychom dostali nějaký velký obnos, navíc nás pravděpodobně ještě pomluví, že jsme trhani z Pustiny. Ale pokud potřebujeme pár zátek, tak to za zkoušku asi stojí."],
+        "loanDescription": ["By taking a loan, you will immediately receive some caps but also lose fame. The fame loss is just temporary and you will get it back once you pay the loan back. Note, that the payback cost is higher than the original loan.",
+        "Pokud si vezmeš půjčku, tak okamžitě získáš zátky navíc. Také ovšem ztratíš slávu. Tato ztráta je ale pouze dočasná - získáš ji zpět, jakmile půjčku splatíš. Počítej s tím, že splátka půjčky je dražší než hodnota půjčeného obnosu."],
+        "loanTake": ["Take loan", "Půjčit si"],
+        "loanPay": ["Payback", "Splatit"],
+        "loanCaps": ["Loan", "Půjčka"],
+        "loanPayback": ["Payback", "Splátka"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",

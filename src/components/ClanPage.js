@@ -32,6 +32,7 @@ import ResearchList from './research/ResearchList';
 import ClanStatisticsPanel from './clan/ClanStatisticsPanel';
 import ItemListEquipped from './item/ItemListEquipped';
 import ClanDefensePanel from './clan/ClanDefensePanel';
+import LoanPanel from './clan/LoanPanel';
 
 class ClanPage extends Component {
 
@@ -83,6 +84,7 @@ class ClanPage extends Component {
                                             <ClanSummary clan={this.props.clan} />
                                             <ClanDefensePanel />
                                             <DefaultActionPanel />
+                                            <LoanPanel />
                                             <GameMechanicsOverview />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="characters">
