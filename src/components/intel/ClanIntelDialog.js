@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Translate } from 'react-localize-redux';
 import { Modal, Button, Row, Col, ListGroup } from 'react-bootstrap';
 
-import { displayIntel, dismissError } from '../../actions/uiActions';
+import { displayClanIntel, dismissError } from '../../actions/uiActions';
 import { handleClanCombat } from '../../actions/actionActions';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, SMALL, CAPS, FOOD, JUNK, LARGE, FACTION_POINTS } from '../../constants/constants';
@@ -128,7 +128,7 @@ const ClanIntelDialog = (props) => (
             
         </Modal.Body>
         <Modal.Footer>
-            <Button className="button-classic" variant="outline-dark" onClick={() => props.displayIntel(false)} >
+            <Button className="button-classic" variant="outline-dark" onClick={() => props.displayClanIntel(false)} >
                 <Translate id="labels.close" />
             </Button>
         </Modal.Footer>
@@ -144,19 +144,19 @@ ClanIntelDialog.propTypes = {
 
 const mapStateToProps = state => {
     const clan = state.clan.clan;
-    const fetched = state.action.fetched && state.data.intel.fetched;
-    const fetching = state.action.fetching || state.data.intel.fetching;
-    const failed = state.action.failed || state.data.intel.failed;
-    const error = state.action.error || state.data.intel.error;
-    const intel = state.data.intel.data;
-    const show = state.ui.displayIntel;
+    const fetched = state.action.fetched && state.data.clanIntel.fetched;
+    const fetching = state.action.fetching || state.data.clanIntel.fetching;
+    const failed = state.action.failed || state.data.clanIntel.failed;
+    const error = state.action.error || state.data.clanIntel.error;
+    const intel = state.data.clanIntel.data;
+    const show = state.ui.displayClanIntel;
     const selectedCharacter = state.clan.selectedCharacter;
 
     return { clan, fetching, fetched, failed, error, intel, show, selectedCharacter };
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ displayIntel, handleClanCombat, dismissError }, dispatch)
+    bindActionCreators({ displayClanIntel, handleClanCombat, dismissError }, dispatch)
 );
   
 export default connect(mapStateToProps, mapDispatchToProps)(ClanIntelDialog);

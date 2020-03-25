@@ -8,7 +8,8 @@ import {
     CHANGE_ITEM_FILTER,
     CHANGE_CLAN_OFFER_FILTER,
     CHANGE_MARKET_OFFER_FILTER,
-    DISPLAY_INTEL,
+    DISPLAY_CLAN_INTEL,
+    DISPLAY_PROFILE_INTEL,
     SELECT_LADDER_TAB,
     SELECT_PROFILE_TAB
 } from '../actions/uiActions';
@@ -19,7 +20,8 @@ const initialState = {
     actionTab: 'locations',
     ladderTab: 'clans',
     profileTab: 'profile',
-    displayIntel: false,
+    displayClanIntel: false,
+    displayProfileIntel: false,
     sort: {
         characters: {
             key: 'name',
@@ -127,10 +129,15 @@ export const UiReducer = (state = initialState, action) => {
                     marketOffers: action.payload
                 }
             };
-        case DISPLAY_INTEL:
+        case DISPLAY_CLAN_INTEL:
             return {
                 ...state,
-                displayIntel: action.payload
+                displayClanIntel: action.payload
+            };
+        case DISPLAY_PROFILE_INTEL:
+            return {
+                ...state,
+                displayProfileIntel: action.payload
             };
         default:
             return state;

@@ -17,7 +17,8 @@ import {
     fetchFactionsOverview,
     setTurnStart,
     fetchClanIntel,
-    fetchGameInfo
+    fetchGameInfo,
+    fetchProfileIntel
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -29,6 +30,11 @@ export const FETCH_CLAN_INTEL = 'FETCH_CLAN_INTEL';
 export const FETCH_CLAN_INTEL_PENDING = 'FETCH_CLAN_INTEL_PENDING';
 export const FETCH_CLAN_INTEL_FULFILLED = 'FETCH_CLAN_INTEL_FULFILLED';
 export const FETCH_CLAN_INTEL_REJECTED = 'FETCH_CLAN_INTEL_REJECTED';
+
+export const FETCH_PROFILE_INTEL = 'FETCH_PROFILE_INTEL';
+export const FETCH_PROFILE_INTEL_PENDING = 'FETCH_PROFILE_INTEL_PENDING';
+export const FETCH_PROFILE_INTEL_FULFILLED = 'FETCH_PROFILE_INTEL_FULFILLED';
+export const FETCH_PROFILE_INTEL_REJECTED = 'FETCH_PROFILE_INTEL_REJECTED';
 
 export const FETCH_CLANS = 'FETCH_CLANS';
 export const FETCH_CLANS_PENDING = 'FETCH_CLANS_PENDING';
@@ -255,6 +261,12 @@ const fetchClanIntelAction = (clanId) => ({
     payload: fetchClanIntel(clanId)
 });
 export { fetchClanIntelAction as fetchClanIntel };
+
+const fetchProfileIntelAction = (profileId) => ({
+    type: FETCH_PROFILE_INTEL,
+    payload: fetchProfileIntel(profileId)
+});
+export { fetchProfileIntelAction as fetchProfileIntel };
 
 const fetchGameInfoAction = () => ({
     type: FETCH_GAME_INFO,

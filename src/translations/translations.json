@@ -219,7 +219,9 @@
         "attackTooltip": ["Your character will attack the target clan. If you win against the clan's defender, you will steal some resoures and gain fame and influence.",
         "Tvá postava zaútočí na vybraný klan. Pokud uspěješ v souboji s obráncem druhého klanu, tak získáš suroviny, slávu a body vlivu."],
         "attackDisabled": ["Your clan must be in a different faction than your target. Clans without faction cannot attack or be attacked.",
-        "Tvůj klan musí být v jiné frakci než tvůj cíl. Klany bez frakce se bojů neúčastní."]
+        "Tvůj klan musí být v jiné frakci než tvůj cíl. Klany bez frakce se bojů neúčastní."],
+        "extraAchievements": ["Unique achievements", "Unikátní odznaky"],
+        "missingAchievements": ["Missing achievements", "Chybějící odznaky"]
     },
     "footer": {
         "patreon": ["Become a patron!", "Staň se patronem!"]

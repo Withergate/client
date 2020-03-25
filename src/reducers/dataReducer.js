@@ -22,7 +22,10 @@ import {
     FETCH_FACTIONS_OVERVIEW_REJECTED,
     FETCH_CLAN_INTEL_PENDING,
     FETCH_CLAN_INTEL_FULFILLED,
-    FETCH_CLAN_INTEL_REJECTED
+    FETCH_CLAN_INTEL_REJECTED,
+    FETCH_PROFILE_INTEL_PENDING,
+    FETCH_PROFILE_INTEL_FULFILLED,
+    FETCH_PROFILE_INTEL_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -85,7 +88,14 @@ const initialState = {
         failed: false,
         error: ''
     },
-    intel: {
+    clanIntel: {
+        data: {},
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    profileIntel: {
         data: {},
         fetching: false,
         fetched: false,
@@ -124,6 +134,14 @@ export const DataReducer = (state = initialState, action) => {
                 },
                 info: {
                     ...state.info,
+                    failed: false
+                },
+                clanIntel: {
+                    ...state.clanIntel,
+                    failed: false
+                },
+                profileIntel: {
+                    ...state.profileIntel,
                     failed: false
                 }
             };
@@ -367,8 +385,8 @@ export const DataReducer = (state = initialState, action) => {
         case FETCH_CLAN_INTEL_PENDING:
             return {
                 ...state,
-                intel: {
-                    ...state.intel,
+                clanIntel: {
+                    ...state.clanIntel,
                     fetching: true,
                     fetched: false,
                     failed: false,
@@ -377,8 +395,8 @@ export const DataReducer = (state = initialState, action) => {
         case FETCH_CLAN_INTEL_FULFILLED:
             return {
                 ...state,
-                intel: {
-                    ...state.intel,
+                clanIntel: {
+                    ...state.clanIntel,
                     data: action.payload,
                     fetching: false,
                     fetched: true,
@@ -389,8 +407,42 @@ export const DataReducer = (state = initialState, action) => {
         case FETCH_CLAN_INTEL_REJECTED:
             return {
                 ...state,
-                intel: {
-                    ...state.inte,
+                clanIntel: {
+                    ...state.clanIntel,
+                    data: undefined,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                },
+            };
+        case FETCH_PROFILE_INTEL_PENDING:
+            return {
+                ...state,
+                profileIntel: {
+                    ...state.profileIntel,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
+            };
+        case FETCH_PROFILE_INTEL_FULFILLED:
+            return {
+                ...state,
+                profileIntel: {
+                    ...state.profileIntel,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_PROFILE_INTEL_REJECTED:
+            return {
+                ...state,
+                profileIntel: {
+                    ...state.profileIntel,
                     data: undefined,
                     fetching: false,
                     fetched: false,

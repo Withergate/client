@@ -12,7 +12,7 @@ import intel from '../../images/intel.png';
 import { GameIcon } from '../shared/GameIcon';
 
 import { fetchClans, fetchClanIntel } from '../../actions/dataActions';
-import { displayIntel, dismissError } from '../../actions/uiActions';
+import { displayClanIntel, dismissError } from '../../actions/uiActions';
 import { FAME, LARGE } from '../../constants/constants';
 import ClanIntelDialog from '../intel/ClanIntelDialog';
 
@@ -25,7 +25,7 @@ class FameLadder extends Component {
     }
 
     displayIntel(clanId) {
-        this.props.displayIntel(true);
+        this.props.displayClanIntel(true);
         this.props.fetchClanIntel(clanId);
     }
 
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators({ fetchClans, dismissError, fetchClanIntel, displayIntel }, dispatch)
+    bindActionCreators({ fetchClans, dismissError, fetchClanIntel, displayClanIntel }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(FameLadder);

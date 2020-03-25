@@ -95,6 +95,10 @@ export const fetchClanIntel = (clanId) => {
     return apiGet(API_URL.concat('clan/').concat(clanId));
 };
 
+export const fetchProfileIntel = (profileId) => {
+    return apiGet(API_URL.concat('profile/').concat(profileId));
+};
+
 export const fetchGameInfo = (d) => {
     return apiGet(API_URL.concat('game/info'));
 };
