@@ -15,9 +15,16 @@ import {
 import { GlobalNotification } from './notification/GlobalNotification';
 import DisasterMiniPanel from './disaster/DisasterMiniPanel';
 import EndGameInfoPanel from './clan/EndGameInfoPanel';
+import { isToday } from '../services/timeUtils';
+import Achievement from './profile/Achievement';
+import { SMALL } from '../constants/constants';
+import { Translate } from 'react-localize-redux';
+
+const getNewAchievements = (profile) => {
+    return profile.achievements.filter(a => isToday(a.date));
+}
 
 class HomePage extends Component {
-
     componentDidMount() {
         this.props.fetchNotifications(this.props.turnDisplayed);
         this.props.fetchGlobalNotification();
@@ -52,6 +59,19 @@ class HomePage extends Component {
                         
                 }
                 {
+                    <div>
+                        { getNewAchievements.length &&
+                            <span className="ml-4 inline">
+                                <b><Translate id="profile.newAchievements" />: </b>
+                                { getNewAchievements(this.props.profile).map(a => 
+                                    <span className="ml-3" >
+                                        <Achievement achievement={a} size={SMALL} />
+                                    </span>)}
+                            </span>
+                        }
+                    </div>
+                }
+                {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
             </div>
@@ -67,19 +87,21 @@ HomePage.propTypes = {
     notifications: PropTypes.array.isRequired,
     turnDisplayed: PropTypes.number.isRequired,
     turn: PropTypes.object.isRequired,
-    maxTurns: PropTypes.number.isRequired
+    maxTurns: PropTypes.number.isRequired,
+    profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
     const { error, notifications, global } = state.notifications;
     const { turnDisplayed, turn } = state.turn;
     const { maxTurns } = state.game.properties;
+    const profile = state.profile.profile.data;
 
     const fetching = state.turn.fetching || state.notifications.fetching;
     const fetched = state.turn.fetched && state.notifications.fetched;
     const failed = state.turn.failed || state.notifications.failed;
 
-    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn, global, maxTurns };
+    return { fetching, fetched, failed, error, notifications, turnDisplayed, turn, global, maxTurns, profile };
 };
 
 const mapDispatchToProps = dispatch => (

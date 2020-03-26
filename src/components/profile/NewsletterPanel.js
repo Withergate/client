@@ -8,12 +8,12 @@ const NewsletterPanel = ({profile}) => (
         <p>
             <Translate id="profile.newsletter" />
         </p>
-            <a 
-                target="_blank"
-                rel="noopener noreferrer"
-                href={localStorage.getItem('lang') === 'cs' ? "https://landing.mailerlite.com/webforms/landing/u2w6n0" : "https://landing.mailerlite.com/webforms/landing/w4m5r9"}>
-                <Button className="button-large" variant="dark"><Translate id="profile.subscribe" /></Button>
-            </a>
+        <a 
+            target="_blank"
+            rel="noopener noreferrer"
+            href={localStorage.getItem('lang') === 'cs' ? "https://landing.mailerlite.com/webforms/landing/u2w6n0" : "https://landing.mailerlite.com/webforms/landing/w4m5r9"}>
+            <Button className="button-large" variant="dark"><Translate id="profile.subscribe" /></Button>
+        </a>
     </Card>
 );
 

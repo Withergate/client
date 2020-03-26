@@ -200,8 +200,9 @@
         "achievementEpic": ["Epic achievement", "Epický odznak"],
         "achievementsUnlocked": ["Unlocked achievements", "Získané odznaky"],
         "achievementsAvailable": ["Available achievements", "Dostupné odznaky"],
-        "noAchievements": ["You have no achievements at the moment.", "Zatím jsi nezískal/a žádné odznaky."],
-        "epicAchivementsDisplay": ["Epic achievements are not visible in this list. You will need to discover them on your own.", "Epické odznaky jsou skryté. Budeš je muset objevit sám."]
+        "noAchievements": ["No achievements to show.", "Žádné odznaky u ukázání."],
+        "epicAchivementsDisplay": ["Epic achievements are not visible in this list. You will need to discover them on your own.", "Epické odznaky jsou skryté. Budeš je muset objevit sám."],
+        "newAchievements": ["New achievements", "Nové odznaky"]
     },
     "intel": {
         "description": ["We were able to collect the following statistics about this clan. Higher information level increases the information we know about others.",

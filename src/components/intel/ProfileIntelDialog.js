@@ -10,6 +10,17 @@ import { displayProfileIntel, dismissError } from '../../actions/uiActions';
 import { Error } from '../shared/Error';
 import ReactTooltip from 'react-tooltip';
 
+const renderAchievement = (details) => {
+    return <Col md={3} xs={4} key={details.identifier} data-tip data-for={details.identifier}>
+        <Image src={details.imageUrl} width="80px"></Image>
+                
+        <ReactTooltip id={details.identifier} effect="solid" className="tooltip-multiline">
+            <Row><Col><b>{getTranslatedText(details.name)}</b></Col></Row>
+            <Row><Col>{getTranslatedText(details.description)}</Col></Row>
+        </ReactTooltip>
+    </Col>
+}
+
 const ProfileIntelDialog = (props) => (
     <Modal show={props.show} centered >
         <Modal.Header>
@@ -26,14 +37,7 @@ const ProfileIntelDialog = (props) => (
                         { props.intel.extraAchievements.length < 1 && <Translate id="profile.noAchievements" /> }
                         <Row>
                         { props.intel.extraAchievements.map(details =>
-                            <Col md={3} xs={4} key={details.identifier} data-tip data-for={details.identifier}>
-                                <Image src={details.imageUrl} width="80px"></Image>
-                                           
-                                <ReactTooltip id={details.identifier} effect="solid" className="tooltip-multiline">
-                                    <Row><Col><b>{getTranslatedText(details.name)}</b></Col></Row>
-                                     <Row><Col>{getTranslatedText(details.description)}</Col></Row>
-                                </ReactTooltip>
-                            </Col>
+                            renderAchievement(details)
                         )}
                         </Row>
                     </Col>  
@@ -44,14 +48,7 @@ const ProfileIntelDialog = (props) => (
                         { props.intel.missingAchievements.length < 1 && <Translate id="profile.noAchievements" /> }
                         <Row>
                         { props.intel.missingAchievements.map(details =>
-                            <Col md={3} xs={4} key={details.identifier} data-tip data-for={details.identifier}>
-                                <Image src={details.imageUrl} width="80px"></Image>
-                                           
-                                <ReactTooltip id={details.identifier} effect="solid" className="tooltip-multiline">
-                                    <Row><Col><b>{getTranslatedText(details.name)}</b></Col></Row>
-                                     <Row><Col>{getTranslatedText(details.description)}</Col></Row>
-                                </ReactTooltip>
-                            </Col>
+                            renderAchievement(details)
                         )}
                         </Row>
                     </Col>  
