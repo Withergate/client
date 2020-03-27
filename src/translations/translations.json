@@ -319,7 +319,22 @@
         "text": ["This is a dangerous place to roam alone so let`s begin with setting up a clan.",
         "Toto je nebezpečné místo na to, abys tu chodil sám. Začněme tím, že si založíš nový klan."],
         "name": ["Clan name", "Název klanu"],
-        "button": ["Confirm", "Založit"]
+        "clanType": ["Clan focus", "Zaměření klanu"],
+        "button": ["Confirm", "Založit"],
+        "type": {
+            "BALANCED": ["Balanced", "Všestranné"],
+            "descriptionBALANCED": ["Balanced clans are not focused on any particular play style. Character attributes will be distributed in a way that supports most game strategies. This option is recommended for beginners.",
+            "Všestranné klany nejsou zameřené na žádný konrétní herní styl. Postavy budou mít vlastnosti rozložené tak, aby bylo možné využívat co nejširší palety herních akcí."],
+            "ECONOMY": ["Economic", "Obchodní"],
+            "descriptionECONOMY": ["Economic clans are focused on building, crafting and gathering resources. Characters will have slightly higher levels of scavenge and craftsmanship but lower levels of intellect and combat.",
+            "Obchodní klany jsou zaměřené na stavbu, výrobu a sběr surovin. Postavy budou mít lehce vyšší hodnoty hledání a zručnosti, ale nižší intelekt a bojeschopnost."],
+            "SMART": ["Smart", "Vychytralé"],
+            "descriptionSMART": ["Smart clans are focused on research and gathering information. Characters will have slightly higher levels of intellect but lower craftsmanship and scavenge.",
+            "Vychytralé klany se specializují na výzkum a získávání informací. Postavy budou mít lehce vyšší hodnoty intelektu, ale nižší hledání a zručnost."],
+            "RANDOM": ["Random", "Náhodné"],
+            "descriptionRANDOM": ["Random clans will have random distribution of character attributes. You never know what you get. This is the only option that can potentially generate characters with maximum level of any of the attributes.",
+            "Náhodné klany budou mít náhodné rozložení vlastností postav. Nikdy nevíš, co dostaneš. Je to také jediná volba, u které je šance na získání postavy a maximální hodnout některé z vlastností."]
+        }
     },
     "profileSetup": {
         "text": ["Welcome to Withergate! It seems that you are a new wastelander. Before we begin, we will need a name for your player account.",

@@ -42,11 +42,11 @@ export const GAME_ACTION_PENDING = 'GAME_ACTION_PENDING';
 export const GAME_ACTION_FULFILLED = 'GAME_ACTION_FULFILLED';
 export const GAME_ACTION_REJECTED = 'GAME_ACTION_REJECTED';
 
-const createClanAction = (clanName) => {
+const createClanAction = (clanName, clanType) => {
     return (dispatch) => {
         return dispatch({
             type: CREATE_CLAN,
-            payload: createClan(clanName)
+            payload: createClan(clanName, clanType)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

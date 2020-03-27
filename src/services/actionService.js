@@ -1,8 +1,8 @@
 import { apiPost, apiPut, apiDelete } from './apiFetch';
 import { API_URL } from './constants/endpoints';
 
-export const createClan = (clanName) => {
-    return apiPost(API_URL.concat('clan'), JSON.stringify({name: clanName}));
+export const createClan = (clanName, clanType) => {
+    return apiPost(API_URL.concat('clan'), JSON.stringify({name: clanName, type: clanType}));
 };
 
 export const equipItem = (itemId, characterId) => {

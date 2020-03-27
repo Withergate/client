@@ -2,10 +2,16 @@
 export const LOGOUT = 'LOGOUT';
 
 // Actions
-export const PENDING = 'PENDING';;
+export const PENDING = 'PENDING';
 
 // Character
-export const RESTING = 'RESTING'
+export const RESTING = 'RESTING';
+
+// Clan type
+export const BALANCED = 'BALANCED';
+export const ECONOMY = 'ECONOMY';
+export const SMART = 'SMART';
+export const RANDOM = 'RANDOM';
 
 // Items
 export const ALL = 'ALL';
