@@ -10,7 +10,7 @@ import { createClan } from '../../actions/actionActions';
 import { dismissError } from '../../actions/uiActions';
 
 import spinner from '../../images/spinner.gif';
-import { BALANCED, ECONOMY, SMART, RANDOM } from '../../constants/constants';
+import { BALANCED, ECONOMY, SMART, RANDOM, COMBAT } from '../../constants/constants';
 
 class ClanSetupForm extends Component {
     constructor(props) {
@@ -82,6 +82,7 @@ class ClanSetupForm extends Component {
                                                     <option value ={BALANCED}>{translate("clanSetup.type.BALANCED")}</option>
                                                     <option value ={ECONOMY}>{translate("clanSetup.type.ECONOMY")}</option>
                                                     <option value ={SMART}>{translate("clanSetup.type.SMART")}</option>
+                                                    <option value ={COMBAT}>{translate("clanSetup.type.COMBAT")}</option>
                                                     <option value ={RANDOM}>{translate("clanSetup.type.RANDOM")}</option>
                                                 </Form.Control>
                                             }

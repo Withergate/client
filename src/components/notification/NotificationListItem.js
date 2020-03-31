@@ -65,7 +65,7 @@ class NotificationListItem extends React.Component {
     render() {
         const notification = this.props.notification;
 
-        return (<Card className="m-4">
+        return (<Card className="m-3">
             <Card.Body>
                 <Row>
                     <Col>

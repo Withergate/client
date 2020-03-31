@@ -22,11 +22,12 @@ const renderListItem = notification => (
 
 const NotificationList = (props) => (
     <div>
-        <div className="m-4">
+        <div className="m-3">
             <Paginator
                 number={props.turnDisplayed}
                 max={props.currentTurn - 1}
                 min={0}
+                total={props.currentTurn - 1}
                 onNext={props.displayTurnNotifications}
                 onPrevious={props.displayTurnNotifications}>
                 <Translate id="header.turn" /> {props.turnDisplayed}

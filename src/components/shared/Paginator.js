@@ -14,7 +14,7 @@ const Paginator = (props) => (
             <Translate id="labels.previous" />
         </Button>
         <div className="align-self-center d-inline ml-4 mr-4">
-            { props.children }
+            { props.children } / { props.total ? props.total : props.max + 1 }
         </div>
         <Button 
             variant="light"
@@ -32,7 +32,8 @@ Paginator.propTypes = {
     onPrevious: PropTypes.func.isRequired,
     number: PropTypes.number.isRequired,
     min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired
+    max: PropTypes.number.isRequired,
+    total: PropTypes.number
 };
 
 export { Paginator };

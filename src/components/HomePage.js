@@ -55,21 +55,17 @@ class HomePage extends Component {
                                 currentTurn={this.props.turn.turnId}
                                 turnDisplayed={this.props.turnDisplayed}
                                 displayTurnNotifications={this.props.displayTurnNotifications} />
+                            { getNewAchievements(this.props.profile).length > 0 &&
+                                <span className="ml-4 inline">
+                                    <b><Translate id="profile.newAchievements" />: </b>
+                                    { getNewAchievements(this.props.profile).map(a => 
+                                        <span className="ml-3" >
+                                            <Achievement achievement={a} size={SMALL} />
+                                        </span>)
+                                    }
+                                </span>
+                            }
                         </div>
-                        
-                }
-                {
-                    <div>
-                        { getNewAchievements.length &&
-                            <span className="ml-4 inline">
-                                <b><Translate id="profile.newAchievements" />: </b>
-                                { getNewAchievements(this.props.profile).map(a => 
-                                    <span className="ml-3" >
-                                        <Achievement achievement={a} size={SMALL} />
-                                    </span>)}
-                            </span>
-                        }
-                    </div>
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />

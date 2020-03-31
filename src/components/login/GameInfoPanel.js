@@ -17,7 +17,7 @@ class GameInfoPanel extends React.Component {
 
     render() {
         return (
-            <Card>
+            <Card border="success">
                 { this.props.fetched && 
                     <Card.Body>
                         <h5><Translate id="login.gameInfo" /></h5>

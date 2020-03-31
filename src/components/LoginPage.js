@@ -63,10 +63,10 @@ class LoginPage extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={8} className="mb-4">
+                        <Col md={{ span: 8, order: 1 }} xs={{ span: 12, order: 2 }} className="mb-4">
                             <Preview />
                         </Col>
-                        <Col md={4} className="mb-4">
+                        <Col md={{ span: 4, order: 2 }} xs={{ span: 12, order: 1 }} className="mb-4">
                             <GameInfoPanel />
                         </Col>
                     </Row>
