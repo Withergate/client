@@ -15,9 +15,9 @@ export const unequipItem = (itemId, characterId) => {
     JSON.stringify({itemId: itemId, characterId: characterId}));
 };
 
-export const constructBuilding = (buildingName, characterId, type) => {
+export const constructBuilding = (buildingName, characterId) => {
     return apiPost(API_URL.concat('buildings/action'), 
-    JSON.stringify({building: buildingName, characterId: characterId, type: type}));
+    JSON.stringify({building: buildingName, characterId: characterId}));
 };
 
 export const doResearch = (researchName, characterId) => {

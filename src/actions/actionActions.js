@@ -81,11 +81,11 @@ const unequipItemAction = (itemId, characterId) => {
 };
 export { unequipItemAction as unequipItem };
 
-const constructBuildingAction = (buildingName, characterId, type) => {
+const constructBuildingAction = (buildingName, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: constructBuilding(buildingName, characterId, type)
+            payload: constructBuilding(buildingName, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

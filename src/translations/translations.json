@@ -140,7 +140,6 @@
         "free": ["Free", "Zdarma"],
         "lastActivity": ["Last activity (UTC)", "Poslední aktivita (UTC)"],
         "minutesAgo": ["${minutes} minutes ago", "Před ${minutes} minutami"],
-        "visitCost": ["Cost to visit", "Cena za navštívení"],
         "numWins": ["Number of wins", "Počet vítězství"],
         "noNotifications": ["There are no notifications for this turn. But you can check this tutorial how to play instead.", "Pro toto kolo nemáš žádné novinky. Ale místo toho si můžeš projít tento krátký tutorial."],	
         "encounterChance": ["This is the risk that random encounter will trigger. Handling the encounter requires various skills of the character. If the character handles the situation successfully, there will be a reward plus some portion of the action resources will be awarded as well. In case of unsuccessful encounter, the character will not find any resources and penalty might be triggered.",	
@@ -433,10 +432,7 @@
             "VISIT": ["Searching for resources", "Hledá suroviny"],
             "SCOUT": ["Scouting for information", "Hledá informace"]
         },
-        "BUILDING": {
-            "CONSTRUCT": ["Constructing buildings", "Pracuje na stavbě"],
-            "VISIT": ["Visiting a building", "Pracuje v budově"]
-        },
+        "BUILDING": ["Constructing buildings", "Pracuje na stavbě"],
         "TRADE": ["Trading at marketplace", "Nakupuje na tržišti"],
         "ARENA": ["Fighting in the arena", "Bojuje v aréně"],
         "DISASTER": ["Preventing disaster", "Odvrací pohromu"],

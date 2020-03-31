@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
-import { GameIcon } from '../shared/GameIcon';
-import { JUNK, LARGE } from '../../constants/constants';
 
 import { getTranslatedText } from '../../translations/translationUtils';
 import ActionButton from '../shared/ActionButton';
@@ -25,17 +23,6 @@ const BuildingListItem = ({building, selectedCharacter, constructBuilding, actio
                     <p>
                         <b><Translate id="basic.level" />: </b> {building.level}
                     </p>
-                    { actionable && building.details.visitable && 
-                
-                        <ul className="list-inline">
-                            <li className="list-inline-item">
-                                <b><Translate id="labels.visitCost" />: </b>
-                            </li>
-                            <li className="list-inline-item">
-                                <GameIcon type={JUNK} size={LARGE} value={building.visitJunkCost} />
-                            </li>
-                        </ul>
-                    }
                     <AnnotatedProgressBar
                         value={building.progress}
                         max={building.nextLevel} />
