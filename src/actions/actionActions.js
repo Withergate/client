@@ -23,7 +23,8 @@ import {
     renameDefender,
     renameCharacter,
     forgetTrait,
-    processLoan
+    processLoan,
+    craftItem
 } from '../services/actionService';
 
 import {
@@ -375,3 +376,16 @@ const processLoanAction = () => {
     };
 };
 export { processLoanAction as processLoan };
+
+const craftItemAction = (characterId, item) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GAME_ACTION,
+            payload: craftItem(characterId, item)
+        }).then(() => dispatch({
+            type: FETCH_CLAN,
+            payload: fetchClan()
+        }));
+    };
+};
+export { craftItemAction as craftItem };

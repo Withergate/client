@@ -28,6 +28,7 @@ import ResearchList from './research/ResearchList';
 import TraitPanel from './clan/TraitPanel';
 import FactionsSelectorPanel from './faction/FactionSelectorPanel';
 import FactionPanel from './faction/FactionPanel';
+import CraftingList from './item/CraftingList';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -64,6 +65,9 @@ class ActionPage extends Component {
                                             <Nav.Link eventKey="buildings" className="tab-link"><Translate id="basic.buildings" /></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
+                                            <Nav.Link eventKey="crafting" className="tab-link"><Translate id="basic.crafting" /></Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
                                             <Nav.Link eventKey="research" className="tab-link"><Translate id="basic.research" /></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
@@ -98,6 +102,9 @@ class ActionPage extends Component {
                                         <Tab.Pane eventKey="buildings">
                                             <BuildingList 
                                                 actionable={true} />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="crafting">
+                                            <CraftingList />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="research">
                                             <ResearchList actionable={true} />

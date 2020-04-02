@@ -74,7 +74,8 @@
         "profile": ["Profile", "Profil"],
         "historical": ["Historical results", "Historické výsledky"],
         "SILVER": ["Premium (Silver)", "Premium (Silver)"],
-        "GOLD": ["Premium (Gold)", "Premium (Gold)"]
+        "GOLD": ["Premium (Gold)", "Premium (Gold)"],
+        "crafting": ["Crafting", "Výroba"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -175,7 +176,9 @@
         "loanTake": ["Take loan", "Půjčit si"],
         "loanPay": ["Payback", "Splatit"],
         "loanCaps": ["Loan", "Půjčka"],
-        "loanPayback": ["Payback", "Splátka"]
+        "loanPayback": ["Payback", "Splátka"],
+        "craftItem": ["Craft", "Vyrobit"],
+        "craftItemTooltip": ["Selected character will pay junk and craft the selected item.", "Zvolená postava zaplatí šrot a vyrobí daný předmět."]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",

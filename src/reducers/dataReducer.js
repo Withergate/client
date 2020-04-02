@@ -25,7 +25,10 @@ import {
     FETCH_CLAN_INTEL_REJECTED,
     FETCH_PROFILE_INTEL_PENDING,
     FETCH_PROFILE_INTEL_FULFILLED,
-    FETCH_PROFILE_INTEL_REJECTED
+    FETCH_PROFILE_INTEL_REJECTED,
+    FETCH_CRAFTING_ITEMS_PENDING,
+    FETCH_CRAFTING_ITEMS_FULFILLED,
+    FETCH_CRAFTING_ITEMS_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -101,6 +104,13 @@ const initialState = {
         fetched: false,
         failed: false,
         error: ''
+    },
+    crafting: {
+        data: [],
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
     }
 };
 
@@ -142,6 +152,10 @@ export const DataReducer = (state = initialState, action) => {
                 },
                 profileIntel: {
                     ...state.profileIntel,
+                    failed: false
+                },
+                crafting: {
+                    ...state.crafting,
                     failed: false
                 }
             };
@@ -444,6 +458,40 @@ export const DataReducer = (state = initialState, action) => {
                 profileIntel: {
                     ...state.profileIntel,
                     data: undefined,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                },
+            };
+        case FETCH_CRAFTING_ITEMS_PENDING:
+            return {
+                ...state,
+                crafting: {
+                    ...state.crafting,
+                    fetching: true,
+                    fetched: false,
+                    failed: false,
+                }
+            };
+        case FETCH_CRAFTING_ITEMS_FULFILLED:
+            return {
+                ...state,
+                crafting: {
+                    ...state.crafting,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_CRAFTING_ITEMS_REJECTED:
+            return {
+                ...state,
+                crafting: {
+                    ...state.crafting,
+                    data: [],
                     fetching: false,
                     fetched: false,
                     failed: true,

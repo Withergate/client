@@ -99,6 +99,10 @@ export const fetchProfileIntel = (profileId) => {
     return apiGet(API_URL.concat('profile/').concat(profileId));
 };
 
-export const fetchGameInfo = (d) => {
+export const fetchGameInfo = () => {
     return apiGet(API_URL.concat('game/info'));
+};
+
+export const fetchCraftingItems = () => {
+    return apiGet(API_URL.concat('items/crafting'));
 };

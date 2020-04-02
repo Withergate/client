@@ -47,9 +47,6 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
                     <Translate id="labels.cancel" />
                 </Button> 
             }
-            {
-                console.log(offer.seller, clanId)
-            }
             { (!offer.seller || clanId !== offer.seller.id) &&
                 <TooltipWrapper textKey="labels.buyTooltip">
                     <Button 

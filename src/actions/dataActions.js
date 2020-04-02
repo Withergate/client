@@ -18,7 +18,8 @@ import {
     setTurnStart,
     fetchClanIntel,
     fetchGameInfo,
-    fetchProfileIntel
+    fetchProfileIntel,
+    fetchCraftingItems
 } from '../services/dataService';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
@@ -122,6 +123,11 @@ export const FETCH_GAME_INFO = 'FETCH_GAME_INFO';
 export const FETCH_GAME_INFO_PENDING = 'FETCH_GAME_INFO_PENDING';
 export const FETCH_GAME_INFO_FULFILLED = 'FETCH_GAME_INFO_FULFILLED';
 export const FETCH_GAME_INFO_REJECTED = 'FETCH_GAME_INFO_REJECTED';
+
+export const FETCH_CRAFTING_ITEMS = 'FETCH_CRAFTING_ITEMS';
+export const FETCH_CRAFTING_ITEMS_PENDING = 'FETCH_CRAFTING_ITEMS_PENDING';
+export const FETCH_CRAFTING_ITEMS_FULFILLED = 'FETCH_CRAFTING_ITEMS_FULFILLED';
+export const FETCH_CRAFTING_ITEMS_REJECTED = 'FETCH_CRAFTING_ITEMS_REJECTED';
 
 const fetchClanAction = () => ({
     type: FETCH_CLAN,
@@ -273,3 +279,9 @@ const fetchGameInfoAction = () => ({
     payload: fetchGameInfo()
 });
 export { fetchGameInfoAction as fetchGameInfo };
+
+const fetchCraftingItemsAction = () => ({
+    type: FETCH_CRAFTING_ITEMS,
+    payload: fetchCraftingItems()
+});
+export { fetchCraftingItemsAction as fetchCraftingItems };
