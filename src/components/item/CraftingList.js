@@ -9,8 +9,9 @@ import { dismissError } from '../../actions/uiActions';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Card } from 'react-bootstrap';
 import CraftingListItem from './CraftingListItem';
+import { Translate } from 'react-localize-redux';
 
 class CraftingList extends React.Component {
     componentDidMount() {
@@ -22,6 +23,17 @@ class CraftingList extends React.Component {
     render() {
         return ( 
             <div>
+                <Card className="mb-4">
+                    <Card.Img variant="top" width="600px" src="https://storage.googleapis.com/withergate-images/locations/crafting.png" />
+                    <Card.Body>
+                        <Row>
+                            <Col md={12}>
+                                <p><Translate id="labels.craftingDescription" /></p>
+                                <p><small><Translate id="labels.craftingInfo" /></small></p>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
                 { this.props.fetched &&
                     renderList(this.props.items, this.props.selectedCharacter, this.props.craftItem)
                 }
@@ -39,11 +51,12 @@ class CraftingList extends React.Component {
 const renderList = (items, selectedCharacter, craftItem) => (
     <Row>
         {
-            items.map(item => 
+            items.length > 0 ? items.map(item => 
                 <Col key={item.identifier} md={6} xs={12}>
                     <CraftingListItem item={item} selectedCharacter={selectedCharacter} craftItem={craftItem} />
                 </Col>
             )
+            : <Col><Translate id="labels.noCrafting" /></Col>
         }
     </Row>
 );

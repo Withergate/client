@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from "react-localize-redux";
 
 import { getTranslatedText } from '../../translations/translationUtils';
+import { getRarityTextColor } from './itemUtils';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 import ItemDetails from './ItemDetails';
 
@@ -14,14 +15,18 @@ const getCost = (item, character) => {
     if (!character) {
         return item.craftingCost;
     } else {
-        return item.craftingCost - character.craftsmanship;
+        const cost = item.craftingCost - character.crafting;
+        if (cost < 1) {
+            return 1;
+        }
+        return cost;
     }
 }
 
 const CraftingListItem = ({item, selectedCharacter, craftItem}) => (
     <Card className="mb-4">
         <Card.Body>
-            <Card.Title>
+            <Card.Title className={getRarityTextColor(item.rarity)}>
                 {getTranslatedText(item.name)}
             </Card.Title>
             <Row>

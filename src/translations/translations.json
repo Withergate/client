@@ -178,7 +178,12 @@
         "loanCaps": ["Loan", "Půjčka"],
         "loanPayback": ["Payback", "Splátka"],
         "craftItem": ["Craft", "Vyrobit"],
-        "craftItemTooltip": ["Selected character will pay junk and craft the selected item.", "Zvolená postava zaplatí šrot a vyrobí daný předmět."]
+        "craftItemTooltip": ["Selected character will pay junk and craft the selected item.", "Zvolená postava zaplatí šrot a vyrobí daný předmět."],
+        "noCrafting": ["There are no items to craft. Build corresponding buildings to unlock new items.", "Zatím nemůžeš vyrábět žádné předměty. Postav výrobní budovy pro odemčení dostupných předmětů."],
+        "craftingDescription": ["Transform your junk into useful items. If you are skillful enough, you can create something truly remarkable with the right tools.",
+        "Přeměň svůj šrot v něco užitečného. Pokud jsi dostatečně zručný, dokážeš s těmi správnými nástroji vytvořit něco opravdu zajímavého."],
+        "craftingInfo": ["Characters can craft items by paying junk. The cost of the crafted item is paid in advance. You will receive the crafted item after the turn is evaluated. The cost is affected by the character's craftsmanship his/her skills and quipped gear. The item selection depends on the levels of your crafting buildings (third level of each building is the maximum).",
+        "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum)."]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",

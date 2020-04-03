@@ -123,5 +123,5 @@ export const processLoan = () => {
 
 export const craftItem = (characterId, item) => {
     return apiPost(API_URL.concat('items/craft'), 
-    JSON.stringify({ocharacterId: characterId, item: item}));
+    JSON.stringify({characterId: characterId, item: item}));
 };
