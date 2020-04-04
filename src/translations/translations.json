@@ -179,7 +179,7 @@
         "loanPayback": ["Payback", "Splátka"],
         "craftItem": ["Craft", "Vyrobit"],
         "craftItemTooltip": ["Selected character will pay junk and craft the selected item.", "Zvolená postava zaplatí šrot a vyrobí daný předmět."],
-        "noCrafting": ["There are no items to craft. Build corresponding buildings to unlock new items.", "Zatím nemůžeš vyrábět žádné předměty. Postav výrobní budovy pro odemčení dostupných předmětů."],
+        "noCrafting": ["There are no items of the selected type available to craft.", "Žádné předměty tohoto typu nejsou k dispozivi pro výrobu."],
         "craftingDescription": ["Transform your junk into useful items. If you are skillful enough, you can create something truly remarkable with the right tools.",
         "Přeměň svůj šrot v něco užitečného. Pokud jsi dostatečně zručný, dokážeš s těmi správnými nástroji vytvořit něco opravdu zajímavého."],
         "craftingInfo": ["Characters can craft items by paying junk. The cost of the crafted item is paid in advance. You will receive the crafted item after the turn is evaluated. The cost is affected by the character's craftsmanship his/her skills and quipped gear. The item selection depends on the levels of your crafting buildings (third level of each building is the maximum).",

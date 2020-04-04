@@ -5,13 +5,19 @@ import { bindActionCreators } from 'redux';
 
 import { fetchCraftingItems } from '../../actions/dataActions';
 import { craftItem } from '../../actions/actionActions';
-import { dismissError } from '../../actions/uiActions';
+import { dismissError, changeItemFilter } from '../../actions/uiActions';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import { Col, Row, Card } from 'react-bootstrap';
 import CraftingListItem from './CraftingListItem';
 import { Translate } from 'react-localize-redux';
+import ItemFilter from './ItemFilter';
+import { ALL } from '../../constants/constants';
+
+const getFilteredItems = (items, filter) => {
+    return items.filter(item => item.itemType === filter || filter === ALL);
+}
 
 class CraftingList extends React.Component {
     componentDidMount() {
@@ -35,7 +41,7 @@ class CraftingList extends React.Component {
                     </Card.Body>
                 </Card>
                 { this.props.fetched &&
-                    renderList(this.props.items, this.props.selectedCharacter, this.props.craftItem)
+                    renderList(this.props)
                 }
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
@@ -48,40 +54,49 @@ class CraftingList extends React.Component {
     }
 };
 
-const renderList = (items, selectedCharacter, craftItem) => (
-    <Row>
+const renderList = (props) => (
+    <div>
+        <Row>
+            <Col md={6}>
+                <ItemFilter filter={props.filter} onChange={props.changeItemFilter} />
+            </Col>
+        </Row>
         {
-            items.length > 0 ? items.map(item => 
+            getFilteredItems(props.items, props.filter).length > 0 ? 
+            <Row>
+                { getFilteredItems(props.items, props.filter).map(item => 
                 <Col key={item.identifier} md={6} xs={12}>
-                    <CraftingListItem item={item} selectedCharacter={selectedCharacter} craftItem={craftItem} />
+                    <CraftingListItem item={item} selectedCharacter={props.selectedCharacter} craftItem={props.craftItem} />
                 </Col>
-            )
-            : <Col><Translate id="labels.noCrafting" /></Col>
+                )}
+            </Row>
+            : <Translate id="labels.noCrafting" />
         }
-    </Row>
+    </div>
 );
 
 CraftingList.propTypes = {
     items: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object,
-    craftItem: PropTypes.func.isRequired
+    craftItem: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => {
     const { selectedCharacter } = state.clan;
     const items = state.data.crafting.data;
     const { fetched, fetching, failed, error } = state.data.crafting;
+    const filter = state.ui.filter.items;
 
-    console.log(fetched, items);
-
-    return { fetching, fetched, failed, error, items, selectedCharacter };
+    return { fetching, fetched, failed, error, items, selectedCharacter, filter };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
         fetchCraftingItems,
         craftItem,
-        dismissError
+        dismissError,
+        changeItemFilter
     }, dispatch)
 );
 
