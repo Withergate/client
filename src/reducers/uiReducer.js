@@ -11,7 +11,8 @@ import {
     DISPLAY_CLAN_INTEL,
     DISPLAY_PROFILE_INTEL,
     SELECT_LADDER_TAB,
-    SELECT_PROFILE_TAB
+    SELECT_PROFILE_TAB,
+    SELECT_ADMIN_TAB
 } from '../actions/uiActions';
 import { ALL } from '../constants/constants';
 
@@ -20,6 +21,7 @@ const initialState = {
     actionTab: 'locations',
     ladderTab: 'clans',
     profileTab: 'profile',
+    adminTab: 'game',
     displayClanIntel: false,
     displayProfileIntel: false,
     sort: {
@@ -60,6 +62,11 @@ export const UiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profileTab: action.payload
+            };
+        case SELECT_ADMIN_TAB:
+            return {
+                ...state,
+                adminTab: action.payload
             };
         case CHANGE_CHARACTER_SORT_KEY:
             return {

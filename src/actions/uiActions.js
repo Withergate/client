@@ -2,6 +2,7 @@ export const SELECT_CLAN_TAB = 'SELECT_CLAN_TAB';
 export const SELECT_ACTION_TAB = 'SELECT_ACTION_TAB';
 export const SELECT_LADDER_TAB = 'SELECT_LADDER_TAB';
 export const SELECT_PROFILE_TAB = 'SELECT_PROFILE_TAB';
+export const SELECT_ADMIN_TAB = 'SELECT_ADMIN_TAB';
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 export const DISMISS_ERROR = 'DISMISS_ERROR';
 export const CHANGE_CHARACTER_SORT_KEY = 'CHANGE_CHARACTER_SORT_KEY';
@@ -37,6 +38,12 @@ const selectProfileTabAction = (tab) => ({
     payload: tab
 });
 export { selectProfileTabAction as selectProfileTab };
+
+const selectAdminTabAction = (tab) => ({
+    type: SELECT_ADMIN_TAB,
+    payload: tab
+});
+export { selectAdminTabAction as selectAdminTab };
 
 const selectCharacterAction = (characterId) => ({
     type: SELECT_CHARACTER,

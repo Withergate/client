@@ -251,7 +251,10 @@
         "active": ["Active", "Aktivní"],
         "hidden": ["Hidden", "Skrytá"],
         "startDate": ["Turn start date set to ${date}. The current turn will not be evaluated before this date.", "Datum vyhodnocení kola nastaveno na ${date}. Kolo nebude vyhodnocena dříve, než tento den."],
-        "startNow": ["No date set. Turn will be evaluated normally.", "Žádné datum nenastaveno. Kolo se vyhodnotí hned, jak na něj přijde řada."]
+        "startNow": ["No date set. Turn will be evaluated normally.", "Žádné datum nenastaveno. Kolo se vyhodnotí hned, jak na něj přijde řada."],
+        "game": ["Game", "Hra"],
+        "notifications": ["Notifications", "Notifikace"],
+        "notificationDescription": ["This action will set a global notification for the notifications page.", "Touto akcí můžeš nastavit globální notifikaci, která se zobrazí na stránce novinek."]
     },
     "defaultAction": {
         "actionDescription": ["This action will be taken by all characters that has no other action assigned.", "Tuto akci vykonají všechny postavy, které nemají přiřazenou jinou akci."],

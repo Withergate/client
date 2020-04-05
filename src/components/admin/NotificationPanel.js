@@ -45,60 +45,62 @@ class NotificationPanel extends Component {
     render() {
         return (
             <Card className="mb-4">
-                <Form
-                    className="p-4"
-                    id="form"
-                    onSubmit={e => this.handleSubmit(e)}>
-                    <Row className="mb-3">
-                        <Col md={1}>
-                            <FormLabel>
-                                <Image src={enIcon} width="24px" />
-                            </FormLabel>
-                        </Col>
-                        <Col md={11}>
-                            <InputGroup>
-                                <FormControl
-                                    name="message"
-                                    type="text"
-                                    value={this.state.message.en.text}
-                                    onChange={e => this.handleMessageChange(e, 'en')} />
-                            </InputGroup>
-                        </Col>
-                    </Row>
-                    <Row className="mb-3">
-                        <Col md={1}>
-                            <FormLabel>
-                                <Image src={czIcon} width="24x" />
-                            </FormLabel>
-                        </Col>
-                        <Col md={11}>
-                            <InputGroup>
-                                <FormControl
-                                    name="message"
-                                    type="text"
-                                    value={this.state.message.cs.text}
-                                    onChange={e => this.handleMessageChange(e, 'cs')} />
-                            </InputGroup>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={1}>
-                            <FormLabel>
-                                <Translate id="admin.state" />
-                            </FormLabel>
-                        </Col>
-                        <Col md={11}>
-                            <ToggleButtonGroup
-                                type="radio"
-                                name = "active"
-                                defaultValue={this.state.active}
-                                onChange={e => this.handleActiveChange(e)}>
-                                <ToggleButton variant="outline-warning" value={true}><Translate id="admin.active" /></ToggleButton>
-                                <ToggleButton variant="outline-warning" value={false}><Translate id="admin.hidden" /></ToggleButton>
-                            </ToggleButtonGroup>
-                        </Col>
-                    </Row>
-                </Form>
+                <Card.Body>
+                    <Card.Text><Translate id="admin.notificationDescription" /></Card.Text>
+                    <Form
+                        id="form"
+                        onSubmit={e => this.handleSubmit(e)}>
+                        <Row className="mb-3">
+                            <Col md={1}>
+                                <FormLabel>
+                                    <Image src={enIcon} width="24px" />
+                                </FormLabel>
+                            </Col>
+                            <Col md={11}>
+                                <InputGroup>
+                                    <FormControl
+                                        name="message"
+                                        type="text"
+                                        value={this.state.message.en.text}
+                                        onChange={e => this.handleMessageChange(e, 'en')} />
+                                </InputGroup>
+                            </Col>
+                        </Row>
+                        <Row className="mb-3">
+                            <Col md={1}>
+                                <FormLabel>
+                                    <Image src={czIcon} width="24x" />
+                                </FormLabel>
+                            </Col>
+                            <Col md={11}>
+                                <InputGroup>
+                                    <FormControl
+                                        name="message"
+                                        type="text"
+                                        value={this.state.message.cs.text}
+                                        onChange={e => this.handleMessageChange(e, 'cs')} />
+                                </InputGroup>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={1}>
+                                <FormLabel>
+                                    <Translate id="admin.state" />
+                                </FormLabel>
+                            </Col>
+                            <Col md={11}>
+                                <ToggleButtonGroup
+                                    type="radio"
+                                    name = "active"
+                                    defaultValue={this.state.active}
+                                    onChange={e => this.handleActiveChange(e)}>
+                                    <ToggleButton variant="outline-warning" value={true}><Translate id="admin.active" /></ToggleButton>
+                                    <ToggleButton variant="outline-warning" value={false}><Translate id="admin.hidden" /></ToggleButton>
+                                </ToggleButtonGroup>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Card.Body>
                 <Card.Footer>
                     <Button
                         form="form"
