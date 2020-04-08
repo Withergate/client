@@ -44,29 +44,29 @@ const ClanIntelDialog = (props) => (
                             <GameIcon type={FAME} value={props.intel.fame} size={SMALL} />
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <GameIcon type={CAPS} value={props.intel.caps ? props.intel.caps : '?'} size={SMALL} />
+                            <GameIcon type={CAPS} value={props.intel.caps !== null ? props.intel.caps : '?'} size={SMALL} />
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <GameIcon type={FOOD} value={props.intel.food ? props.intel.food : '?'} size={SMALL} />
+                            <GameIcon type={FOOD} value={props.intel.food !== null ? props.intel.food : '?'} size={SMALL} />
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <GameIcon type={JUNK} value={props.intel.junk ? props.intel.junk : '?'} size={SMALL} />
+                            <GameIcon type={JUNK} value={props.intel.junk !== null ? props.intel.junk : '?'} size={SMALL} />
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
                 <Col md={4} xs={12}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                            <b><Translate id="intel.characters" />:</b> { props.intel.characters ? props.intel.characters : '?' }
+                            <b><Translate id="intel.characters" />:</b> { props.intel.characters !== null ? props.intel.characters : '?' }
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b><Translate id="intel.buildings" />:</b> { props.intel.buildings ? props.intel.buildings : '?' }
+                            <b><Translate id="intel.buildings" />:</b> { props.intel.buildings !== null ? props.intel.buildings : '?' }
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b><Translate id="intel.research" />:</b> { props.intel.research ? props.intel.research : '?' }
+                            <b><Translate id="intel.research" />:</b> { props.intel.research !== null ? props.intel.research : '?' }
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b><Translate id="intel.disaster" />:</b> { props.intel.disasterProgress ? props.intel.disasterProgress : '?' }
+                            <b><Translate id="intel.disaster" />:</b> { props.intel.disasterProgress !== null ? props.intel.disasterProgress : '?' }
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
@@ -74,6 +74,13 @@ const ClanIntelDialog = (props) => (
             <Row className="mt-4">
                 <Col>
                     <h5><Translate id="intel.attack" /></h5>
+                    { props.intel.defender ?
+                        <div className="mb-2">
+                            <b><Translate id="intel.defender" />: </b>{props.intel.defender.name}
+                            <DefenderDetail defender={props.intel.defender} />
+                        </div>
+                        : <b className="text-danger"><Translate id="intel.defenseUnknown" /></b>
+                    }
                     {
                         isAttackEnabled(props.clan, props.intel) ?
                         <div>
@@ -81,13 +88,7 @@ const ClanIntelDialog = (props) => (
                             <p className="text-danger"><Translate id="intel.attackLimit" /></p>
                             <Row className="mb-4">
                                 <Col md={8} xs={12} className="mb-4">
-                                    { props.intel.defender ?
-                                        <div>
-                                            <b><Translate id="intel.defender" />: </b>{props.intel.defender.name}
-                                            <DefenderDetail defender={props.intel.defender} />
-                                        </div>
-                                        : <b className="text-danger"><Translate id="intel.defenseUnknown" /></b>
-                                    }
+                                    
                                 </Col>
                                 <Col md={4} xs={12}>
                                     <ul className="list-inline">
