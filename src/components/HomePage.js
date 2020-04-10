@@ -17,7 +17,7 @@ import DisasterMiniPanel from './disaster/DisasterMiniPanel';
 import EndGameInfoPanel from './clan/EndGameInfoPanel';
 import { isToday } from '../services/timeUtils';
 import Achievement from './profile/Achievement';
-import { SMALL } from '../constants/constants';
+import { SMALL, INGAME } from '../constants/constants';
 import { Translate } from 'react-localize-redux';
 
 const getNewAchievements = (profile) => {
@@ -27,7 +27,7 @@ const getNewAchievements = (profile) => {
 class HomePage extends Component {
     componentDidMount() {
         this.props.fetchNotifications(this.props.turnDisplayed);
-        this.props.fetchGlobalNotification();
+        this.props.fetchGlobalNotification(INGAME);
     }
 
     render() {
@@ -37,8 +37,10 @@ class HomePage extends Component {
                     this.props.failed && <Error message={this.props.error} />
                 }
                 {
-                    this.props.global.fetched && this.props.global.active &&
-                        <GlobalNotification message={this.props.global.message} />
+                    this.props.global.fetched && this.props.global.INGAME.active &&
+                        <div className="m-4">
+                            <GlobalNotification message={this.props.global.INGAME.message} />
+                        </div>
                 }
                 {
                     <DisasterMiniPanel />

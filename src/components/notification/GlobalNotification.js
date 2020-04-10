@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { getTranslatedText } from '../../translations/translationUtils';
 
 const GlobalNotification = (props) => (
-    <Card className="m-4" bg="warning">
+    <Card bg="warning">
         <Card.Body>
             {getTranslatedText(props.message)}
         </Card.Body>
@@ -12,7 +12,7 @@ const GlobalNotification = (props) => (
 );
 
 GlobalNotification.propTypes = {
-    message: PropTypes.string.isRequired
+    message: PropTypes.object.isRequired
 };
 
 export { GlobalNotification };

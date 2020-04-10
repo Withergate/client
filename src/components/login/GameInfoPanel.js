@@ -5,14 +5,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Card, Row, Col, Image, Table } from 'react-bootstrap';
 
-import { fetchGameInfo } from '../../actions/dataActions';
+import { fetchGameInfo, fetchGlobalNotification } from '../../actions/dataActions';
 import spinner from '../../images/spinner.gif';
 import { GameIcon } from '../shared/GameIcon';
-import { FAME, LARGE } from '../../constants/constants';
+import { FAME, LARGE, GLOBAL } from '../../constants/constants';
+import { GlobalNotification } from '../notification/GlobalNotification';
 
 class GameInfoPanel extends React.Component {
     componentDidMount() {
         this.props.fetchGameInfo();
+        this.props.fetchGlobalNotification(GLOBAL);
     }
 
     render() {
@@ -70,13 +72,8 @@ class GameInfoPanel extends React.Component {
                                 </Table>
                             </Col>
                         </Row>
-                        {
-                            window._env_.NEXT_START_DATE &&
-                            <Card className="p-2" bg="warning">
-                                <Card.Body>
-                                    <Translate id="login.nextStart" data={{ date: window._env_.NEXT_START_DATE }}/>
-                                </Card.Body>
-                            </Card>
+                        { this.props.global.fetched && this.props.global.GLOBAL.active &&
+                            <GlobalNotification message={this.props.global.GLOBAL.message} />
                         }
                     </Card.Body>
                 }
@@ -103,13 +100,15 @@ GameInfoPanel.propTypes = {
 const mapStateToProps = state => {
     const info = state.game.info.data;
     const { fetched, failed, fetching, error } = state.game.info;
+    const global = state.notifications.global;
    
-    return { info, fetched, fetching, failed, error };
+    return { info, fetched, fetching, failed, error, global };
 };
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({ 
-        fetchGameInfo
+        fetchGameInfo,
+        fetchGlobalNotification
     }, dispatch)
 );
 

@@ -194,20 +194,20 @@ const fetchGamePropertiesAction = () => ({
 });
 export { fetchGamePropertiesAction as fetchGameProperties };
 
-const fetchGlobalNotificationAction = () => ({
+const fetchGlobalNotificationAction = (type) => ({
     type: FETCH_GLOBAL_NOTIFICATION,
-    payload: fetchGlobalNotification()
+    payload: fetchGlobalNotification(type)
 });
 export { fetchGlobalNotificationAction as fetchGlobalNotification };
 
-const updateGlobalNotificationAction = (message, active) => {
+const updateGlobalNotificationAction = (message, active, type) => {
     return (dispatch) => {
         return dispatch({
             type: UPDATE_GLOBAL_NOTIFICATION,
-            payload: updateGlobalNotification(message, active)
+            payload: updateGlobalNotification(message, active, type)
         }).then(() => dispatch({
             type: FETCH_GLOBAL_NOTIFICATION,
-            payload: fetchGlobalNotification()
+            payload: fetchGlobalNotification(type)
         }));
     }
 };

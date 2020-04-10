@@ -55,14 +55,14 @@ export const fetchTavernOffers = () => {
     return apiGet(API_URL.concat('clan/tavernOffers'));
 };
 
-export const fetchGlobalNotification = () => {
-    return apiGet(API_URL.concat('notifications/global'));
+export const fetchGlobalNotification = (type) => {
+    return apiGet(API_URL.concat('notifications/global?type=').concat(type));
 };
 
-export const updateGlobalNotification = (message, active) => {
+export const updateGlobalNotification = (message, active, type) => {
     return apiPut(
         API_URL.concat('notifications/global'), 
-        JSON.stringify({message: message, active: active}));
+        JSON.stringify({message: message, active: active, type: type}));
 };
 
 export const fetchDisaster = () => {

@@ -13,6 +13,7 @@ import spinner from '../images/spinner.gif';
 import { Translate } from 'react-localize-redux';
 import NotificationPanel from './admin/NotificationPanel';
 import TurnPanel from './admin/TurnPanel';
+import { INGAME, GLOBAL } from '../constants/constants';
 
 class AdminPage extends Component {
     constructor(...args) {
@@ -25,7 +26,8 @@ class AdminPage extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchGlobalNotification();
+        this.props.fetchGlobalNotification(INGAME);
+        this.props.fetchGlobalNotification(GLOBAL);
     }
 
     render() {
@@ -99,7 +101,8 @@ class AdminPage extends Component {
                                                 onConfirm={() => this.props.restartGame()} />
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="notifications">
-                                            <NotificationPanel />
+                                            <NotificationPanel type={INGAME} />
+                                            <NotificationPanel type={GLOBAL} />
                                         </Tab.Pane>
                                     </Tab.Content>
                                 </Col>

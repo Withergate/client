@@ -14,8 +14,8 @@ class NotificationPanel extends Component {
         super(...args);
     
         this.state = { 
-            message: this.props.message,
-            active: this.props.active
+            message: this.props.notification[this.props.type].message,
+            active: this.props.notification[this.props.type].active
         };
     }
 
@@ -39,16 +39,16 @@ class NotificationPanel extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.updateGlobalNotification(this.state.message, this.state.active)
+        this.props.updateGlobalNotification(this.state.message, this.state.active, this.props.type)
     }
 
     render() {
         return (
             <Card className="mb-4">
                 <Card.Body>
-                    <Card.Text><Translate id="admin.notificationDescription" /></Card.Text>
+                    <Card.Text><Translate id={"admin.notificationDescription." + this.props.type} /></Card.Text>
                     <Form
-                        id="form"
+                        id={"form" + this.props.type}
                         onSubmit={e => this.handleSubmit(e)}>
                         <Row className="mb-3">
                             <Col md={1}>
@@ -103,7 +103,7 @@ class NotificationPanel extends Component {
                 </Card.Body>
                 <Card.Footer>
                     <Button
-                        form="form"
+                        form={"form" + this.props.type}
                         variant="warning"
                         className="button-large"
                         type="submit">
@@ -116,14 +116,14 @@ class NotificationPanel extends Component {
 }
 
 NotificationPanel.propTypes = {
-    message: PropTypes.object.isRequired,
-    active: PropTypes.bool.isRequired
+    notification: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => {
-    const { message, active } = state.notifications.global;
+    const notification = state.notifications.global;
 
-    return { message, active };
+    return {notification };
 };
 
 const mapDispatchToProps = dispatch => (

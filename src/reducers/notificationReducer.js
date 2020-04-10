@@ -14,20 +14,36 @@ import {
 const initialState = {
     notifications: [],
     global: {
-        active: false,
-        message: {
-            en: {
-                lang: 'en',
-                text: ''
-            },
-            cs: {
-                lang: 'cs',
-                text: ''
+        INGAME: {
+            active: false,
+            message: {
+                en: {
+                    lang: 'en',
+                    text: ''
+                },
+                cs: {
+                    lang: 'cs',
+                    text: ''
+                }
+            }
+        },
+        GLOBAL: {
+            active: false,
+            message: {
+                en: {
+                    lang: 'en',
+                    text: ''
+                },
+                cs: {
+                    lang: 'cs',
+                    text: ''
+                }
             }
         },
         fetching: false,
         fetched: false,
         failed: false,
+        error: ''
     },
     fetching: false,
     fetched: false,
@@ -85,8 +101,7 @@ export const NotificationReducer = (state = initialState, action) => {
                 ...state,
                 global: {
                     ...state.global,
-                    message: action.payload.message,
-                    active: action.payload.active,
+                    [action.payload.id]: action.payload,
                     fetching: false,
                     fetched: true,
                     failed: false,

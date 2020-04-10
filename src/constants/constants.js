@@ -79,3 +79,7 @@ export const DARK = 'dark';
 // Premium
 export const SILVER = 'SILVER';
 export const GOLD = 'GOLD';
+
+// Notification types
+export const GLOBAL = 'GLOBAL';
+export const INGAME = 'INGAME';
