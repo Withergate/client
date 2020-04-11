@@ -24,20 +24,20 @@ const createOffer = (item) => {
     return offer;
 }
 
-const renderList = (items, publishOffer, filter, changeFilter) => (
+const renderList = (items, publishOffer, filter, changeFilter, profile) => (
     <div>
         <ItemFilter filter={filter} onChange={changeFilter} />
         {   (filter === ALL) ?
-                items.map(item => renderListItem(createOffer(item), publishOffer))
+                items.map(item => renderListItem(createOffer(item), publishOffer, profile))
             : items.filter(item => item.details.itemType === filter)
-                .map(item => renderListItem(createOffer(item), publishOffer))
+                .map(item => renderListItem(createOffer(item), publishOffer, profile))
         }
     </div>
 );
 
-const renderListItem = (offer, publishOffer) => (
+const renderListItem = (offer, publishOffer, profile) => (
     <div key={offer.details.itemType + offer.itemId}>
-        <ClanOfferListItem offer={offer} publishOffer={publishOffer} />
+        <ClanOfferListItem offer={offer} publishOffer={publishOffer} profile={profile} />
     </div>
 );
 
@@ -47,7 +47,7 @@ const ClanOfferList = (props) => (
         {
             props.items.length === 0 ?
                 <Translate id="labels.noItems" />
-            : renderList(props.items, props.publishOffer, props.filter, props.changeClanOfferFilter)
+            : renderList(props.items, props.publishOffer, props.filter, props.changeClanOfferFilter, props.profile)
         }
     </div>
 );
@@ -60,8 +60,9 @@ ClanOfferList.propTypes = {
 const mapStateToProps = state => {
     const { items } = state.clan.clan;
     const filter = state.ui.filter.clanOffers;
+    const profile = state.profile.profile.data;
 
-    return { items, filter };
+    return { items, filter, profile };
 };
 
 const mapDispatchToProps = dispatch => (

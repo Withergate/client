@@ -27,14 +27,13 @@ const MarketOfferListItem = ({offer, onBuy, onCancel, clanId}) => (
 
                     <p className="mt-2"><b><Translate id="labels.seller" />: </b>{offer.seller ? offer.seller.name : "NPC"}</p>
 
-                    <ul className="list-inline">
-                        <li className="list-inline-item">
-                            <b><Translate id="basic.price" />: </b>
-                        </li>
-                        <li className="list-inline-item">
-                            <GameIcon type={CAPS} size={LARGE} value={offer.price} />
-                        </li>
-                    </ul>  
+                    <div className="inline">
+                        <b><Translate id="basic.price" />: </b>
+                        <GameIcon type={CAPS} size={LARGE} value={offer.price} />
+                    </div>
+                    { offer.intelligent &&
+                        <p className="text-muted"><Translate id="labels.offerSmart" /></p>
+                    }
                 </Col>
             </Row>
         </Card.Body>

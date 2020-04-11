@@ -55,9 +55,9 @@ export const restWithCharacter = (characterId) => {
     JSON.stringify({characterId: characterId}));
 };
 
-export const publishOffer = (itemId, itemType, price) => {
+export const publishOffer = (itemId, itemType, price, intelligent) => {
     return apiPost(API_URL.concat('trade/market'), 
-    JSON.stringify({itemId: itemId, type: itemType, price: price}));
+    JSON.stringify({itemId: itemId, type: itemType, price: price, intelligent: intelligent}));
 };
 
 export const deleteOffer = (offerId) => {

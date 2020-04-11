@@ -186,11 +186,11 @@ const restWithCharacterAction = (characterId) => {
 };
 export { restWithCharacterAction as restWithCharacter };
 
-const publishOfferAction = (itemId, itemType, price) => {
+const publishOfferAction = (itemId, itemType, price, intelligent) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: publishOffer(itemId, itemType, price)
+            payload: publishOffer(itemId, itemType, price, intelligent)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

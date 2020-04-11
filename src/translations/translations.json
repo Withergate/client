@@ -183,7 +183,10 @@
         "craftingDescription": ["Transform your junk into useful items. If you are skillful enough, you can create something truly remarkable with the right tools.",
         "Přeměň svůj šrot v něco užitečného. Pokud jsi dostatečně zručný, dokážeš s těmi správnými nástroji vytvořit něco opravdu zajímavého."],
         "craftingInfo": ["Characters can craft items by paying junk. The cost of the crafted item is paid in advance. You will receive the crafted item after the turn is evaluated. The cost is affected by the character's craftsmanship his/her skills and quipped gear. The item selection depends on the levels of your crafting buildings (third level of each building is the maximum).",
-        "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum)."]
+        "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum)."],
+        "offerSmartTooltip": ["Always sell for market price.", "Prodat za tržní cenu."],
+        "offerSmart": ["This is a smart offer. It will always be sold to NPC for market price unless someone else buys it.",
+        "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržné cenu, pokud ji nekoupí někdo jiný"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",
@@ -303,7 +306,7 @@
             "Posílej členy svého klanu na průzkum okolí, aby ve zničeném světě nalezli dostatek jídla, informací nebo dalších drahocenných surovin. Pozor na nebezpečné události!"],
             "image1": ["https://storage.googleapis.com/withergate-images/preview/preview1-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview1-cs.jpg"],
             "text2": ["Utilize the unique skills of your characters so they can efficiently construct new buildings, craft useful items, do specific research, or avert disasters and complete various quests. ",
-            "Využij jedinečných schopností každé postavy tak, aby efektivně stavěly nové budovy, vyráběly užitečné předměty, věnovaly se výzkumu, nebo odvracely pohromy a plnili různé úkoly!"],
+            "Využij jedinečných schopností každé postavy tak, aby efektivně stavěly nové budovy, vyráběly užitečné předměty, věnovaly se výzkumu, nebo odvracely pohromy a plnily různé úkoly!"],
             "image2": ["https://storage.googleapis.com/withergate-images/preview/preview2-en.jpg", "https://storage.googleapis.com/withergate-images/preview/preview2-cs.jpg"],
             "text3": ["Acquire information about your rivals. When they will least expect it, strike!",
             "Získej informace o svých soupeřích. A až to budou nejméně čekat, zaútoč na ně!"],
@@ -546,6 +549,7 @@
         "silver3": ["Option to rename clan defender", "Možnost pojmenování klanového obránce"],
         "gold1": ["Option to cancel actions", "Možnost rušení akcí"],
         "gold2": ["Option to rename characters", "Možnost přejmenování postav"],
+        "gold3": ["Smart trade offers on marketplace", "Inteligentní obchodní pokyny na tržišti"],
         "goldSilver": ["Everything from Silver tier", "Vše z výhod Silver účtu"]
     },
     "endgame": {

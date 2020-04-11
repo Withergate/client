@@ -6,11 +6,12 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Button, Card, Col, Image, Form, InputGroup, FormControl } from 'react-bootstrap';
 import TooltipWrapper from '../shared/TooltipWrapper';
 
+import { checkPremium } from '../profile/premiumUtils';
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE } from '../../constants/constants';
-import capsIcon from '../../images/caps.png';
+import { CAPS, LARGE, GOLD, SMALL } from '../../constants/constants';
 import { getRarityTextColor } from '../item/itemUtils';
 import ItemDetails from '../item/ItemDetails';
+import { InfoIcon } from '../shared/InfoIcon';
 
 class ClanOfferListItem extends React.Component {
     constructor(props) {
@@ -18,16 +19,24 @@ class ClanOfferListItem extends React.Component {
 
         this.state = { 
             validated: false,
-            caps: this.props.offer.details.price
+            caps: this.props.offer.details.price,
+            intelligent: false
         };
 
         this.handleCapsChange.bind(this);
+        this.handleIntelligentChange.bind(this);
         this.handleSubmit.bind(this);
     }
 
     handleCapsChange(event) {
         this.setState({ 
            caps: parseInt(event.target.value)
+        });
+    }
+    handleIntelligentChange(event) {
+        console.log(event.target.checked)
+        this.setState({ 
+           intelligent:event.target.checked
         });
     }
 
@@ -38,7 +47,7 @@ class ClanOfferListItem extends React.Component {
           event.stopPropagation();
           this.setState({ validated: true });
         } else {
-            this.props.publishOffer(this.props.offer.itemId, this.props.offer.details.itemType, this.state.caps)
+            this.props.publishOffer(this.props.offer.itemId, this.props.offer.details.itemType, this.state.caps, this.state.intelligent)
         }
       }
 
@@ -75,7 +84,7 @@ class ClanOfferListItem extends React.Component {
                         <Col md={8} className="mb-2">
                             <InputGroup>
                                 <InputGroup.Prepend>
-                                    <InputGroup.Text id="caps-trade"><Image className="mr-1" height="20" src={capsIcon} /></InputGroup.Text>
+                                    <InputGroup.Text id="caps-trade"><GameIcon type={CAPS} size={SMALL} /></InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <FormControl
                                     name="caps"
@@ -86,6 +95,21 @@ class ClanOfferListItem extends React.Component {
                                     aria-describedby="caps-trade"
                                     onChange={e => this.handleCapsChange(e)}
                                 />
+                                { checkPremium(this.props.profile.premiumType, GOLD) && 
+                                <>
+                                    <InputGroup.Text className="ml-2">
+                                        <GameIcon type={GOLD} size={SMALL} />
+                                        <InfoIcon textKey="labels.offerSmartTooltip" />
+                                    </InputGroup.Text>
+                                    <FormControl
+                                        name="intelligent"
+                                        type="checkbox"
+                                        checked={this.state.intelligent}
+                                        aria-describedby="intelligent"
+                                        onChange={e => this.handleIntelligentChange(e)}
+                                    />
+                                </>
+                                }
                                 <Form.Control.Feedback type="invalid">
                                     <Translate id="labels.invalidPrice" />
                                 </Form.Control.Feedback>
@@ -110,7 +134,8 @@ class ClanOfferListItem extends React.Component {
 
 ClanOfferListItem.propTypes = {
     offer: PropTypes.object.isRequired,
-    publishOffer: PropTypes.func.isRequired
+    publishOffer: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired
 };
 
 export default ClanOfferListItem;
