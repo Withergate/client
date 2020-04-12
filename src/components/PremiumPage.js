@@ -34,7 +34,7 @@ class PremiumPage extends Component {
                 </Row>
                 <div className="centered">
                     <a href="https://www.patreon.com/withergate" target="_blank" rel="noopener noreferrer">
-                        <h1><Badge variant="warning">Patreon</Badge></h1>
+                        <h1><Badge variant="success"><Translate id="premium.purchasePatreon" /></Badge></h1>
                     </a>
                 </div>
             </div>

@@ -550,7 +550,8 @@
         "gold1": ["Option to cancel actions", "Možnost rušení akcí"],
         "gold2": ["Option to rename characters", "Možnost přejmenování postav"],
         "gold3": ["Smart trade offers on marketplace", "Inteligentní obchodní pokyny na tržišti"],
-        "goldSilver": ["Everything from Silver tier", "Vše z výhod Silver účtu"]
+        "goldSilver": ["Everything from Silver tier", "Vše z výhod Silver účtu"],
+        "purchasePatreon": ["Support on Patreon", "Podpořit na Patreonu"]
     },
     "endgame": {
         "header": ["Game over!", "Konec hry!"],
