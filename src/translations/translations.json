@@ -170,7 +170,7 @@
         "new": ["New", "Nové"],
         "loan": ["Loan", "Půjčka"],
         "loanText": ["The city council of Withergate sometimes offers little loans. We cannot expect much, since most of the clans from Wasteland have very bad reputation, but maybe they will lend us at least a small amount. They will surely laugh at our poverty but if we desperately need cash, it is worth a try.", 
-        "Ve Withergate se dá u městské rady vyžebrat drobná půjčka. Vzhledem k tomu, jak špatnou mají místní klany pověst se nedá čekat, že bychom dostali nějaký velký obnos, navíc nás pravděpodobně ještě pomluví, že jsme trhani z Pustiny. Ale pokud potřebujeme pár zátek, tak to za zkoušku asi stojí."],
+        "Ve Withergate se dá u městské rady vyžebrat drobná půjčka. Vzhledem k tomu, jak špatnou mají místní klany pověst, se nedá čekat, že bychom dostali nějaký velký obnos. Navíc nás pravděpodobně ještě pomluví, že jsme trhani z Pustiny. Ale pokud potřebujeme pár zátek, tak to za zkoušku asi stojí."],
         "loanDescription": ["By taking a loan, you will immediately receive some caps but also lose fame. The fame loss is just temporary and you will get it back once you pay the loan back. Note, that the payback cost is higher than the original loan.",
         "Pokud si vezmeš půjčku, tak okamžitě získáš zátky navíc. Také ovšem ztratíš slávu. Tato ztráta je ale pouze dočasná - získáš ji zpět, jakmile půjčku splatíš. Počítej s tím, že splátka půjčky je dražší než hodnota půjčeného obnosu."],
         "loanTake": ["Take loan", "Půjčit si"],
@@ -179,11 +179,11 @@
         "loanPayback": ["Payback", "Splátka"],
         "craftItem": ["Craft", "Vyrobit"],
         "craftItemTooltip": ["Selected character will pay junk and craft the selected item.", "Zvolená postava zaplatí šrot a vyrobí daný předmět."],
-        "noCrafting": ["There are no items of the selected type available to craft.", "Žádné předměty tohoto typu nejsou k dispozivi pro výrobu."],
+        "noCrafting": ["There are no items of the selected type available to craft.", "Žádné předměty tohoto typu nejsou k dispozici pro výrobu."],
         "craftingDescription": ["Transform your junk into useful items. If you are skillful enough, you can create something truly remarkable with the right tools.",
         "Přeměň svůj šrot v něco užitečného. Pokud jsi dostatečně zručný, dokážeš s těmi správnými nástroji vytvořit něco opravdu zajímavého."],
-        "craftingInfo": ["Characters can craft items by paying junk. The cost of the crafted item is paid in advance. You will receive the crafted item after the turn is evaluated. The cost is affected by the character's craftsmanship his/her skills and quipped gear. The item selection depends on the levels of your crafting buildings (third level of each building is the maximum).",
-        "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum)."],
+        "craftingInfo": ["Characters can craft items by paying junk. The cost of the crafted item is paid in advance. You will receive the crafted item after the turn is evaluated. The cost is affected by the character's craftsmanship his/her skills and quipped gear. The item selection depends on the levels of your crafting buildings (third level of each building is the maximum). You need at lest one level of a crafting building to unlock items to craft.",
+        "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum). Potřebuješ alespoň jednu úroveň výrobních budov, abys měl k dispozici nějaké předměty."],
         "offerSmartTooltip": ["Always sell for market price.", "Prodat za tržní cenu."],
         "offerSmart": ["This is a smart offer. It will always be sold to NPC for market price unless someone else buys it.",
         "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržné cenu, pokud ji nekoupí někdo jiný"]
@@ -340,7 +340,7 @@
         "type": {
             "BALANCED": ["Balanced", "Všestranné"],
             "descriptionBALANCED": ["Balanced clans are not focused on any particular play style. Character attributes will be distributed in a way that supports most game strategies. This option is recommended for beginners.",
-            "Všestranné klany nejsou zameřené na žádný konrétní herní styl. Postavy budou mít vlastnosti rozložené tak, aby bylo možné využívat co nejširší palety herních akcí. Tatto volba je doporučená pro začínající hráče."],
+            "Všestranné klany nejsou zameřené na žádný konrétní herní styl. Postavy budou mít vlastnosti rozložené tak, aby bylo možné využívat co nejširší palety herních akcí. Tato volba je doporučená pro začínající hráče."],
             "ECONOMY": ["Economic", "Obchodní"],
             "descriptionECONOMY": ["Economic clans are focused on building, crafting and gathering resources. Characters will have slightly higher levels of scavenge and craftsmanship but lower levels of intellect and combat.",
             "Obchodní klany jsou zaměřené na stavbu, výrobu a sběr surovin. Postavy budou mít lehce vyšší hodnoty hledání a zručnosti, ale nižší intelekt a bojeschopnost."],
@@ -348,11 +348,11 @@
             "descriptionSMART": ["Smart clans are focused on research and gathering information. Characters will have slightly higher levels of intellect but lower craftsmanship and scavenge.",
             "Vychytralé klany se specializují na výzkum a získávání informací. Postavy budou mít lehce vyšší hodnoty intelektu, ale nižší hledání a zručnost."],
             "COMBAT": ["Combat", "Bojové"],
-            "descriptionCOMBAT": ["Combat clans are focused on fighting. Characters will have slightly higher levels of combat but lower craftsmanship and intellect.",
-            "Bojové klany se specializují na souboje. Postavy budou mít lehce vyšší hodnoty bojeschopnosti, ale nižší intelekt a zručnost."],
+            "descriptionCOMBAT": ["Combat clans are focused on fighting. Characters will have slightly higher levels of combat but lower craftsmanship and intellect. This option is not recommended for new players.",
+            "Bojové klany se specializují na souboje. Postavy budou mít lehce vyšší hodnoty bojeschopnosti, ale nižší intelekt a zručnost. Tato volba není vhodná pro začínající hráče."],
             "RANDOM": ["Random", "Náhodné"],
             "descriptionRANDOM": ["Random clans will have random distribution of character attributes. You never know what you get. This is the only option that can potentially generate characters with maximum level of any of the attributes.",
-            "Náhodné klany budou mít náhodné rozložení vlastností postav. Nikdy nevíš, co dostaneš. Je to také jediná volba, u které je šance na získání postavy a maximální hodnout některé z vlastností."]
+            "Náhodné klany budou mít náhodné rozložení vlastností postav. Nikdy nevíš, co dostaneš. Je to také jediná volba, u které je šance na získání postavy a maximální hodnotou některé z vlastností."]
         }
     },
     "profileSetup": {
@@ -468,7 +468,7 @@
         "noSkillpoints": ["No skillpoints", "Žádné dovednostní body"],
         "train": ["Train", "Trénuj"],
         "trainNow": ["Now", "Hned"],
-        "forget": ["Forget", "Zapomeň"],
+        "forget": ["Change", "Změň"],
         "trainTooltip": ["Character will gain a new trait and rest. All the standard benefits of resting will be applied.", "Postava se naučí novou schopnost a půjde odpočívat. Veškeré další bonusy spojené s odpočinkem se započítají."]
     },
     "factions": {
