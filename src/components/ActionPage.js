@@ -29,6 +29,7 @@ import TraitPanel from './clan/TraitPanel';
 import FactionsSelectorPanel from './faction/FactionSelectorPanel';
 import FactionPanel from './faction/FactionPanel';
 import CraftingList from './item/CraftingList';
+import HelpPanel from './notification/HelpPanel';
 
 class ActionPage extends Component {
     componentDidMount() {
@@ -94,6 +95,7 @@ class ActionPage extends Component {
                                     </Nav>
                                 </Col>
                                 <Col md={10} sm={8}>
+                                    <HelpPanel />
                                     <CharacterSelector />
                                     <Tab.Content>
                                         <Tab.Pane eventKey="locations">

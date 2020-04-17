@@ -14,6 +14,7 @@ export const CHANGE_CLAN_OFFER_FILTER = 'CHANGE_CLAN_OFFER_FILTER';
 export const CHANGE_MARKET_OFFER_FILTER = 'CHANGE_MARKET_OFFER_FILTER';
 export const DISPLAY_CLAN_INTEL = 'DISPLAY_CLAN_INTEL';
 export const DISPLAY_PROFILE_INTEL = 'DISPLAY_PROFILE_INTEL';
+export const DISPLAY_HELP = 'DISPLAY_HELP;'
 
 const selectClanTabAction = (tab) => ({
     type: SELECT_CLAN_TAB,
@@ -109,3 +110,9 @@ const displayProfileIntelAction = (displayed) => ({
     payload: displayed
 });
 export { displayProfileIntelAction as displayProfileIntel };
+
+const displayHelpAction = (displayed) => ({
+    type: DISPLAY_HELP,
+    payload: displayed
+});
+export { displayHelpAction as displayHelp };

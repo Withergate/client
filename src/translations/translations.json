@@ -572,6 +572,9 @@
         "incomingAttacks": ["Attacks from other clans (total / defended)", "Útoky od ostatních klanů (celkem / ubráněno)"],
         "outcomingAttacks": ["Attacks on other clans (total / successful)", "Útoky na ostatní klany (celkem / úspěšné)"],
         "encounters": ["Random encounters (total / successful)", "Náhodné události (celkem / úspěšné)"]
-
+    },
+    "help": {
+        "header": ["Tips & Tricks", "Tipy a Triky"],
+        "settings": ["You can disable help in your profile settings.", "Nápovědu můžeš vypnout v nastavení profilu."]
     }
   }

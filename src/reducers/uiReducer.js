@@ -12,7 +12,8 @@ import {
     DISPLAY_PROFILE_INTEL,
     SELECT_LADDER_TAB,
     SELECT_PROFILE_TAB,
-    SELECT_ADMIN_TAB
+    SELECT_ADMIN_TAB,
+    DISPLAY_HELP
 } from '../actions/uiActions';
 import { ALL } from '../constants/constants';
 
@@ -24,6 +25,7 @@ const initialState = {
     adminTab: 'game',
     displayClanIntel: false,
     displayProfileIntel: false,
+    helpDisplayed: true,
     sort: {
         characters: {
             key: 'name',
@@ -145,6 +147,11 @@ export const UiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 displayProfileIntel: action.payload
+            };
+        case DISPLAY_HELP:
+            return {
+                ...state,
+                helpDisplayed: action.payload
             };
         default:
             return state;
