@@ -450,6 +450,7 @@
             "SCOUT": ["Scouting for information", "Hledá informace"]
         },
         "BUILDING": ["Constructing buildings", "Pracuje na stavbě"],
+        "CRAFTING": ["Crafting items", "Vyrábí předměty"],
         "TRADE": ["Trading at marketplace", "Nakupuje na tržišti"],
         "ARENA": ["Fighting in the arena", "Bojuje v aréně"],
         "DISASTER": ["Preventing disaster", "Odvrací pohromu"],
