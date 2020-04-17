@@ -10,6 +10,7 @@ import spinner from '../../images/spinner.gif';
 import { GameIcon } from '../shared/GameIcon';
 import { FAME, LARGE, GLOBAL } from '../../constants/constants';
 import { GlobalNotification } from '../notification/GlobalNotification';
+import TurnTimer from '../shared/TurnTimer';
 
 class GameInfoPanel extends React.Component {
     componentDidMount() {
@@ -75,6 +76,7 @@ class GameInfoPanel extends React.Component {
                         { this.props.global.fetched && this.props.global.GLOBAL.active &&
                             <GlobalNotification message={this.props.global.GLOBAL.message} />
                         }
+                        <TurnTimer />
                     </Card.Body>
                 }
                 {
