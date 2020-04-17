@@ -16,6 +16,7 @@ import ThemePicker from './profile/ThemePicker';
 import ProfileResultsLadder from './ladder/ProfileResultsLadder';
 import AchievementsPanel from './profile/AchievementsPanel';
 import AvailableAchievementsPanel from './profile/AvailableAchievementsPanel';
+import ProfileSettings from './profile/ProfileSettingsPanel';
 
 class ProfilePage extends Component {
     render() {
@@ -50,6 +51,7 @@ class ProfilePage extends Component {
                                             { checkPremium(this.props.profile.premiumType, SILVER) &&
                                                 <ThemePicker />
                                             }
+                                            <ProfileSettings />
                                         </Col>
                                         <Col md={6} xs={12}>
                                             <NewsletterPanel />

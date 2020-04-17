@@ -32,7 +32,11 @@ export const fetchHistoricalResults = (number) => {
 };
 
 export const createProfile = (name) => {
-    return apiPost(API_URL.concat('profile'), JSON.stringify({name: name}));
+    return apiPost(API_URL.concat('profile'), JSON.stringify({name: name, help: true}));
+};
+
+export const changeProfileSettings = (help) => {
+    return apiPut(API_URL.concat('profile'), JSON.stringify({help: help}));
 };
 
 export const changeTheme = (theme) => {
