@@ -5,9 +5,10 @@ import { Translate } from "react-localize-redux";
 
 import AttributeBar from '../clan/AttributeBar';
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH } from '../../constants/constants';
+import { CAPS, LARGE, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, FAME } from '../../constants/constants';
 import ActionButton from '../shared/ActionButton';
 import CharacterHeader from '../clan/CharacterHeader';
+import { InfoIcon } from '../shared/InfoIcon';
 
 const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
     <Card className="mb-4">
@@ -33,6 +34,13 @@ const TavernOfferListItem = ({offer, visitTavern, selectedCharacter}) => (
                 </Col>
                 <Col md={2} className="mb-3">
                     <GameIcon type={CAPS} size={LARGE} value={offer.price} noPadding />
+                    {
+                        offer.fame > 0 &&
+                        <div className="inline mt-2">
+                            <GameIcon type={FAME} size={LARGE} value={offer.fame} noPadding />
+                            <InfoIcon textKey="labels.specialTavernOffer" />
+                        </div>
+                    }
                 </Col>
                 <Col md={2}>
                     { selectedCharacter !== undefined ?
