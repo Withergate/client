@@ -38,7 +38,7 @@ class HomePage extends Component {
                 }
                 {
                     this.props.global.fetched && this.props.global.INGAME.active &&
-                        <div className="m-4">
+                        <div className="m-3">
                             <GlobalNotification message={this.props.global.INGAME.message} />
                         </div>
                 }
@@ -61,7 +61,7 @@ class HomePage extends Component {
                                 <span className="ml-4 inline">
                                     <b><Translate id="profile.newAchievements" />: </b>
                                     { getNewAchievements(this.props.profile).map(a => 
-                                        <span className="ml-3" >
+                                        <span className="ml-3" key={a.id}>
                                             <Achievement achievement={a} size={SMALL} />
                                         </span>)
                                     }

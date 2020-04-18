@@ -31,7 +31,7 @@ class HelpPanel extends React.Component {
     }
 }
 HelpPanel.propTypes = {
-    helpDisplayed: PropTypes.object.isRequired,
+    helpDisplayed: PropTypes.bool.isRequired,
     profile: PropTypes.object.isRequired,
     displayHelp: PropTypes.func.isRequired
 };
