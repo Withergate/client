@@ -578,6 +578,14 @@
     },
     "help": {
         "header": ["Tips & Tricks", "Tipy a Triky"],
-        "settings": ["You can disable help in your profile settings.", "Nápovědu můžeš vypnout v nastavení profilu."]
+        "settings": ["You can disable help in your profile settings.", "Nápovědu můžeš vypnout v nastavení profilu."],
+        "tips": {
+            "noBuildings": ["You have no buildings at the moment. Good first choice might be a GMO Farm to help you feed your clan.", 
+            "Zatím nemáš žádnou budovu. Jeden z vhodných kandidátů je např. GMO Farma, která ti pomůže uživit klan."],
+            "lowFood": ["You have low amount of food. Send your characters to Neighborhood or Wasteland or build a GMO Farm. You can also research some technology to help you with additional food generation. If your characters have not enough food at the end of the turn, they will starve and lose health.",
+            "Máš málo jídla na skladě. Pošli pár postav hledat suroviny do Sousedství nebo Pustiny. Také doporučujeme postavit GMO Farmu nebo vyzkoumat nějakou technologii, která podporuje produkci jídla. Pokud bude na konci tvé postavy hladovět, ztratí životy a ty přijdeš o slávu."],
+            "injuries": ["You have several injured characters. You can heal them by resting but keep in mind that resting will cost you an action. Sometimes, it is fine to use your injured characters for certain actions that does not pose any risk for their health. Resting can bo boosted by building Sick Bay and Training Grounds or by researching Cultivation so you don't waste your action completely.",
+            "Několik tvých postav je zraněno. Odpočinkem je můžeš vyléčit. Někdy je ale lepší počkat a používat zraněné postavy na akce, které pro ně nepředstavují další zdravotní riziko. Odpočinek může být podpořen stavbou Marodky a Cvičiště, případně vynálezem Pěstitelství, takže při něm nepřijdeš zcela o akci."]
+        }
     }
   }
