@@ -388,7 +388,8 @@
         "iconsText": ["Credits to all icon authors from the following list: ", "Díky všem autorům ikonek z následující stránky: "],
         "patronText": ["Special thanks to all Patreon supporters: ", "Speciální díky všem, kteří nás podporují na Patreonu: "],
         "premiumLink": ["You can support the game buy purchasing a ${link} account.", "Hru můžete podpořit zakoupením ${link} účtu."],
-        "premium": ["premium", "premium"]
+        "premium": ["premium", "premium"],
+        "contactHeader": ["Contact", "Kontakt"]
     },
     "arena": {
         "description": ["Glory for your best warriors and caps for your clan. Show your strenght in the arena and fight against other gladiators. Be warned, though, that this is no place for weaklings and safety is not guaranteed.",

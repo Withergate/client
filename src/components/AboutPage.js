@@ -99,6 +99,9 @@ class AboutPage extends Component {
                 <p><Translate id="about.iconsText" /><a href="https://game-icons.net/about.html#authors" target="_blank" rel="noopener noreferrer">Game Icons</a></p>
 
                 <p><Translate id="about.patronText" />{ window._env_.PATRONS }</p>
+
+                <h3><Translate id="about.contactHeader" /></h3>
+                <p>E-mail: <a href="mailto:info@withergate.com" target="_top">info@withergate.com</a></p>
             </div>
         );
     }
