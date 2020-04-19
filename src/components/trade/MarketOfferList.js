@@ -10,7 +10,7 @@ import { Paginator } from '../shared/Paginator';
 
 import { publishOffer, deleteOffer, tradeItem } from '../../actions/actionActions';
 import { changeMarketOfferFilter } from '../../actions/uiActions';
-import { fetchMarketOffers } from '../../actions/dataActions';
+import { fetchMarketOffers, fetchPendingMarketOffers } from '../../actions/dataActions';
 import { dismissError } from '../../actions/uiActions';
 
 import { Error } from '../shared/Error';
@@ -18,11 +18,13 @@ import spinner from '../../images/spinner.gif';
 
 import { ALL } from '../../constants/constants';
 import { InfoIcon } from '../shared/InfoIcon';
+import PendingMarketOfferListItem from './PendingMarketOfferListItem';
 
 class MarketOfferList extends React.Component {
     componentDidMount() {
         if (!this.props.fetched) {
             this.props.fetchMarketOffers(this.props.offers.number);
+            this.props.fetchPendingMarketOffers(0, 1000);
         }
     }
 
@@ -50,6 +52,13 @@ class MarketOfferList extends React.Component {
                                 : <Translate id="labels.noOffers" />
                             }
                         </div>
+                        <div className="mt-4">
+                            <h5 className="mb-4"><Translate id="labels.pendingOffers" /></h5>
+                            { this.props.pendingOffers.content.length ? 
+                                renderPendingList(this.props.pendingOffers.content)
+                                : <Translate id="labels.noOffers" />
+                            }
+                        </div>
                     </div>
                 }
                 {
@@ -69,6 +78,13 @@ const renderList = (offers, onBuy, onCancel, filter, clanId) => (
             .map(offer => renderListItem(offer, onBuy, onCancel, clanId))
 );
 
+const renderPendingList = (offers) => (
+    offers.map(offer => 
+        <div key={offer.id}>
+            <PendingMarketOfferListItem offer={offer} />
+        </div>)
+);
+
 const renderListItem = (offer, onBuy, onCancel, clanId) => (
     <div key={offer.id}>
         <MarketOfferListItem offer={offer} onBuy={onBuy} onCancel={onCancel} clanId={clanId} />
@@ -84,11 +100,16 @@ MarketOfferList.propTypes = {
 const mapStateToProps = state => {
     const clanId = state.clan.clan.id;
     const offers = state.data.offers.data;
+    const pendingOffers = state.data.pendingOffers.data;
+    console.log(pendingOffers)
 
-    const { fetched, fetching, failed, error } = state.data.offers;
+    const fetched = state.data.offers.fetched && state.data.pendingOffers.fetched;
+    const fetching = state.data.offers.fetching || state.data.pendingOffers.fetching;
+    const failed = state.data.offers.failed || state.data.pendingOffers.failed;
+    const error = state.data.offers.error || state.data.pendingOffers.error;
     const filter = state.ui.filter.marketOffers;
 
-    return { fetching, fetched, failed, error, offers, clanId, filter };
+    return { fetching, fetched, failed, error, offers, pendingOffers, clanId, filter };
 };
 
 const mapDispatchToProps = dispatch => (
@@ -98,6 +119,7 @@ const mapDispatchToProps = dispatch => (
         deleteOffer,
         tradeItem,
         fetchMarketOffers,
+        fetchPendingMarketOffers,
         dismissError
     }, dispatch)
 );

@@ -21,6 +21,7 @@ import {
     fetchProfileIntel,
     fetchCraftingItems
 } from '../services/dataService';
+import { PUBLISHED, PENDING } from '../constants/constants';
 
 export const FETCH_CLAN = 'FETCH_CLAN';
 export const FETCH_CLAN_PENDING = 'FETCH_CLAN_PENDING';
@@ -73,6 +74,11 @@ export const FETCH_MARKET_OFFERS = 'FETCH_MARKET_OFFERS';
 export const FETCH_MARKET_OFFERS_PENDING = 'FETCH_MARKET_OFFERS_PENDING';
 export const FETCH_MARKET_OFFERS_FULFILLED = 'FETCH_MARKET_OFFERS_FULFILLED';
 export const FETCH_MARKET_OFFERS_REJECTED = 'FETCH_MARKET_OFFERS_REJECTED';
+
+export const FETCH_PENDING_MARKET_OFFERS = 'FETCH_PENDING_MARKET_OFFERS';
+export const FETCH_PENDING_MARKET_OFFERS_PENDING = 'FETCH_PENDING_MARKET_OFFERS_PENDING';
+export const FETCH_PENDING_MARKET_OFFERS_FULFILLED = 'FETCH_PENDING_MARKET_OFFERS_FULFILLED';
+export const FETCH_PENDING_MARKET_OFFERS_REJECTED = 'FETCH_PENDING_MARKET_OFFERS_REJECTED';
 
 export const FETCH_TAVERN_OFFERS = 'FETCH_TAVERN_OFFERS';
 export const FETCH_TAVERN_OFFERS_PENDING = 'FETCH_TAVERN_OFFERS_PENDING';
@@ -147,15 +153,17 @@ const fetchLocationsAction = () => ({
 });
 export { fetchLocationsAction as fetchLocations };
 
-const fetchMarketOffersAction = (number) => {
-    return (dispatch) => {
-        return dispatch({
-            type: FETCH_MARKET_OFFERS,
-            payload: fetchMarketOffers(number)
-        });
-    }
-};
+const fetchMarketOffersAction = (number) => ({
+    type: FETCH_MARKET_OFFERS,
+    payload: fetchMarketOffers(number, 10, PUBLISHED)
+});
 export { fetchMarketOffersAction as fetchMarketOffers };
+
+const fetchPendingMarketOffersAction = (number) => ({
+    type: FETCH_PENDING_MARKET_OFFERS,
+    payload: fetchMarketOffers(number, 1000, PENDING)
+});
+export { fetchPendingMarketOffersAction as fetchPendingMarketOffers };
 
 const fetchNotificationsAction = (turn) => ({
     type: FETCH_NOTIFICATIONS,

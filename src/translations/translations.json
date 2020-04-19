@@ -75,7 +75,9 @@
         "historical": ["Historical results", "Historické výsledky"],
         "SILVER": ["Premium (Silver)", "Premium (Silver)"],
         "GOLD": ["Premium (Gold)", "Premium (Gold)"],
-        "crafting": ["Crafting", "Výroba"]
+        "crafting": ["Crafting", "Výroba"],
+        "available": ["Available", "K dispozici"],
+        "pending": ["Pending", "Zpracovávané"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
@@ -130,7 +132,8 @@
         "offer": ["Offer", "Na trh"],
         "invalidPrice": ["Price must be between item's market value and double of the market value!", "Cena se musí pohybovat mezi tržní hodnotou předmětu a dvojnásobkem tržní hodnoty!"],
         "seller": ["Seller", "Prodejce"],
-        "noOffers": ["There are currently no items available at the marketplace.", "Na tržišti momentálně nejsou žádné předměty."],
+        "buyer": ["Buyer", "Kupující"],
+        "noOffers": ["There are currently no items to show.", "Nejsou zde žádné obchodní nabídky."],
         "cancel": ["Cancel", "Zrušit"],
         "offerTooltip": ["This will list the item on the marketplace for the specified price.", "Tímto nabídneš předmět na trhu za zvolenou cenu."],
         "defaultAction": ["Default actions", "Výchozí akce"],
@@ -186,9 +189,10 @@
         "Postavy mohou ze šrotu vytvořit předměty. Cena předmětu se platí předem a vyrobený kus tvůj klan obdrží po přepočtu kola. Cena předmětu je ovlivněna zručností postavy a jejími schopnostmi a výbavou. Výběr předmětů závisí na úrovni tvých výrobních budov (třetí úroveň je maximum). Potřebuješ alespoň jednu úroveň výrobních budov, abys měl k dispozici nějaké předměty."],
         "offerSmartTooltip": ["Always sell for market price.", "Prodat za tržní cenu."],
         "offerSmart": ["This is a smart offer. It will always be sold to NPC for market price unless someone else buys it.",
-        "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržné cenu, pokud ji nekoupí někdo jiný"],
+        "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržní cenu, pokud ji nekoupí někdo jiný."],
         "specialTavernOffer": ["This is a special discounted tavern offer available only to clans with less than five characters. Instead of paying large amount of caps, you will pay much smaller amount of caps and fame. This will help you keep your clan going if some of your characters died.",
-        "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav, mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."]
+        "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav, mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
+        "pendingOffers": ["Pending trades", "Zpracovávané obchody"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",

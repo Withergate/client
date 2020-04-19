@@ -19,7 +19,7 @@ class DisasterMiniPanel extends React.Component {
         return ( 
             <div>
                 { this.props.fetched && this.props.disaster && this.props.progress < 100 &&
-                    <Card className="m-4 p-1" border="warning">
+                    <Card className="m-3 p-1" border="warning">
                         <Card.Body>
                             <Translate id="disaster.disasterInfo" data={{ name: getTranslatedText(this.props.disaster.details.name), 
                                 turn: this.props.disaster.turn }}/>

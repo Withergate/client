@@ -28,7 +28,10 @@ import {
     FETCH_PROFILE_INTEL_REJECTED,
     FETCH_CRAFTING_ITEMS_PENDING,
     FETCH_CRAFTING_ITEMS_FULFILLED,
-    FETCH_CRAFTING_ITEMS_REJECTED
+    FETCH_CRAFTING_ITEMS_REJECTED,
+    FETCH_PENDING_MARKET_OFFERS_PENDING,
+    FETCH_PENDING_MARKET_OFFERS_FULFILLED,
+    FETCH_PENDING_MARKET_OFFERS_REJECTED
 } from '../actions/dataActions';
 
 import {
@@ -55,6 +58,15 @@ const initialState = {
         error: ''
     },
     offers: {
+        data: {
+            number: 0
+        },
+        fetching: false,
+        fetched: false,
+        failed: false,
+        error: ''
+    },
+    pendingOffers: {
         data: {
             number: 0
         },
@@ -254,6 +266,39 @@ export const DataReducer = (state = initialState, action) => {
                 ...state,
                 offers: {
                     ...state.offers,
+                    fetching: false,
+                    fetched: false,
+                    failed: true,
+                    error: action.payload
+                }
+            };
+        case FETCH_PENDING_MARKET_OFFERS_PENDING:
+            return {
+                ...state,
+                pendingOffers: {
+                    ...state.pendingOffers,
+                    fetching: true,
+                    fetched: false,
+                    failed: false
+                }
+            };
+        case FETCH_PENDING_MARKET_OFFERS_FULFILLED:
+            return {
+                ...state,
+                pendingOffers: {
+                    ...state.pendingOffers,
+                    data: action.payload,
+                    fetching: false,
+                    fetched: true,
+                    failed: false,
+                    error: ''
+                }
+            };
+        case FETCH_PENDING_MARKET_OFFERS_REJECTED:
+            return {
+                ...state,
+                pendingOffers: {
+                    ...state.pendingOffers,
                     fetching: false,
                     fetched: false,
                     failed: true,

@@ -47,8 +47,8 @@ export const fetchGameProperties = () => {
     return apiGet(API_URL.concat('game/properties'));
 };
 
-export const fetchMarketOffers = (number) => {
-    return apiGet(API_URL.concat('trade/market').concat('?page=').concat(number).concat('&size=').concat(10));
+export const fetchMarketOffers = (number, size, state) => {
+    return apiGet(API_URL.concat('trade/market').concat('?page=').concat(number).concat('&size=').concat(size).concat('&state=').concat(state));
 };
 
 export const fetchTavernOffers = () => {

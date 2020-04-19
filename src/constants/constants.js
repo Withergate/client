@@ -1,8 +1,9 @@
 // Header
 export const LOGOUT = 'LOGOUT';
 
-// Actions
+// Actions and offers
 export const PENDING = 'PENDING';
+export const PUBLISHED = 'PUBLISHED';
 
 // Character
 export const RESTING = 'RESTING';

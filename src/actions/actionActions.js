@@ -31,7 +31,8 @@ import {
     fetchClan, fetchMarketOffers,
 } from '../services/dataService';
 
-import { FETCH_CLAN, FETCH_MARKET_OFFERS } from './dataActions';
+import { FETCH_CLAN, FETCH_MARKET_OFFERS, FETCH_PENDING_MARKET_OFFERS } from './dataActions';
+import { PUBLISHED, PENDING } from '../constants/constants';
 
 export const CREATE_CLAN = 'CREATE_CLAN';
 export const CREATE_CLAN_PENDING = 'CREATE_CLAN_PENDING';
@@ -196,7 +197,7 @@ const publishOfferAction = (itemId, itemType, price, intelligent) => {
             payload: fetchClan()
         })).then(() => dispatch({
             type: FETCH_MARKET_OFFERS,
-            payload: fetchMarketOffers()
+            payload: fetchMarketOffers(0, 10, PUBLISHED)
         }));
     };
 };
@@ -212,7 +213,7 @@ const deleteOfferAction = (offerId) => {
             payload: fetchClan()
         })).then(() => dispatch({
             type: FETCH_MARKET_OFFERS,
-            payload: fetchMarketOffers()
+            payload: fetchMarketOffers(0, 10, PUBLISHED)
         }));
     };
 };
@@ -228,7 +229,10 @@ const tradeItemAction = (characterId, offerId) => {
             payload: fetchClan()
         })).then(() => dispatch({
             type: FETCH_MARKET_OFFERS,
-            payload: fetchMarketOffers()
+            payload: fetchMarketOffers(0, 10, PUBLISHED)
+        })).then(() => dispatch({
+            type: FETCH_PENDING_MARKET_OFFERS,
+            payload: fetchMarketOffers(0, 1000, PENDING)
         }));
     };
 };
