@@ -76,7 +76,10 @@ class GameInfoPanel extends React.Component {
                         { this.props.global.fetched && this.props.global.GLOBAL.active &&
                             <GlobalNotification message={this.props.global.GLOBAL.message} />
                         }
-                        <TurnTimer />
+                        {
+                            this.props.info.currentTurn.turnId <= this.props.info.maxTurns &&
+                            <TurnTimer />
+                        }
                     </Card.Body>
                 }
                 {

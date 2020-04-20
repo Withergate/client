@@ -30,9 +30,8 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     <p>
                         <small><Translate id={"solutions." + quest.details.type} /></small>
                     </p>
-                    <p>
-                        <ul className="list-inline">
-                            <li className="list-inline-item"><b><Translate id="basic.price" />: </b></li>
+                    <ul className="list-inline">
+                        <li className="list-inline-item"><b><Translate id="basic.price" />: </b></li>
                             {
                                 quest.details.foodCost > 0 &&
                                 <li className="list-inline-item"><GameIcon type={FOOD} size={LARGE} value={quest.details.foodCost} /></li>
@@ -53,13 +52,11 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                             }
                             {
                                 !quest.details.itemCost && !quest.details.junkCost && !quest.details.healthCost && !quest.details.foodCost &&
-                                <li className="list-inline-item"><b><Translate id="labels.free" />: </b></li>
+                                <li className="list-inline-item"><Translate id="labels.free" /></li>
                             }
-                        </ul>
-                    </p>
-                    <p>
-                        <ul className="list-inline">
-                            <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
+                    </ul>
+                    <ul className="list-inline">
+                        <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
                             {
                                 quest.details.capsReward > 0 &&
                                 <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsReward} /></li>
@@ -72,8 +69,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                                 quest.details.factionReward > 0 &&
                                 <li className="list-inline-item"><GameIcon type={FACTION_POINTS} size={LARGE} value={quest.details.factionReward} /></li>
                             }
-                        </ul>
-                    </p>
+                    </ul>
                     {
                         quest.details.followUp &&
                         <p><small><Translate id="labels.questFollowUp" /></small></p>

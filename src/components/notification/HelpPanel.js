@@ -13,7 +13,7 @@ class HelpPanel extends React.Component {
         super(props);
 
         this.state = { 
-            tips: getTips(props.clan, props.turn)
+            tips: getTips(props.clan, props.turn, props.disaster)
         };
     }
 
@@ -55,8 +55,9 @@ const mapStateToProps = state => {
     const helpDisplayed = state.ui.helpDisplayed;
     const turn = state.turn.turn.turnId;
     const clan = state.clan.clan;
+    const disaster = state.data.disaster.data;
    
-    return { profile, helpDisplayed, turn, clan };
+    return { profile, helpDisplayed, turn, clan, disaster };
 };
 
 const mapDispatchToProps = dispatch => (
