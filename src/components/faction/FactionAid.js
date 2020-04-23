@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { LARGE, CAPS, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT, ITEM } from '../../constants/constants';
+import { LARGE, CAPS, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT, ITEM, INFORMATION } from '../../constants/constants';
 import ActionButton from '../shared/ActionButton';
 
 const FactionAid = ({aid, selectedCharacter, factionAction}) => (
@@ -27,6 +27,11 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             { aid.cost !== 0 &&
                                 <li className="list-inline-item">
                                     <GameIcon type={CAPS} size={LARGE} value={aid.cost} />
+                                </li>
+                            }
+                            { aid.informationCost !== 0 &&
+                                <li className="list-inline-item">
+                                    <GameIcon type={INFORMATION} size={LARGE} value={aid.informationCost} />
                                 </li>
                             }
                             { aid.healthCost &&

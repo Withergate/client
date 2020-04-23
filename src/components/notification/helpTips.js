@@ -46,7 +46,7 @@ export const getTips = (clan, turn, disaster) => {
     if (clan.items.length > 2) {
         tips.push("help.tips.unusedItems");
     }
-    if (getSkillpointsSum(clan) > 1) {
+    if (getSkillpointsSum(clan) > 1 && turn < 30) {
         tips.push("help.tips.training");
     }
     if (getUnfinishedQuestsSum(clan) > 1) {

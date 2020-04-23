@@ -41,6 +41,10 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                                 <li className="list-inline-item"><GameIcon type={JUNK} size={LARGE} value={quest.details.junkCost} /></li>
                             }
                             {
+                                quest.details.capsCost > 0 &&
+                                <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsCost} /></li>
+                            }
+                            {
                                 quest.details.healthCost &&
                                 <li className="list-inline-item"><GameIcon type={INJURY} size={LARGE} value="1-6" /></li>
                             }
@@ -51,7 +55,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                                 </li>
                             }
                             {
-                                !quest.details.itemCost && !quest.details.junkCost && !quest.details.healthCost && !quest.details.foodCost &&
+                                !quest.details.itemCost && !quest.details.junkCost && !quest.details.healthCost && !quest.details.foodCost && !quest.details.capsCost &&
                                 <li className="list-inline-item"><Translate id="labels.free" /></li>
                             }
                     </ul>
