@@ -499,15 +499,17 @@
         "clanOverview": ["Your clan", "Tvůj klan"],
         "factionsOverview": ["Factions overview", "Přehled frakcí"],
         "leaderboard": ["The most influential clans from your faction", "Nejvlivnější klany z Tvé frakce"],
-        "clanInfo": ["This panel shows your current influence in your faction. The fame that you see is just a projected value based on the current situation. All faction fame will be awarded at the end of the game so expect this number to change frequently.",
-        "Tento panel ukazuje tvůj aktuální vliv v rámci tvé frakce. Sláva, kterou zde vidíš, je pouze předpokládaná hodnota na základě aktuální situace. Veškerá sláva se v rámci frakce rozdělí až na konci hry, takže se dá očekávat, že se tato hodnota bude v čase měnit."],
-        "factionsInfo": ["Faction's influence is a sum of all influence points of its clans. The displayed fame is a total fame of the faction. This value is based on the number of clans in the game and the total influence of the faction. These points will be distributed to the clans belonging the specific faction at the end of the game based on their influence.",
-        "Vliv frakce je součet bodů vlivu všech klanů této frakce. Zobrazená sláva je celková sláva frakce, která závisí na počtu hrajících klanů a celkovému vlivu frakce. Body slávy budou rozděleny mezi klany příslušné frakce na konci hru na základě dosaženého vlivu."],
+        "clanInfo": ["This panel shows your current influence in your faction. The fame that you see is just a projected value based on the current situation. All faction fame will be awarded several times during the game so expect this number to change frequently.",
+        "Tento panel ukazuje tvůj aktuální vliv v rámci tvé frakce. Sláva, kterou zde vidíš, je pouze předpokládaná hodnota na základě aktuální situace. Veškerá sláva se v rámci frakce rozdělí několikrát za hru, takže se dá očekávat, že se tato hodnota bude v čase měnit."],
+        "factionsInfo": ["Faction's influence is a sum of all influence points of its clans. The displayed fame is a total fame of the faction. This value is based on the number of clans in the game and the total influence of the faction. These points will be distributed to the clans belonging the specific faction several times during the game based on their influence.",
+        "Vliv frakce je součet bodů vlivu všech klanů této frakce. Zobrazená sláva je celková sláva frakce, která závisí na počtu hrajících klanů a celkovému vlivu frakce. Body slávy budou rozděleny mezi klany příslušné frakce několikrát za hru na základě dosaženého vlivu."],
         "aidTooltip": ["Character will support your faction and your clan will gain influence.", "Postava podpoří tvou frakci a tvůj klan získá vliv."],
         "RESOURCE_SUPPORT": ["Your faction will send a small amount of resources to your weaker allies for the donated caps.", "Několik tvých slabších spojenců z frakce obdrží malé množství surovin."],
         "FACTION_SUPPORT": ["Support your faction. This action has no side effects.", "Podpoř svou frakci. Tato akce nemá žádné vedlejší efekty."],
         "attackLink": ["You can attack players from other factions from the ${link} page.", "Můžeš útočit na hráče z ostatních frakcí ze stránky ${link}."],
-        "joinWarning": ["Once you join a faction, you can be attacked by other players.", "Jakmile vstoupíš do frakce, tak se budeš moci stát terčem útoků hráčů z dalších frakcí."]
+        "joinWarning": ["Once you join a faction, you can be attacked by other players.", "Jakmile vstoupíš do frakce, tak se budeš moci stát terčem útoků hráčů z dalších frakcí."],
+        "fameTurns": ["Faction fame will be distributed to all faction members at the end fo the following turns: ${turns}.",
+        "Sláva bude rozdělena mezi členské klany na konci těchto kol: ${turns}."]
     },
     "tutorial": {
         "turns": ["Withergate is a turn-based game. Your actions are not evaluated immediately but the outcome will be decided at the end of the turn. You can check the current turn in the top right corner. Turns are computed twice a day at 6 am and and 6 pm UTC (8:00 and 20:00 CEST).",

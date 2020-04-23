@@ -53,7 +53,7 @@ class FactionPanel extends React.Component {
                                     </p>
                                 </Col>
                                 <Col md={6}>
-                                    <FactionsOverview overview={this.props.overview} />
+                                    <FactionsOverview overview={this.props.overview} turns={this.props.factionTurns} />
                                     <FactionsLeaderboard clans={this.props.overview.clans} />
                                 </Col>
                             </Row>
@@ -72,16 +72,18 @@ class FactionPanel extends React.Component {
 
 FactionPanel.propTypes = {
     clan: PropTypes.object.isRequired,
+    factionTurns: PropTypes.array.isRequired,
     selectedCharacter: PropTypes.object
 };
 
 const mapStateToProps = state => {
     const { clan, selectedCharacter } = state.clan;
     const overview = state.data.factionsOverview.data;
+    const factionTurns = state.game.properties.factionTurns;
 
     const { fetched, fetching, failed, error } = state.data.factionsOverview;
 
-    return { fetching, fetched, failed, error, overview, clan, selectedCharacter };
+    return { fetching, fetched, failed, error, overview, clan, selectedCharacter, factionTurns };
 };
 
 const mapDispatchToProps = dispatch => (

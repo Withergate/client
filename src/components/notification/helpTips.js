@@ -52,7 +52,7 @@ export const getTips = (clan, turn, disaster) => {
     if (getUnfinishedQuestsSum(clan) > 1) {
         tips.push("help.tips.finishQuests");
     }
-    if (disaster && clan.disasterProgress < (100 - (disaster.turn - turn) * 20)) {
+    if (disaster && clan.disasterProgress < (100 - getRemaingDisasterTurns(turn, disaster) * 20)) {
         tips.push("help.tips.avertDisaster");
     }
 
@@ -81,4 +81,7 @@ const getSkillpointsSum = (clan) => {
 
 const getUnfinishedQuestsSum = (clan) => {
     return clan.quests.filter(q => !q.completed).length;
+}
+const getRemaingDisasterTurns = (turn, disaster) => {
+    return disaster.turn + 1 - turn;
 }

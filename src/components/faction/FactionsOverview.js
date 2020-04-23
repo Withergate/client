@@ -8,7 +8,18 @@ import { LARGE, FAME, FACTION_POINTS } from '../../constants/constants';
 import { getTranslatedText } from '../../translations/translationUtils';
 import { InfoIcon } from '../shared/InfoIcon';
 
-const FactionsOverview = ({overview}) => (
+const getTurnsAsString = (turns) => {
+    var result = '';
+    for (let i = 0; i < turns.length; i++) {
+        result += turns[i];
+        if (i < turns.length - 1) {
+            result += ', ';
+        }
+    }
+    return result;
+}
+
+const FactionsOverview = ({overview, turns}) => (
     <div>
         <Card className="mb-4">
             <Card.Body>
@@ -34,6 +45,9 @@ const FactionsOverview = ({overview}) => (
                         <GameIcon type={FAME} size={LARGE} value={overview.clanFame} noPadding />
                     </li>
                 </ul>
+                <p>
+                    <b><Translate id="factions.fameTurns" data={{ turns: getTurnsAsString(turns) }}/></b>
+                </p>
             </Card.Body>
         </Card>
         <Card className="mb-4">
@@ -75,11 +89,11 @@ const FactionsOverview = ({overview}) => (
         </Card.Body>
     </Card>
     </div>
-    
 );
 
 FactionsOverview.propTypes = {
-    overview: PropTypes.object.isRequired
+    overview: PropTypes.object.isRequired,
+    turns: PropTypes.array.isRequired
 };
 
 export default FactionsOverview;

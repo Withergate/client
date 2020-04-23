@@ -101,7 +101,6 @@ const mapStateToProps = state => {
     const clanId = state.clan.clan.id;
     const offers = state.data.offers.data;
     const pendingOffers = state.data.pendingOffers.data;
-    console.log(pendingOffers)
 
     const fetched = state.data.offers.fetched && state.data.pendingOffers.fetched;
     const fetching = state.data.offers.fetching || state.data.pendingOffers.fetching;

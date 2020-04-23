@@ -9,17 +9,10 @@ import { displayHelp } from '../../actions/uiActions';
 import { getTips } from './helpTips';
 
 class HelpPanel extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { 
-            tips: getTips(props.clan, props.turn, props.disaster)
-        };
-    }
-
     render() {
         return (
-            this.props.helpDisplayed && this.props.profile.help && this.state.tips.length > 0 &&
+            this.props.helpDisplayed && this.props.profile.help && this.props.disaster.fetched 
+                && getTips(this.props.clan, this.props.turn, this.props.disaster.data).length > 0 &&
             <Card className="mb-4" border="primary">
                 <Card.Body>
                     <Card.Title>
@@ -27,7 +20,8 @@ class HelpPanel extends React.Component {
                     </Card.Title>
                     <ul>
                         {
-                            this.state.tips.map(tip => <li key={tip}><Translate id={tip} /></li>)
+                            getTips(this.props.clan, this.props.turn, this.props.disaster.data)
+                            .map(tip => <li key={tip}><Translate id={tip} /></li>)
                         }
                     </ul>
                     <p><small><Translate id="help.settings" /></small></p>
@@ -55,7 +49,7 @@ const mapStateToProps = state => {
     const helpDisplayed = state.ui.helpDisplayed;
     const turn = state.turn.turn.turnId;
     const clan = state.clan.clan;
-    const disaster = state.data.disaster.data;
+    const disaster = state.data.disaster;
    
     return { profile, helpDisplayed, turn, clan, disaster };
 };
