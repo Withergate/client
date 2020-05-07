@@ -191,7 +191,7 @@
         "offerSmart": ["This is a smart offer. It will always be sold to NPC for market price unless someone else buys it.",
         "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržní cenu, pokud ji nekoupí někdo jiný."],
         "specialTavernOffer": ["This is a special discounted tavern offer available only to clans with less than five characters. Instead of paying large amount of caps, you will pay much smaller amount of caps and fame. This will help you keep your clan going if some of your characters died.",
-        "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav, mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
+        "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
         "pendingOffers": ["Pending trades", "Zpracovávané obchody"]
     },
     "profile": {
@@ -613,7 +613,7 @@
             "unusedItems": ["You have unused items in your clan storage. You can either equip them to your characters or sell them on marketplace. If you need fast caps, you can offer them on marketplace for their market price and NPC traders will buy them from you at the end of the turn.",
             "Ve skladu se ti válí nepoužívané předměty. Můžeš je buď přiřadit ke svým postavám nebo prodat na tržišti. Pokud potřebuješ rychlé zátky, tak je zkus na trhu nabídnout za tržní cenu. Obchodníci z Pustiny je od tebe rádi vykoupí na konci kola."],
             "training": ["Some of your characters have free skill points. You can assign new abilities to them in the Camp section. Sometimes, it might be useful to combine training with rest or pay for immediate skill assignment so you don't waste your action.",
-            "Některé tvé postavy mají k dispozici schopnosti. Ty jim můžeš přiřadit v sekci Báze. Občas je výhodné zkombinovat trénink s odpočinkem a léčením a nebo si zaplatit za okamžité přiřazení. Nepřijdeš tak o akci."],
+            "Některé tvé postavy mají k dispozici schopnosti. Ty jim můžeš přiřadit v sekci Kemp. Občas je výhodné zkombinovat trénink s odpočinkem a léčením a nebo si zaplatit za okamžité přiřazení. Nepřijdeš tak o akci."],
             "finishQuests": ["You have available quests. By finishing them, you will be awarded a lot of caps and fame.",
             "Máš k dispozici několik úkolů. Za jejich splnění je hodně zátek i slávy."],
             "avertDisaster": ["Disaster is coming and your clan does not seem to be prepared. We should take some action to prevent a catastrophy, unless you want to ignore it... which would be a disaster.",
