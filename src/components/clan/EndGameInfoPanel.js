@@ -16,7 +16,7 @@ class EndGameInfoPanel extends React.Component {
 
     render() {
         return (
-            <Card className="m-4" border="danger">
+            <Card className="m-3" border="danger">
                 { this.props.fetched && 
                     <Card.Body>
                         <h5><Translate id="endgame.header" /></h5>
