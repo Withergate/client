@@ -44,9 +44,15 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                                     <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + aid.itemCost} /></small>} /> 
                                 </li>
                             }
+                            { aid.factionPointsCost !== 0 &&
+                                <li className="list-inline-item">
+                                    <GameIcon type={FACTION_POINTS} size={LARGE} value={aid.factionPointsCost} />
+                                </li>
+                            }
                         </ul>
                     </Col>
                 </Row>
+                { aid.factionPoints > 0 && aid.fame > 0 &&
                 <Row>
                     <Col>
                         <ul className="list-inline">
@@ -54,9 +60,12 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                                 <b><Translate id="basic.reward" />:</b>
                             </li>
                             
-                            <li className="list-inline-item">
-                                <GameIcon type={FACTION_POINTS} size={LARGE} value={aid.factionPoints} noPadding />
-                            </li>
+                            {
+                                aid.factionPoints > 0 &&
+                                <li className="list-inline-item">
+                                    <GameIcon type={FACTION_POINTS} size={LARGE} value={aid.factionPoints} noPadding />
+                                </li>
+                            }
                             {
                                 aid.fame > 0 &&
                                 <li className="list-inline-item">
@@ -66,6 +75,12 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                         </ul>
                     </Col>
                 </Row>
+                }
+                { aid.leading &&
+                <Row>
+                    <Col className="text-danger"><Translate id="factions.leading" /></Col>
+                </Row>
+                }
             </Col>
             <Col md={4}>
                 { selectedCharacter !== undefined ?
