@@ -37,7 +37,7 @@ class LoanPanel extends React.Component {
                     { this.props.clan.activeLoan ?
                         <div className="inline">
                             <Translate id="labels.loanPay" />&nbsp;
-                            <GameIcon type={CAPS} size={SMALL} value={this.props.properties.loanPayback} />
+                            <GameIcon type={CAPS} size={SMALL} value={this.props.properties.loanCaps} />
                         </div>
                         : <div className="inline">
                             <Translate id="labels.loanTake" />&nbsp;

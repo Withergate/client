@@ -439,7 +439,7 @@
         "CHARACTER_INJURY": ["Characters injury", "Zranění postav"],
         "BUILDING_DESTRUCTION": ["Building destruction", "Poškození budov"],
         "INFORMATION_LOSS": ["Information loss", "Ztráta informací"],
-        "RESEARCH_LOSS": ["Research loss", "Ztráta rozpracovaných výzkumů"]
+        "RESEARCH_LOSS": ["Uncompleted research loss", "Ztráta rozpracovaných výzkumů"]
     },
     "solutions": {
         "AUTOMATIC": ["This action will always be successful.", "Tato akce je vždy úspěšná."],
