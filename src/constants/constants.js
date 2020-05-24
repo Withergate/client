@@ -43,6 +43,7 @@ export const HEALING = 'HEALING';
 export const EXPERIENCE = 'EXPERIENCE';
 export const DEATH = 'DEATH';
 export const COMBAT = 'COMBAT';
+export const COMBAT_TOTAL = 'COMBAT_TOTAL';
 export const SCAVENGE = 'SCAVENGE';
 export const CRAFTSMANSHIP = 'CRAFTSMASHIP';
 export const INTELLECT = 'INTELLECT';
