@@ -52,7 +52,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                         </ul>
                     </Col>
                 </Row>
-                { aid.factionPoints > 0 && aid.fame > 0 &&
+                { (aid.factionPoints > 0 || aid.fame > 0) &&
                 <Row>
                     <Col>
                         <ul className="list-inline">
