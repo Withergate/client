@@ -11,7 +11,11 @@ import { Translate } from 'react-localize-redux';
 const renderDetail = detail => (
     <li key={detail.id}>
         <small>
-            {getTranslatedText(detail.text)}
+            <span className="inline">
+                { detail.solutionType !== null && <GameIcon type={detail.solutionType} size={SMALL} noPadding/> }
+                {getTranslatedText(detail.text)}
+            </span>
+            
             { detail.combatRound && renderCombatRound(detail.combatRound) }
         </small>
     </li>

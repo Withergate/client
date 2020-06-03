@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { 
     FOOD, JUNK, INFORMATION, ITEM_CHANCE, SMALL, LARGE, CAPS, FAME,
-    HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER,
-    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL, SILVER, GOLD, ACH_COMMON, ACH_RARE, ACH_EPIC, COMBAT_TOTAL
+    HEALING, INJURY, INJURY_INFO, EXPERIENCE, DEATH, COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, ENCOUNTER, COMBAT_ROLL, WEAPON_ROLL,
+    HEALTH, EXPERIENCE_STAT, SKILLPOINT, ITEM,FACTION_POINTS, ARMOR, ROLL, SILVER, GOLD, ACH_COMMON, ACH_RARE, ACH_EPIC, COMBAT_TOTAL,
+    CRAFTSMANSHIP_LOW, INTELLECT_LOW
  } from '../../constants/constants';
 
 import junkIcon from '../../images/junk.png';
@@ -52,10 +53,14 @@ const getIconSource = (type) => {
         case DEATH: return deathIcon;
         case COMBAT: return combatIcon;
         case COMBAT_TOTAL: return combatTotalIcon;
+        case COMBAT_ROLL: return combatIcon;
+        case WEAPON_ROLL: return combatTotalIcon;
         case ARMOR: return armorIcon;
         case SCAVENGE: return scavengeIcon;
         case CRAFTSMANSHIP: return craftsmanshipIcon;
+        case CRAFTSMANSHIP_LOW: return craftsmanshipIcon;
         case INTELLECT: return intellectIcon;
+        case INTELLECT_LOW: return intellectIcon;
         case HEALTH: return healthIcon;
         case EXPERIENCE_STAT: return experienceStatIcon;
         case SKILLPOINT: return skillpointIcon;
@@ -87,10 +92,14 @@ const getTranslationKey = (type) => {
         case DEATH: return "basic.death";
         case COMBAT: return "basic.combat";
         case COMBAT_TOTAL: return "basic.combatTotal";
+        case COMBAT_ROLL: return "basic.combatRoll";
+        case WEAPON_ROLL: return "basic.weaponRoll";
         case ARMOR: return "basic.armor";
         case SCAVENGE: return "basic.scavenge";
         case CRAFTSMANSHIP: return "basic.craftsmanship";
+        case CRAFTSMANSHIP_LOW: return "basic.craftsmanshipLow";
         case INTELLECT: return "basic.intellect";
+        case INTELLECT_LOW: return "basic.intellectLow";
         case HEALTH: return "basic.health";
         case EXPERIENCE_STAT: return "basic.experience";
         case SKILLPOINT: return "labels.skillpoint";

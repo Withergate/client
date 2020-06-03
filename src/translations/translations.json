@@ -78,7 +78,11 @@
         "GOLD": ["Premium (Gold)", "Premium (Gold)"],
         "crafting": ["Crafting", "Výroba"],
         "available": ["Available", "K dispozici"],
-        "pending": ["Pending", "Zpracovávané"]
+        "pending": ["Pending", "Zpracovávané"],
+        "combatRoll": ["Combat roll", "Hod na bojeschopnost"],
+        "weaponRoll": ["Weapon roll", "Hod na bojeschopnost se zbraní"],
+        "craftsmanshipLow": ["Craftsmanship (low roll)", "Zručnost (podhození)"],
+        "intellectLow": ["Intellect (low roll)", "Intelekt (podhození)"]
     },
     "labels": {
         "save": ["Save", "Uložit"],
