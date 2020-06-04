@@ -75,7 +75,9 @@ export function apiPut(url, data) {
                 resolve(response.status);
             } else {
                 checkTokenValidity(response);
-                reject('Error sending data to server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
+                response.json().then(function(error) {
+                    reject(error.message);
+                });
             }
         }).catch(error => {
             reject(error.message);
