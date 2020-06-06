@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Translate } from 'react-localize-redux';
 import { Link } from 'react-router-dom';
 import { Button, Row, Col } from 'react-bootstrap';
-import { RESTING, GOLD } from '../../constants/constants';
+import { GOLD } from '../../constants/constants';
 import { checkPremium } from '../profile/premiumUtils';
 
 const CharacterActionButton = ({pendingAction, character, selectCharacter, cancelAction, profile}) => (
@@ -28,18 +28,16 @@ const CharacterActionButton = ({pendingAction, character, selectCharacter, cance
             </Row>
             
         </div>
-        : character.state === RESTING ?
-            <small><Translate id="actions.RESTING" /></small>
-            : <Link to="/action">
-                <Button
-                    className="w-100"
-                    size="sm"
-                    variant="outline-dark"
-                    disabled={character.state !== "READY"}
-                    onClick={() => selectCharacter(character.id)}>
-                    <Translate id="labels.actions" />
-                </Button>
-            </Link>
+        : <Link to="/action">
+            <Button
+                className="w-100"
+                size="sm"
+                variant="outline-dark"
+                disabled={character.state !== "READY"}
+                onClick={() => selectCharacter(character.id)}>
+                <Translate id="labels.actions" />
+            </Button>
+        </Link>
 );
 
 CharacterActionButton.propTypes = {
