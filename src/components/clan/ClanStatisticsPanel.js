@@ -45,7 +45,7 @@ class ClanStatisticsPanel extends React.Component {
                             <LineChart data={this.props.statistics} >
                                 <XAxis dataKey="turnId" />
                                 <YAxis />
-                                <Tooltip content={renderFoodJunk}/>
+                                <Tooltip content={renderResources}/>
                                 <Line type="monotone" dataKey="food" stroke="#82ca9d" />
                                 <Line type="monotone" dataKey="junk" stroke="#784212" />
                                 <Line type="monotone" dataKey="caps" stroke="#fcba03" />
@@ -57,9 +57,11 @@ class ClanStatisticsPanel extends React.Component {
                             <LineChart data={this.props.statistics} >
                                 <XAxis dataKey="turnId" />
                                 <YAxis />
-                                <Tooltip content={renderBuildingsResearch} />
+                                <Tooltip content={renderAssets} />
                                 <Line type="monotone" dataKey="buildings" stroke="#82ca9d" />
                                 <Line type="monotone" dataKey="research" stroke="#8884d8" />
+                                <Line type="monotone" dataKey="quests" stroke="#fcba03" />
+                                <Line type="monotone" dataKey="characters" stroke="#784212" />
                             </LineChart>
                             </ResponsiveContainer>
                         </div>
@@ -76,7 +78,7 @@ class ClanStatisticsPanel extends React.Component {
     }
 };
 
-const renderFoodJunk = (payload) => {
+const renderResources = (payload) => {
     return <Card border="dark">
         <Card.Body>
             <Row>
@@ -126,7 +128,7 @@ const renderFame = (payload) => {
     </Card>
 }
 
-const renderBuildingsResearch = (payload) => {
+const renderAssets = (payload) => {
     return <Card border="dark">
         <Card.Body>
             <Row>
@@ -145,6 +147,18 @@ const renderBuildingsResearch = (payload) => {
                 <Col>
                     <Translate id="statistics.research" />: &nbsp;
                     {payload && payload.payload[1] && payload.payload[1].payload.research}
+                </Col>
+            </Row>
+            <Row className="mt-2">
+                <Col>
+                    <Translate id="basic.questsCompleted" />: &nbsp;
+                    {payload && payload.payload[2] && payload.payload[2].payload.quests}
+                </Col>
+            </Row>
+            <Row className="mt-2">
+                <Col>
+                    <Translate id="basic.characters" />: &nbsp;
+                    {payload && payload.payload[3] && payload.payload[3].payload.characters}
                 </Col>
             </Row>
         </Card.Body>
