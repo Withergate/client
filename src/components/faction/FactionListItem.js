@@ -7,7 +7,7 @@ import ActionButton from '../shared/ActionButton';
 import FactionDescription from './FactionDescription';
 
 
-const FactionListItem = ({faction, selectedCharacter, joinFaction }) => (
+const FactionListItem = ({faction, selectedCharacter, joinFaction, joinEnabled }) => (
     <Card className="mb-4">
         <FactionDescription faction={faction} />
         <Card.Footer>
@@ -17,6 +17,7 @@ const FactionListItem = ({faction, selectedCharacter, joinFaction }) => (
                         character={selectedCharacter}
                         action={() => joinFaction()}
                         buttonText="factions.join"
+                        condition={joinEnabled}
                         tooltip="factions.joinTooltip" />
                 </Row>
                 : <small className="text-muted"><Translate id="labels.noCharacter" /></small>
@@ -28,7 +29,8 @@ const FactionListItem = ({faction, selectedCharacter, joinFaction }) => (
 FactionListItem.propTypes = {
     faction: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
-    joinFaction: PropTypes.func.isRequired
+    joinFaction: PropTypes.func.isRequired,
+    joinEnabled: PropTypes.bool.isRequired
 };
 
 export default FactionListItem;
