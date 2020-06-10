@@ -6,9 +6,10 @@ import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 
 import { GameIcon } from '../shared/GameIcon';
-import { CAPS, LARGE, FAME, FACTION_POINTS, FOOD, JUNK, INJURY, ITEM } from '../../constants/constants';
+import { CAPS, LARGE, FAME, FACTION_POINTS } from '../../constants/constants';
 import ActionButton from '../shared/ActionButton';
 import AnnotatedProgressBar from '../shared/AnnotatedProgressBar';
+import ActionCost from '../shared/ActionCost';
 
 const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
     <Card className="mb-4">
@@ -30,35 +31,7 @@ const QuestListItem = ({quest, selectedCharacter, goOnQuest}) => (
                     <p>
                         <small><Translate id={"solutions." + quest.details.type} /></small>
                     </p>
-                    <ul className="list-inline">
-                        <li className="list-inline-item"><b><Translate id="basic.price" />: </b></li>
-                            {
-                                quest.details.foodCost > 0 &&
-                                <li className="list-inline-item"><GameIcon type={FOOD} size={LARGE} value={quest.details.foodCost} /></li>
-                            }
-                            {
-                                quest.details.junkCost > 0 &&
-                                <li className="list-inline-item"><GameIcon type={JUNK} size={LARGE} value={quest.details.junkCost} /></li>
-                            }
-                            {
-                                quest.details.capsCost > 0 &&
-                                <li className="list-inline-item"><GameIcon type={CAPS} size={LARGE} value={quest.details.capsCost} /></li>
-                            }
-                            {
-                                quest.details.healthCost &&
-                                <li className="list-inline-item"><GameIcon type={INJURY} size={LARGE} value="1-6" /></li>
-                            }
-                            {
-                                quest.details.itemCost &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + quest.details.itemCost} /></small>} />
-                                </li>
-                            }
-                            {
-                                !quest.details.itemCost && !quest.details.junkCost && !quest.details.healthCost && !quest.details.foodCost && !quest.details.capsCost &&
-                                <li className="list-inline-item"><Translate id="labels.free" /></li>
-                            }
-                    </ul>
+                    <ActionCost actionCost={quest.details.actionCost} />
                     <ul className="list-inline">
                         <li className="list-inline-item"><b><Translate id="basic.reward" />: </b></li>
                             {

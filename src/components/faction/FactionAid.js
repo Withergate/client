@@ -5,8 +5,9 @@ import { Translate } from "react-localize-redux";
 import { getTranslatedText } from '../../translations/translationUtils';
 import { Row, Col } from 'react-bootstrap';
 import { GameIcon } from '../shared/GameIcon';
-import { LARGE, CAPS, INJURY, FAME, FACTION_POINTS, FACTION_SUPPORT, ITEM, INFORMATION } from '../../constants/constants';
+import { LARGE, FAME, FACTION_POINTS, FACTION_SUPPORT } from '../../constants/constants';
 import ActionButton from '../shared/ActionButton';
+import ActionCost from '../shared/ActionCost';
 
 const FactionAid = ({aid, selectedCharacter, factionAction}) => (
     <div className="mb-4">
@@ -24,31 +25,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             <li className="list-inline-item">
                                 <b><Translate id="basic.price" />:</b>
                             </li>
-                            { aid.cost !== 0 &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={CAPS} size={LARGE} value={aid.cost} />
-                                </li>
-                            }
-                            { aid.informationCost !== 0 &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={INFORMATION} size={LARGE} value={aid.informationCost} />
-                                </li>
-                            }
-                            { aid.healthCost &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={INJURY} size={LARGE} value="1-6" />
-                                </li>
-                            }
-                            { aid.itemCost &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={ITEM} size={LARGE} value={<small><Translate id={"items.cost." + aid.itemCost} /></small>} /> 
-                                </li>
-                            }
-                            { aid.factionPointsCost !== 0 &&
-                                <li className="list-inline-item">
-                                    <GameIcon type={FACTION_POINTS} size={LARGE} value={aid.factionPointsCost} />
-                                </li>
-                            }
+                            <ActionCost actionCost={aid.actionCost} />
                         </ul>
                     </Col>
                 </Row>
@@ -59,7 +36,6 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                             <li className="list-inline-item">
                                 <b><Translate id="basic.reward" />:</b>
                             </li>
-                            
                             {
                                 aid.factionPoints > 0 &&
                                 <li className="list-inline-item">
