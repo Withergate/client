@@ -32,7 +32,7 @@ const CharacterActionButton = ({pendingAction, character, selectCharacter, cance
             <Button
                 className="w-100"
                 size="sm"
-                variant="outline-dark"
+                variant="outline-success"
                 disabled={character.state !== "READY"}
                 onClick={() => selectCharacter(character.id)}>
                 <Translate id="labels.actions" />

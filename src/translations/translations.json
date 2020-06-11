@@ -197,7 +197,8 @@
         "Toto je inteligentní nabídka. Bude vždy prodána NPC za tržní cenu, pokud ji nekoupí někdo jiný."],
         "specialTavernOffer": ["This is a special discounted tavern offer available only to clans with less than five characters. Instead of paying large amount of caps, you will pay much smaller amount of caps and fame. This will help you keep your clan going if some of your characters died.",
         "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
-        "pendingOffers": ["Pending trades", "Zpracovávané obchody"]
+        "pendingOffers": ["Pending trades", "Zpracovávané obchody"],
+        "settings": ["Settings", "Nastavení"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",
@@ -278,9 +279,9 @@
         }
     },
     "defaultAction": {
-        "actionDescription": ["This action will be taken by all characters that has no other action assigned.", "Tuto akci vykonají všechny postavy, které nemají přiřazenou jinou akci."],
-        "disasterDescription": ["Characters might prefer averting disaster instead. This applies when your clan already knows about upcomming disaster and it has not yet been averted. Your characters will always pick the most basic solution.",
-        "Postavy mohou preferovat odvracení pohromy jako svou výchozí akci. Tato akce se uplatní v případě, že tvůj klan již ví o přicházející pohromě a ta ještě není zcela odvrácena. Postavy vždy zvolí základní formu řešení."],
+        "actionDescription": ["This action will be taken by the character if no other action has been assigned.", "Tuto akci postava vykoná v případě, že nemá přiřazenou jinou akci."],
+        "disasterDescription": ["Character might prefer averting disaster instead. This applies when your clan already knows about upcomming disaster and it has not yet been averted. Your character will always pick the most basic solution.",
+        "Postava může preferovat odvracení pohromy jako svou výchozí akci. Tato akce se uplatní v případě, že tvůj klan již ví o přicházející pohromě a ta ještě není zcela odvrácena. Postava vždy zvolí základní formu řešení."],
         "preferDisasterYes": ["Avert disaster", "Odvracet pohromu"],
         "preferDisasterNo": ["Ignore disaster", "Ignorovat pohromu"],
         "rest": ["Rest", "Odpočinek"],

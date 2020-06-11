@@ -26,7 +26,6 @@ import {
     dismissError,
     changeItemFilter
 } from '../actions/uiActions';
-import DefaultActionPanel from './clan/DefaultActionPanel';
 import GameMechanicsOverview from './clan/GameMechanicsOverview';
 import ResearchList from './research/ResearchList';
 import ClanStatisticsPanel from './clan/ClanStatisticsPanel';
@@ -83,7 +82,6 @@ class ClanPage extends Component {
                                         <Tab.Pane eventKey="overview">
                                             <ClanSummary clan={this.props.clan} />
                                             <ClanDefensePanel />
-                                            <DefaultActionPanel />
                                             <LoanPanel />
                                             <GameMechanicsOverview />
                                         </Tab.Pane>

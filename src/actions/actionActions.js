@@ -238,11 +238,11 @@ const tradeItemAction = (characterId, offerId) => {
 };
 export { tradeItemAction as tradeItem };
 
-const changeDefaultActionAction = (defaultAction, preferDisaster) => {
+const changeDefaultActionAction = (defaultAction, preferDisaster, characterId) => {
     return (dispatch) => {
         return dispatch({
             type: GAME_ACTION,
-            payload: changeDefaultAction(defaultAction, preferDisaster)
+            payload: changeDefaultAction(defaultAction, preferDisaster, characterId)
         }).then(() => dispatch({
             type: FETCH_CLAN,
             payload: fetchClan()

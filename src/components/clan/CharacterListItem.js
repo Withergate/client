@@ -10,20 +10,29 @@ import AttributeBar from './AttributeBar';
 import TraitItem from './TraitItem';
 import ItemTooltip from '../item/ItemTooltip';
 import { COMBAT, SCAVENGE, CRAFTSMANSHIP, INTELLECT, HEALTH, EXPERIENCE_STAT, LARGE, GOLD } from '../../constants/constants';
-import ActionButton from './CharacterActionButton';
+import CharacterActionButton from './CharacterActionButton';
 import CharacterHeader from './CharacterHeader';
 
 import editIcon from '../../images/edit.png';
 import { checkPremium } from '../profile/premiumUtils';
 import RenameDialog from '../shared/RenameDialog';
+import DefaultActionSettings from './DefaultActionSettings';
 
 class CharacterListItem extends Component {
     constructor(...args) {
         super(...args);
     
         this.state = { 
-            renameModal: false
+            renameModal: false,
+            open: false
         };
+    }
+
+    handleCollapseChange(value) {
+        this.setState({
+            ...this.state,
+            open: value
+        });
     }
 
     render() {
@@ -46,12 +55,26 @@ class CharacterListItem extends Component {
                         </Row>
                         <Row className="mt-1">
                             <Col>
-                                <ActionButton
+                                <CharacterActionButton
                                     pendingAction={character.action}
                                     character={character}
                                     selectCharacter={selectCharacter}
                                     cancelAction={cancelAction}
                                     profile={profile} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Button
+                                    variant="outline-dark" size="sm"
+                                    className="w-100 mt-1"
+                                    onClick={() => this.handleCollapseChange(!this.state.open)}>
+                                    {
+                                        this.state.open ?
+                                            <Translate id="labels.closeDetails" />
+                                        : <Translate id="labels.settings" />
+                                    }
+                                </Button>
                             </Col>
                         </Row>
                     </Col>
@@ -163,6 +186,11 @@ class CharacterListItem extends Component {
                     onConfirm={(name) => renameCharacter(character.id, name)}
                     placeholder={character.name} />
             </Card.Body>
+            { this.state.open &&
+                <Card.Footer>
+                    <DefaultActionSettings character={character} />  
+                </Card.Footer>
+            }
         </Card>
     }
 };
