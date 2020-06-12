@@ -285,7 +285,8 @@
         "preferDisasterYes": ["Avert disaster", "Odvracet pohromu"],
         "preferDisasterNo": ["Ignore disaster", "Ignorovat pohromu"],
         "rest": ["Rest", "Odpočinek"],
-        "explore": ["Neighborhood exploration", "Průzkum sousedství"]
+        "explore": ["Neighborhood exploration", "Průzkum sousedství"],
+        "scout": ["Scouting Wasteland", "Výzvědy v Pustině"]
     },
     "mechanics": {
         "header": ["Basic mechanics", "Základní mechaniky"],
@@ -533,8 +534,8 @@
         "fame": ["The goal of the game is to gain as much fame as possible for your clan by performing game actions. The clan with highest level of fame at the end of the last turn will win the era.",
         "Cílem hry je získat co nejvíce slávy pro tvůj klan pomocí herních akcí. Ten, kdo dosáhne největší hodnoty slávy na konci posledního kola, se stane vítězem věku."],
         "defaultHeader": ["Default actions", "Výchozí akce"],
-        "default": ["It may happen that you won't be able to take a turn. Don't worry, you will not lose your actions. You can specify a default action from a limited selection for your characters in the Clan section. Your characters will always perform this selected action if you don't assign them any activity. But remember that it is always more profitable to take your turn then relying on default actions.",
-        "Občas se může stát, že nestihneš odehrát své kolo. Neboj, o své akce nepřijdeš. V sekci Klan můžeš nastavit výchozí akci, kterou tvé postavy vykonají v případě, že jim žádnou jinou aktivitu nepřiřadíš. Pamatuj však, že je vždy výhodnější odehrát kolo než se spoléhat na výchozí akce."]
+        "default": ["It may happen that you won't be able to take a turn. Don't worry, you will not lose your actions. You can specify a default action from a limited selection for each of your characters in the 'Clan -> Characters' section. Your character will always perform this selected action if you don't assign him/her any other activity. But remember that it is always more profitable to take your turn then relying on default actions.",
+        "Občas se může stát, že nestihneš odehrát své kolo. Neboj, o své akce nepřijdeš. V sekci Klan můžeš u každé postavy nastavit výchozí akci, kterou daná postavy vykoná v případě, že jí žádnou jinou aktivitu nepřiřadíš. Pamatuj však, že je vždy výhodnější odehrát kolo než se spoléhat na výchozí akce."]
     },
     "statistics": {
         "noData": ["Statistics will be available after first three turns. Not enough data at the moment.", "Statistiky budou k dispozici po třetím kole. Zatím není k dispozici dostatek dat."],

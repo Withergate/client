@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Row, Col, Card, Image, Button, Collapse } from 'react-bootstrap';
 import { Translate } from "react-localize-redux";
 import ReactTooltip from 'react-tooltip';
 
@@ -67,7 +67,7 @@ class CharacterListItem extends Component {
                             <Col>
                                 <Button
                                     variant="outline-dark" size="sm"
-                                    className="w-100 mt-1"
+                                    className="w-100 mt-1 mb-1"
                                     onClick={() => this.handleCollapseChange(!this.state.open)}>
                                     {
                                         this.state.open ?
@@ -186,11 +186,11 @@ class CharacterListItem extends Component {
                     onConfirm={(name) => renameCharacter(character.id, name)}
                     placeholder={character.name} />
             </Card.Body>
-            { this.state.open &&
+            <Collapse in={this.state.open}>
                 <Card.Footer>
                     <DefaultActionSettings character={character} />  
                 </Card.Footer>
-            }
+            </Collapse>
         </Card>
     }
 };

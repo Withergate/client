@@ -29,6 +29,7 @@ export const EPIC = 'EPIC';
 // Default chanction
 export const REST = 'REST';
 export const EXPLORE_NEIGHBORHOOD = 'EXPLORE_NEIGHBORHOOD';
+export const SCOUT_WASTELAND = 'SCOUT_WASTELAND';
 
 // Icon types
 export const JUNK = 'JUNK';

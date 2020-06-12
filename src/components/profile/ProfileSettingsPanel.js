@@ -30,7 +30,7 @@ class ProfileSettingsPanel extends React.Component {
     }
 
     render() {
-        return <Card className="mt-4">
+        return <Card className="mt-4 mb-4">
             <Card.Body>
                 <Card.Title>
                     <Translate id="profile.settings" />

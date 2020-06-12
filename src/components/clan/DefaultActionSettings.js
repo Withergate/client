@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 
 import { changeDefaultAction } from '../../actions/actionActions';
-import { REST, EXPLORE_NEIGHBORHOOD } from '../../constants/constants';
+import { REST, EXPLORE_NEIGHBORHOOD, SCOUT_WASTELAND } from '../../constants/constants';
 
 class DefaultActionSettings extends React.Component {
     constructor(props) {
@@ -50,6 +50,7 @@ class DefaultActionSettings extends React.Component {
                             <Form.Control as="select" value={this.state.defaultAction} onChange={e => this.handleActionChange(e)}>
                                 <option value ={EXPLORE_NEIGHBORHOOD}>{translate("defaultAction.explore")}</option>
                                 <option value={REST}>{translate("defaultAction.rest")}</option>
+                                <option value={SCOUT_WASTELAND}>{translate("defaultAction.scout")}</option>
                             </Form.Control>
                         }
                     </Translate>
@@ -76,7 +77,7 @@ class DefaultActionSettings extends React.Component {
             <Row>
                 <Col>
                 <Button
-                    className="button-classic"
+                    className="button-classic mt-1"
                     variant="dark"
                     checked={this.preferDisaster}
                     onClick={() => this.handleSubmit()} >
