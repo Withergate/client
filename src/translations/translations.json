@@ -543,7 +543,8 @@
         "research": ["Completed research", "Dokončené výzkumy"],
         "fameTitle": ["Fame over time", "Vývoj slávy v čase"],
         "resourcesTitle": ["Resources over time", "Vývoj surovin v čase"],
-        "assetsTitle": ["Assets over time", "Vývoj prostředků v čase"]
+        "assetsTitle": ["Assets over time", "Vývoj prostředků v čase"],
+        "fameDistributionTitle": ["Fame distribution", "Rozložení slávy"]
     },
     "items": {
         "MELEE": ["Melee", "Kontaktní"],
@@ -572,6 +573,7 @@
         "silver1": ["Switching game to dark mode", "Přepnutí hry do dark mode"],
         "silver2": ["Visible list of available achievements", "Viditelný list chybějících Odznaků"],
         "silver3": ["Option to rename clan defender", "Možnost pojmenování klanového obránce"],
+        "silver4": ["Clan fame distribution statistics", "Statistiky distribuce klanové slávy"],
         "gold1": ["Option to cancel actions", "Možnost rušení akcí"],
         "gold2": ["Option to rename characters", "Možnost přejmenování postav"],
         "gold3": ["Smart trade offers on marketplace", "Inteligentní obchodní pokyny na tržišti"],

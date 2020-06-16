@@ -5,17 +5,22 @@ import { bindActionCreators } from 'redux';
 
 import { fetchClanStatistics } from '../../actions/dataActions';
 import { dismissError } from '../../actions/uiActions';
+import { checkPremium } from '../profile/premiumUtils';
 
 import { Error } from '../shared/Error';
 import spinner from '../../images/spinner.gif';
 import { XAxis, YAxis, Tooltip, Area, AreaChart, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { Translate } from 'react-localize-redux';
-import { Row, Image, Card, Col } from 'react-bootstrap';
+import { Row, Image, Card, Col, Table } from 'react-bootstrap';
 
 import fameIcon from '../../images/fame.png';
 import junkIcon from '../../images/junk.png';
 import foodIcon from '../../images/food.png';
 import capsIcon from '../../images/caps.png';
+import PieChart from 'recharts/lib/chart/PieChart';
+import Pie from 'recharts/lib/polar/Pie';
+import { SILVER, SMALL, FAME } from '../../constants/constants';
+import { GameIcon } from '../shared/GameIcon';
 
 class ClanStatisticsPanel extends React.Component {
     componentDidMount() {
@@ -64,6 +69,51 @@ class ClanStatisticsPanel extends React.Component {
                                 <Line type="monotone" dataKey="characters" stroke="#784212" />
                             </LineChart>
                             </ResponsiveContainer>
+
+                            { checkPremium(this.props.profile.premiumType, SILVER) &&
+                                <div>
+                                    <h5 className="ml-3 mt-3 inline">
+                                        <GameIcon type={SILVER} size={SMALL} noPadding />
+                                        <Translate id="statistics.fameDistributionTitle" />
+                                    </h5>
+                                    
+                                    <Row className="ml-3">
+                                        <Col>
+                                            <Table className="mt-3" striped borderless hover responsive>
+                                                <thead>
+                                                    <tr>
+                                                        <th><Translate id="basic.name" /></th>
+                                                        <th><GameIcon type={FAME} size={SMALL} noPadding /></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    { this.props.fameStatistics.map(stats =>
+                                                        <tr key={stats.name}>
+                                                            <td>{stats.name}</td>
+                                                            <td>{stats.fame}</td>
+                                                        </tr>
+                                                        )
+                                                    }
+                                                </tbody>
+                                            </Table>
+                                        </Col>
+                                        <Col>
+                                            <ResponsiveContainer width="100%" height={300} className="mt-4">
+                                            <PieChart>
+                                                <Pie 
+                                                    dataKey="fame"
+                                                    isAnimationActive={false}
+                                                    data={this.props.fameStatistics.filter(stats => stats.fame > 0)}
+                                                    fill="#8884d8" label />
+                                                <Tooltip />
+                                            </PieChart>
+                                            </ResponsiveContainer>
+                                        </Col>
+                                    </Row>
+                                    
+                                </div>
+                            }
+                            
                         </div>
                     : <Translate id="statistics.noData" />
                 }
@@ -166,14 +216,17 @@ const renderAssets = (payload) => {
 }
 
 ClanStatisticsPanel.propTypes = {
-    statistics: PropTypes.array.isRequired
+    statistics: PropTypes.array.isRequired,
+    fameStatistics: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {
     const { fetched, fetching, failed, error } = state.clan.statistics;
     const statistics = state.clan.statistics.data;
+    const fameStatistics = state.clan.clan.fameStatistics;
+    const profile = state.profile.profile.data;
 
-    return { fetching, fetched, failed, error, statistics };
+    return { fetching, fetched, failed, error, statistics, fameStatistics, profile };
 };
 
 const mapDispatchToProps = dispatch => (

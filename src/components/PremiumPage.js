@@ -19,6 +19,7 @@ class PremiumPage extends Component {
                             <li><Translate id="premium.silver1" /></li>
                             <li><Translate id="premium.silver2" /></li>
                             <li><Translate id="premium.silver3" /></li>
+                            <li><Translate id="premium.silver4" /></li>
                         </ul>
                     </Col>
                     <Col>
