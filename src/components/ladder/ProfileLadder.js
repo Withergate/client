@@ -84,6 +84,9 @@ class ProfileLadder extends Component {
                                 }
                             </tbody>
                         </Table>
+                        <small className="float-right">
+                            <Translate id="labels.total" />: {this.props.profiles.totalElements}
+                        </small>
 
                         <ProfileIntelDialog />
                     </div>

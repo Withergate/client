@@ -73,6 +73,9 @@ class FameLadder extends Component {
                                 }
                             </tbody>
                         </Table>
+                        <small className="float-right">
+                            <Translate id="labels.total" />: {this.props.clans.totalElements}
+                        </small>
 
                         <ClanIntelDialog />
                     </div>

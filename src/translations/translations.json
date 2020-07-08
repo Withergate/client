@@ -198,7 +198,8 @@
         "specialTavernOffer": ["This is a special discounted tavern offer available only to clans with less than five characters. Instead of paying large amount of caps, you will pay much smaller amount of caps and fame. This will help you keep your clan going if some of your characters died.",
         "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
         "pendingOffers": ["Pending trades", "Zpracovávané obchody"],
-        "settings": ["Settings", "Nastavení"]
+        "settings": ["Settings", "Nastavení"],
+        "total": ["Total", "Celkem"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",
