@@ -39,7 +39,10 @@ class HomePage extends Component {
                 {
                     this.props.global.fetched && this.props.global.INGAME.active &&
                         <div className="m-3">
-                            <GlobalNotification message={this.props.global.INGAME.message} />
+                            <GlobalNotification
+                                message={this.props.global.INGAME.message}
+                                link={this.props.global.INGAME.link}
+                                linkText={this.props.global.INGAME.linkText} />
                         </div>
                 }
                 {

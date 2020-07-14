@@ -59,10 +59,10 @@ export const fetchGlobalNotification = (type) => {
     return apiGet(API_URL.concat('notifications/global?type=').concat(type));
 };
 
-export const updateGlobalNotification = (message, active, type) => {
+export const updateGlobalNotification = (message, active, type, link, linkText) => {
     return apiPut(
         API_URL.concat('notifications/global'), 
-        JSON.stringify({message: message, active: active, type: type}));
+        JSON.stringify({message: message, active: active, type: type, link: link, linkText: linkText}));
 };
 
 export const fetchDisaster = () => {

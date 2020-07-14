@@ -16,6 +16,8 @@ const initialState = {
     global: {
         INGAME: {
             active: false,
+            link: '',
+            linkText: '',
             message: {
                 en: {
                     lang: 'en',
@@ -29,6 +31,8 @@ const initialState = {
         },
         GLOBAL: {
             active: false,
+            link: '',
+            linkText: '',
             message: {
                 en: {
                     lang: 'en',

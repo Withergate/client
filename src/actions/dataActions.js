@@ -208,11 +208,11 @@ const fetchGlobalNotificationAction = (type) => ({
 });
 export { fetchGlobalNotificationAction as fetchGlobalNotification };
 
-const updateGlobalNotificationAction = (message, active, type) => {
+const updateGlobalNotificationAction = (message, active, type, link, linkText) => {
     return (dispatch) => {
         return dispatch({
             type: UPDATE_GLOBAL_NOTIFICATION,
-            payload: updateGlobalNotification(message, active, type)
+            payload: updateGlobalNotification(message, active, type, link, linkText)
         }).then(() => dispatch({
             type: FETCH_GLOBAL_NOTIFICATION,
             payload: fetchGlobalNotification(type)

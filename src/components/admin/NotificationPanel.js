@@ -8,6 +8,7 @@ import { updateGlobalNotification, fetchGlobalNotification} from '../../actions/
 import { Translate } from 'react-localize-redux';
 import enIcon from '../../images/lang/english.png';
 import czIcon from '../../images/lang/czech.png';
+import linkIcon from '../../images/link.png';
 
 class NotificationPanel extends Component {
     constructor(...args) {
@@ -15,7 +16,9 @@ class NotificationPanel extends Component {
     
         this.state = { 
             message: this.props.notification[this.props.type].message,
-            active: this.props.notification[this.props.type].active
+            active: this.props.notification[this.props.type].active,
+            link: this.props.notification[this.props.type].link,
+            linkText: this.props.notification[this.props.type].linkText
         };
     }
 
@@ -37,9 +40,21 @@ class NotificationPanel extends Component {
         });
     }
 
+    handleLinkChange(event) {
+        this.setState({ 
+            link: event.target.value
+        });
+    }
+
+    handleLinkTextChange(event) {
+        this.setState({ 
+            linkText: event.target.value
+        });
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        this.props.updateGlobalNotification(this.state.message, this.state.active, this.props.type)
+        this.props.updateGlobalNotification(this.state.message, this.state.active, this.props.type, this.state.link, this.state.linkText)
     }
 
     render() {
@@ -79,6 +94,33 @@ class NotificationPanel extends Component {
                                         type="text"
                                         value={this.state.message.cs.text}
                                         onChange={e => this.handleMessageChange(e, 'cs')} />
+                                </InputGroup>
+                            </Col>
+                        </Row>
+                        <Row className="mb-3">
+                            <Col md={1}>
+                                <FormLabel>
+                                    <Image src={linkIcon} width="24x" />
+                                </FormLabel>
+                            </Col>
+                            <Col md={6}>
+                                <InputGroup>
+                                    <FormControl
+                                        name="link"
+                                        type="text"
+                                        placeholder="https://www.example.com/"
+                                        value={this.state.link}
+                                        onChange={e => this.handleLinkChange(e)} />
+                                </InputGroup>
+                            </Col>
+                            <Col md={5}>
+                                <InputGroup>
+                                    <FormControl
+                                        name="linkText"
+                                        type="text"
+                                        placeholder="Link text"
+                                        value={this.state.linkText}
+                                        onChange={e => this.handleLinkTextChange(e)} />
                                 </InputGroup>
                             </Col>
                         </Row>

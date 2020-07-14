@@ -74,7 +74,10 @@ class GameInfoPanel extends React.Component {
                             </Col>
                         </Row>
                         { this.props.global.fetched && this.props.global.GLOBAL.active &&
-                            <GlobalNotification message={this.props.global.GLOBAL.message} />
+                            <GlobalNotification
+                                message={this.props.global.GLOBAL.message}
+                                link={this.props.global.GLOBAL.link}
+                                linkText={this.props.global.GLOBAL.linkText} />
                         }
                         {
                             this.props.info.currentTurn.turnId <= this.props.info.maxTurns &&
