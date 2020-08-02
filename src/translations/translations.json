@@ -199,7 +199,8 @@
         "Toto je speciální nabídka pro klany, které v důsledku smrti některé z postav mají příliš malý počet členů. Místo placení velkého množství zátek ti postačí menší obnos, ale bude tě to stát i trošku slávy."],
         "pendingOffers": ["Pending trades", "Zpracovávané obchody"],
         "settings": ["Settings", "Nastavení"],
-        "total": ["Total", "Celkem"]
+        "total": ["Total", "Celkem"],
+        "chance": ["50% chance", "Šance 50%"]
     },
     "profile": {
         "manageAccount": ["Manage your account. Your login, e-mail and password are handled by an authorization server. You can configure those by following these links.",
