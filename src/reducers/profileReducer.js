@@ -29,7 +29,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     profiles: {
         data: {
@@ -38,7 +38,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     results: {
         data: {
@@ -47,20 +47,20 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     profileCreation: {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     achievements: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     exists: false
 };
@@ -74,22 +74,22 @@ export const ProfileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {
                     ...state.profile,
-                    error: '',
+                    error: null,
                     failed: false
                 },
                 profiles: {
                     ...state.profiles,
-                    error: '',
+                    error: null,
                     failed: false
                 },
                 results: {
                     ...state.results,
-                    error: '',
+                    error: null,
                     failed: false
                 },
                 profileCreation: {
                     ...state.profile,
-                    error: '',
+                    error: null,
                     failed: false
                 }
             };
@@ -102,7 +102,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: true,
                     fetched: false,
                     failed: false,
-                    error: ''
+                    error: null
                 }
             };
         case FETCH_PROFILE_FULFILLED:
@@ -113,7 +113,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 },
                 exists: true
             };
@@ -128,7 +128,7 @@ export const ProfileReducer = (state = initialState, action) => {
                         fetching: false,
                         fetched: true,
                         failed: false,
-                        error: ''
+                        error: null
                     }
                 };
             } else { // fetch failed
@@ -163,7 +163,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 }
             };
         case FETCH_PROFILES_REJECTED:
@@ -197,7 +197,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 }
             };
         case FETCH_PROFILE_RESULTS_REJECTED:
@@ -219,7 +219,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: true,
                     fetched: false,
                     failed: false,
-                    error: ''
+                    error: null
                 },    
             };
         case CREATE_PROFILE_FULFILLED:
@@ -229,7 +229,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: '',
+                    error: null,
                 }
             };
         case CREATE_PROFILE_REJECTED:
@@ -261,7 +261,7 @@ export const ProfileReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 }
             };
         case FETCH_ACHIEVEMENTS_REJECTED:

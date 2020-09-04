@@ -18,7 +18,7 @@ const initialState = {
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 // REDUCER
@@ -33,7 +33,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_PRINCIPAL_FULFILLED:
             return {
@@ -43,7 +43,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_PRINCIPAL_REJECTED:
             return {
@@ -61,7 +61,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case RESTART_GAME_FULFILLED:
             return {
@@ -69,7 +69,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case RESTART_GAME_REJECTED:
             return {
@@ -85,7 +85,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case END_TURN_FULFILLED:
             return {
@@ -93,7 +93,7 @@ export const AuthReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case END_TURN_REJECTED:
             return {

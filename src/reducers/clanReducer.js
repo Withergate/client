@@ -33,27 +33,27 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     clanCreation: {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     statistics: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     exists: true,
     selectedCharacter: undefined,
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const ClanReducer = (state = initialState, action) => {

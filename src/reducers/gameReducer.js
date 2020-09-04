@@ -21,12 +21,12 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const GameReducer = (state = initialState, action) => {
@@ -35,7 +35,7 @@ export const GameReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_GAME_PROPERTIES_PENDING:
             return {
@@ -43,7 +43,7 @@ export const GameReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_GAME_PROPERTIES_FULFILLED:
             return {
@@ -52,7 +52,7 @@ export const GameReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_GAME_PROPERTIES_REJECTED:
             return {
@@ -85,7 +85,7 @@ export const GameReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 }
              };
         case FETCH_GAME_INFO_REJECTED:

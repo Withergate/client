@@ -46,7 +46,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     clans: {
         data: {
@@ -55,7 +55,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     offers: {
         data: {
@@ -64,7 +64,7 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     pendingOffers: {
         data: {
@@ -73,56 +73,56 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     disaster: {
         data: undefined,
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     arenaStats: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     factions: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     factionsOverview: {
         data: undefined,
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     clanIntel: {
         data: {},
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     profileIntel: {
         data: {},
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     crafting: {
         data: [],
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     }
 };
 

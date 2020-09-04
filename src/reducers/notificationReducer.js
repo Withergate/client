@@ -47,12 +47,12 @@ const initialState = {
         fetching: false,
         fetched: false,
         failed: false,
-        error: ''
+        error: null
     },
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const NotificationReducer = (state = initialState, action) => {
@@ -61,7 +61,7 @@ export const NotificationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_NOTIFICATIONS_PENDING:
             return {
@@ -70,7 +70,7 @@ export const NotificationReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_NOTIFICATIONS_FULFILLED:
             return {
@@ -79,7 +79,7 @@ export const NotificationReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_NOTIFICATIONS_REJECTED:
             return {

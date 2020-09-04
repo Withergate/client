@@ -7,7 +7,6 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import translations from '../translations/translations.json';
 import spinner from '../images/spinner.gif';
 
-import { Error } from './shared/Error';
 import HomePage from './HomePage';
 import ClanPage from './ClanPage';
 import ActionPage from './ActionPage';
@@ -40,9 +39,6 @@ class Main extends Component {
             <main>
                 {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
-                }
-                {
-                    this.props.loggedIn && this.props.failed && this.props.error && <Error message={String(this.props.error)} dismiss={this.props.dismissError} />
                 }
                 {
                     !this.props.fetching &&

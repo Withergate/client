@@ -28,7 +28,7 @@ const ProfileIntelDialog = (props) => (
                 {props.intel.name}
             </Modal.Title>
         </Modal.Header>
-        { props.failed && props.error && <Error message={props.error} dismiss={props.dismissError} /> }
+        { props.failed && props.error && <Error error={props.error} dismiss={props.dismissError} /> }
         { props.fetched && 
             <Modal.Body>
                 <Row className="mb-4">

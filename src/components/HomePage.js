@@ -34,7 +34,7 @@ class HomePage extends Component {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} />
+                    this.props.failed && <Error error={this.props.error} />
                 }
                 {
                     this.props.global.fetched && this.props.global.INGAME.active &&

@@ -34,7 +34,7 @@ const ClanIntelDialog = (props) => (
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            { props.failed && props.error && <Error message={props.error} dismiss={props.dismissError} />
+            { props.failed && props.error && <Error error={props.error} dismiss={props.dismissError} />
             }
             <Row>
                 <Col md={8} xs={12} className="mb-2">

@@ -34,10 +34,7 @@ class AdminPage extends Component {
         return (
             <div>
                 {
-                    this.props.failed && <Error message={this.props.error} />
-                }
-                {
-                    this.props.principal.role !== 'ADMIN' && <Error message="Only administrators can access this page!" />
+                    this.props.failed && <Error error={this.props.error} />
                 }
                 {
                     this.props.principal.role === 'ADMIN' && this.props.fetched && 

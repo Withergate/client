@@ -9,7 +9,7 @@ const initialState = {
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const AppReducer = (state = initialState, action) => {

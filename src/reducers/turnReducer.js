@@ -15,7 +15,7 @@ const initialState = {
     fetching: false,
     fetched: false,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const TurnReducer = (state = initialState, action) => {
@@ -24,7 +24,7 @@ export const TurnReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_TURN_PENDING:
             return {
@@ -33,7 +33,7 @@ export const TurnReducer = (state = initialState, action) => {
                 fetching: true,
                 fetched: false,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_TURN_FULFILLED:
             return {
@@ -43,7 +43,7 @@ export const TurnReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 failed: false,
-                error: ''
+                error: null
             };
         case FETCH_TURN_REJECTED:
             return {

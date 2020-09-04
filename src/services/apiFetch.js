@@ -20,7 +20,7 @@ export function apiGet(url) {
                 reject('Error fetching data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
-            reject(error.message);
+            reject(error);
         });
     });
 }
@@ -38,7 +38,7 @@ export function apiGetText(url) {
                 reject('Error fetching data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
-            reject(error.message);
+            reject(error);
         });
     });
 }
@@ -55,11 +55,11 @@ export function apiPost(url, data) {
             } else {
                 checkTokenValidity(response);
                 response.json().then(function(error) {
-                    reject(error.message);
+                    reject(error);
                 });
             }
         }).catch(error => {
-            return reject(error.message);
+            return reject(error);
         });
     });
 }
@@ -76,11 +76,11 @@ export function apiPut(url, data) {
             } else {
                 checkTokenValidity(response);
                 response.json().then(function(error) {
-                    reject(error.message);
+                    reject(error);
                 });
             }
         }).catch(error => {
-            reject(error.message);
+            reject(error);
         });
     });
 }
@@ -98,7 +98,7 @@ export function apiDelete(url) {
                 reject('Error deleteting data from server.'.concat(' Url: ').concat(url).concat(' Status: ').concat(response.status));
             }
         }).catch(error => {
-            reject(error.message);
+            reject(error);
         });
     });
 }

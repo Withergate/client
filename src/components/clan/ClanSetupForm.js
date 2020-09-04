@@ -42,7 +42,7 @@ class ClanSetupForm extends Component {
         return (
             <div>
                 {
-                    this.props.error && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                    this.props.error && <Error error={this.props.error} dismiss={this.props.dismissError} />
                 }
                 {   !this.props.fetching &&
                     <Row className="p-4">

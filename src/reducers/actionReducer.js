@@ -14,7 +14,7 @@ const initialState = {
     fetching: false,
     fetched: true,
     failed: false,
-    error: ''
+    error: null
 };
 
 export const ActionReducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ export const ActionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 failed: false,
-                error: ''
+                error: null
             };
         case GAME_ACTION_PENDING:
             return {

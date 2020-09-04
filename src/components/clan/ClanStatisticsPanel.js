@@ -121,7 +121,7 @@ class ClanStatisticsPanel extends React.Component {
                     this.props.fetching && <img className="spinner" src={spinner} alt="Loading..." />
                 }
                 {
-                    this.props.failed && <Error message={this.props.error} dismiss={this.props.dismissError} />
+                    this.props.failed && <Error error={this.props.error} dismiss={this.props.dismissError} />
                 }
             </div>
         )
