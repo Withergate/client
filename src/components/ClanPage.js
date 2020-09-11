@@ -144,7 +144,7 @@ ClanPage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     clan: PropTypes.object.isRequired,
     selectedCharacter: PropTypes.object,
     selectedTab: PropTypes.string.isRequired,

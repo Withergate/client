@@ -84,7 +84,7 @@ HomePage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     notifications: PropTypes.array.isRequired,
     turnDisplayed: PropTypes.number.isRequired,
     turn: PropTypes.object.isRequired,

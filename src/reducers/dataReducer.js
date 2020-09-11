@@ -224,7 +224,7 @@ export const DataReducer = (state = initialState, action) => {
                     fetching: false,
                     fetched: true,
                     failed: false,
-                    error: ''
+                    error: null
                 }
             };
         case FETCH_CLANS_REJECTED:

@@ -78,7 +78,7 @@ class ClanStatisticsPanel extends React.Component {
                                     </h5>
                                     
                                     <Row className="ml-3">
-                                        <Col>
+                                        <Col md={6} xs={12}>
                                             <Table className="mt-3" striped borderless hover responsive>
                                                 <thead>
                                                     <tr>
@@ -87,7 +87,7 @@ class ClanStatisticsPanel extends React.Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    { this.props.fameStatistics.map(stats =>
+                                                    { this.props.fameStatistics.filter(stats => stats.fame !== 0).map(stats =>
                                                         <tr key={stats.name}>
                                                             <td>{stats.name}</td>
                                                             <td>{stats.fame}</td>
@@ -97,7 +97,7 @@ class ClanStatisticsPanel extends React.Component {
                                                 </tbody>
                                             </Table>
                                         </Col>
-                                        <Col>
+                                        <Col md={6} xs={12}>
                                             <ResponsiveContainer width="100%" height={300} className="mt-4">
                                             <PieChart>
                                                 <Pie 

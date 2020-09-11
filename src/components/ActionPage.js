@@ -162,7 +162,7 @@ ActionPage.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     clan: PropTypes.object.isRequired,
     turn: PropTypes.object.isRequired,
     maxTurns: PropTypes.number.isRequired

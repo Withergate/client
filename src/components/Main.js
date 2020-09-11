@@ -83,7 +83,7 @@ Main.propTypes = {
     loggedIn: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     dismissError: PropTypes.func.isRequired
 };
 

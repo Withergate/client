@@ -96,7 +96,7 @@ FameLadder.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     clans: PropTypes.object.isRequired,
     clanId: PropTypes.number.isRequired
 };

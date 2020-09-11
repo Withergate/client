@@ -78,7 +78,7 @@ ProfileResultsLadder.propTypes = {
     fetched: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
     failed: PropTypes.bool,
-    error: PropTypes.string.isRequired,
+    error: PropTypes.object,
     results: PropTypes.object.isRequired
 };
 

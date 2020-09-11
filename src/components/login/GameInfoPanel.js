@@ -102,7 +102,7 @@ GameInfoPanel.propTypes = {
     fetched: PropTypes.bool.isRequired,
     failed: PropTypes.bool.isRequired,
     fetching: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired
+    error: PropTypes.object
 };
 
 const mapStateToProps = state => {
