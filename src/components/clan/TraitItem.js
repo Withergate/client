@@ -7,7 +7,7 @@ import { Translate } from 'react-localize-redux';
 
 const TraitItem = ({trait}) => (
     <div data-tip data-for={trait.details.identifier}>
-        <img className="mr-2" height="36" src={trait.details.imageUrl} alt="" />
+        <img className="mr-2 mb-1" height="36" src={trait.details.imageUrl} alt="" />
         
         <ReactTooltip id={trait.details.identifier} effect="solid" className="tooltip-multiline">
             <b>{getTranslatedText(trait.details.name)}</b>
