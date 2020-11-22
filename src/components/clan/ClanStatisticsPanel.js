@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { orderBy } from "lodash";
 
 import { fetchClanStatistics } from '../../actions/dataActions';
 import { dismissError } from '../../actions/uiActions';
@@ -87,7 +88,7 @@ class ClanStatisticsPanel extends React.Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    { this.props.fameStatistics.filter(stats => stats.fame !== 0).map(stats =>
+                                                    { orderBy(this.props.fameStatistics.filter(stats => stats.fame !== 0), ["fame"], "desc").map(stats =>
                                                         <tr key={stats.name}>
                                                             <td>{stats.name}</td>
                                                             <td>{stats.fame}</td>

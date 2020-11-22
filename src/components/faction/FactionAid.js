@@ -21,12 +21,7 @@ const FactionAid = ({aid, selectedCharacter, factionAction}) => (
                 </Row>
                 <Row>
                     <Col md={12}>
-                        <ul className="list-inline">
-                            <li className="list-inline-item">
-                                <b><Translate id="basic.price" />:</b>
-                            </li>
-                            <ActionCost actionCost={aid.actionCost} />
-                        </ul>
+                        <ActionCost actionCost={aid.actionCost} />
                     </Col>
                 </Row>
                 { (aid.factionPoints > 0 || aid.fame > 0) &&

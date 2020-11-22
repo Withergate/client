@@ -16,10 +16,11 @@ const sort = (list) => {
     return orderBy(list, ["name"], ["asc"]);
 }
 
-const getTextColor = (character) => {
+const getTextColor = (character, mainValue) => {
+    console.log(character.state)
     switch(character.state) {
         case 'READY': 
-            return 'text-dark';
+            return mainValue;
         default:
             return 'text-danger';
     }
@@ -30,7 +31,9 @@ const CharacterSelector = ({ characters, selectedCharacter, selectCharacter}) =>
         <Row>
             <Col md={4}>
                 <Button variant="dark" className="dropdown-toggle w-100" data-toggle="dropdown">
-                    { selectedCharacter !== undefined ? selectedCharacter.name : <Translate id="labels.selectCharacter" /> }
+                    { selectedCharacter !== undefined ? 
+                        <span className={getTextColor(selectedCharacter, 'text-light')}>{selectedCharacter.name}</span> 
+                        : <Translate id="labels.selectCharacter" /> }
                 </Button>   
                 <div className="dropdown-menu">
                     { sort(characters).map(character => 
@@ -39,7 +42,7 @@ const CharacterSelector = ({ characters, selectedCharacter, selectCharacter}) =>
                             variant="light"
                             key={character.id}
                             onClick={() => selectCharacter(character.id)}>
-                                <div className={getTextColor(character)}>
+                                <div className={getTextColor(character, 'text-dark')}>
                                     {
                                         selectedCharacter !== undefined && selectedCharacter.id === character.id ?
                                         <b><CharacterHeader character={character} size={SMALL} /></b>
