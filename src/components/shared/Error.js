@@ -8,10 +8,9 @@ const Error = (props) => (
     <Card className="m-4" bg="danger" text="white">
         <Card.Body>
             {
-                props.error.localizedText ?
+                props.error.localizedText.length > 0 ?
                     getTranslatedText(props.error.localizedText)
                     : props.error.message
-
             }
         </Card.Body>
         <Card.Footer>
