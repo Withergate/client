@@ -77,8 +77,16 @@ body {
   overflow: hidden;
 }
 
-.preview.carousel {
+.preview.carousel .carousel-indicators li {
   background-color: var(--secondary);
+}
+
+.preview.carousel .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.preview.carousel .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 @media only screen and (max-width: 600px) {
@@ -88,11 +96,25 @@ body {
     bottom: auto;
     position: unset;
   }
+
+  .preview .carousel-item {
+    height: 230px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
 }
 
 @media only screen and (min-width: 601px) {
   .tutorial .carousel-item {
-    height: 650px;
+    height: 550px;
+    text-align: center;
+    bottom: auto;
+    position: unset;
+  }
+
+  .preview .carousel-item {
+    height: 410px;
     text-align: center;
     bottom: auto;
     position: unset;

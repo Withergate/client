@@ -34,7 +34,7 @@ class LoginPage extends React.Component {
                     <Row>
                         <Col md={8} className="mb-md-4">
                             <div className="login-strip">
-                                <Image src="https://storage.googleapis.com/withergate-images/logo.png" className="logo mb-4" />
+                                <Image src="https://storage.googleapis.com/withergate-images/logo.gif" className="logo mb-4" />
                                 <span className="float-right right-align">
                                     <h5><Badge variant="warning"><Translate id="login.fastGame" /></Badge></h5>
                                     <h5><Badge variant="success"><Translate id="login.freeGame" /></Badge></h5>
